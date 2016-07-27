@@ -1,4 +1,6 @@
-So far we've seen several examples of rings which are subsets of other rings, like \(2\ZZ\) in \(\ZZ\) and \(\POWP{X}\) in \(\POW{X}\). This suggests an alternative answer to the Construction Problem: take a \emph{subset} of an existing ring \(R\), and restrict the arithmetic to that subset. There is a potential obstacle to making this work, though; given a subset \(S \subseteq R\) and two elements \(x,y \in S\), \emph{a priori} we expect their sum \(x+y\) and product \(xy\) to be in \(R\) but not necessarily in \(S\) -- see \autoref{fig:arithmetic-in-a-subset}.
+So far we've seen several examples of rings which are subsets of other rings, like \(2\ZZ\) in \(\ZZ\) and \(\POWP{X}\) in \(\POW{X}\).
+This suggests an alternative answer to the Construction Problem: take a \emph{subset} of an existing ring \(R\), and restrict the arithmetic to that subset.
+There is a potential obstacle to making this work, though; given a subset \(S \subseteq R\) and two elements \(x,y \in S\), \emph{a priori} we expect their sum \(x+y\) and product \(xy\) to be in \(R\) but not necessarily in \(S\) -- see \autoref{fig:arithmetic-in-a-subset}.
 \begin{figure}[h!]
 \begin{center}
 \begin{tikzpicture}[scale=0.4]
@@ -13,7 +15,10 @@ So far we've seen several examples of rings which are subsets of other rings, li
 \caption{Arithmetic in a subset \label{fig:arithmetic-in-a-subset}}
 \end{center}
 \end{figure}
- This is a problem! The plus and times on a ring must be \emph{closed}. To avoid this, we single out exactly those subsets of \(R\) for which this does not happen. That is, the subsets which are closed under the arithmetic on \(R\).
+This is a problem!
+The plus and times on a ring must be \emph{closed}.
+To avoid this, we single out exactly those subsets of \(R\) for which this does not happen.
+That is, the subsets which are closed under the arithmetic on \(R\).
 
 \begin{dfn}[Subring] \label{dfn:subring}
 Let \(R\) be a ring and \(S \subseteq R\) a subset. We say that \(S\) is a \DefTerm{subring} of \(R\) if \(S\) is closed under the operations in \(R\). Specifically,

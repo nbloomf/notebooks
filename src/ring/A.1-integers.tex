@@ -52,7 +52,7 @@ If \(n \in \NN\), then either \(n = 0\) or \(n = m+1\) for some \(m \in \NN\).
 Suppose \(n \in \NN\) and \(n \neq 0\); then \(n > 0\). Let \(m = n-1\). Now if \(m < 0\), we have \(n-1 < 0 < n\), and thus \(0 < 1-n < 1\), a contradiction. By trichotomy, either \(m = 0\) or \(m > 0\); that is, \(m \in \NN\).
 \end{proof}
 
-The well-ordering property of $\ZZ$ gives us a very powerful tool for working with natural numbers, called the Principle of Mathematical Induction.
+The well-ordering property of \(\ZZ\) gives us a very powerful tool for working with natural numbers, called the Principle of Mathematical Induction.
 
 \begin{prop}[Principle of Mathematical Induction]
 Let \(B \subseteq \NN\). If \(B\) satisfies the following two properties:
@@ -69,17 +69,6 @@ We will prove this result by contradiction. Let \(S = \{ n \in \NN \mid n \not\i
 
 The Principle of Mathematical Induction (also called just ``induction'' or PMI) gives us a straightforward way to show that a given statement is true for all natural numbers. Proofs using PMI require two steps: the Base Case (\(0 \in B\)) and the Inductive Step (if \(n \in B\) then \(n+1 \in B\)). Most importantly, constructive proofs by induction can be turned into \emph{recursive algorithms} which actually compute things. This is a powerful idea with implications far beyond numbers.
 
-The following slight variation on PMI is known as Strong Induction; it is equivalent to PMI, but frequently more convenient to use.
-
-\begin{cor}[Strong Induction]
-Let \(B \subseteq \NN\). If \(B\) satisfies the following two properties:
-\begin{proplist}
-\item \(0 \in B\), and
-\item If \(n \in \NN\) such that \(a \in B\) for all \(0 \leq a \leq n\), then \(n+1 \in B\);
-\end{proplist}
-then \(B = \NN\).
-\end{cor}
-
 
 
 %---------%
@@ -91,19 +80,19 @@ Show that if \(a \in \ZZ\), then exactly one of \(a < 0\), \(a = 0\), or \(a > 0
 \end{exercise}
 
 \begin{exercise}
-Show that if $n \in \NN$ then \[ \sum_{k=1}^n k = \frac{n(n+1)}{2}. \]
+Show that if \(n \in \NN\) then \[ \sum_{k=1}^n k = \frac{n(n+1)}{2}. \]
 \end{exercise}
 
 \begin{exercise}
-Show that if $n \in \NN$ then \[ \sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}. \]
+Show that if \(n \in \NN\) then \[ \sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}. \]
 \end{exercise}
 
 \begin{exercise}
-Show that if $n \in \NN$ then \[ \sum_{k=1}^n (2k - 1) = n^2. \]
+Show that if \(n \in \NN\) then \[ \sum_{k=1}^n (2k - 1) = n^2. \]
 \end{exercise}
 
 \begin{exercise}
-Show that if $n \in \NN$ then \[ \sum_{k=1}^n \frac{1}{k(k+1)} = \frac{n}{n+1}. \]
+Show that if \(n \in \NN\) then \[ \sum_{k=1}^n \frac{1}{k(k+1)} = \frac{n}{n+1}. \]
 \end{exercise}
 
 \begin{dfn}[Absolute Value]
@@ -116,4 +105,13 @@ Show that the following hold for all integers $a$ and $b$.
 \item \(|ab| = |a| \cdot |b|\)
 \item \(|a+b| \leq |a| + |b|\)
 \end{proplist}
+\end{exercise}
+
+\begin{exercise}[Strong Induction.]
+Let \(B \subseteq \NN\). Show that if \(B\) satisfies the following two properties:
+\begin{proplist}
+\item \(0 \in B\), and
+\item If \(n \in \NN\) such that \(a \in B\) for all \(0 \leq a \leq n\), then \(n+1 \in B\);
+\end{proplist}
+then \(B = \NN\).
 \end{exercise}
