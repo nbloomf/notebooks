@@ -1,0 +1,73 @@
+Traditional plane geometry involves many different concepts, including \emph{lines}, \emph{angles}, \emph{congruent}, and many others. In order to manage the complexity this entails, we will build up our geometries one piece at a time starting here with the idea of \emph{collinearity}. 
+
+\begin{dfn}[Incidence Geometry]
+Let $P$ be a set, whose elements we call \emph{points}. A ternary relation $\COLLINEAR{\ast}{\ast}{\ast}$ on $P$ is called a \emph{collinearity relation}\index{collinearity} if the following properties are satisfied.
+\begin{proplist}
+\item[IG1.] If $a$, $b$, and $c$ are points such that $\COLLINEAR{a}{b}{c}$, then $\COLLINEAR{b}{a}{c}$ and $\COLLINEAR{a}{c}{b}$.
+\item[IG2.] If $a$ and $b$ are points such that $a \neq b$, then $\COLLINEAR{a}{b}{b}$.
+\item[IG3.] $\COLLINEAR{a}{a}{a}$ does not hold for any point $a$.
+\item[IG4.] There exist points $a$, $b$, and $c$ such that $\COLLINEAR{a}{b}{c}$ does not hold.
+\item[IG5.] If $a$, $b$, $u$, and $v$ are points such that $a \neq b$, $u \neq v$, $\COLLINEAR{a}{b}{u}$, and $\COLLINEAR{a}{b}{v}$, then $\COLLINEAR{a}{u}{v}$.
+\end{proplist}
+If such a relation exists we say that $(P, \COLLINEAR{\ast}{\ast}{\ast})$ is an \emph{incidence geometry}\index{incidence geometry}. In this case, if $\COLLINEAR{a}{b}{c}$ we say that $a$, $b$, and $c$ are \emph{collinear}.
+\end{dfn}
+
+It is important to remember that the word ``collinear'' here is an undefined term, and we have to try very hard not to think of ordinary lines and points when using it. (This is part of the theory-model confusion we inherit from history.) The meaning of the word ``collinear'' is determined precisely by how it is used in the incidence geometry axioms, and only becomes concrete when we specify a particular model. In particular, it does not make sense to draw pictures of the points in an arbitrary incidence geometry!
+
+Although ``collinear'' is an abstract, undefined term, we'd like for it to behave much like our intuition expects. That is, we want to be able to say that three points are collinear if and only if there is a unique line containing all of them. To this end, collinearity satisfies some additional basic properties.
+
+\begin{prop}
+Let $P$ be an incidence geometry. Then we have the following for all points $a$, $b$, and $c$.
+\begin{proplist}
+\item If $\COLLINEAR{a}{b}{c}$, then we also have $\COLLINEAR{b}{c}{a}$, $\COLLINEAR{c}{a}{b}$, and $\COLLINEAR{c}{b}{a}$.
+
+\item If $a \neq b$, then $\COLLINEAR{a}{b}{a}$ and $\COLLINEAR{b}{a}{a}$.
+\end{proplist}
+\end{prop}
+
+It may seem strange to define ``collinear'' before we define ``line''; typically we think of points being collinear precisely when there is a unique line containing all of them. But we can just as easily define lines in terms of collinearity as follows.
+
+\begin{dfn}[Line]
+Let $P$ be an incidence geometry with distinct points $a$ and $b$. We define the \emph{line}\index{line} through $a$ and $b$ to be the set \[ \LINE{a}{b} = \{ c \in P \mid \COLLINEAR{a}{b}{c} \}. \] If $c \in \LINE{a}{b}$, we say that $c$ \emph{lies on} $\LINE{a}{b}$.
+\end{dfn}
+
+That is, the line through $a$ and $b$ is precisely the set of points $c$ such that $a$, $b$, and $c$ are collinear. Remember: it is vital that we not think about drawings of points and lines here. In an arbitrary incidence geometry, ``point'' and ``line'' are just \emph{words} which we assume have a particular relationship with one another. Thinking at this level of abstraction may seem unnecessarily difficult at first, but -- and it is difficult to overstate this -- this way of thinking brings enormous power. Here are some basic properties of lines which can be derived from the properties of collinearity alone.
+
+\begin{prop}
+Let $P$ be an incidence geometry, with $a,b \in P$ distinct points. Then we have the following.
+\begin{proplist}
+\item $a \in \LINE{a}{b}$ and $b \in \LINE{a}{b}$.
+\item $\LINE{a}{b} = \LINE{b}{a}$.
+\item If $c \in \LINE{a}{b}$ and $c \neq a$, then $\LINE{a}{c} = \LINE{a}{b}$.
+\item If $u,v \in \LINE{a}{b}$ are distinct points, then $a,b \in \LINE{u}{v}$.
+\end{proplist}
+\end{prop}
+
+Though we have several examples of incidence geometry, it is crucial when proving theorems that we not rely on any specific model. This is the power of abstraction: any theorem which depends only on properties common to \emph{all} incidence geometries immediately holds in \emph{any} incidence geometry. For example, consider the following theorem.
+
+\begin{prop}[Line Intersection]
+Let $P$ be an incidence geometry with lines $\ell_1$ and $\ell_2$. Then exactly one of the following holds.
+\begin{proplist}
+\item $\ell_1 = \ell_2$, and we say $\ell_1$ and $\ell_2$ are \emph{coincident}\index{coincident lines},
+\item $\ell_1 \cap \ell_2 = \varnothing$, and we say $\ell_1$ and $\ell_2$ are \emph{disjoint}\index{disjoint lines}, or
+\item $\ell_1 \cap \ell_2 = \{p\}$ for some point $p$, and we say $\ell_1$ and $\ell_2$ are \emph{incident}\index{incident lines}.
+\end{proplist}
+In the first two cases (coincident or disjoint) we say that $\ell_1$ and $\ell_2$ are \emph{parallel}\index{parallel lines}.
+\end{prop}
+
+\begin{proof}
+Suppose $\ell_1 \cap \ell_2$ contains at least two points, say $x$ and $y$. Then in fact $\ell_1 = \LINE{x}{y} = \ell_2$. So if $\ell_1 \neq \ell_2$ then $\ell_1 \cap \ell_2$ contains either exactly one or zero points.
+\end{proof}
+
+This theorem holds in any model of incidence geometry. One problem: we don't have any models of incidence geometry yet! We'll fix this in the next section.
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}
+Let $A = (a_x, a_y, a_z)$, $B = (b_x, b_y, b_z)$, and $C = (c_x, c_y, c_z)$ be in $\RR^3$ such that $A$ and $B$ are nonzero and $B$ is not a multiple of $A$. Show that \[ \DET \begin{bmatrix} a_x & a_y & a_z \\ b_x & b_y & b_z \\ c_x & c_y & c_z \end{bmatrix} = 0 \] if and only if $C = A + t(B - A)$ for some unique $t \in \RR$.
+\end{exercise}
+

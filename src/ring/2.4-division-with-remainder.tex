@@ -1,0 +1,60 @@
+In \(\ZZ\), we had the extremely important Division Algorithm. This theorem states that if \(a\) and \(b\) are integers with \(b \neq 0\), then there exists a ``quotient'' \(q\) and a ``remainder'' \(r\) such that \(a = qb + r\), and, moreover, the remainder is not too large -- \(0 \leq r < |b|\). This is the result from which most of the interesting results and algorithms in \(\ZZ\) spring.
+
+We'd like to generalize this property to integral domains. Notice that one problem is the appearance of absolute value in the bound on \(r\): in general, rings do not have anything like absolute value, or a way to compare the ``sizes'' of two elements. However in \autoref{sec:norms} we did describe such a gadget for some rings: norms. Recall that a map \(N : R \rightarrow \NN\) is called a \emph{norm} if (1) \(N(x) = 0\) iff \(x = 0\) and (2) \(N(xy) \geq N(x)\) when \(y \neq 0\). These properties do generalize the absolute value.
+
+\begin{dfn}[Euclidean Norm]
+Let \(R\) be a domain and \(N : R \rightarrow \NN\) a norm.
+\begin{proplist}
+\item We say that \(N\) is \emph{Euclidean} if for all \(a,b \in R\) with \(b \neq 0\), there exist \(q,r \in R\) such that \(a = qb+r\) and \(0 \leq N(r) < N(b)\).
+\item A domain which has a Euclidean norm is called a \emph{Euclidean Domain}.
+\end{proplist}
+\end{dfn}
+
+Of course \(\ZZ\) is a Euclidean Domain with norm \(N(a) = |a|\). The existence of a Euclidean norm on \(R\) is very powerful. For instance, many of the nice properties of \(\ZZ\) which we derived from the Division Algorithm have analogues in any Euclidean Domain. More generally, the norm allows us to recover some of the benefits of mathematical induction.
+
+\begin{prop}
+Every Euclidean domain is a UFD.
+\end{prop}
+
+\begin{proof}
+(@@@)
+\end{proof}
+
+As a consequence of this result, every Euclidean domain is also a GCD domain; recall that we have a nice characterization of greatest common divisors in a UFD due to unique factorization. But this characterization of GCDs is \emph{nonconstructive}; we know that given two elements of a UFD, they have a greatest common divisor, but actually computing a GCD requires that we be able to factor and recognize associates. In a Euclidean domain, we can do much better.
+
+\begin{prop}[Euclidean Algorithm] \label{prop:euclidean-algorithm}
+Every Euclidean Domain is also a GCD Domain.
+\end{prop}
+
+\begin{proof}
+Let \(R\) be a Euclidean domain with norm \(N\). We want to show that for all \(a \in R\), for all \(b \in R\), the set \(\GCD{a}{b}\) is not empty. We proceed by strong induction on \(N(a)\).
+
+\textbf{Base case.} If \(N(a) = 0\), then \(a = 0\), and so we have \(b \in \GCD{a}{b}\) for all \(b\).
+
+\textbf{Inductive Step.} Let \(a \in R\) and suppose that the result holds for all \(a'\) with \(1 \leq N(a') < N(a)\). In particular, note that \(a \neq 0\). Now let \(b \in R\). By the division algorithm we may decompose \(b\) as \(b = qa + r\), where \(0 \leq N(r) < N(a)\). If \(r = 0\) then \(a|b\) and we have \(a \in \GCD{a}{b}\). If \(r \neq 0\), then by the inductive hypothesis \(\varnothing \neq \GCD{r}{a} = \GCD{b-qa}{a} = \GCD{b}{a}\) as needed.
+\end{proof}
+
+Again, the proof of this statement is logically redundant; we already knew that Euclidean domains are GCD domains. But algorithmically this proof gives us something very strong. If we have an effective procedure for computing quotients and remainders in \(R\), then we have an effective procedure for computing GCDs.
+
+\begin{prop}
+Every field is a Euclidean domain.
+\end{prop}
+
+\begin{proof}
+Define a mapping \(N : F \rightarrow \NN\) by \(N(x) = 0\) if \(x = 0\) and 1 if \(x \neq 0\). We can see that \(N\) is a Euclidean norm.
+\end{proof}
+
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}
+(@@@) (\(k\)-stage Euclidean)
+\end{exercise}
+
+\begin{exercise}
+(@@@) Dropping the domain condition on euclidean domains; see \cite{samuel71}
+\end{exercise}

@@ -1,0 +1,50 @@
+
+\begin{lem}
+Let \(R\) be a GCD domain with field of fractions \(F\).
+\begin{enumerate}
+\item If \(p(x) \in R[x]\) is primitive, \(r \in R\), and \(a(x) \in R\) such that \(p(x)|a(x)\) and \(r|a(x)\) in \(R[x]\), then \(rp(x)|a(x)\) in \(R[x]\).
+\item If \(q(x) \in F[x]\) and \(p(x) \in R[x]\) such that \(p(x)\) is primitive and \(p(x)q(x) \in R[x]\), then in fact \(q(x) \in R[x]\).
+\end{enumerate}
+\end{lem}
+
+\begin{proof} \mbox{}
+\begin{enumerate}
+\item Write \(a(x) = p(x)b(x)\) with \(b(x) \in R[x]\). Since \(r|a(x)\), we have \(r|\CONTENT{a} = \CONTENT{p}\CONTENT{b} = \CONTENT{b}\), since \(p\) is primitive. So \(r|b(x)\) in \(R[x]\). Say \(b(x) = rc(x)\); then \(a(x) = rp(x)c(x)\) as needed.
+
+\item We have \(\frac{u}{v} \in F\) (in lowest terms) such that \(\frac{u}{v}q(x) \in R[x]\) is primitive; say \(\frac{u}{v}q(x) = s(x)\). Now \(uq(x) = vs(x)\), and moreover \(up(x)q(x) = vp(x)s(x) \in R[x]\). Now
+\begin{eqnarray*}
+u \cdot \CONTENT{pq} & = & \CONTENT{up(x)q(x)} \\
+ & = & \CONTENT{vp(x)s(x)} \\
+ & = & v \cdot \CONTENT{ps} = v,
+\end{eqnarray*}
+since \(p\) and \(s\) are primitive in \(R[x]\). In particular, \(u|v\). Since \(\frac{u}{v}\) is in lowest terms, without loss of generality, \(u = 1\), so that \(\frac{1}{v}q(x) = s(x)\). Thus \(q(x) = vs(x) \in R[x]\) as needed. \qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{prop}[Gilmer-Parker]
+If \(R\) is a GCD Domain, then \(R[x]\) is a GCD Domain.
+\end{prop}
+
+\begin{proof}
+Let \(a(x), b(x) \in R[x]\). Let \(k = \GCD{\CONTENT{a}}{\CONTENT{b}}\) (remember that \(R\) is a GCD domain). Let \(F\) be the field of fractions of \(R\). Now \(F[x]\) is a Euclidean domain, in particular a GCD domain, so that \(a(x)\) and \(b(x)\) have a greatest common divisor in \(F[x]\). By the lemma, we can take an associate (in \(F[x]\)) of this gcd which is in \(R[x]\) and primitive; say \(t(x)\). We claim that \(kt(x)\) is a gcd of \(a\) and \(b\) in \(R[x]\).
+
+First note that \(k|\CONTENT{a}\), so that \(k|a{x}\). Now \(t(x)|a(x)\) in \(F[x]\), where \(t\) and \(a\) are in \(R[x]\) and \(t(x)\) is primitive. By the lemma, \(t(x)|a(x)\) in \(R[x]\), and again using the lemma, \(kt(x)|a(x)\) in \(R[x]\). Similarly, \(kt(x)|b(x)\) in \(R[x]\). So \(kt(x)\) is a common divisor of \(a(x)\) and \(b(x)\) in \(R[x]\).
+
+Now suppose that \(e(x) \in R[x]\) is a common divisor of \(a(x)\) and \(b(x)\) over \(R\). If \(e(x)\) is constant, then \(e(x) = e_0 | \GCD{\CONTENT{a}, \CONTENT{b}} = k\). Suppose instead that \(e(x)\) has positive degree. Now \(e(x)\) divides \(a(x)\) and \(b(x)\) in \(F[x]\), which is a GCD domain, and thus \(e(x)\) divides \(t(x)\) in \(F[x]\). Say \(e(x)f(x) = t(x)\) where \(f(x) \in F[x]\). By the lemma, we may write \(f(x) = \frac{u}{v}g(x)\) where \(g(x) \in R[x]\) is primitive and \(\GCD{u}{v} = 1\). We have \(ue(x)g(x) = vf(x) \in R[x]\). Now \(\CONTENT{ue(x)g(x)} = \CONTENT{vt(x)}\), and since \(g\) and \(t\) are primitive over \(R\), \(u\CONTENT{e} = v\). By Euclid's lemma, \(v|\CONTENT{e}\), so that \(v|\CONTENT{a}\) and \(v|\CONTENT{b}\), and thus \(v|k\). In particular, we have \(kf(x) = k\frac{u}{v}g(x) \in R[x]\), and thus \(e(x) \cdot kf(x) = kt(x)\), so that \(e(x)|kt(x)\) in \(R[x]\).
+
+Thus \(kt(x)\) is a greatest common divisor of \(a(x)\) and \(b(x)\) in \(R[x]\).
+\end{proof}
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}
+Let \(R\) be a GCD domain with \(p(x), q(x) \in R[x]\) so that \(q\) is irreducible (hence prime), and let \(k\) be a natural number. Show that \(q^{k+1}\) divides \(p\) in \(R[x]\) iff \(q|p\) and \(q^k|p'\) in \(R[x]\). In particular, show that \(p\) is squarefree iff \(\GCD{p}{p'} = 1\).
+\end{exercise}
+
+\begin{exercise}
+Let \(R\) be a GCD domain, with \(p,q \in R[x]\) nonzero. Show that \(p\) and \(q\) have a common factor of positive degree in \(R[x]\) if and only if there exist \(a,b \in R[x]\), not zero, such that \(\deg{a} < \deg{q}\), \(\deg{b} < \deg{p}\), and \(pa - qb = 0\). (Looking forward to univariate resultant.)
+\end{exercise}

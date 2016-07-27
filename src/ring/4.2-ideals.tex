@@ -1,0 +1,92 @@
+We've seen that special equivalence relations called \emph{congruences} can be used to build new rings out of old ones via the quotient construction. We'd like to understand the congruences in more depth. In this section we will see that the congruences on a ring correspond in a useful way to certain subrings. First, we show that the congruence class of zero plays a very special role.
+
+\begin{prop}
+Let \(R\) be a ring and \(\Phi\) a congruence on \(R\), and let \(I\) be the \(\Phi\)-class of 0. Then we have the following.
+\begin{proplist}
+\item \(I\) is a subring of \(R\).
+\item \(I\) absorbs \(R\) under multiplication from either side. That is, if \(a \in I\) and \(r \in R\), then \(ar \in I\) and \(ra \in I\).
+\item Every \(\Phi\)-class is of the form \(r + I = \{ r+a \mid a \in I \}\) for some \(r \in R\). In this case, \(r+I\) is called the \(r\)-\DefTerm{coset} of \(I\).
+\end{proplist}
+\end{prop}
+
+\begin{proof}
+\begin{inlineproplist}
+\item Using the Subring Criterion, certainly \(0_R \in [0_R]\), and if \(x,y \in [0_R]\), then \[ x-y \in [0_R] - [0_R] = [0_R] \quad \mathrm{and} \quad xy \in [0_R][0_R] = [0_R]. \]
+\item If \(a \in [0_R]\) and \(r \in R\), then \[ ar \in [0_R][r] = [0_R] \quad \mathrm{and} \quad ra \in [r][0_R] = [0_R]. \]
+\item Let \([r]\) be a \(\Phi\)-class; we claim that \([r] = r + I\). To see this, note that if \(s \in [r]\), then \([s] = [r]\), so that \([s-r] = [0_R]\). That is, \(s-r \in [0_R]\). Say \(s-r = z\). Then \(s = r+z \in r+I\). Conversely, if \(s = r+z \in r+I\), then \(s-r \in [0_R]\), so that \([s] = [r]\) and thus \(s \in [r]\).
+\end{inlineproplist}
+\end{proof}
+
+That is, if \(\Phi\) is a congruence, then every class of \(\Phi\) is a coset of the class of zero. Moreover, arithmetic in \(R/\Phi\) can be carried out in terms of coset representatives.
+
+\begin{prop}
+Let \(R\) be a ring, \(\Phi\) a congruence on \(R\), and \(I\) the \(\Phi\)-class of zero. Then for all \(r,s \in R\), we have the following.
+\begin{proplist}
+\item \((r+I)+(s+I) = (r+s)+I\)
+\item \((r+I) (s+I) = (r s)+I\)
+\end{proplist}
+\end{prop}
+
+\begin{proof}
+It's important to realize that the \(+\) symbol is used in three different senses here: the \(+\) in \(r+s\) is the plus in \(R\), the \(+\) between \(r+I\) and \(s+I\) is the plus in \(R/\Phi\), and the \(+\) in \(r+I\) is a structural symbol denoting cosets. With this in mind, we have \[ (r+I)+(s+I) = [r] + [s] = [r+s] = (r+s)+I \] and \[ (r+I)(s+I) = [r][s] = [rs] = (rs)+I \] as claimed.
+\end{proof}
+
+Apparently the congruence class of zero is special, so we extract its properties in the following definition.
+
+\begin{dfn}[Ideal]
+Let \(R\) be a ring. A subring \(I \subseteq R\) is called an \DefTerm{ideal} if \(I\) absorbs \(R\) under multiplication from both sides. That is, if \(a \in I\) and \(r \in R\), then \(ar \in I\) and \(ra \in I\). 
+\end{dfn}
+
+\begin{prop} \label{prop:ideal-conditions}
+Let \(R\) be a ring and \(I \subseteq R\) a subset. Then the following are equivalent.
+\begin{proplist}
+\item \(I\) is an ideal of \(R\). \label{prop:ideal-conditions:ideal}
+\item The relation \(\Phi = \{ (r,s) \mid s-r \in I \}\) is a congruence on \(R\) with \([0_R] = I\). We say \(\Phi\) is \emph{induced} by \(I\). \label{prop:ideal-conditions:congruence}
+\item There is a surjective homomorphism \(\varphi : R \rightarrow S\) with \(\KER{\varphi} = I\). (If \(R\) is unital, this \(\varphi\) can be chosen to be unital.) \label{prop:ideal-conditions:kernel}
+\end{proplist}
+\end{prop}
+
+\begin{proof}
+\begin{inlineproplist}
+\item[\((\ref{prop:ideal-conditions:ideal} \Rightarrow \ref{prop:ideal-conditions:congruence})\)]
+\item[\((\ref{prop:ideal-conditions:congruence} \Rightarrow \ref{prop:ideal-conditions:kernel})\)]
+\item[\((\ref{prop:ideal-conditions:kernel} \Rightarrow \ref{prop:ideal-conditions:ideal})\)] 
+\end{inlineproplist} 
+\end{proof}
+
+\begin{examples}
+\item The diagonal relation \(\Delta\) is an ideal on any ring \(R\), and the class of zero is \(\{0_R\}\). So the cosets which comprise \(R/\Delta\) are of the form \[ r+[0_R] = r+\{0_R\} = \{ r+0_R \} = \{r\}; \] that is, \(\Delta\) is induced by the zero ideal and the elements of \(R/\Delta\) are singletons.
+\item The universal relation \(\nabla\) is an ideal on any ring \(R\), and the class of zero is all of \(R\). So there is only one coset in \(R/\nabla\): \([0_R] = R\).
+\item Let \(R\) be a commutative ring and \(a \in R\) a fixed element. If \(\Phi\) is the congruence given by \(r \mathrel{\Phi} s\) iff \(a|(s-r)\), then the class of zero is the set \[ [0_R] = \{ r \in R \mid a|r \} \] of all elements of \(R\) which are divisible by \(a\).
+\end{examples}
+
+Congruences and ideals are equivalent: every ideal induces a congruence, and every congruence is induced by an ideal. For this reason from now on we will consider ideals alone and keep all congruences implicit. Typically we abuse the notation by referring to a quotient ring \(R/I\) (with \(I\) an ideal) when we really mean \(R/\Phi\), where \(\Phi\) is the congruence induced by \(I\).
+
+\begin{prop}[Ideal Criterion]
+Let \(R\) be a ring. A subset \(I \subseteq R\) is an ideal if and only if the following hold.
+\begin{proplist}
+\item \(I\) is not empty.
+\item \(I\) is closed under subtraction.
+\item \(I\) absorbs \(R\) under multiplication from either side.
+\end{proplist}
+\end{prop}
+
+\begin{prop}[Unital Ideal Criterion]
+Let \(R\) be a unital ring. A subset \(I \subseteq R\) is an ideal if and only if \(I\) is not empty and \(a - rbs \in I\) whenever \(a,b \in I\) and \(r,s \in R\).
+\end{prop}
+
+\begin{proof}
+(@@@)
+\end{proof}
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}
+Let \(R\) be a ring such that \(R/(a)\) is finite for any nonzero \(a \in R\). Define \(N : R \rightarrow \NN\) by \(N(a) = |R/(a)|\). Show that \(N\) is a Euclidean norm on \(R\). (@@@) is this true?
+\end{exercise}
+
+\begin{exercise}
+Every ideal is a union of associate classes.
+\end{exercise}

@@ -1,0 +1,83 @@
+In \(\ZZ\) we have the Fundamental Theorem of Arithmetic: every integer can be written as a product of prime integers in essentially one way, in the sense that any two factorizations have the same length and can be rearranged so that corresponding factors are associate. For example,
+
+\[ 30 = (-2) \cdot 5 \cdot (-3) \quad \mathrm{and} \quad 30 = 3 \cdot (-5) \cdot (-2) \] are different factorizations of 30, but we can rearrange them as \[ 30 = (-2) \cdot (-3) \cdot 5 \quad \mathrm{and} \quad 30 = (-2) \cdot 3 \cdot (-5), \] where \(-2\) and \(-2\) are associate, \(-3\) and 3 are associate, and 5 and \(-5\) are associate.
+
+FTA is merely a statement about the \emph{existence} of these unique factorizations, but if we examine the usual proof, we see that it can be turned into an effective algorithm which actually finds a factorization. The most basic (but correct!) algorithm to actually \emph{compute} the prime factorization of a given integer \(n\) goes something like this.
+
+\begin{framed}
+\noindent To find a prime factorization of \(n\):
+
+Search among all \(a\) with \(1 < a < |n|\) for a divisor of \(n\).
+\begin{itemize}
+\item If no such divisor is found, then \(n\) is prime and thus \(n = n\) is a prime factorization of \(n\).
+\item If such a divisor is found, with \(n = ab\), then \emph{recursively} find prime factorizations \(a = p_1 \cdots p_h\) and \(b = q_1 \cdots q_k\). Then \(n = p_1 \cdots p_h q_1 \cdots q_k\) is a prime factorization of \(n\).
+\end{itemize}
+\end{framed}
+
+There are some minor optimizations we can make to this procedure, say by only looking for \emph{prime} divisors up to \(\sqrt{n}\). In the end this \textbf{trial division} procedure is slow, but correct.
+
+We might try to generalize this procedure to any domain by replacing the word ``prime'' with ``irreducible''. However, there are many subtle ways it can fail. For a particular domain \(R\) and a particular element \(x \in R\),
+\begin{itemize}
+\item Maybe there is no way to restrict the possible divisors of \(x\) to a finite list of candidates.
+\item Maybe \(R\) has no irreducible elements.
+\item Maybe \(R\) does have irreducible elements, but the factorization procedure never terminates. (Every ``factorization'' of \(x\) has infinite length.)
+\item Maybe the factorization procedure terminates only for \emph{some} choices of the divisors \(a\) and \(b\). (Some ``factorizations'' of \(x\) have infinite length.)
+\item Maybe the factorization procedure always terminates, but \(x\) has arbitrarily long factorizations.
+\item Maybe the factorizations of \(x\) are all of bounded length, but generally have \emph{different} lengths.
+\item Maybe the factorizations of \(x\) are all of the same length, but cannot generally be rearranged so that corresponding factors are associates.
+\end{itemize}
+
+By the way, there are examples of domains where each of these things happens! Evidently, then, a ring like \(\ZZ\) where the Fundamental Theorem of Arithmetic holds is very special, since it manages to avoid all these problems. We single out rings with unique factorization with a definition.
+
+\begin{dfn}[Unique Factorization Domain] \label{dfn:ufd}
+Let \(R\) be a domain. We say that \(R\) is a \emph{unique factorization domain} (UFD) if every nonzero element of \(R\) can be written as a finite product of irreducibles in essentially one way.
+
+More precisely, for each \(x \in R\), we have \(x = p_1 p_2 \cdots p_m\) where each \(p_i\) is irreducible, and if \(x = q_1 q_2 \cdots q_\ell\), for some irreducible \(q_i\), then \(m = \ell\) and there is a permutation \(\sigma\) of \(\{1, \ldots, m\}\) so that \(p_i\) and \(q_{\sigma(i)}\) are associates for each \(i\). \index{UFD}
+\end{dfn}
+
+Of course \(\ZZ\) is our prototypical example of a UFD. The value of a UFD is that irreducibles act like the ``building blocks'' for all other elements, much like the prime numbers are the building blocks of the integers. For instance, irreducible factorizations give us a nice characterization of divisibility as follows.
+
+\begin{prop} \label{prop:divisibility-in-a-ufd}
+Let \(R\) be a UFD, and let \(x, y \in R\). Suppose we have factored \(x\) and \(y\) as \[ x = p_1^{e_1} p_2^{e_2} \cdots p_m^{e_m} \quad \mathrm{and} \quad y = up_1^{f_1} p_2^{f_2} \cdots p_m^{f_m}, \] where the \(e_i\) and \(f_i\) are natural numbers. (Note that this is always possible by taking associates and letting \(e_i\) or \(f_i\) be zero in case some irreducible does not appear in the factorization of \(x\) or \(y\).) Then \(x|y\) if and only if \(e_i \leq f_i\) for each \(i \in [1,m]\).
+\end{prop}
+
+\begin{proof}
+(@@@)
+\end{proof}
+
+From here, we can characterize gcds nicely.
+
+\begin{prop} \label{prop:ufd-implies-gcd-domain}
+Every UFD is a GCD Domain. Specifically, if \(R\) is a UFD and \(x, y \in R\) such that \[ x = p_1^{e_1} p_2^{e_2} \cdots p_m^{e_m} \quad \mathrm{and} \quad y = up_1^{f_1} p_2^{f_2} \cdots p_m^{f_m}. \] Then \[ z = p_1^{\min(e_1,f_1)} p_2^{\min(e_2,f_2)} \cdots p_m^{\min(e_m,f_m)} \] is a maximal common divisor of \(x\) and \(y\).
+\end{prop}
+
+Unique factorization is a very natural thing to want in a ring. In many areas of mathematics, one way to try to understand some object is to decompose it into smaller pieces in a simple way, understand the smaller pieces, and then reassemble into an understanding of the original object. It is especially nice, then, if there is \emph{only one way} that the decomposition process could proceed. UFDs are very rare, but fortunately many rings of practical importance (such as \(\ZZ\)) do have unique factorization.
+
+One of the historical threads that led to the development of modern abstract algebra was an attempt by 19th century mathematician Ernst Kummer to prove Fermat's Last Theorem using factorization. Recall that FLT is the assertion that the equation \(a^n + b^n = c^n\) has no interesting integer solutions \((a,b,c)\) if \(n > 2\). Kummer's idea was to rearrange this equation as \(a^n = c^n - b^n\). Now if \(\zeta\) is a primitive \(n\)th root of unity, the right hand side factors as \[ a^n = (c - b)(c - \zeta b)(c - \zeta^2 b) \cdots (c - \zeta^{n-1} b). \] For example, if \(n = 4\) then \(i\) is a primitive 4th root of unity and we have \[ a^4 = (c - b)(c - ib)(c + b)(c + ib) \] This yields two different factorizations of \(a^n\), which may lead to a contradiction.
+
+The problem with Kummer's idea was that it only works if the ring \(\ZZ[\zeta]\) is a UFD, which, at the time, was not known. Nobody had bothered to check! The idea that this line of attack might solve the famous FLT led to an explosion of new ideas in algebraic number theory that continues to this day.
+
+Eventually it was found that \(\ZZ[\zeta]\) is sometimes a UFD, but not always -- so Kummer's idea did not work. But it is more useful to judge an idea not by what problems it \emph{can't} solve, but by what problems it \emph{can} and what new ideas it inspires. By this measure Kummer's attempt at FLT is among the most successful failures in mathematics.
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}
+Suppose that \(R\) is a domain and \(N : R \rightarrow \NN\) a multiplicative norm. Show that if \(x \in R\), then the irreducible factorizations of \(x\) have bounded length.
+\end{exercise}
+
+\begin{dfn}
+Let \(R\) be a domain and \(p,x \in R\), with \(x \neq 0\). We define the \(p\)-divisibility order of \(x\), denoted \(\DIVORD{p}{x}\), to be the exponent of the largest power of \(p\) which divides \(x\) (if it exists). That is, \(\DIVORD{p}{x} = \max \{ k \mid p^k | x \}\) if this set has a maximum and is undefined otherwise.
+\end{dfn}
+
+\begin{exercise}
+Let \(R\) be a UFD.
+\begin{proplist}
+\item Show that \(\DIVORD{p}{x}\) exists for all \(p,x \in R\) with \(x \neq 0\).
+\item Show that if \(p\) is irreducible, then \(\DIVORD{p}{ab} = \DIVORD{p}{a} + \DIVORD{p}{b}\) for all \(a,b \in R\).
+\item Show that \(N : R \rightarrow \NN\) given by \(N(x) = 2^{\DIVORD{p}{x}}\) if \(x \neq 0_R\) and \(0\) if \(x = 0_R\) is a multiplicative norm on \(R\).
+\end{proplist}
+\end{exercise}

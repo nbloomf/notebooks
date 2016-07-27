@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{neb-macros}
+
+\begin{document}
+
+\CheapTitle{Relations and Functions}
+
+\begin{dfn}#[Function#]
+If $A$ and $B$ are sets, then the subsets of $A \times B$ are called \emph{relations}. Suppose $\varphi \subseteq A \times B$ is a relation.
+\begin{itemize}
+\item We say that $\varphi$ is \emph{total} if for every $a \in A$, there is a $b \in B$ such that $(a,b) \in \varphi$.
+\item We say that $\varphi$ is \emph{well-defined} if whenever $a \in A$ and $b_1,b_2 \in B$ such that $(a,b_1), (a,b_2) \in \varphi$, in fact $b_1 = b_2$.
+\item We say that $\varphi$ is a \emph{function} or \emph{mapping} from $A$ to $B$ if it is both total and well-defined. We denote this by $\varphi : A \rightarrow B$.
+\item If $\varphi : A \rightarrow B$ is a function and $a \in A$, then there is a unique $b \in B$ such that $(a,b) \in \varphi$; we call this $b$ the \emph{image} of $a$ under $\varphi$, and denote it $\varphi(a)$.
+\end{itemize}
+\end{dfn}
+
+\begin{prop} \mbox{}
+\begin{enumerate}
+\item If $A$ is a set, then the relation $1_A = \{ (x,x) \mid x \in A \}$ is a function, called the \emph{identity} on $A$, and $1_A(x) = x$ for all $x \in A$.
+\item If $\varphi : A \rightarrow B$ and $\psi : B \rightarrow C$ are functions, then the relation \#[ \psi \circ \varphi = \{ (a, \psi(\varphi(a))) \mid a \in A \} \#] is a function $A \rightarrow C$.
+\end{enumerate}
+\end{prop}
+
+\begin{dfn}
+Let $\varphi : A \rightarrow B$ be a function.
+\begin{itemize}
+\item We say that $\varphi$ is \emph{injective} if whenever $\varphi(a_1) = \varphi(a_2)$, in fact $a_1 = a_2$.
+\item We say that $\varphi$ is \emph{surjective} if for every $b \in B$, there is an element $a \in A$ such that $\varphi(a) = b$.
+\item If $\varphi$ is both injective and surjective, we say it is \emph{bijective}.
+\end{itemize}
+\end{dfn}
+
+\begin{dfn}#[Kernel#]
+Let $\varphi : A \rightarrow B$ be a function. The relation \#[ \KER{\varphi} = \{ (x,y) \mid \varphi(x) = \varphi(y) \} \#] is called the \emph{kernel} of $\varphi$.
+\end{dfn}
+
+\end{document}

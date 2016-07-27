@@ -1,0 +1,24 @@
+Introduction for Students
+=========================
+
+Throughout your studies in mathematics so far you have encountered several different kinds of objects which all have a kind of ``arithmetic''.
+
+* Real numbers can be added and multiplied, subtracted and divided, such that the result remains a real number. Moreover, these operations satisfy several rules: addition is associative, multiplication distributes over addition, multiplication is commutative, and so on.
+* Polynomials with integer coefficients can be added and multiplied, subtracted, and *sometimes* divided such that the result remains a polynomial with integer coefficients. Moreover, these operations satisfy several rules similar to the real numbers.
+* Matrices with complex number entries can be added and multiplied, subtracted, and *sometimes* divided such that the result remains a matrix with complex number entries. Moreover, these operations satisfy several rules similar to the real numbers and polynomials with integer coefficients (with one big exception: multiplication is not commutative).
+
+You may be able to think of other, similar examples of things which can be added and multiplied, subtracted and (sometimes) divided, and which satisfy more or less the same rules.
+
+Here we have several different objects, each known to be interesting, which share some common behavior. Experience has shown that when this occurs it is very often useful to try to *abstract out* the common behavior and study it in isolation. Thinking in this way has several benefits: by throwing away details, it is sometimes possible to find proofs of things which are very short, and building up a theory based on an abstraction gives us lots of theorems for free if we come across new instances of the abstraction.
+
+The basic problems of algebra
+- Distinction Problem: can we tell them apart?
+- Construction Problem: can we build new examples?
+- Decomposition Problem: can we understand them in terms of simpler pieces?
+- Classification Problem: what different examples exist?
+- Enumeration Problem: can we count them?
+- Parameterization Problem: can we attach ``numbers'' to them?
+- Representation Problem: can we pretend that abstract examples are concrete?
+- Computation Problem: can we effectively carry out algorithms?
+- Detection Problem: can we recognize a new example as a known example?
+- Solution Problem: given a logical statement with ``variables'', can we solve it?

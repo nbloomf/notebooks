@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{neb-macros}
+\usepackage{tikz}
+  \usetikzlibrary{calc,intersections}
+
+\begin{document}
+
+\CheapTitle{Quadrilaterals}
+
+\begin{dfn}[Quadrilateral]
+Let $A$, $B$, $C$, and $D$ be points in a plane geometry. Then the set \[ \Quadrilateral{A}{B}{C}{D} = \Segment{A}{B} \cup \Segment{B}{C} \cup \Segment{C}{D} \cup \Segment{D}{A} \] is called the \emph{quadrilateral} with \emph{vertices} $A$, $B$, $C$, and $D$ (in that order).
+\begin{itemize}
+\item $\Segment{A}{B}$, $\Segment{B}{C}$, $\Segment{C}{D}$, and $\Segment{D}{A}$ are called the \emph{sides} of the quadrilateral.
+\item $\Segment{A}{C}$ and $\Segment{B}{D}$ are called the \emph{diagonals}.
+\item $\Angle{A}{B}{C}$, $\Angle{B}{C}{D}$, $\Angle{C}{D}{A}$, and $\Angle{D}{A}{B}$ are the \emph{interior angles}
+\item Sides $\Segment{A}{B}$ and $\Segment{C}{D}$ are said to be \emph{opposite}, as are $\Segment{B}{C}$ and $\Segment{D}{A}$.
+\end{itemize}
+\end{dfn}
+
+\begin{dfn}
+Let $A$, $B$, $C$, and $D$ be points.
+\begin{itemize}
+\item If any two of $A$, $B$, $C$, and $D$ are equal, then $\Quadrilateral{A}{B}{C}{D}$ is said to be \emph{backtracking}.
+\item $\Quadrilateral{A}{B}{C}{D}$ is called \emph{self-intersecting} if any point other than the vertices is on more than one side.
+\item $\Quadrilateral{A}{B}{C}{D}$ is called \emph{degenerate} if any three of its vertices are collinear.
+\item A quadrilateral which is not backtracking, self-intersecting, or degenerate is called \emph{simple}.
+\end{itemize}
+\end{dfn}
+
+\begin{dfn}
+We say that $\Quadrilateral{A}{B}{C}{D} \equiv \Quadrilateral{X}{Y}{Z}{W}$ if $\Segment{A}{B} \equiv \Segment{X}{Y}$, $\Segment{B}{C} \equiv \Segment{Y}{Z}$, $\Segment{C}{D} \equiv \Segment{Z}{W}$, $\Segment{D}{A} \equiv \Segment{W}{X}$, $\Angle{A}{B}{C} \equiv \Angle{X}{Y}{Z}$, $\Angle{B}{C}{D} \equiv \Angle{Y}{Z}{W}$, $\Angle{C}{D}{A} \equiv \Angle{Z}{W}{X}$, and $\Angle{D}{A}{B} \equiv \Angle{W}{X}{Y}$.
+\end{dfn}
+
+\begin{prop}
+Quadrilateral congruence is an equivalence relation.
+\end{prop}
+
+\subsection*{Types of Quadrilaterals}
+
+\begin{dfn}
+A quadrilateral $\Quadrilateral{A}{B}{C}{D}$ is called
+\begin{itemize}
+\item \emph{equiangular} if all its interior angles are congruent;
+\item a \emph{rectangle} if all its interior angles are right;
+\item a \emph{kite} if it has two pairs of congruent adjacent sides;
+\item \emph{equilateral} (a.k.a. a \emph{rhombus}) if all its sides are congruent;
+\item a \emph{trapezoid} if one pair of opposite sides is parallel;
+\item a \emph{parallelogram} if both pairs of opposite sides are parallel;
+\item \emph{cyclic} if all its vertices lie on a common circle;
+\item \emph{tangential} if all extended sides are tangent to a common circle;
+\item \emph{regular} if it is both equilateral and equiangular.
+\end{itemize}
+\end{dfn}
+
+Note: not all of these types of quadrilaterals are guaranteed to exist!
+
+\end{document}

@@ -1,0 +1,287 @@
+\documentclass{memoir}
+
+\input{src/packages.tex}
+\input{src/style.tex}
+\input{src/macros.tex}
+
+\makeindex
+
+\begin{document}
+
+\frontmatter%
+  \input{src/ring/00.0-title.tex}
+
+  \tableofcontents%
+
+  \chapter{Preface}
+    \input{src/ring/00.1-preface.tex}
+
+  \chapter{Introduction}
+    \input{src/ring/00.2-introduction.tex}
+
+  % Introductory chapters
+  \chapter{Preliminaries}
+    \section{Sets}
+      \input{src/ring/0.1-sets-prelim.tex}
+
+
+\mainmatter
+  \chapter{Rings: The Basics}
+    \label{chap:rings}
+    \input{src/ring/1.0-rings-the-basics.tex}
+    \newpage
+
+    \section{Rings}
+      \label{sec:rings}
+      \input{src/ring/1.1-rings.tex}
+      \newpage
+
+    \section{Families of Rings}
+      \label{sec:ring-fams}
+      \input{src/ring/1.2-families-of-rings.tex}
+      \newpage
+
+    \section{Homomorphisms}
+      \label{sec:ring-homs}
+      \input{src/ring/1.3-homomorphisms.tex}
+      \newpage
+
+    \section{Direct Sums}
+      \label{sec:direct-sums}
+      \input{src/ring/1.4-direct-sums.tex}
+      \newpage
+
+    \section{Isomorphisms}
+      \label{sec:ring-isos}
+      \input{src/ring/1.5-isomorphisms.tex}
+      \newpage
+
+    \section{Subrings}
+      \label{sec:subrings}
+      \input{src/ring/1.6-subrings.tex}
+      \newpage
+
+    \section{Domains and Fields}
+      \label{sec:domains-and-fields}
+      \input{src/ring/1.7-domains-and-fields.tex}
+      \newpage
+
+    \section{Quadratic Extensions}
+      \label{sec:quad-ext}
+      \input{src/ring/1.8-quadratic-extensions.tex}
+      \newpage
+
+    \section{Divisibility}
+      \label{sec:divisibility}
+      \input{src/ring/1.9-divisibility.tex}
+      \newpage
+
+    \section{Norms}
+      \label{sec:norms}
+      \input{src/ring/1.10-norms.tex}
+      \newpage
+
+    \phantomsection
+    \section*{Summary of \autoref{chap:rings}}
+      \addcontentsline{toc}{section}{Summary}%&%
+      \input{src/ring/1.X-summary.tex}
+
+
+  \chapter{The Domain Hierarchy}
+    \label{chap:domains}
+    \input{src/ring/2.0-the-domain-hierarchy.tex}
+    \newpage
+
+    \section{Associates}
+      \label{sec:associates}
+      \input{src/ring/2.1-associates.tex}
+      \newpage
+
+    \section{Greatest Common Divisors and GCD Rings}
+      \label{sec:gcd-rings}
+      \input{src/ring/2.2-gcd-rings.tex}
+      \newpage
+
+    \section{Factorization and UFDs}
+      \label{sec:ufds}
+      \input{src/ring/2.3-factorization.tex}
+      \newpage
+
+    \section{Division with Remainder and Euclidean Domains}
+      \label{sec:eds}
+      \input{src/ring/2.4-division-with-remainder.tex}
+      \newpage
+
+    \section{Localization and the Field of Fractions}
+      \label{sec:localization}
+      \input{src/ring/2.5-localization.tex}
+      \newpage
+
+    \section{Quadratic Numbers}
+      \label{sec:quad-num}
+      \input{src/ring/2.6-quadratic-numbers.tex}
+      \newpage
+
+    \phantomsection
+    \section*{Summary of \autoref{chap:domains}}
+      \addcontentsline{toc}{section}{Summary}%&%
+      \input{src/ring/2.X-summary.tex}
+
+
+  \chapter{Polynomial Rings}
+    \label{chap:poly}
+    \input{src/ring/3.0-polynomial-rings.tex}
+    \newpage
+
+    \section{Polynomials}
+      \label{sec:polynomials}
+      \input{src/ring/3.1-polynomials.tex}
+      \newpage
+
+    \section{Long division and roots}
+      \label{sec:poly-div-alg}
+      \input{src/ring/3.2-long-division-and-roots.tex}
+      \newpage
+
+    \section{Content of a polynomial}
+      \label{sec:poly-content}
+      \input{src/ring/3.3-content-of-a-polynomial.tex}
+      \newpage
+
+    \section{Over a GCD Domain}
+      \input{src/ring/3.4-over-a-gcd-domain.tex}
+      \newpage
+
+    \section{The Rational Root Theorem}
+      \label{sec:rat-root-thm}
+      \input{src/ring/3.5-the-rational-root-theorem.tex}
+      \newpage
+
+    \section{Over a UFD}
+      \input{src/ring/3.6-over-a-ufd.tex}
+      \newpage
+
+    \section{Irreducibility criteria}
+      \newpage
+
+    \phantomsection
+    \section*{Summary of \autoref{chap:poly}}
+      \addcontentsline{toc}{section}{Summary}%&%
+      \input{src/ring/3.X-summary.tex}
+
+
+  \chapter{Ideals and Quotients}
+    \label{chap:quot}
+    \newpage
+
+    \section{Congruences}
+      \label{sec:congruence}
+      \input{src/ring/4.1-congruences.tex}
+      \newpage
+
+    \section{Ideals}
+      \label{sec:ideals}
+      \input{src/ring/4.2-ideals.tex}
+      \newpage
+
+    \section{The Isomorphism Theorems}
+      \label{sec:iso-thms}
+      \input{src/ring/4.3-the-isomorphism-theorems.tex}
+      \newpage
+
+    \section{Ideal Arithmetic}
+      \label{sec:ideal-lattice}
+      \input{src/ring/4.4-the-lattice-of-ideals.tex}
+      \newpage
+
+    \section{Maximal Ideals}
+      \label{sec:max-ideals}
+      \input{src/ring/4.5-maximal-ideals.tex}
+      \newpage
+
+    \section{Generating Sets}
+      \label{sec:gen-sets}
+      \input{src/ring/4.6-generating-sets.tex}
+      \newpage
+
+    \section{Prime Ideals}
+      \newpage
+
+    \section{The Chinese Remainder Theorem}
+      \newpage
+
+    \phantomsection
+    \section*{Summary of \autoref{chap:quot}}
+      \addcontentsline{toc}{section}{Summary}%&%
+      \input{src/ring/4.X-summary.tex}
+
+  \chapter{Fields}
+
+    \section{Subfields and Extensions}
+
+
+\setcounter{dummycounter}{\value{section}}%&%
+\appendix
+\setcounter{section}{\value{dummycounter}}%&%
+
+  \chapter{Review of Arithmetic}
+    \label{chap:arithmetic}
+    \input{src/ring/A.0-arithmetic.tex}
+    \newpage
+
+    \section{The Integers}
+      \label{sec:the-integers}
+      \input{src/ring/A.1-integers.tex}
+      \newpage
+
+    \section{The Division Algorithm}
+      \label{sec:div-alg}
+      \input{src/ring/A.2-division-algorithm.tex}
+      \newpage
+
+    \section{Divisors}
+      \label{sec:int-div}
+      \input{src/ring/A.3-integer-divisibility.tex}
+      \newpage
+
+    \section{Factorization}
+      \label{sec:int-factor}
+      \input{src/ring/A.4-integer-factorization.tex}
+      \newpage
+
+    \section{Modular Arithmetic}
+      \label{sec:int-mod-n}
+      \input{src/ring/A.5-modular-arithmetic.tex}
+
+  \chapter{Rings with Absolute Value}
+    \label{chap:abs-val}
+    \input{src/ring/B.0-rings-with-absolute-value.tex}
+    \newpage
+
+    \section{Just Enough Metric Topology}
+      \label{sec:ring-with-abs-val}
+      \input{src/ring/B.1-just-enough-metric-topology.tex}
+      \newpage
+
+    \section{The Real Numbers}
+      \label{sec:reals}
+      \input{src/ring/B.2-real-numbers.tex}
+      \newpage
+
+    \section{The \emph{p}-adic Numbers}
+
+  \chapter{Posets}
+    \newpage
+
+    \section{Posets and Zorn's Lemma}
+      \label{sec:zorn}
+      \input{src/ring/C.1-posets-and-zorns-lemma.tex}
+      \newpage
+
+    \section{The Axiom of Choice}
+
+
+\backmatter
+  \printindex
+
+\end{document}

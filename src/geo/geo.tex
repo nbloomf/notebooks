@@ -1,0 +1,71 @@
+\documentclass{memoir}
+
+\input{src/packages.tex}
+\input{src/style.tex}
+\input{src/macros.tex}
+
+\makeindex
+
+\begin{document}
+
+\title{Elementary Geometrese}
+
+
+\frontmatter
+  \maketitle
+
+  \tableofcontents
+
+
+\mainmatter
+  \section{Models and Theories}
+    \input{src/geo/01-models-and-theories.tex}
+    \newpage
+
+  \section{Incidence Geometry}
+    \input{src/geo/02-incidence-geometry.tex}
+    \newpage
+
+  \section{Models of Incidence Geometry}
+    \input{src/geo/03-models-of-incidence-geometry.tex}
+    \newpage
+
+  \section{Parallel Lines}
+    \input{src/geo/04-parallel-lines.tex}
+    \newpage
+
+  \section{Betweenness}
+    \input{src/geo/05-betweenness.tex}
+    \newpage
+
+  \section{Ordered Geometry}
+    \input{src/geo/06-ordered-geometry.tex}
+    \newpage
+
+  \section{Models of Ordered Geometry}
+    \input{src/geo/07-models-of-ordered-geometry.tex}
+    \newpage
+
+  \section{Angles}
+    \input{src/geo/08-angles.tex}
+    \newpage
+
+  \section{Congruence}
+    \input{src/geo/09-congruence.tex}
+    \newpage
+
+  \section{Models of Congruence Geometry}
+    \input{src/geo/10-models-of-congruence-geometry.tex}
+    \newpage
+
+  \section{Circles}
+    \input{src/geo/11-circles.tex}
+    \newpage
+
+  \section{Plane Geometry}
+    \input{src/geo/12-plane-geometry.tex}
+
+\backmatter
+  \printindex
+
+\end{document}

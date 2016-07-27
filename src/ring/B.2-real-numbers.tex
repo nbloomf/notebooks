@@ -1,0 +1,104 @@
+We are now prepared to define the set of real numbers; (most of) the heavy lifting is already done.
+
+\begin{dfn}[Real Numbers] \label{dfn:real-numbers}
+The usual absolute value \(|\cdot|\) on the set \(\QQ\) of rational numbers is an absolute value in the sense of \ref{dfn:abs-val}, and so the constructions of \autoref{sec:ring-with-abs-val} are immediately available. We define the set of \DefTerm{real numbers} \(\RR\) to be the cauchy completion \(\VALCOMP{\QQ}{|\cdot|}\) of \(\QQ\) with respect to \(|\cdot|\). Since \(\QQ\) is a field, \(\RR\) is also a field.
+\end{dfn}
+
+Doing arithmetic in \(\RR\) is a bit awkward because elements of \(\RR\) are equivalence classes of cauchy sequences. Even detecting whether two specific real numbers are equal to each other is difficult.
+
+\begin{dfn}
+Given two cauchy sequences of rational numbers, \(\alpha\) and \(\beta\), we say that \(\alpha \leq \beta\) if either \(\beta - \alpha\) converges to 0 or there exists a natural number \(W\) such that \(\alpha_i < \beta_i\) for all \(i \geq W\).
+\end{dfn}
+
+\begin{prop}
+If \(\alpha\), \(\overline{\alpha}\), \(\beta\), and \(\overline{\beta}\) are cauchy sequences of rational numbers such that \(\alpha - \overline{\alpha}\) and \(\beta - \overline{\beta}\) converge to zero and \(\alpha \leq \beta\), then \(\overline{\alpha} \leq \overline{\beta}\).
+\end{prop}
+
+\begin{proof}
+If \(\beta - \alpha\) converges to zero, then we have \[ 0 = \LIM{\beta - \alpha} - \LIM{\beta - \overline{\beta}} + \LIM{\alpha - \overline{\alpha}} = \LIM{\beta - \alpha - \beta + \overline{\beta} + \alpha - \overline{\alpha}} = \LIM{\overline{\beta} - \overline{\alpha}}, \] so that \(\overline{\alpha} \leq \overline{\beta}\). Suppose instead that \(\beta - \alpha\) does not converge to zero. Since \(\alpha \leq \beta\), there is a natural number \(W\) such that \(\alpha_i < \beta_i\) whenever \(i \geq W\). Also, by \ref{prop:cauchy-bound-away-from-zero}, there is a rational number \(\delta\) and a natural number \(T\) such that \(|\beta_i - \alpha_i| \geq \delta\) whenever \(i \geq T\). Since \(\delta/2 > 0\) and \(\alpha - \overline{\alpha}\) converges to 0, there is a natural number \(N_\alpha\) such that \(|\alpha_i - \overline{\alpha}_i| < \delta/2\) when \(i \geq N_\alpha\). Similarly there is an \(N_\beta\) such that \(|\beta_i - \overline{\beta}_i| < \delta/2\) when \(i \geq N_\beta\).
+
+Let \(W_1 = \max(W, T, N_\alpha, N_\beta)\). Then for all \(i \geq W_1\), we have \(\alpha_i < \beta_i\), and thus \(\beta_i - \alpha_i = |\beta_i - \alpha_i| \geq \delta\). Now we have
+\begin{eqnarray*}
+\delta - (\overline{\beta}_i - \overline{\alpha}_i)
+ & \leq & (\beta_i - \alpha_i) - (\overline{\beta}_i - \overline{\alpha}_i) \\
+ & = & (\beta_i - \overline{\beta}_i) + (\overline{\alpha}_i - \alpha_i) \\
+ & \leq & |\beta_i - \overline{\beta}_i| + |\overline{\alpha}_i - \alpha_i| \\
+ & < & \delta/2 + \delta/2 \\
+ & = & \delta.
+\end{eqnarray*}
+So we have \(0 < \overline{\beta}_i - \overline{\alpha}_i\), and thus \(\overline{\alpha}_i < \overline{\beta}_i\) for all \(i \geq W_1\). Thus \(\overline{\alpha} \leq \overline{\beta}\).
+\end{proof}
+
+\begin{cor}
+We have a well-defined relation \(\leq\) on \(\RR\) defined as follows: given \([\alpha]\) and \([\beta]\) in \(\RR\), we say that \([\alpha] \leq [\beta]\) if either \(\beta - \alpha\) converges to 0 or there is a natural number \(W\) such that \(\alpha_i < \beta_i\) whenever \(i \geq W\). We say \([\alpha] < [\beta]\) if \([\alpha] \leq [\beta]\) and \([\alpha] \neq [\beta]\).
+\end{cor}
+
+\begin{prop}
+The relation \(\leq\) on \(\RR\) has the following properties.
+\begin{proplist}
+\item \([\alpha] \leq [\alpha]\) for all \([\alpha] \in \RR\).
+\item If \([\alpha] \leq [\beta]\) and \([\beta] \leq [\alpha]\), then \([\alpha] = [\beta]\).
+\item If \([\alpha] \leq [\beta]\) and \([\beta] \leq [\gamma]\), then \([\alpha] \leq [\gamma]\).
+\item If \([\alpha]\) is a real number, then either \([\alpha] > [\TILDE{0}]\), \([\alpha] = [\TILDE{0}]\), or \([\alpha] < [\TILDE{0}]\).
+\end{proplist}
+\end{prop}
+
+\begin{proof}
+\begin{inlineproplist}
+\item Since \(\alpha - \alpha\) converges to 0, we have \([\alpha] \leq [\alpha]\).
+\item Suppose \([\alpha] \leq [\beta]\) and \([\beta] \leq [\alpha]\). Now if either \(\beta - \alpha\) or \(\alpha - \beta\) converge to zero, we have \([\alpha] = [\beta]\). So we assume that this does not happen. In this case we have natural numbers \(W_1\) and \(W_2\) such that \(\alpha_i < \beta_i\) whenever \(i \geq W_1\) and \(\beta_i < \alpha_i\) whenever \(i \geq W_2\). But if \(i \geq \max(W_1, W_2)\), then \(\alpha_i < \beta_i < \alpha_i\), a contradiction. So we have \([\alpha] = [\beta]\) as needed.
+\item If either \(\beta - \alpha\) or \(\gamma - \beta\) converge to zero, we have \([\alpha] = [\beta]\) or \([\beta] = [\gamma]\); in either case, \([\alpha] \leq [\gamma]\). Now suppose that neither \(\beta - \alpha\) nor \(\gamma - \beta\) converges to zero. Then there exist natural numbers \(W_1\) and \(W_2\) such that \(\alpha_i < \beta_i\) when \(i \geq W_1\) and \(\beta_i < \gamma_i\) when \(i \geq W_2\). Letting \(W = \max(W_1,W_2)\), whenever \(i \geq W\) we have \[ \gamma_i - \alpha_i = \gamma_i - \beta_i + \beta_i - \alpha_i > 0 \] so that \(\alpha_i < \gamma_i\). Thus \([\alpha] \leq [\gamma]\) as needed.
+\item Let \([\alpha]\) be a real number and suppose \([\alpha] \neq [\TILDE{0}]\). That is, \(\alpha\) does not converge to zero. By \ref{prop:cauchy-bound-away-from-zero}, there is a rational number \(\delta\) and a natural number \(T\) such that \(|\alpha_i| \geq \delta\) when \(i \geq T\). Also, since \(\alpha\) is cauchy, there exists a natural number \(M\) such that \(|\alpha_j - \alpha_i| < \delta\) when \(i,j \geq M\). Set \(W = \max(T,M)\). We will show that if \(i,j \geq W\), then \(\alpha_i\) and \(\alpha_j\) must have the same sign in \(\QQ\) (either both positive or both negative). To this end, suppose \(\alpha_j > 0\) and \(\alpha_i < 0\). On one hand we have \(|\alpha_j - \alpha_i| < \delta\). But on the other hand we have \(\alpha_j \geq \delta\) and \(-\alpha_i \geq \delta\). So \[ 2\delta \leq \alpha_j - \alpha_i \leq |\alpha_j - \alpha_i| < \delta, \] a contradiction. Likewise if \(\alpha_j < 0\) and \(\alpha_i > 0\) then \[ 2\delta \leq \alpha_i - \alpha_j \leq |\alpha_i - \alpha_j| < \delta. \] That is, for all \(i \geq W\), the \(\alpha_i\) have the same sign, either positive or negative. In the first case we have \([\TILDE{0}] \leq [\alpha]\), and in the second case \([\alpha] \leq [\TILDE{0}]\). But since \([\alpha] \neq [\TILDE{0}]\), in fact either \([\alpha] < [\TILDE{0}]\) or \([\alpha] > [\TILDE{0}]\).
+\end{inlineproplist}
+\end{proof}
+
+\begin{prop}
+\begin{proplist}
+\item If \([\alpha] \leq [\beta]\) then \([\alpha] + [\gamma] \leq [\beta] + [\gamma]\).
+\item If \([\TILDE{0}] \leq [\alpha]\) and \([\TILDE{0}] \leq [\beta]\) then \([\TILDE{0}] \leq [\alpha][\beta]\).
+\item \([\TILDE{0}] < [\TILDE{1}]\).
+\end{proplist}
+\end{prop}
+
+\begin{proof}
+\begin{inlineproplist}
+\item If \(\beta - \alpha\) converges to 0, then \([\alpha] = [\beta]\) and the result holds. If \(\beta - \alpha\) does not converge to 0, then there is an index \(W\) such that \(\alpha_i < \beta_i\) for all \(i \geq W\). For all such \(i\), we have \(\alpha_i + \gamma_i < \beta_i + \gamma_i\), so that \([\alpha] + [\gamma] \leq [\beta] + [\gamma]\) as claimed.
+\item If either \([\alpha]\) or \([\beta]\) converge to zero, then \([\alpha][\beta] = [\TILDE{0}]\). Suppose instead that neither converges to zero. Then there exist natural numbers \(W_\alpha\) and \(W_\beta\) such that \(\alpha_i > 0\) when \(i \geq W_\alpha\) and \(\beta_i > 0\) when \(i \geq W_\beta\). Let \(W = \max(W_\alpha, W_\beta)\). Then for all \(i \geq W\), we have \(\alpha_i \beta_i > 0\), so that \([\TILDE{0}] \leq [\alpha][\beta]\) as claimed.
+\item Certainly \(0 < 1\), so that \([\TILDE{0}] \leq [\TILDE{1}]\). Since \(1 \neq 0\), \([\TILDE{0}] \neq [\TILDE{1}]\).
+\end{inlineproplist}
+\end{proof}
+
+\begin{prop}
+(@@@) every nonempty set with an upper bound has a least upper bound.
+\end{prop}
+
+\begin{prop} \label{prop:rr-axioms}
+There is a field \(\RR\), whose elements are called \emph{real numbers}, which comes with a linear order relation \(\leq\) having the following properties.
+\begin{proplist}
+\item \(0 < 1\).
+\item If \(\alpha, \beta, \gamma \in \RR\) such that \(\alpha \leq \beta\), then \(\alpha + \gamma \leq \beta + \gamma\).
+\item If \(\alpha, \beta \in \RR\) such that \(0 \leq \alpha\) and \(0 \leq \beta\), then \(0 \leq \alpha\beta\).
+\item If \(S \subseteq \RR\) is a nonempty set which has an upper bound, then \(S\) has a \emph{least} upper bound.
+\end{proplist}
+\end{prop}
+
+Working directly with equivalence classes of cauchy sequences - that is, real numbers - can get awkward very fast. Fortunately, there is a better way! It turns out that \ref{prop:rr-axioms} \emph{characterizes} the real numbers, in the sense that any other field \(F\) with a linear order relation \(\preceq\) that \emph{also} satisfies the properties in \ref{prop:rr-axioms} must be isomorphic to \(\RR\). This means that any theorem which can be proved about \(\RR\) can be proved using the properties of \ref{prop:rr-axioms}, together with the definition of field and linear order, as a list of ``axioms'', rather than the complicated construction using cauchy sequences. In fact this is the approach typically taken by high school textbooks, if you pay close attention. With this in mind, why should we bother explicitly constructing \(\RR\) in the first place? The (potential) problem is that we can make lists of axioms all day and derive theories based on them, but without a concrete \emph{model} of those axioms we cannot assume that the axioms are consistent with each other. This is a great example of the abstract and concrete points of view each bringing something useful to the table: the axioms are nice to work with, and the model tells us the axioms describe something interesting.
+
+\begin{prop}[Bolzano's Theorem for Polynomials]
+Let \(p(x) \in \RR[x]\). If \(a\) and \(b\) are real numbers such that \(a < b\) and \(p(a)\) and \(p(b)\) have opposite signs, then there exists a real number \(c\) such that \(p(c) = 0\).
+\end{prop}
+
+\begin{proof}
+Suppose, without loss of generality, that \(f(a) < 0\) and \(f(b) > 0\). Now define the set \(S = \{ x \in [a,b] \mid f(x) \leq 0 \}\). Certainly \(S\) is not empty, since \(f(a) < 0\). Moreover, \(S\) has an upper bound, since \(x < b\) for all \(x \in S\). Thus \(S\) has a least upper bound, say \(c \in S\). (@@@)
+\end{proof}
+
+\begin{cor} \mbox{}
+\begin{proplist}
+\item If \(p(x) \in \RR[x]\) has odd degree, then \(p(x)\) has a root in \(\RR\).
+\item If \(\alpha \in \RR\) is positive, then \(q(x) = x^2 - \alpha\) has a unique positive root in \(\RR\), denoted \(\sqrt{\alpha}\).
+\end{proplist}
+\end{cor}
+
+\begin{proof}
+(@@@)
+\end{proof}

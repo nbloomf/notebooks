@@ -1,0 +1,102 @@
+Recall that two lines in an incidence geometry are called \emph{parallel} if they do not meet at a single point. The following question turns out to be interesting.
+
+\begin{titlebox}{Question}
+\begin{center}
+Suppose we have a line $\ell$ and a point $p$ in an incidence geometry. How many lines exist which pass through $p$ and are parallel to $\ell$?
+\end{center}
+\end{titlebox}
+
+Our intuition says that the answer to this question is clearly 1, and Euclid agreed. It turns out that the parallel lines in our models so far behave in some very different ways.
+
+
+
+\subsection{Parallels in $\RR^2$}
+
+In Exercise (@@@), we found a nice way to characterize whether the lines determined by four points are parallel: if $A = (a_x, a_y)$, $B = (b_x, b_y)$, $C = (c_x, c_y)$, and $D = (d_x, d_y)$ are points in $\RR^2$ with $A \neq B$ and $C \neq D$, then $\LINE{A}{B} \parallel \LINE{C}{D}$ if and only if \[ \DET \begin{bmatrix} b_x - a_x & d_x - c_x \\ b_y - a_y & d_y - c_y \end{bmatrix} = 0. \] With this, we can show the following.
+
+\begin{prop}
+If $\ell = \LINE{A}{B}$ is a line and $C \notin \ell$ a point in $\RR^2$, then there is exactly one line passing through $C$ which is parallel to $\ell$.
+\end{prop}
+
+\begin{proof}
+To see existence, let $D = C + B - A$. Now $D \neq C$ since $B \neq A$. Moreover, $\LINE{C}{D}$ and $\LINE{A}{B}$ are parallel since
+\[ \DET \begin{bmatrix} b_x - a_x & c_x + b_x - a_x - c_x \\ b_y - a_y & c_y + b_y - a_y - c_y \end{bmatrix}
+ = \DET \begin{bmatrix} b_x - a_x & b_x - a_x \\ b_y - a_y & b_y - a_y \end{bmatrix} = 0. \]
+To see uniqueness, suppose $X = (x, y)$ is a point (different from $C$) such that $\LINE{C}{X}$ is parallel to $\LINE{A}{B}$. Then \[ 0 = \DET \begin{bmatrix} x - c_x & b_x - a_x \\ y - c_y & b_y - c_y \end{bmatrix} = \DET \begin{bmatrix} x - c_x & c_x + b_x - a_x - c_x \\ y - c_y & c_y + b_y - a_y - c_y \end{bmatrix}. \] So $X$, $C$, and $D$ are collinear, and thus $\LINE{C}{X} = \LINE{C}{D}$.
+\end{proof}
+
+Similar to the Cartesian Plane, the Rational Plane has unique parallel lines through a given point.
+
+
+
+\subsection{Parallels in $\mathbb{D}$}
+
+Suppose $\ell$ is a line and $x$ a point in the unit disc. There are \emph{infinitely many} lines passing through $x$ which are parallel to $\ell$. To see why, remember that $\ell$ is contained in a line $\ell_{A,B}$ in the Cartesian Plane. Choose any point $y$ on this Cartesian line which is not in the unit disk. Now $\ell' = \ell_{x,y} \cap \mathbb{D}$ is parallel to $\ell$.
+
+
+
+\subsection{Parallels in $\mathbb{A}$}
+
+
+
+
+\subsection{Parallels in the Fano plane}
+
+In the Fano Plane, no two lines are parallel. In particular, if $\ell$ is a line and $x \notin \ell$ a point, there are \emph{no} lines passing through $x$ which are parallel to $\ell$.
+
+
+
+Considering these examples, there seem to be (at least) three qualitatively different possibilities for the answer to our Question about parallel lines. This observation is what motivates the following definition.
+
+\begin{dfn}[The Parallel Postulates]
+We say that an incidence geometry $P$ is
+\begin{itemize}
+\item \textbf{Elliptic} if there are \emph{no} lines passing through $x$ and parallel to $\ell$, for all lines $\ell$ and points $x \notin \ell$.
+\item \textbf{Euclidean} if there is \emph{exactly one} line passing through $x$ and parallel to $\ell$, for all lines $\ell$ and points $x \notin \ell$.
+\item \textbf{Hyperbolic} if there are \emph{infinitely many} lines passing through $x$ and parallel to $\ell$, for all lines $\ell$ and points $x \notin \ell$.
+\end{itemize}
+\end{dfn}
+
+With this definition, $\RR^2$ and $\QQ^2$ are Euclidean, $\mathcal{F}$ and $\mathbb{A}$ are Elliptic, and $\mathbb{D}$ is Hyperbolic. It is important to note that a given incidence geometry need not satisfy \textbf{any} of these properties! We will see a strange example of this in the exercises.
+
+
+
+\subsection*{Transitivity of Parallelism}
+
+The kinds of ``geometries'' that arise from our three different Parallel Postulates will be different - perhaps drastically so - as illustrated by the following result.
+
+\begin{prop}
+Suppose $P$ is a Euclidean incidence geometry, with lines $\ell_1$, $\ell_2$, and $\ell_3$. If $\ell_1 \parallel \ell_2$ and $\ell_2 \parallel \ell_3$, then $\ell_1 \parallel \ell_3$. That is, the relation ``is parallel to'' is transitive.
+\end{prop}
+
+\begin{proof}
+If $\ell_1 \cap \ell_2 = \varnothing$, then $\ell_1 \parallel \ell_3$ by definition. Suppose instead that $\ell_1$ and $\ell_3$ have \emph{at least one} point in common, say $p$. Since $\ell_1$ is parallel to $\ell_2$, note that $p \notin \ell_2$. Since $\mathcal{P}$ is Euclidean, there is exactly one line passing through $p$ which is parallel to $\ell_2$; call this line $\ell$. But now $\ell_1$ is a line parallel to $\ell_2$ which passes through $p$, so that $\ell_1 = \ell$. Likewise, $\ell_3 = \ell$. Hence $\ell_1 = \ell_3$, and so $\ell_1 \parallel \ell_3$ as claimed.
+\end{proof}
+
+Note that in a Hyperbolic incidence geometry, this need not be the case. If we have two lines $\ell_1$ and $\ell_3$ which pass through a point $p$ and are parallel to a given line $\ell_2$, then $\ell_1$ and $\ell_3$ are \emph{not} parallel. And in an Elliptic incidence geometry the transitivity of parallelism is irrelevant: there are no pairs of parallel lines to begin with.
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}[The Two-Pointed Line]
+To demonstrate that an incidence geometry need not be either Elliptic, Euclidean, or Hyperbolic, consider the following example, which we will call the \emph{Two-Pointed Line}. Let $P = \RR \cup \{ A, B \}$. We define lines of four types:
+\begin{itemize}
+\item $\RR$ is a line of Type 1;
+\item $\{x, A\}$, where $x \in \RR$, is a line of Type 2;
+\item $\{x, B\}$, where $x \in \RR$, is a line of Type 3; and
+\item $\{A, B\}$ is a line of Type 4.
+\end{itemize}
+
+Now consider the following.
+
+\begin{proplist}
+\item Show that the Two-Pointed Line is an incidence geometry.
+\item Find a line $\ell$ and a point $x$ in the Two-Pointed Line such that there is exactly one line passing through $x$ and parallel to $\ell$.
+\item Find a line $\ell$ and a point $x$ in the Two-Pointed Line such that there are infinitely many lines passing through $x$ and parallel to $\ell$. 
+\end{proplist}
+
+From these facts we can conclude that the Two-Pointed Line is an incidence geometry which is neither Elliptic, Euclidean, nor Hyperbolic. Can you think of a reason why this example is different from those we've seen so far?
+\end{exercise}

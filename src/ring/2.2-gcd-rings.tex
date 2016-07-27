@@ -1,0 +1,197 @@
+In \(\ZZ\) any two elements have a greatest common divisor, and this concept turns out to have some interesting uses. We generalize GCDs to arbitrary CU rings as follows.
+
+\begin{dfn}[Greatest Common Divisor]
+Let \(R\) be a CU ring with \(a,b \in R\). We say \(d \in R\) is a \emph{greatest common divisor} of \(a\) and \(b\) if \index{greatest common divisor}
+\begin{proplist}
+\item \(d\) is a common divisor of \(a\) and \(b\); that is, \(d|a\) and \(d|b\), and \index{common divisor}
+\item \(d\) is greatest among the common divisors of \(a\) and \(b\); that is, if \(c \in R\) such that \(c|a\) and \(c|b\), then \(c|d\).
+\end{proplist}
+The set of all greatest common divisors of \(a\) and \(b\) is denoted \(\GCD{a}{b}\). We say that \(a\) and \(b\) are \emph{relatively prime}, denoted \(a \COPRIME b\), if \(1_R \in \GCD{a}{b}\). \index{relatively prime}
+\end{dfn}
+
+Watch out: sometimes in \(\ZZ\) the greatest common divisor is defined to be the \emph{largest} common divisor with respect to the \(\leq\) relation. But in an arbitrary domain we may not have a meaningful order relation, so the word ``largest'' is interpreted here with respect to divisibility. An important consequence of this is that in a general domain, greatest common divisors need not exist, and if they do, they need not (and generally won't) be unique. For example by our definition we have \(\GCD{4}{6} = \{2, -2\}\) in \(\ZZ\).
+
+\begin{prop} \label{prop:gcd-assoc}
+Let \(R\) be a domain with \(a,b,c \in R\). We have the following.
+\begin{proplist*}
+\item \(\GCD{a}{b}\) is either empty or an associate class. \label{prop:gcd-assoc:class}
+\item If \(a \ASSOC b\), then \(\GCD{a}{c} = \GCD{b}{c}\). \label{prop:gcd-assoc:well-defined}
+\end{proplist*}
+\end{prop}
+
+\begin{proof}
+\begin{inlineproplist}
+\item Let \(a,b \in R\) and suppose \(\GCD{a}{b}\) is not empty; say \(x\) is a greatest common divisor of \(a\) and \(b\). It suffices to show that if \(y \ASSOC x\), then \(y\) is also a greatest common divisor of \(a\) and \(b\). By \eref{exerc:associate-divides} we have that \(y|a\) and \(y|b\), and if \(c|a\) and \(c|b\), then \(c|x\), so that \(c|y\) by \eref{exerc:associate-divides}.
+\item Say \(b = ua\), and suppose we have \(d \in \GCD{a}{c}\). Now \(d|a\), so that \(d|b\) by \eref{exerc:associate-divides}. That is, \(d\) is a common divisor of \(b\) and \(c\). Suppose now that \(e|b\) and \(e|c\). We have \(e|a\) by \eref{exerc:associate-divides}, so that \(e|d\). Thus \(d \in \GCD{b}{c}\). Similarly, if \(d \in \GCD{b}{c}\) then \(d \in \GCD{a}{c}\). That is, if \emph{either} \(\GCD{a}{c}\) or \(\GCD{b}{c}\) is nonempty, then the two are equal.
+\end{inlineproplist}
+\end{proof}
+
+It is important to remember that \(\GCD{\ast}{\ast}\) is a \emph{subset} of \(R\), not a specific element. However, \propref{prop:gcd-assoc} says that nonempty GCDs are associate classes, and that GCD cannot distinguish elements in the same associate class. This suggests that we should really think of \(\GCD{\ast}{\ast}\) as a binary operation on the associate classes of \(R\); this is explored further in \eref{exerc:gcd-meet}.
+
+In \(\ZZ\), we had some nice technology for computing GCDs -- namely, the Euclidean Algorithm. In an arbitrary domain the situation is not so nice; computing \(\GCD{a}{b}\) is generally difficult. The next proposition handles some special cases.
+
+\begin{prop} \label{prop:gcd-basics}
+Let \(R\) be a domain with \(a,b \in R\). We have the following.
+\begin{proplist*}
+\item \(\GCD{a}{b} = \GCD{b}{a}\).
+\item \(a|b\) iff \(a \in \GCD{a}{b}\).
+\item \(a \in \GCD{a}{0}\).
+\item If \(u \in R\) is a unit then \(a \COPRIME u\).
+\item If \(a \COPRIME b\) and \(c|a\), then \(c \COPRIME b\). \label{prop:gcd-basics:coprime-factor}
+\end{proplist*}
+\end{prop}
+
+\begin{proof}
+\begin{inlineproplist}
+\item Follows from the definition of GCD.
+\item Suppose \(a|b\). Now \(a|a\) and \(a|b\), so \(a\) is a common divisor of \(a\) and \(b\). Moreover if \(c|a\) and \(c|b\), then \(c|a\), so \(a\) is a greatest common divisor of \(a\) and \(b\). The converse follows from the definition of common divisor.
+\item Note that \(a|a\) and \(a|0\) by \ref{prop:divides-basics}, so \(a\) is a common divisor of \(a\) and \(0\). Certainly if \(c|a\) and \(c|0\) then \(c|a\), as needed.
+\item It suffices to show that \(1_R\) is a greatest common divisor of \(a\) and \(u\). Certainly \(1_R|a\) and \(1_R|u\). Now if \(c|a\) and \(c|u\), then \(c\) is a unit by \sref{prop:divides-basics}{unit-div}, and thus \(c|1_R\) as needed.
+\item If \(x \in \GCD{c}{b}\), then we have \(x|a\) and \(x|b\), so that \(x|1_R\) as needed.
+\end{inlineproplist}
+\end{proof}
+
+The next result is very important: it roughly says that if $a$ divides a product but is relatively prime to one of the factors, then it must divide the other factor.
+
+\begin{prop}[Euclid's Lemma] \label{prop:euclids-lemma}
+Let \(R\) be a domain with \(a,b,c \in R\). \index{Euclid's Lemma}
+\begin{proplist*}
+\item If \(d \in \GCD{a}{b}\) and \(e \in \GCD{ac}{bc}\) then \(e \ASSOC dc\). \label{prop:euclids-lemma:dist}
+\item If \(a \COPRIME b\), \(\GCD{ac}{bc}\) exists, and \(a|bc\), then \(a|c\). \label{prop:euclids-lemma:stmt}
+\end{proplist*}
+\end{prop}
+
+\begin{proof}
+\begin{inlineproplist}
+\item Note that \(d|a\) and \(d|b\), so that \(dc|ac\) and \(dc|bc\), and thus \(dc|e\). Say \(e = dcx\). Now \(dcx|ac\) and \(dcx|bc\), so that \(dx|a\) and \(dx|b\). Now \(dx|d\), so that \(x|1_R\). That is, \(x\) is a unit, and we have \(e \ASSOC dc\).
+\item Say \(e \in \GCD{ac}{bc}\). Now \(a|ac\) and \(a|bc\), so \(a|e\). By \ref{prop:euclids-lemma:dist}, we have \(e \ASSOC c\), thus \(a|c\) as needed.
+\end{inlineproplist}
+\end{proof}
+
+In fact many nice properties hold for greatest common divisors, all of which are contingent on GCDs existing in the first place -- and this is not guaranteed! That is, there are some domains, like \(\ZZ\), where \(\GCD{a}{b}\) is always nonempty, but there are other domains containing elements which do not have any greatest common divisors. (We explore some examples in the exercises.) Those rings, like \(\ZZ\), where GCDs always exist are special enough to warrant a definition.
+
+\begin{dfn}[GCD Ring] \label{dfn:gcd-ring}
+Let \(R\) be a domain. We say that \(R\) is a \emph{GCD ring} if any two elements of \(R\) have a greatest common divisor. \index{GCD ring} If $R$ is also a domain, we say it is a \emph{GCD domain}. \index{GCD domain}
+\end{dfn}
+
+Of course our motivating example \(\ZZ\) is a GCD domain, and we will see many more. Now several of the nice things we can say about GCDs in \(\ZZ\) hold in an arbitrary GCD domain.
+
+\begin{prop} \label{prop:gcd-dom-basics}
+Let \(R\) be a GCD domain with \(a,b,c \in R\).
+\begin{proplist*}
+\item If \(a \COPRIME b\) and \(a \COPRIME c\), then \(a \COPRIME bc\).
+\item If \(a \COPRIME b\), then \(\GCD{a}{bc} = \GCD{a}{c}\). \label{prop:gcd-dom-basics:drop-factor}
+\item If \(d \in \GCD{a}{b}\) with \(a = dx\) and \(b = dy\), then \(x \COPRIME y\).
+\item If \(a \COPRIME b\), \(d \in \GCD{ab}{c}\), \(e \in \GCD{a}{c}\), and \(f \in \GCD{b}{c}\), then \(d \ASSOC ef\).
+\end{proplist*}
+\end{prop}
+
+\begin{proof}
+\begin{inlineproplist}
+\item Suppose \(d|a\) and \(d|bc\). Now \(d|ab\) and \(d|cb\), so that \(d|e\), where \(e \in \GCD{ab}{cb}\). By \sref{prop:euclids-lemma}{dist} we have that \(e|b\). But now \(e|a\) and \(e|b\), so that \(e|1_R\); thus \(1_R\) is a greatest common divisor of \(a\) and \(bc\).
+\item Let \(d \in \GCD{a}{bc}\) and \(e \in \GCD{a}{c}\); it suffices to show that \(d \ASSOC e\). To this end, note that \(e|a\) and \(e|c\), so that \(e|bc\); thus \(e|d\). Now \(d|a\), so that \(d|ac\), and \(d|bc\). Letting \(f \in \GCD{ac}{bc}\), we have \(f \ASSOC 1_R \cdot c\), and thus \(d|c\). So we have \(d|e\), and thus \(d \ASSOC e\) as needed.
+\item Let \(e \in \GCD{x}{y}\). Now by \sref{prop:euclids-lemma}{dist} we have \(d \ASSOC ed\), and thus \(1_R \ASSOC e\) by \sref{prop:div-domain}{assoc-cancel}, as needed.
+\item Say \(a = ex\) and \(c = ey\), where \(x \COPRIME y\). Note that \(b \COPRIME e\) by \sref{prop:gcd-basics}{coprime-factor}, so that \[ \GCD{b}{c} = \GCD{b}{ey} = \GCD{b}{y} = \GCD{xb}{y} \] by \sref{prop:gcd-dom-basics}{drop-factor}. In particular, we have \(d \ASSOC ef\) by \sref{prop:euclids-lemma}{dist}.
+\end{inlineproplist}
+\end{proof}
+
+
+Recall that in a general domain we can characterize the ``indivisible'' elements in two slightly different ways: the irreducibles and the primes. In any domain, every prime is also irreducible. In a GCD domain, the converse also holds.
+
+\begin{prop} \label{prop:gcd-irreducible-implies-prime}
+If \(R\) is a GCD domain, then every irreducible element of \(R\) is also prime.
+\end{prop}
+
+\begin{proof}
+Let \(p\) be irreducible and suppose \(p|ab\). Let \(d \in \GCD{a}{p}\), and write \(a = da'\) and \(p = dp'\). Since \(p\) is irreducible, either \(d\) or \(p'\) is a unit. If \(d\) is a unit, then we have \(p|b\) by Euclid's Lemma. If \(p'\) is a unit, then \(p|a\).
+\end{proof}
+
+Remember that unlike \(\ZZ\), in a GCD domain we only know that greatest common divisors \emph{exist} -- we don't necessarily have a way to actually compute them. In the exercises we will compute GCDs 
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}
+Let $R$ and $S$ be domains, and let $x,y \in R \oplus S$. Show that if $x|y$ and $y|x$ then $x \ASSOC y$.
+\end{exercise}
+
+\begin{exercise}
+Let $R$ and $S$ be GCD domains with $r_1,r_2 \in R$ and $s_1,s_2 \in S$, and let $d_r \in \GCD{r_1}{r_2}$ and $d_s \in \GCD{s_1}{s_2}$. Show that $(d_r, d_s) \in \GCD{(r_1,s_1)}{(r_2,s_2)}$.
+\end{exercise}
+
+\begin{exercise}
+Let $X$ be a nonempty set and let $a,b \in \POW{X}$. Show that if $a|b$ and $b|a$ then $a = b$.
+\end{exercise}
+
+\begin{exercise}
+Let $X$ be a nonempty set, and let $A, B \in \POW{X}$. Show that $A \cup B \in \GCD{A}{B}$.
+\end{exercise}
+
+\begin{exercise}
+(@@@) Let $n > 1$.
+\begin{proplist*}
+\item Show that $k \ASSOC \GCD{k}{n}$.
+\item Show that the associate classes of $\ZZ/(n)$ are of the form $\GCD{k}{n}$ for $0 \leq k < n$.
+\item Show that if $a|b$ and $b|a$ then $a \ASSOC b$.
+\end{proplist*}
+\end{exercise}
+
+\begin{exercise}[$\ZZ/(n)$ has greatest common divisors.]
+(@@@) Let $n > 1$, let $a,b \in \ZZ/(n)$, and let $d$ be the greatest common divisor of $a$, $b$, and $n$ in $\ZZ$. Show that $d \in \GCD{a}{b}$ in $\ZZ/(n)$.
+\end{exercise}
+
+\begin{exercise}
+(@@@) find an example of two ring elements which divide each other but are not associate.
+\end{exercise}
+
+\begin{exercise} \label{exerc:gcd-meet}
+Let \(R\) be a CU ring, and let \(\ASSOCLAT{R}\) be the set of \(\ASSOC\)-equivalence classes of \(R\) (see \ref{dfn:assoc-sld}). Define a relation \(\wedge \subseteq (\ASSOCLAT{R} \times \ASSOCLAT{R}) \times \ASSOCLAT{R}\) as follows. \[ \wedge = \left\{ \left(([a],[b]), \GCD{a}{b}\right) \mid a,b \in R\ \mathrm{such\ that}\ \GCD{a}{b} \neq \varnothing \right\}. \]
+\begin{proplist}
+\item Show that \(\wedge\) is well-defined.
+\item Show that \(\wedge\) is total if and only if \(R\) is a GCD domain.
+\end{proplist}
+That is, \(\wedge\) is a partial function \(\ASSOCLAT{R} \times \ASSOCLAT{R} \rightarrow \ASSOCLAT{R}\) which is total if and only if \(R\) is a GCD domain.
+\end{exercise}
+
+\begin{exercise}
+Let \(R\) be a GCD domain, and let \(\wedge\) be defined on \(\ASSOCLAT{R}\) as in \eref{exerc:gcd-meet}. Show that the following hold for all $A,B,C \in \ASSOCLAT{R}$.
+\begin{proplist*}
+\item \(A \wedge A = A\)
+\item \(A \wedge B = B \wedge A\)
+\item \((A \wedge B) \wedge C = A \wedge (B \wedge C)\)
+\end{proplist*}
+\end{exercise}
+
+\begin{exercise}[A domain which is not a GCD domain.] In this exercise we will show that \(\ZZ[\sqrt{-3}]\) is a domain which is not a GCD domain.
+\begin{proplist}
+\item Show that the equation \(a^2 + ab + b^2 = 2\) has no solutions in \(\ZZ\).
+\item Show that no element of \(\ZZ[\sqrt{-3}]\) has norm 2 (@@@).
+\item Show that 2 is irreducible in \(\ZZ[\sqrt{-3}]\).
+\item Show that 2 divides \(4 = (1 + \sqrt{-3})(1 - \sqrt{-3})\) in \(\ZZ[\sqrt{-3}]\), but that 2 does not divide \(1 + \sqrt{-3}\) or \(1 - \sqrt{-3}\). In particular, 2 is not prime in \(\ZZ[\sqrt{-3}]\).
+\item Conclude that \(\ZZ[\sqrt{-3}]\) is not a GCD domain.
+\end{proplist}
+\end{exercise}
+
+\begin{dfn}[Least Common Multiple]
+Let \(R\) be a domain, with \(a,b \in R\). We say that \(m \in R\) is a \emph{least common multiple} \index{least common multiple} of \(a\) and \(b\) in \(R\) if
+\begin{proplist}
+\item \(m\) is a common multiple of \(a\) and \(b\); that is, \(a|m\) and \(b|m\), and \index{common multiple}
+\item \(m\) is least among the common multiples of \(a\) and \(b\); that is, if \(n \in R\) such that \(a|n\) and \(b|n\), then \(m|n\).
+\end{proplist}
+The set of all least common multiples of \(a\) and \(b\) is denoted \(\LCM{a}{b}\).
+\end{dfn}
+
+\begin{exercise}
+(@@@) example where euclid's lemma fails
+\end{exercise}
+
+\begin{exercise}
+(@@@) Show that \(\ZZFRAC{k}\) is a GCD domain.
+\end{exercise}
+
+\begin{exercise}
+(@@@) is this true: if \(R\) is a domain in which every irreducible is prime, then \(R\) is a GCD domain.
+\end{exercise}

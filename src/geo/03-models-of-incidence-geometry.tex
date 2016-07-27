@@ -1,0 +1,77 @@
+Our definition of incidence geometry is a kind of \textbf{theory}, and a theory is only really useful if it has at least one \textbf{model}. So before we develop our theory of geometry further, let's take a moment to construct some models.
+
+Remember that the words ``point'', ``collinear'', and ``line'' are context-dependent -- what they mean depends on the model -- and so we may end up using these words in unintuitive ways.
+
+
+
+\subsection{Cartesian Plane and Friends}
+
+We'll start with a model of incidence geometry with which you are probably already familiar: the cartesian plane. To define this or any model it's enough to specify (1) what our points are and (2) what it means for three points to be collinear. At risk of giving away the punchline, in this model points are pairs of numbers and lines are what you expect.
+
+\begin{prop}[Cartesian Plane] \label{prop:rr2-incidence-geo}
+Define a ternary relation on $\RR^2$ as follows. Given $A = (a_x, a_y)$, $B = (b_x, b_y)$, and $C = (c_x, c_y)$ in $\RR^2$, we say that $\COLLINEAR{A}{B}{C}$ if and only if $A$, $B$, and $C$ are not all equal and \[ \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ c_x & c_y & 1 \end{bmatrix} = 0. \] This relation makes the set $\RR^2$ an incidence geometry, which we call the \emph{cartesian plane}.
+\end{prop}
+
+\begin{proof}
+IG1, IG2, and IG3 can be verified directly, and we can see that IG4 holds by considering the points $(0,0)$, $(0,1)$, and $(1,0)$. So it suffices to show that IG5 holds. To this end suppose we have $A$, $B$, $U$, and $V$. Expanding and rearranging the known determinants, we have \[ (b_x - a_x)(u_y - a_y) = (b_y - a_y)(u_x - a_x) \] and \[ (b_x - a_x)(v_y - a_y) = (b_y - a_y)(v_x - a_x). \] If $a_x = b_x$, then we see that $u_x = a_x = v_x$ and thus $\COLLINEAR{A}{U}{V}$. Similarly, if $a_y = b_y$, we see that $u_y = a_y = v_y$ and so $\COLLINEAR{A}{U}{V}$. Finally, suppose we have $a_x \neq b_x$ and $a_y \neq b_y$. Now we have \[ \frac{u_y - a_y}{u_x - a_x} = \frac{b_y - a_y}{b_x - a_x} = \frac{v_y - a_y}{v_x - a_x}. \] Equating the first and last of these expressions we get $\COLLINEAR{A}{U}{V}$.
+\end{proof}
+
+This might seem like a strange way to define ``collinearity'', but it is easy to compute, and by expanding the determinant we can see that the lines in this geometry are precisely the solutions of linear equations.
+
+\begin{cor}[Lines in $\RR^2$] \label{cor:cartesian-lines}
+Let $A = (a_x, a_y)$ and $B = (b_x, b_y)$ be distinct cartesian points. Then $\LINE{A}{B}$ is the set of all points $X = (x,y)$ which satisfy the equation \[ (b_y-a_y)x - (b_x-a_x)y + a_yb_x - a_xb_y = 0. \]
+\end{cor}
+
+You may have noticed that our proof of \ref{prop:rr2-incidence-geo} used nothing more than the arithmetic on $\RR$. This means that the result still holds if we replace $\RR$ by any object $F$ where we have an arithmetic which behaves like that of $\RR$. Such objects are called \emph{fields}, and there are many examples, including the field $\QQ$ of rational numbers and the field $\CC$ of complex numbers. So we immediately get some additional models as well.
+
+\begin{cor}
+The sets $\QQ^2$ and $\CC^2$ are incidence geometries, which we call the \emph{rational plane} and the \emph{complex plane}, respectively.
+\end{cor}
+
+Note that lines in \(\QQ^2\) look much like lines in \(\RR^2\) except that they are filled with ``holes''; any point on a line in \(\RR^2\) which has an irrational coordinate is not on the corresponding line in \(\QQ^2\). Lines in \(\CC^2\) are stranger still.
+
+
+
+\subsection{Unit Disc}
+
+Once we have an incidence geometry $P$ lying around, one way to try to build new ones is by restricting the collinearity on $P$ to subsets of $P$.
+
+\begin{prop}[Unit Disc]
+Let \(\mathbb{D} = \{ (x,y) \in \RR^2 \mid x^2 + y^2 < 1 \}\); these are points in the cartesian plane which are inside the unit circle. Given points $A$, $B$, and $C$ in $\mathbb{D}$, we say they are collinear in $\mathbb{D}$ if they are collinear in $\RR^2$. Then this relation makes $\mathbb{D}$ an incidence geometry, which we call the \emph{Unit Disc}.
+\end{prop}
+
+Lines in the unit disc are chords of the unit circle (not including their endpoints). Already the word ``line'' is being twisted.
+
+
+
+\subsection{The Fano Plane}
+
+We will now see a very different and somewhat strange model of incidence geometry.
+
+\begin{dfn}[The Fano Plane]
+Let \(P = \{1,2,3,4,5,6,7\}\), and then let \(L = \{\{1,2,3\},\) \(\{2,4,6\},\) \(\{1,4,7\},\) \(\{1,5,6\},\) \(\{2,5,7\},\) \(\{3,4,5\},\) \(\{3,6,7\}\}\). We then define a ternary relation on $P$ by $\COLLINEAR{a}{b}{c}$ if and only if $\{a,b,c\}$ is not a singleton and is contained in some $\ell \in L$. The set $P$ with this ternary relation is called the \emph{Fano Plane}.
+\end{dfn}
+
+It turns out that the Fano plane is an incidence geometry.
+
+
+
+\subsection{The Antipodal Sphere}
+
+\begin{dfn}[Antipodal Sphere]
+Let $S = \{ (x,y,z) \in \RR^3 \mid x^2 + y^2 + z^2 = 1 \}$, and consider the equivalence relation $\sigma$ on $S$ such that $x \,\sigma\, y$ if and only if $y = \pm x$. We define the set $\mathbb{A} = S/\sigma$, and call the elements of $\mathbb{A}$ \emph{antipodal pairs}. We define a ternary relation on $\mathbb{A}$ by $\COLLINEAR{A}{B}{C}$ if and only if \[ \DET \begin{bmatrix} a_x & a_y & a_z \\ b_x & b_y & b_z \\ c_x & c_y & c_z \end{bmatrix} = 0. \] This relation makes $\mathbb{A}$ an incidence geometry, which we call the \emph{antipodal sphere}.
+\end{dfn}
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}[A parallel criterion in $\RR^2$.]
+Let $A = (a_1,a_2)$, $B = (b_1,b_2)$, $C = (c_1,c_2)$, and $D = (d_1,d_2)$ be points in the cartesian plane with $A \neq B$ and $C \neq D$. Then $\LINE{A}{B}$ and $\LINE{C}{D}$ are parallel if and only if \[ \DET \begin{bmatrix} b_1 - a_1 & d_1 - c_1 \\ b_2 - a_2 & d_2 - c_2 \end{bmatrix} = 0. \]
+\end{exercise}
+
+\begin{exercise}[A collinearity criterion in $\RR^2$.]
+Let $A = (a_x,a_y)$, $B = (b_x,b_y)$, and $C = (c_x,c_y)$ be points in $\RR^2$ such that $A \neq C$ and $B \neq C$. Show that $A$, $B$, and $C$ are collinear if and only if \[ \DET \begin{bmatrix} a_x - c_x & b_x - c_x \\ a_y - c_y & b_y - c_y \end{bmatrix} = 0. \]
+\end{exercise}

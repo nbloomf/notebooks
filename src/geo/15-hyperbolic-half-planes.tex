@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage{neb-macros}
+\usepackage{tikz}
+  \usetikzlibrary{calc,intersections}
+
+\begin{document}
+
+\CheapTitle{Hyperbolic Half-Planes}
+
+We've seen that every plane geometry must be either Euclidean or Hyperbolic, and we have a concrete model of Euclidean plane geometry -- the Cartesian plane. In this section we will construct a concrete model of Hyperbolic plane geometry called the Poincare Half-Plane.
+
+Let $\mathcal{P}$ be a Euclidean plane geometry. In this section, we will refer to the lines of $\mathcal{P}$ as $\mathcal{P}$-lines. Let $\mathcal{L}$ be a $\mathcal{P}$-line, and let $\mathcal{H}$ be one of the half-planes induced by $\mathcal{L}$ via the plane separation property.
+
+We will consider subsets of $\mathcal{H}$, called $\mathcal{H}$-lines, of the following two types.
+\begin{itemize}
+\item A \emph{Type I} $\mathcal{H}$-line is a subset of the form $\mathcal{H} \cap \ell$, where $\ell$ is a $\mathcal{P}$-line which is perpendicular to $\mathcal{L}$.
+\item A \emph{Type II} $\mathcal{H}$-line is a subset of the form $\mathcal{H} \cap \Circle{o}{x}$, where $\Circle{o}{x}$ is a $\mathcal{P}$-circle whose center $o$ is on $\mathcal{L}$. We will call $o$ the \emph{phantom center} of this $\mathcal{H}$-line.
+\end{itemize}
+
+Certainly $\mathcal{H}$, together with the family of all possible $\mathcal{H}$-lines described above, is an incidence structure.
+
+\begin{prop}
+$\mathcal{H}$ is an incidence geometry.
+\end{prop}
+
+\begin{proof} \mbox{}
+\begin{itemize}
+\item[IG1.] Let $x,y \in \mathcal{H}$ be distinct points. If the $\mathcal{P}$-line $\Line{x}{y}$ is perpendicular to the $\mathcal{P}$-line $\mathcal{L}$, then there is exactly one $\mathcal{H}$-line of type I containing $x$ and $y$, and there are no $\mathcal{H}$-lines of type II containing $x$ and $y$. If the $\mathcal{P}$-line $\Line{x}{y}$ is not perpendicular to the $\mathcal{P}$-line $\mathcal{L}$, then there is exactly one type II $\mathcal{H}$-line containing $x$ and $y$, and there are no type I $\mathcal{H}$-lines containing $x$ and $y$.
+
+\item[IG2.] (Every $\mathcal{H}$-line contains at least two distinct points.)
+
+\item[IG3.] Note that $\mathcal{H}$ is not empty by the Plane Separation property; let $x \in \mathcal{H}$. Construct the foot $f$ of $x$ on $\mathcal{L}$, and by interpolation let $y$ be a point such that $\Between{f}{y}{x}$. Now construct a point $g$ on $\mathcal{L}$ different from $f$ by interpolation, and again let $z$ be a point such that $\Between{g}{z}{x}$ by interpolation. Note that both $y$ and $z$ are in $\mathcal{H}$. Moreover, there is a unique Type I $\mathcal{H}$-line containing $x$ and $y$, which does not contain $z$, and there are no Type II $\mathcal{H}$-lines containing $x$ and $y$. So $x$, $y$, and $z$ are not collinear. \qedhere
+\end{itemize}
+\end{proof}
+
+Note that two $\mathcal{H}$-lines intersect if and only if they intersect as sets in $\mathcal{P}$.
+
+\begin{prop}
+$\mathcal{H}$ is Hyperbolic.
+\end{prop}
+
+\begin{proof}
+Recall that an incidence geometry is called \emph{hyperbolic} if, given a line $\ell$ and a point $p$ not on $\ell$, there are infinitely many lines $t$ which pass through $p$ and do not intersect $\ell$. Since $\mathcal{H}$ has lines of two types, we need to consider each one separately.
+\begin{itemize}
+\item Let $\mathcal{H} \cap \ell$ be a Type I $\mathcal{H}$-line, where $\ell$ is a $\mathcal{P}$-line which is perpendicular to $\mathcal{L}$ at $o$. Let $p \in \mathcal{H}$ be a point, and let $f$ be the foot of $p$ on $\mathcal{L}$ (in $\mathcal{P}$). Let $q$ be any point such that $\Between{o}{q}{f}$ in $\mathcal{P}$. There is a unique point $a$ on $\mathcal{L}$ such that $\Segment{a}{p} \equiv \Segment{a}{q}$, and $\mathcal{H} \cap \Circle{a}{p}$ is a Type II $\mathcal{H}$-line containing $p$. Note that the foot of $a$ on $\ell$ is exterior to $\Circle{a}{p}$, and thus $\mathcal{H} \cap \Circle{a}{p}$ and $\mathcal{H} \cap \ell$ are parallel. There are infinitely many possible $q$s, all of which yield distinct $\mathcal{H}$-lines. So there are infinitely many $\mathcal{H}$-lines which pass through $p$ and are parallel to $\mathcal{H} \cap \ell$.
+\item (finish this) \qedhere
+\end{itemize}
+\end{proof}
+
+\subsection*{A Concrete Model}
+
+We've seen that \emph{any} line in \emph{any} Euclidean plane geometry can be used to construct a new hyperbolic incidence geometry, which we've called a half-plane model. Let's now choose a specific Euclidean plane and a specific line: consider the line $\mathcal{L} = \Line{(0,0)}{(1,0)}$ in the Cartesian plane, and let $\mathcal{H}$ be the $(0,1)$-side of $\mathcal{L}$. That is, $\mathcal{H} = \{ (x,y) \mid x,y \in \RR, y > 0 \}$.
+
+If $X$ and $Y$ are distinct points in $\mathcal{H}$, then there is a unique line $\Line{X}{Y}$ which contains both. Presently, we will construct a \emph{parameterization} of $\Line{X}{Y}$; that is, a function $\Phi_{X,Y} : \RR \rightarrow \Line{X}{Y}$ having the property that $\Phi_{X,Y}(0) = X$ and $\Phi_{X,Y}(1) = Y$. You may recall that we did something similar in the Cartesian plane, although there we \emph{defined} lines in terms of their parameterization.
+
+Suppose $X$ and $Y$ generate a Type I line in $\mathcal{H}$. In this case, we have $X = (z,x_2)$ and $Y = (z,y_2)$ for some $z$, and both $x_2$ and $y_2$ are strictly positive. Let $\alpha = \ln(x_2)$ and $\beta = \ln(y_2)$, and define $\Phi_{X,Y}(t) = (z, e^{\alpha + t(\beta - \alpha)})$. Certainly $\Psi_{X,Y} : \RR \rightarrow \Line{X}{Y}$ is bijective, and we have $\Phi_{X,Y}(0) = X$ and $\Phi_{X,Y}(1) = Y$. Note also that $\Phi_{Y,X}(t) = \Phi_{X,Y}(1-t)$.
+
+Now suppose $X$ and $Y$ generate a Type II line in $\mathcal{H}$. Let $O = (c,0)$ be the phantom center of $X$ and $Y$, and let $r = \sqrt{(X-O) \cdot (X-O)}$. Now define a mapping $\varphi : \RR \rightarrow \Line{X}{Y}$ by \[ \varphi(t) = \left(c - \frac{rt}{\sqrt{t^2 + r^2}}, \frac{r^2}{\sqrt{t^2 + r^2}} \right).\] Note that $\varphi$ is bijective, with inverse $\psi(a,b) = r(c-a)/b$. Let $\alpha = \psi(X)$ and $\beta = \psi(Y)$. Finally, define $\Phi_{X,Y} : \RR \rightarrow \Line{X}{Y}$ by $\Phi_{X,Y}(t) = \varphi(\alpha + t(\beta - \alpha))$. Certainly $\Phi_{X,Y}$ is a bijection, and we have $\Phi_{X,Y}(0) = X$ and $\Phi_{X,Y}(1) = Y$. Note also that $\Phi_{Y,X}(t) = \Phi_{X,Y}(1-t)$.
+
+\begin{prop}
+The ternary relation $\Between{\cdot}{\cdot}{\cdot}$ given by $\Between{x}{z}{y}$ iff there is a $t \in (0,1)$ such that $Z = \Phi_{X,Y}(t)$. is a betweenness relation.
+\end{prop}
+
+\begin{proof} \mbox{}
+\begin{itemize}
+\item[B2.] Suppose $\Between{X}{Z}{Y}$. By definition, $Z = \Phi_{X,Y}(t)$ where $t \in (0,1)$. Now $1-t \in (0,1)$, and we have $Z = \Phi_{Y,X}(1-t)$ as needed. Certainly $Z \in \Line{X}{Y}$.
+\item[B3.] Let $X$, $Y$, and $Z$ be distinct points in $\mathcal{H}$, and suppose WLOG that $\Between{X}{Y}{Z}$ and $\Between{X}{Z}{Y}$. Now $X$, $Y$, and $Z$ are collinear.
+\begin{itemize}
+\item Suppose $X$, $Y$, and $Z$ are on a Type I line; say $X = (u,x)$, $Y = (u,y)$, and $Z = (u,z)$. Now $z = e^{\ln(x) + t(\ln(y) - \ln(x))}$ and $y = e^{\ln(x) + v(\ln(z) - \ln(x))}$ for some $t,v \in (0,1)$. Substituting, we see that $z = e^{\ln(x) + tv(\ln(z) - \ln(x))}$, and since the exponential map is injective, $\ln(x) = \frac{\ln(y) - v\ln(z)}{1-v}$. Similarly, $\ln(x) = \frac{\ln(z) - t\ln(y)}{1-t}$. From here we can show that $\ln(y) = \ln(z)$, a contradiction.
+\item Suppose $X$, $Y$, and $Z$ are on a Type II line. Let $\alpha = \psi(X)$, $\beta = \psi(Y)$, and $\gamma = \psi(Z)$. Now $Z = \varphi(\alpha + t(\beta - \alpha))$ and $Y = \varphi(\alpha + v(\gamma - \alpha))$ for some $t,v \in (0,1)$. Hitting both of these equations with $\psi$, we see $\beta - \alpha = v(\gamma - \alpha)$ and $\gamma - \alpha = t(\beta - \alpha)$, so that $tv = 1$, a contradiction.
+\end{itemize}
+\end{itemize}
+\end{proof}
+
+Note that $\Between{X}{Y}{Z}$ iff $X$, $Y$, and $Z$ are collinear and either $\psi(X) < \psi(Y) < \psi(Z)$ or $\psi(X) > \psi(Y) > \psi(Z)$.
+
+\begin{prop}
+$\mathcal{H}$ has the Trichotomy property, the Four-Point property, and the Interpolation property.
+\end{prop}
+
+\begin{proof} \mbox{}
+\begin{itemize}
+\item \textbf{Trichotomy.} Let $X$ and $Y$ be distinct points in $\mathcal{H}$, and let $Z \in \Line{X}{Y}$ be distinct from both. Now $Z = \Phi_{X,Y}(t)$ for some $t \in \RR$. Let $\alpha = \psi(X)$, $\beta = \psi(Y)$, and $\gamma = \psi(Z)$. Now $Z = \Phi_{X,Y}(t)$ for some $t \in \RR$, and hitting both sides of this equation with $\psi$, we have $\gamma = \alpha + t(\beta - \alpha)$. Solving this equation for $\alpha$ and then $\beta$, we see that $\alpha = \beta + \frac{1}{1-t}(\gamma - \beta)$ and $\beta = \alpha + \frac{1}{t}(\gamma - \alpha)$. Note that one of $t$, $1/t$, and $1/(1-t)$ must be in the interval $(0,1)$.
+\item (finish this)
+\item (finish this)
+\end{itemize}
+\end{proof}
+
+\begin{prop}
+$\mathcal{H}$ has the Plane-Separation property.
+\end{prop}
+
+\begin{proof}
+Use plane separation in $\RR^2$ for Type I lines, and interior and exterior of circles for Type II lines.
+\end{proof}
+
+\end{document}

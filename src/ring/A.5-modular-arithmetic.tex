@@ -1,0 +1,92 @@
+\begin{dfn}[Congruence Modulo \(n\)]
+Let \(n\) be a positive integer. We say that integers \(a\) and \(b\) are \emph{congruent modulo \(n\)}, denoted \(a \equiv b \mod n\) or \(a \equiv_n b\), if \(n|(b-a)\).
+\end{dfn}
+
+\begin{prop}
+If \(n\) is a fixed positive integer, then congruence modulo \(n\) is an equivalence relation. 
+\end{prop}
+
+Since \(\equiv_n\) is an equivalence, it induces a partition on the set \(\ZZ\) of integers, \(\ZZ/\equiv_n\). We will denote this partition using \(\ZZ/(n)\), and refer to this set as the set of \emph{modular integers}.
+
+\begin{prop}
+The elements of \(\ZZ/(n)\) are sets of the form \([r]_n\), where \(0 \leq r < n\); such \(r\) are called \emph{residues} mod \(n\). Moreover, any two such sets are distinct. In particular, \(\ZZ/(n)\) is a finite set with precisely \(n\) elements, which are represented by the set of residues \(\{0,1,\ldots,n-1\}\). 
+\end{prop}
+
+\begin{proof}
+First we show that every class in \(\ZZ/(n)\) has a representative \(r\) with \(0 \leq r < n\). To this end, let \([a] \in \ZZ/(n)\). By the Division Algorithm, we have \(a = qn + r\), where \(0 \leq r < n\), and since \(a - r = qn\), we have \(a \equiv r \mod n\). Thus \([a] = [r]\) as needed.
+
+Next we show that two such classes are distinct. To this end, suppose we have \([r_1] = [r_2]\), where \(0 \leq r_1, r_2 < n\). By definition, we have that \(n\) divides \(r_2 - r_1\); say \(r_2 - r_1 = qn\). In particular, \(r_2 = qn + r_1\). Note also that \(r_2 = 0 \cdot n + r_2\). By the uniqueness of positive remainders given by the Division Algorithm, we have \(r_1 = r_2\).
+\end{proof}
+
+
+\begin{prop}
+Let \(n\) be a positive integer. If \(a_1\), \(a_2\), \(b_1\), and \(b_2\) are integers such that \(a_1 \equiv a_2 \mod n\) and \(b_1 \equiv b_2 \mod n\), then we have the following.
+\begin{enumerate}
+\item \(a_1 + b_1 \equiv a_2 + b_2 \mod n\).
+\item \(a_1 b_1 \equiv a_2 b_2 \mod n\).
+\end{enumerate}
+\end{prop}
+
+\begin{cor}
+Let \(n\) be a positive integer. Then the operations \(+\) and \(\cdot\) on \(\ZZ/(n)\) given by \[ [a] + [b] = [a+b] \quad \mathrm{and} \quad [a] \cdot [b] = [ab] \] are well-defined.
+\end{cor}
+
+\begin{prop}[Modular Arithmetic]
+Let \(n\) be a positive integer. Then \(\ZZ/(n)\), with the operations \(+\) and \(\cdot\) defined as above, satisfy the following properties.
+\begin{itemize}
+\item[A1.] \(\left([a] + [b]\right) + [c] = [a] + \left([b] + [c]\right)\) for all \(a\), \(b\), and \(c\).
+\item[A2.] There is a modular integer \(0\) with the property that \([a] + 0 = 0 + [a] = [a]\) for all \(a\).
+\item[A3.] For every residue \([a]\), there is a unique residue \([b]\) with the property that \([a] + [b] = [b] + [a] = 0\). We denote this residue by \(-[a]\).
+\item[A4.] \([a] + [b] = [b] + [a]\) for all \(a\) and \(b\).
+\item[M.] \(\left([a] \cdot [b]\right) \cdot [c] = [a] \cdot \left([b] \cdot [c]\right)\) for all \(a\), \(b\), and \(c\).
+\item[D.] \([a] \cdot \left([b] + [c]\right) = [a] \cdot [b] + [a] \cdot [c]\) and \(\left([b] + [c]\right) \cdot [a] = [b] \cdot [a] + [c] \cdot [a]\) for all \(a\), \(b\), and \(c\).
+\item[C.] \([a] \cdot [b] = [b] \cdot [a]\) for all \(a\) and \(b\).
+\item[U.] There is a modular integer \(1\) with the property that \([a] \cdot 1 = 1 \cdot [a] = [a]\) for all \(a\).
+\end{itemize}
+\end{prop}
+
+
+
+\begin{prop}[Modular Inverses]
+Let \(n\) be a positive integer, and \(a\) an integer. Then the congruence \(ax \equiv 1 \mod n\) has a solution \(x\) if and only if \(\GCD{a}{n} = 1\). In this case, the solution \(x\) is unique mod \(n\).
+\end{prop}
+
+\begin{proof}
+First suppose \(\GCD{a}{n} = 1\). By Bezout's Identity, we have \(au + nv = 1\) for some integers \(u\) and \(v\). In particular, \(n|(au - 1)\), so that \(au \equiv 1 \mod n\) as needed. Conversely, suppose \(ax \equiv 1 \mod n\) has a solution \(u\). By definition we have that \(n\) divides \(au - 1\), so that \(1 = au + nv\) for some integer \(v\). Now let \(d = \GCD{a}{n}\), with \(a = da'\) and \(n = dn'\). Then \(1 = d(a'u + n'v)\), so that \(d = 1\) as claimed.
+
+Finally, suppose we have two solutions of this equation, \(u_1\) and \(u_2\). Note that \(au_1 \equiv au_2 \mod n\), so that \(n\) divides \(au_1 - au_2 = a(u_1 - u_2)\). Since \(\GCD{a}{n} = 1\) we have \(n|(u_1 - u_2)\) by Euclid's Lemma, so that \(u_1 \equiv u_2 \mod n\) as claimed.
+\end{proof}
+
+\begin{cor}
+Let \(p > 1\) be a prime. If \(ab \equiv 0 \mod p\), then either \(a \equiv 0 \mod p\) or \(b \equiv 0 \mod p\).
+\end{cor}
+
+\begin{cor}
+Let \(p\) be a prime. If \(a \in [1,p)\), then there is a unique \(b \in [1,p)\) such that \(ab \equiv 1 \mod p\). Moreover, \(a\) and \(b\) are distinct unless \(a = 1\) or \(a = p-1\).
+\end{cor}
+
+\begin{proof}
+The existence and uniqueness of \(b\) follows from the previous result. Now suppose \(a = b\); that is, \(a^2 \equiv 1 \mod p\). Then \((a-1)(a+1) \equiv 0 \mod p\). Since \(p\) is prime, we must have either \(a-1 \equiv 0 \mod p\) or \(a+1 \equiv 0 \mod p\); in the first case, \(a = 1\), and in the second case, \(a = p-1\).
+\end{proof}
+
+\begin{cor}[Wilson's Theorem]
+Let \(n > 2\) be an integer. Then \(n\) is prime if and only if \((n-1)! \equiv -1 \mod n\).
+\end{cor}
+
+\begin{proof}
+Suppose \(n = p\) is prime, and consider the residues \[1, 2, 3, \ldots, p-2, p-1.\] All such residues \emph{except} \(1\) and \(p-1\) come in inverse pairs. So after rearranging, we have \[ (p-1)! = 1 \cdot (p-1) \cdot (t_1 \cdot u_1) \cdot \cdots \cdot (t_k \cdot u_k), \] where \(t_i \cdot u_i \equiv 1 \mod p\). Thus \((p-1)! \equiv p-1 \equiv -1 \mod p\) as claimed.
+
+Conversely, suppose \(n\) is not prime; then we have \(1 < a < n\) and \(1 < b < n\) such that \(n = ab\). But now \(a\) and \(b\) both appear among the factors of \((n-1)!\), so that \((n-1)! \equiv 0 \mod n\).
+\end{proof}
+
+\begin{prop}[Simultaneous Linear Congruences]
+Let \(a\) and \(b\) be relatively prime positive integers. Then for any integers \(u\) and \(v\), the system of congruences \[ \left\{ \begin{array}{rcl} x & \equiv & u \mod a \\ x & \equiv & v \mod b \end{array} \right. \] has a unique solution mod \(n\).
+\end{prop}
+
+\begin{proof}
+First we show existence. Since \(\GCD{a}{b} = 1\), by Bezout's Identity there exist integers \(h\) and \(k\) such that \(1 = ah + bk\). Multiplying by \(v-u\), we have \[ v-u = ah(v-u) + bk(v-u), \] and rearranging, we let \[ t = u + ah(v-u) = v - bk(v-u). \] Clearly \(t \equiv u \mod a\) and \(t \equiv v \mod b\).
+
+Next we show uniqueness. To this end, suppose \(t\) and \(s\) are both solutions of this system. In particular, we have \(t \equiv u \mod a\) and \(t \equiv u \mod b\). Say \(q_1a = u - t = q_2b\). Now \(a\) divides \(q_2b\), and since \(a\) and \(b\) are relatively prime, by Euclid's Lemma we have \(a|q_2\). Thus \(u-t = q_2^\prime ab\), so that \(t \equiv u \mod ab\) as needed.
+\end{proof}
+
+

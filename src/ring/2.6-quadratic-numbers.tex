@@ -1,0 +1,40 @@
+\begin{prop}
+\(\ZZ[i]\) is a Euclidean domain under the norm \(N(a+bi) = a^2 + b^2\).
+\end{prop}
+
+\begin{proof}
+Let \(\alpha = a_1 + a_2 i\) and \(\beta = b_1 + b_2 i\) be Gaussian integers, with \(\beta \neq 0\). Thinking of \(\alpha\) and \(\beta\) as elements of \(\QQ(i)\), we have \[ \frac{\alpha}{\beta} = t_1 + t_2 i = \frac{a_1b_1 + a_2b_2}{b_1^2 + b_2^2} + \frac{a_2b_1 - a_1b_2}{b_1^2 + b_2^2} i. \] Choose integers \(q_1\) and \(q_2\) such that \(|q_1 - t_1| \leq \frac{1}{2}\) and \(|q_2 - t_2| \leq \frac{1}{2}\). (Note that this is always possible.) Let \(\gamma = q_1 + q_2 i\), and let \(\delta = \alpha - \gamma\beta\). Note that by construction, \(\gamma\) and \(\delta\) are in \(\ZZ[i]\).
+
+We now have
+\begin{eqnarray*}
+N(\delta) & = & N(\alpha - \gamma\beta) = N\left((\frac{\alpha}{\beta} - \gamma)\beta\right) = N(\frac{\alpha}{\beta} - \gamma)N(\beta) \\
+ & = & ((q_1-t_1)^2 + (q_2-t_2)^2)N(\beta) \leq \frac{1}{2}N(\beta) < N(\beta),
+\end{eqnarray*}
+as needed.
+\end{proof}
+
+\begin{cor}
+\(\ZZ[i]\) is a GCD domain and a UFD.
+\end{cor}
+
+Here is a worked example of the division algorithm in the Gaussian integers. Let \(\alpha = 10+7i\) and \(\beta = 3+2i\). Now \[ \frac{\alpha}{\beta} = \frac{44}{13} + \frac{1}{13}i = (3 + \frac{5}{13}) + (0 + \frac{1}{13})i. \] Let \(t_1 = 3\) and \(t_2 = 0\), so that \(\gamma = 3\). Now \(\delta = \alpha - \gamma\beta = 1+i\). We then have \(10+7i = 3(3+2i) + (1+i)\) and \(N(1+i) < N(3+2i)\).
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}[A Theorem of Fermat]
+5 and 3 have the curious property that \(3^3 = 5^2 + 2\). Fermat asked whether or not there are any other pairs like this: a perfect square and a perfect cube separated by 2. (@@@)
+\begin{proplist}
+\item Show that \(x \equiv y \equiv 1 \pmod{2}\).
+\item Show that \(x - \sqrt{-2}\) and \(x + \sqrt{-2}\) are relatively prime in (@@@).
+\item Since blah is a UFD let \(x + \sqrt{-2} = (m+n\sqrt{-2})\), show that \(x = \pm 5\).
+\end{proplist}
+\end{exercise}
+
+\begin{exercise}
+(@@@) (Factorization in \(\ZZ[i]\))
+\end{exercise}
+
+mordell equations

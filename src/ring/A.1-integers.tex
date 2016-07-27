@@ -1,0 +1,119 @@
+We begin with a formal definition of the set of numbers we call \emph{integers}.
+
+\begin{axiom}[The Integers]
+There is a set \(\ZZ\), whose elements are called \emph{integers}, \index{integer} which is equipped with two special distinct elements 0 (called \emph{zero}) and 1 (called \emph{one}), two binary operations \(+\) (called \emph{plus}) and \(\cdot\) (called \emph{times}, and typically not written explicitly) and a binary relation \(\leq\) (pronounced ``is less than or equal to'') which together satisfy the following properties.
+\begin{proplist*}
+\item[A1.] Plus is \emph{associative}: \((a+b)+c = a+(b+c)\) for all \(a,b,c \in \ZZ\).
+\item[A2.] Zero is \emph{neutral} with respect to plus: \(a+0 = 0+a = a\) for all \(a \in \ZZ\).
+\item[A3.] Every integer has an \emph{additive inverse}: for every \(a \in \ZZ\) there is an element \(-a \in \ZZ\) (called a \emph{negative} of \(a\)) such that \(a+(-a) = (-a)+a = 0\).
+\item[A4.] Plus is \emph{commutative}: \(a+b = b+a\) for all \(a,b \in \ZZ\).
+\item[M.] Times is \emph{associative}: \((ab)c = a(bc)\) for all \(a,b,c \in \ZZ\).
+\item[D.] Times \emph{distributes over} plus from either side: \(a(b+c) = ab + ac\) and \((b+c)a = ba + ca\) for all \(a,b,c \in \ZZ\).
+\item[C.] Times is \emph{commutative}: \(ab = ba\) for all \(a,b \in \ZZ\).
+\item[U.] One is \emph{neutral} with respect to times: \(1 \cdot a = a \cdot 1 = a\) for all \(a \in \ZZ\).
+\item[P1.] \(a \leq a\) for all \(a \in \ZZ\).
+\item[P2.] If \(a \leq b\) and \(b \leq c\), then \(a \leq c\), for all \(a,b,c \in \ZZ\).
+\item[P3.] If \(a \leq b\) and \(b \leq a\), then \(a = b\) for all \(a,b \in \ZZ\).
+\item[T.] If \(a,b \in \ZZ\), then either \(a \leq b\) or \(b \leq a\).
+\item[O1.] If \(a \leq b\) then \(a+c \leq b+c\) for all \(a,b,c \in \ZZ\). \label{ax:o1}
+\item[O2.] If \(0 \leq a\) and \(0 \leq b\) then \(0 \leq ab\). \label{ax:o2}
+\item[O3.] \(0 \leq 1\).
+\item[WOP.] Suppose \(S\) is a nonempty subset of \(\ZZ\) which is bounded below; say \(b \in \ZZ\) has the property that \(b \leq s\) for all \(s \in S\). Then there is an integer \(m \in S\) such that \(m \leq s\) for all \(s \in S\). That is, every nonempty subset of \(\ZZ\) which is bounded below has a least element. \index{well-ordering property} This is called the \emph{well-ordering property} of \(\ZZ\).
+\end{proplist*}
+\end{axiom}
+
+As usual, \(a < b\) is short for \(a \leq b\) and \(a \neq b\); \(a \geq b\) is equivalent to \(b \leq a\), and \(a > b\) is equivalent to \(b < a\).
+
+It may seem silly to introduce such a large ``axiom''. Indeed, it is possible to build up the integers out of simpler objects. However, doing so is not necessary for our purposes. In developing any axiomatic system there is a balance to be made between \emph{simplicity of axioms} and \emph{distance to interesting results}. Taking the existence of \(\ZZ\) as an axiom does not sacrifice too much simplicity -- it is ``only'' one axiom -- but allows us to say useful things very quickly.
+
+Most of the properties of \(\ZZ\) are familiar. The least intuitive is probably the last one, the well-ordering property. While strange at first, this property is extremely important. For example, we can use it to establish this ``obvious'' result.
+
+\begin{prop}
+There is no integer \(t\) such that \(0 < t\) and \(t < 1\).
+\end{prop}
+
+\begin{proof}
+Let \(S = \{ t \in \ZZ \mid 0 < t \ \mathrm{and}\ t < 1 \}\), and suppose that \(S\) is not empty. Note that \(S\) is bounded below by \(0\) by definition; if \(t \in S\) then \(0 < t\). By WOP, then, \(S\) must have a least element; say \(m\). Since \(0 < m\), we have \(0 < mm\) by \ref{ax:o2}. On the other hand, since \(0 < m\) and \(m < 1\), we have \(mm < m\) by \ref{ax:o1}. That is, \(mm \in S\), and \(mm < m\) -- a contradiction.
+\end{proof}
+
+It is not too hard to show that every integer $a$ satisfies exactly one of $a > 0$, $a = 0$, and $a < 0$, a result we call the Trichotomy property. As usual if $a > 0$ we say $a$ is \emph{positive} and if $a < 0$ we say $a$ is \emph{negative}, and zero is neither positive nor negative. The nonnegative integers are special enough that we give them a name.
+
+\begin{dfn}[The Natural Numbers]
+We denote by \(\NN\) the set of all integers \(n\) such that \(n \geq 0\). Elements of \(\NN\) are called \emph{natural numbers}. \index{natural number}
+\end{dfn}
+
+Now the natural numbers satisfy a nice structural property.
+
+\begin{prop}
+If \(n \in \NN\), then either \(n = 0\) or \(n = m+1\) for some \(m \in \NN\).
+\end{prop}
+
+\begin{proof}
+Suppose \(n \in \NN\) and \(n \neq 0\); then \(n > 0\). Let \(m = n-1\). Now if \(m < 0\), we have \(n-1 < 0 < n\), and thus \(0 < 1-n < 1\), a contradiction. By trichotomy, either \(m = 0\) or \(m > 0\); that is, \(m \in \NN\).
+\end{proof}
+
+The well-ordering property of $\ZZ$ gives us a very powerful tool for working with natural numbers, called the Principle of Mathematical Induction.
+
+\begin{prop}[Principle of Mathematical Induction]
+Let \(B \subseteq \NN\). If \(B\) satisfies the following two properties:
+\begin{proplist}
+\item \(0 \in B\), and
+\item If \(n \in B\), then \(n+1 \in B\);
+\end{proplist}
+then \(B = \NN\).
+\end{prop}
+
+\begin{proof}
+We will prove this result by contradiction. Let \(S = \{ n \in \NN \mid n \not\in B \}\), and suppose \(S\) is not empty. Then by the Well-Ordering Property, \(S\) has a least element; say \(t\). Since \(t \in \NN\), either \(t = 0\) or \(t = u+1\) for some \(u \in \NN\). Since \(0 \in B\), it must be the case that \(t = u+1\). Note that since \(u < t\), and \(t\) is minimal among the natural numbers which are not in \(B\), we have \(u \in B\). But then \(t = u+1 \in B\), a contradiction. So in fact \(S\) is empty and we have \(B = \NN\).
+\end{proof}
+
+The Principle of Mathematical Induction (also called just ``induction'' or PMI) gives us a straightforward way to show that a given statement is true for all natural numbers. Proofs using PMI require two steps: the Base Case (\(0 \in B\)) and the Inductive Step (if \(n \in B\) then \(n+1 \in B\)). Most importantly, constructive proofs by induction can be turned into \emph{recursive algorithms} which actually compute things. This is a powerful idea with implications far beyond numbers.
+
+The following slight variation on PMI is known as Strong Induction; it is equivalent to PMI, but frequently more convenient to use.
+
+\begin{cor}[Strong Induction]
+Let \(B \subseteq \NN\). If \(B\) satisfies the following two properties:
+\begin{proplist}
+\item \(0 \in B\), and
+\item If \(n \in \NN\) such that \(a \in B\) for all \(0 \leq a \leq n\), then \(n+1 \in B\);
+\end{proplist}
+then \(B = \NN\).
+\end{cor}
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}[Trichotomy.]
+Show that if \(a \in \ZZ\), then exactly one of \(a < 0\), \(a = 0\), or \(a > 0\) is true.
+\end{exercise}
+
+\begin{exercise}
+Show that if $n \in \NN$ then \[ \sum_{k=1}^n k = \frac{n(n+1)}{2}. \]
+\end{exercise}
+
+\begin{exercise}
+Show that if $n \in \NN$ then \[ \sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}. \]
+\end{exercise}
+
+\begin{exercise}
+Show that if $n \in \NN$ then \[ \sum_{k=1}^n (2k - 1) = n^2. \]
+\end{exercise}
+
+\begin{exercise}
+Show that if $n \in \NN$ then \[ \sum_{k=1}^n \frac{1}{k(k+1)} = \frac{n}{n+1}. \]
+\end{exercise}
+
+\begin{dfn}[Absolute Value]
+Given \(n \in \ZZ\), the \emph{absolute value} of \(n\), denoted \(|n|\), is \(n\) if \(n \geq 0\) and is \(-n\) if \(n < 0\).
+\end{dfn}
+
+\begin{exercise}
+Show that the following hold for all integers $a$ and $b$.
+\begin{proplist}
+\item \(|ab| = |a| \cdot |b|\)
+\item \(|a+b| \leq |a| + |b|\)
+\end{proplist}
+\end{exercise}

@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{neb-macros}
+
+\begin{document}
+
+\CheapTitle{The Euler Totient}
+
+\begin{dfn}#[Euler Totient#]
+Let $n$ be a positive integer. We define the \emph{totient} of $n$, to be the cardinality of the set \#[ \mathcal{U}_n = \{ a \mid 0 \leq a < n, \GCD{a}{n} = 1 \}. \#] We denote this number by $\TOT{n}$.
+\end{dfn}
+
+\begin{thm} \mbox{}
+\begin{enumerate}
+\item If $p > 1$ is a prime then $\TOT{p} = p-1$.
+\item If $p > 1$ is a prime and $k \geq 2$, then $\TOT{p^k} = p^k - p^{k-1}$
+\item If $a$ and $b$ are positive integers with $\GCD{a}{b} = 1$, then $\TOT{ab} = \TOT{a}\TOT{b}$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof} \mbox{}
+\begin{enumerate}
+\item Let $0 \leq a < p$. Since $\GCD{a}{p}$ is a proper divisor of $p$ for $a > 0$ and $p$ is prime, we have $\GCD{a}{p} = 1$ if $a > 0$ and $\GCD{a}{p} = p$ if $a = 0$.
+\item Let $0 \leq a < p^k$, and consider $d = \GCD{a}{p^k}$. Since $d$ is a proper divisor of $p^k$, $d$ is \emph{not} 1 precisely when $d$, and thus $a$, is a multiple of $p$. Note that $a = pe$ is an integer with $0 \leq pe < p^k$ if and only if $0 \leq e < p^{k-1}$.
+\item (to do)
+\end{enumerate}
+\end{proof}
+
+\begin{prop}
+If $a$, $b$, and $c$ are integers such that $\GCD{a}{c} = 1$ and $\GCD{b}{c} = 1$, then $\GCD{ab}{c} = 1$.
+\end{prop}
+
+\begin{thm}#[Euler's Theorem#]
+Let $n > 1$ and $a$ be integers with $\GCD{a}{n} = 1$. Then $a^{\TOT{n}} \equiv 1 \mod n$.
+\end{thm}
+
+\end{document}

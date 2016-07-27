@@ -1,0 +1,144 @@
+% #Counters
+%
+
+%-----------%
+% #Counters %
+%-----------%
+
+% Number chapters as I, II, III, etc.
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+% Number sections sequentially (not within chapters)
+\counterwithout{section}{chapter}
+
+% Number figures and tables within sections
+\makeatletter                        %&%
+  \renewcommand\@memmain@floats{     %&%
+    \counterwithout{figure}{chapter} %&%
+    \counterwithin{figure}{section}  %&%
+    \counterwithout{table}{chapter}  %&%
+    \counterwithin{table}{section}   %&%
+  }                                  %&%
+\makeatother                         %&%
+
+
+
+
+%%%
+
+
+% Keep chapter numbers and titles from overlapping in TOC
+\renewcommand{\chapternumberlinebox}[2]{\makebox[1cm][l]{#2}}
+
+% Roman-enumerated lists for propositions and proofs
+\newenvironment{proplist}[0] %&%
+  {\begin{enumerate}[(i)]}   %&%
+  {\end{enumerate}}          %&%
+
+\newenvironment{proplist*}[0]                        %&%
+  {\begin{enumerate}[(i)] \setlength{\itemsep}{0pt}} %&%
+  {\end{enumerate}}                                  %&%
+
+\newenvironment{inlineproplist}[0] %&%
+  {\begin{inparaenum}[(i)]}        %&%
+  {\end{inparaenum}}               %&%
+
+% Subreferences
+\newcommand{\sref}[2]{\ref{#1}(\ref{#1:#2})}
+\newcommand{\paref}[1]{(\ref{#1})}
+\newcommand{\eref}[1]{\hyperref[#1]{Exercise \ref*{#1}}}
+\newcommand{\propref}[1]{\hyperref[#1]{Proposition \ref*{#1}}}
+
+
+% Page style
+\makepagestyle{standard} %&%
+
+\makeatletter                                                  %&%
+\makeevenfoot{standard}{}{}{}                                  %&%
+\makeoddfoot{standard}{}{}{}                                   %&%
+\makeevenhead{standard}{\bfseries\thepage}{}{\rightmark}       %&%
+\makeoddhead{standard}{\leftmark}{}{\bfseries\thepage}         %&%
+\makeheadrule{standard}{\textwidth}{\normalrulethickness}      %&%
+\makefootrule{standard}{\textwidth}{\normalrulethickness}{0ex} %&%
+\makeatother                                                   %&%
+
+\renewcommand*{\sectionmark}[1]{                      %&%
+  \markboth{\S\thesection: {#1}}{\S\thesection: {#1}} %&%
+}                                                     %&%
+
+\nouppercaseheads    %&%
+\pagestyle{standard} %&%
+\chapterstyle{dash}  %&%
+
+% Theorem styles
+\theoremstyle{definition}                 %&%
+\newtheorem{dfn}{Def'n}[section]          %&%
+\newtheorem{thm}[dfn]{Theorem}            %&%
+\newtheorem{cor}[dfn]{Cor.}               %&%
+\newtheorem{prop}[dfn]{Prop'n}            %&%
+\newtheorem{lem}[dfn]{Lemma}              %&%
+\newtheorem{construct}[dfn]{Construction} %&%
+\newtheorem{axiom}[dfn]{Axiom}            %&%
+
+%\newcommand{\DefTerm}[1]{\emph{#1}\index{#1}}
+\newcommand{\DefTerm}[2][]{\emph{#2}\ifthenelse{\isempty{#1}}{\index{#2}}{\index{#1!#2}}}
+
+% Exercises
+\newcommand{\Exercises}{\par\bigskip\noindent\hfill{\textasteriskcentered\quad\textasteriskcentered\quad\textsc{\large Exercises}\quad\textasteriskcentered\quad\textasteriskcentered}\hfill\null\par\bigskip}
+
+\newcounter{dummycounter}         %&%
+\newcounter{exercise}[section]    %&%
+\counterwithin{exercise}{section} %&%
+
+\marginparmargin{left} %&%
+
+\newenvironment{exercise}[1][\unskip]{                     %&%
+  \refstepcounter{exercise}                                %&%
+  \par\noindent\marginpar{\hfill\theexercise .}\textbf{#1} %&%
+}{                                                         %&%
+  \medskip                                                 %&%
+}                                                          %&%
+
+
+
+% Examples
+\newenvironment{examples}{                      %&%
+  \par\bigskip\noindent\textbf{\large Examples} %&%
+  \begin{enumerate}                             %&%
+}{                                              %&%
+  \end{enumerate}                               %&%
+}                                               %&%
+
+
+\mdfdefinestyle{mystyle}{ %&%
+  hidealllines=true,      %&%
+  leftline=true,          %&%
+  innerleftmargin=10pt,   %&%
+  innerrightmargin=10pt,  %&%
+  innertopmargin=0pt,     %&%
+}                         %&%
+
+\surroundwithmdframed[style=mystyle]{dfn}   %&%
+\surroundwithmdframed[style=mystyle]{prop}  %&%
+\surroundwithmdframed[style=mystyle]{cor}   %&%
+\surroundwithmdframed[style=mystyle]{axiom} %&%
+
+\def\chapterautorefname{Chapter} %&%
+\def\sectionautorefname{Section} %&%
+\def\figureautorefname{Figure}   %&%
+
+
+% For nebulous "problem" statements
+\newenvironment{titlebox}[1]                       %&%
+  {\mdfsetup{                                      %&%
+    frametitle={\colorbox{white}{\space#1\space}}, %&%
+    innertopmargin=7pt,                            %&%
+    innerbottommargin=10pt,                        %&%
+    frametitleaboveskip=-\ht\strutbox,             %&%
+    frametitlealignment=\center                    %&%
+    }                                              %&%
+  \begin{mdframed}                                 %&%
+  }                                                %&%
+  {\end{mdframed}                                  %&%
+}                                                  %&%
+

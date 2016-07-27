@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{neb-macros}
+
+\begin{document}
+
+\CheapTitle{Equivalence Relations}
+
+Recall:
+
+\begin{dfn}#[Equivalence Relation#]
+Let $A$ be a set and let $\sigma \subseteq A \times A$ be a relation on $A$. We say that $\sigma$ is an \emph{equivalence relation} if the following hold.
+\begin{enumerate}
+\item $a \sigma a$ for all $a \in A$. (Reflexivity)
+\item If $a \sigma b$ then $b \sigma a$ for all $a,b \in A$. (Symmetry)
+\item If $a \sigma b$ and $b \sigma c$, then $a \sigma c$ for all $a,b,c \in A$. (Transitivity)
+\end{enumerate}
+If $\sigma$ is an equivalence on $A$ and $a \in A$, then the set \#[ #[a#]_\sigma = \{ b \in A \mid a \sigma b \} \#] is called the \emph{equivalence class} of $a$.
+\end{dfn}
+
+\begin{dfn}#[Partition#]
+Let $A$ be a set, and let $P \subseteq 2^A$ be a collection of subsets of $A$. We say that $P$ is a \emph{partition} of $A$ if the following hold.
+\begin{enumerate}
+\item $\bigcup P = A$ ($P$ is collectively exhaustive)
+\item If $C_1, C_2 \in P$ are distinct, then $C_1 \cap C_2 = \varnothing$.
+\end{enumerate}
+\end{dfn}
+
+Equivalence relations and partitions are related in a fundamental way.
+
+\begin{thm}
+Let $A$ be a set.
+\begin{enumerate}
+\item If $\sigma$ is an equivalence relation, then the set \#[ A/\sigma = \{ #[a#] \mid a \in A \} \#] is a partition of $A$.
+\item If $P$ is a partition of $A$, then the relation \#[ \sigma = \{ (x,y) \mid y \in A, x \in #[y#] \} \#] is an equivalence on $A$.
+\end{enumerate}
+\end{thm}
+
+That is, given an equivalence we can build a partition, and given a partition we can build an equivalence relation.
+
+\begin{dfn}
+Let $A$ be a set and $\sigma$ an equivalence on $A$. Then the mapping $\pi_\sigma : A \rightarrow A/\sigma$ given by $\varphi(a) = #[a#]_\sigma$ is called the \emph{natural projection} of $A$ onto $A/\sigma$.
+\end{dfn}
+
+\begin{thm} \mbox{}
+\begin{itemize}
+\item If $\varphi : A \rightarrow B$ is a mapping, then $\KER{\varphi}$ is an equivalence relation.
+\item If $\sigma$ is an equivalence relation on $A$ and $\pi : A \rightarrow A/\sigma$ the natural projection, then $\KER{\pi} = \sigma$.
+\end{itemize}
+\end{thm}
+
+Quotient sets, it turns out, are extremely important, and we use them frequently. Defining functions on a quotient set can be tricky.
+
+\begin{thm}#[First Isomorphism Theorem for Sets#]
+Let $\varphi : A \rightarrow B$ be a function, and suppose we have an equivalence relation $\sigma$ such that $\sigma \subseteq \KER{\varphi}$. Then there is a unique function $\overline{\varphi} : A/\sigma \rightarrow B$ such that $\varphi = \overline{\varphi} \circ \pi_{\sigma}$.
+\end{thm}
+
+\end{document}

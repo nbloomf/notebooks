@@ -1,0 +1,139 @@
+%-------------%
+% Number sets %
+%-------------%
+
+\newcommand{\ZZ}{\ensuremath{\mathbb{Z}}} %&%
+\newcommand{\NN}{\ensuremath{\mathbb{N}}} %&%
+\newcommand{\QQ}{\ensuremath{\mathbb{Q}}} %&%
+\newcommand{\RR}{\ensuremath{\mathbb{R}}} %&%
+\newcommand{\CC}{\ensuremath{\mathbb{C}}} %&%
+
+
+
+%-----------------------%
+% Maps and sets of maps %
+%-----------------------%
+
+\newcommand{\ID}[1][]{\ensuremath{ %&%
+  \ifthenelse{\isempty{#1}}        %&%
+    {\mathsf{id}}                  %&%
+    {\mathsf{id}_{#1}}             %&%
+}}                                 %&%
+
+\newcommand{\END}[1]{\ensuremath{ %&%
+  \mathsf{End}\left(#1\right)     %&%
+}}                                %&%
+
+\newcommand{\ENDU}[1]{\ensuremath{ %&%
+  \mathsf{End}_1\left(#1\right)    %&%
+}}                                 %&%
+
+
+
+%--------------%
+% Ring subsets %
+%--------------%
+
+\newcommand{\CENTER}[1]{\ensuremath{ %&%
+  Z\left(#1\right)                   %&%
+}}                                   %&%
+
+\newcommand{\NILRADICAL}[1]{\ensuremath{ %&%
+  N\left(#1\right)                       %&%
+}}                                       %&%
+
+\newcommand{\UNITS}[1]{\ensuremath{ %&%
+  \mathcal{U}\left(#1\right)        %&%
+}}                                  %&%
+
+\newcommand{\KER}[1]{\ensuremath{ %&%
+  \mathsf{ker}(#1)                %&%
+}}                                %&%
+
+\newcommand{\IM}[1]{\ensuremath{ %&%
+  \mathsf{im}(#1)                %&%
+}}                               %&%
+
+
+
+%--------------------------%
+% Families of ring subsets %
+%--------------------------%
+
+\newcommand{\ASSOCLAT}[1]{\ensuremath{ %&%
+  \mathcal{A}\left(#1\right)           %&%
+}}                                     %&%
+
+\newcommand{\IDEALS}[2][]{\ensuremath{ %&%
+  \ifthenelse{\isempty{#1}}            %&%
+    {\mathcal{Q}\left(#2\right)}       %&%
+    {\mathcal{Q}_{#1}\left(#2\right)}  %&%
+}}                                     %&%
+
+
+
+%----------%
+% Geometry %
+%----------%
+
+\newcommand{\COLLINEAR}[3]{\ensuremath{\langle #1, #2, #3 \rangle}}%&%
+\newcommand{\LINE}[2]{\ensuremath{\overleftrightarrow{#1#2}}}%&%
+\newcommand{\BETWEEN}[3]{\ensuremath{[ #1 #2 #3 ]}}%&%
+\newcommand{\SEGMENT}[2]{\ensuremath{\overline{#1#2}}}%&%
+\newcommand{\RAY}[2]{\ensuremath{\overrightarrow{#1#2}}}%&%
+\newcommand{\TRIANGLE}[3]{\ensuremath{\bigtriangleup{#1#2#3}}}%&%
+\newcommand{\ANGLE}[3]{\ensuremath{\angle{#1#2#3}}}%&%
+\newcommand{\INTANGLE}[3]{\ensuremath{\mathsf{int}\angle{#1#2#3}}}%&%
+\newcommand{\SEGCONG}[4]{\ensuremath{(#1,#2) \cong_s (#3,#4)}}%&%
+\newcommand{\ANGCONG}[6]{\ensuremath{(#1,#2,#3) \cong_a (#4,#5,#6)}}%&%
+\renewcommand{\CIRCLE}[2]{\ensuremath{\ocircle{#1#2}}}%&%
+\newcommand{\INTCIRCLE}[2]{\ensuremath{\mathsf{int}\CIRCLE{#1}{#2}}}
+\newcommand{\EXTCIRCLE}[2]{\ensuremath{\mathsf{ext}\CIRCLE{#1}{#2}}}
+
+
+
+
+
+\newcommand{\POW}[1]{\ensuremath{\mathcal{P}\left(#1\right)}}%&%
+\newcommand{\POWP}[1]{\ensuremath{\mathcal{P}_{\!\neq\!}\left(#1\right)}}%&%
+\newcommand{\POWF}[1]{\ensuremath{\mathcal{P}_F\left(#1\right)}}%&%
+
+\newcommand{\ZZQUAD}[1]{\ensuremath{\mathcal{O}(\sqrt{#1})}}%&%
+\newcommand{\ZZFRAC}[1]{\ensuremath{{#1}^{-1}\ZZ}}%&%
+
+\newcommand{\ION}[1]{\ensuremath{\mathsf{nilp}\left(#1\right)}}%&%
+
+\newcommand{\REXTEND}[3]{\ensuremath{#1 \rtimes_{#2} #3}}%&%
+\newcommand{\ADJUNIT}[1]{\ensuremath{{#1}^{(1)}}}%&%
+\newcommand{\HAM}[1]{\ensuremath{\mathbb{H}(#1)}}%&%
+
+\newcommand{\ADDORD}[1]{\ensuremath{\mathsf{ord}\left(#1\right)}}%&%
+\newcommand{\CHAR}[1]{\ensuremath{\mathsf{char}(#1)}}%&%
+
+\newcommand{\MAT}[2]{\ensuremath{\mathsf{Mat}_{#1}(#2)}}%&%
+\newcommand{\UTMAT}[2]{\ensuremath{\mathsf{UT}_{#1}(#2)}}%&%
+\newcommand{\LTMAT}[2]{\ensuremath{\mathsf{LT}_{#1}(#2)}}%&%
+\newcommand{\DIAGMAT}[2]{\ensuremath{\mathsf{Diag}_{#1}(#2)}}%&%
+\newcommand{\DET}{\ensuremath{\mathsf{det}}}%&%
+
+\newcommand{\GCD}[2]{\ensuremath{\mathsf{gcd}(#1, #2)}}%&%
+\newcommand{\LCM}[2]{\ensuremath{\mathsf{lcm}(#1, #2)}}%&%
+\newcommand{\GCDS}[1]{\ensuremath{\mathsf{gcd}\left(#1\right)}}%&%
+
+\newcommand{\CONTENT}[1]{\ensuremath{\mathsf{content}(#1)}}%&%
+
+\newcommand{\ASSOC}{\ensuremath{\approx}}%&%
+\newcommand{\COPRIME}{\ensuremath{\perp}}%&%
+
+\newcommand{\DIVORD}[2]{\ensuremath{\mathsf{div}_{#1}\left(#2\right)}}%&%
+
+\newcommand{\LOCALIZE}[2]{\ensuremath{{#2}^{-1}{#1}}}%&%
+
+\newcommand{\POLYEVAL}[1]{\ensuremath{\varepsilon_{#1}}}%&%
+\newcommand{\DERIV}[1][]{\ensuremath{\ifthenelse{\isempty{#1}}{\mathsf{D}}{\mathsf{D}_{#1}}}}%&%
+
+\newcommand{\TILDE}[1]{\ensuremath{\widetilde{#1}}}%&%
+
+\newcommand{\LIM}[2][]{\ensuremath{\ifthenelse{\isempty{#1}}{\lim}{\lim_{#1}}\left(#2\right)}}%&%
+
+\newcommand{\VALCOMP}[2]{\ensuremath{\overline{#1}_{#2}}}%&%

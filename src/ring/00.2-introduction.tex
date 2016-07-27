@@ -1,0 +1,40 @@
+These notes develop the basic theory of \textbf{rings}, which grew over time out of several historical threads. Mathematicians of ``antiquity'' (defined here as the period from prehistory to the Enlightenment) were broadly interested in solving equations of several different kinds. For example, Diophantine equations like \(a^2 + b^2 = c^2\), of which we are only interested in integer solutions. Or polynomial equations such as \(ax^2 + bx + c = 0\), where \(a\), \(b\), and \(c\) are known constants. Or systems of simultaneous linear equations. Over time techniques were discovered for understanding various types of equations, and by the 19th Century these techniques had developed into fairly sophisticated branches of mathematics. Diophantine equations became the motivation for a nascent Algebraic Number Theory, whose great white whale was Fermat's Last Theorem. The rich history of polynomial equations reached an apex with the Abel-Ruffini Theorem on the insolubility of the general quintic equation. And the study of simultaneous linear equations evolved into what we now call Linear and Multilinear Algebra at the hands of Hermann Grassmann and was used to simplify many ideas in geometry and physics.
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \node[align=center] (num) at (0,3.5)
+    {\footnotesize Diophantine Equations \\ \(a^2 + b^2 = c^2\)};
+  \node[align=center] (pol) at (5,3.5)
+    {\footnotesize Polynomial Equations \\ \(ax^2 + bx + c = 0\)};
+  \node[align=center] (mat) at (10,3.5)
+    {\footnotesize Simultaneous Linear Equations \\ 
+      \(\left\{ \begin{matrix} ax + by & = & c \\ dx + ey & = & f \end{matrix} \right.\)};
+
+  \node[align=center] (ant) at (0,1.5)
+    {\footnotesize Algebraic Number Theory \\ \footnotesize (Fermat's Last Theorem)};
+  \node[align=center] (gal) at (5,1.5)
+    {\footnotesize Galois Theory \\ \footnotesize (Insolubility of the Quintic)};
+  \node[align=center] (lin) at (10,1.5)
+    {\footnotesize Multilinear Algebra};
+
+  \node[align=center] (rin) at (5,0)
+    {\footnotesize Ring Theory};
+
+  \draw[->] (num) -- (ant);
+  \draw[->] (pol) -- (gal);
+  \draw[->] (mat) -- (lin);
+
+  \draw[->] (ant) -- (rin);
+  \draw[->] (gal) -- (rin);
+  \draw[->] (lin) -- (rin);
+\end{tikzpicture}
+\end{center}
+\caption{A grossly oversimplified genealogy of ring theory.}
+\end{figure}
+
+Underlying these more-or-less parallel developments was a common abstraction, which we call a \emph{ring}, and which was only made explicit in the first couple of decades of the 20th Century. \textbf{The essence of `ringhood' is the structure -- the arithmetic -- that the integers, polynomials, and square matrices have in common.}
+
+The content of these notes is usually covered in a class called ``Abstract Algebra'', a name which I dislike for two reasons. First, \textbf{all} mathematics is abstract. Yes, even the so-called ``applied'' branches. (Sorry if anyone is disappointed by this fact!) Show me where the number two exists in nature, or a continuous function, or a vector space, and I will reconsider this assertion. To single out only some ideas as being abstract is not a useful distinction, and can even hurt. How many of our students reflexively recoil at abstract subjects as being inherently pointless and less useful or interesting? The second reason for my dislike of the name ``abstract algebra'' is that, reason one notwithstanding, algebra is jam-packed with concrete objects which we can fiddle with and compute and draw pictures of. In fact the point of the ``abstract'' part is so that we can better understand the ``concrete'' part.
+
+Yet the name persists, and is not likely to go away soon (if for no other reason than that it takes an act of nature to change a university catalog). This name reflects a central tension between two broad points of view in mathematics: the abstract and the concrete. The abstract point of view prefers theory-building; it likes for theorems to be as general as possible; and it doesn't mind nonconstructive proofs, especially if they are slick or insightful. The concrete point of view really likes constructive results; it tries to keep an eye on specific examples; and is never happier than when a proof can be interpreted as a clear and efficient algorithm. Neither point of view has a monopoly on enlightenment. The abstract point of view needs interesting concrete examples to abstract away from, and the concrete point of view is quickly bogged down in irrelevant details without abstraction. In these notes I have tried to balance these two perspectives.

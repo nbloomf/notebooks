@@ -1,0 +1,12 @@
+\documentclass{article}
+\usepackage{neb-macros}
+\usepackage{tikz}
+  \usetikzlibrary{patterns}
+
+\begin{document}
+
+\CheapTitle{Symmetric Polynomials}
+
+
+
+\end{document}

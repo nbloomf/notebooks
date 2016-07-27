@@ -1,0 +1,46 @@
+\begin{dfn}[Poset]
+A \emph{partially ordered set} or \DefTerm{poset} is a set \(P\) equipped with a binary relation \(\preceq\) having the following properties.
+\begin{proplist}
+\item[PO1.] \(x \preceq x\) for all \(x \in P\).
+\item[PO2.] If \(x \preceq y\) and \(y \preceq x\), then \(x = y\).
+\item[PO3.] If \(x \preceq y\) and \(y \preceq z\), then \(x \preceq z\).
+\end{proplist}
+\end{dfn}
+
+\begin{dfn}
+Let \(P\) be a poset.
+\begin{proplist}
+\item A \DefTerm{chain} is a mapping \(x : \NN \rightarrow P\) which is order-preserving; that is, such that \(x_i \leq x_j\) whenever \(i \leq j\).
+\item Let \(S \subseteq P\) be a subset. An element \(b \in P\) is called an \DefTerm{upper bound} of \(S\) if \(s \preceq b\) for all \(s \in S\).
+\item An element \(m \in P\) is called \DefTerm[element]{maximal} if whenever \(x \in P\) such that \(m \preceq x\), in fact \(x = m\). In other words, the inequality \(m \preceq x\) has only the trivial solution.
+\end{proplist}
+\end{dfn}
+
+We take the following statement as an axiom, which for historical reasons is called a lemma.
+
+\begin{axiom}[Zorn's Lemma]
+If \(P\) is a nonempty poset in which every chain has an upper bound, then \(P\) has at least one maximal element.
+\end{axiom}
+
+Note that Zorn's Lemma tells us nothing about how such maximal elements are to be \emph{found}, only that they exist. In this sense it is a nonconstructive statement very similar to the Well-Ordering Property of natural numbers; proofs which use Zorn may be slick, but cannot generally be turned into algorithms.
+
+In practice we occasionally need to show that some ``extreme'' doo-dad having certain properties must exist, and there are two basic ways to do this. The first and usually preferable way is to explicitly construct an example of such a doo-dad. But this is not always possible, or may not be possible at the desired level of generality; in this case we use the second way: Zorn's Lemma. This requires us to capture our ``extreme'' doo-dads as the maximal elements of an appropriate poset. For example, in many cases it is easy to show that a \emph{particular} ring such as \(\ZZ\) or \(\QQ[x]\) has maximal ideals. But to show that \emph{every} ring has maximal ideals, by far the easiest strategy is to use Zorn's Lemma in the poset of ideals.
+
+Here is a concrete example. Suppose we want to prove that every nonempty set \(A\) has maximal proper subsets; that is, subsets \(B \subsetneq A\) such that the inequality \(B \subseteq X \subsetneq A\) has no nontrivial solutions. It is straightforward enough to construct an example -- we can show that \(B = A \setminus \{x\}\), where \(x \in A\), is maximal. For the sake of illustration let's suppose that constructing this example is very difficult, so we must instead use Zorn's Lemma. That proof proceeds as follows.
+\begin{proplist}
+\item Verify that the set \(P = \{ B \in \POW{A} \mid B \neq A \}\) of proper subsets of \(A\) is partially ordered by set containment. This follows from the basic properties of \(\subseteq\).
+\item Verify that \(P\) is not empty. Since \(A \neq \varnothing\) and \(\varnothing \subseteq A\), we have \(\varnothing \in P\).
+\item Verify that every chain in \(P\) has an upper bound. Suppose \(X_i\) is a chain of proper subsets of \(A\); we need to show that \(\{ X_i \mid i \in \NN \}\) has an upper bound. Usually this step involves some kind of union; in this case we use \(B = \bigcup X_i\). Clearly \(X_i \subseteq B\) for all \(i \in \NN\). But to show that \(B\) is an upper bound of \(X_i\) we have to make sure that \(B\) is actually in \(P\). (This is an important but easy-to-forget step!) Certainly \(B \subseteq A\); suppose this containment is not proper, so that \(B = A\). So every element of \(A\) is in one of the \(X_i\). (@@@) This example is broken!
+\end{proplist}
+
+It is possible that a poset has maximal elements, but there exist chains with no upper bound -- that is, the converse of Zorn's Lemma is not true.
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}
+(@@@) The set \(\NN\) of natural numbers is a poset under the usual \(\leq\) relation. However, this poset has chains with no upper bound, such as \(x_n = 2n\). Thus Zorn's Lemma does not apply.
+\end{exercise}

@@ -1,0 +1,149 @@
+In College Algebra, how might we go about solving an equation like \(2x = 6\) in the rational numbers? There are essentially two different, but related, strategies.
+
+The simplest idea is to multiply both sides of the equation by \(1/2\). Why \(1/2\)? Because that is precisely the number which, when multiplied by \(2\), yields \(1\), the multiplicative identity. The numbers \(2\) and \(1/2\) enjoy this relationship with one another, just like \(3\) and \(1/3\) or \(5/7\) and \(7/5\). But if \(r\) is an arbitrary element of an arbitrary ring \(R\), there may be no way to find a special element like \(\frac{1}{r}\) with the property that \(r \cdot \frac{1}{r} = 1_R\). Such elements are very precious, so they get a name.
+
+\begin{dfn}[Unit] \label{dfn:unit-field}
+Let \(R\) be a unital ring.
+\begin{proplist}
+\item We say that \(u \in R\) is a \emph{unit} if there is an element \(u^{-1} \in R\), called an \emph{inverse} of \(u\), such that \(uu^{-1} = u^{-1}u = 1_R\). \index{unit}
+\item We say that \(R\) is a \emph{field} if \(R\) is commutative and every nonzero element of \(R\) is a unit. \index{field}
+\end{proplist}
+\end{dfn}
+
+\begin{examples}
+\item In any unital ring, \(1_R\) is a unit.
+
+\item In \(\ZZ\) the only units are \(1\) and \(-1\).
+\end{examples}
+
+\begin{prop} \label{prop:unit-basics}
+Let \(R\) be a unital ring.
+\begin{proplist}
+\item If \(u \in R\) is invertible, then \(u^{-1}\) is unique in the following sense: if \(v \in R\) such that \(uv = vu = 1_R\), then \(v = u^{-1}\). \label{prop:unit-basics:unique}
+\item If \(\varphi : R \rightarrow S\) is a unital homomorphism and \(u \in R\) is a unit, then \(\varphi(u)\) is a unit and \(\varphi(u)^{-1} = \varphi(u^{-1})\).
+\end{proplist}
+\end{prop}
+
+\begin{proof}
+\begin{inlineproplist}
+\item Note that \(v = v \cdot 1_R = v \cdot u \cdot u^{-1} = 1 \cdot u^{1} = u^{-1}\).
+\item Note that \(1_S = \varphi(1_R) = \varphi(uu^{-1}) = \varphi(u)\varphi(u^{-1})\), and similarly \(1_S = \varphi(u^{-1})\varphi(u)\). Thus \(\varphi(u)\) is invertible, and we have \(\varphi(u^{-1}) = \varphi(u)^{-1}\) by \paref{prop:unit-basics:unique}.
+\end{inlineproplist}
+\end{proof}
+
+Let's revisit our motivating equation \(2x = 6\). Another way to solve this equation is to rewrite it as \(2x - 6 = 0\), and then factor as \(2(x-3) = 0\). Now the integers have the following very nice ``zero product property'':
+\begin{center}
+If \(a\) and \(b\) are integers and \(ab = 0\), then either \(a = 0\) or \(b = 0\).
+\end{center}
+From here we can break our equation into two: either \(2 = 0\) or \(x - 3 = 0\). Of course the first case is absurd (in \(\ZZ\)!) so we conclude that \(x - 3 = 0\), so \(x = 3\). The zero product property is also what allows the factorization method of solving equations. For instance, to solve an equation like \(x^2 - 5x - 6 = 0\) over the integers, we factor the left hand side as \((x-2)(x-3) = 0\). Using the zero product property, either \(x-2 = 0\) (so \(x = 2\)) or \(x-3 = 0\) (so \(x = 3\)).
+
+A given ring may or may not have this property. While \(\ZZ\) does, \(\ZZ/(n)\), for instance, may not; in \(\ZZ/(6)\) we have \(2 \neq 0\) and \(3 \neq 0\), but \(2 \cdot 3 = 0\). In this case we say that \(2\) and \(3\) are zerodivisors in \(\ZZ/(6)\).
+
+\begin{dfn}[Zerodivisor] \label{dfn:zerodivisor-domain}
+Let \(R\) be a commutative ring.
+\begin{proplist}
+\item We say that a nonzero element \(r \in R\) is a \emph{zerodivisor} if there is a nonzero element \(s \in R\) such that \(rs = 0\). \index{zerodivisor}
+\item We say that a commutative unital ring \(R\) is an \emph{integral domain}, or simply \emph{domain}, if \(R\) does not contain any zero divisors. \index{domain}
+\end{proplist}
+\end{dfn}
+
+Note that this definition of zerodivisor applies only to \emph{commutative} rings. Generalization to noncommutative rings is left to the exercises.
+
+\begin{prop}[Cancellation] \label{prop:cancellation}
+Let \(R\) be a domain with \(r,s,t \in R\). If \(rs = rt\) and \(r \neq 0\), then \(s = t\).
+\end{prop}
+
+\begin{proof}
+If \(rs = rt\), then \(rs - rt = 0\), so that \(r(s-t) = 0\). Since \(r \neq 0\), we must have \(s-t = 0\), so that \(s = t\).
+\end{proof}
+
+
+\begin{prop}
+Every field is also an integral domain.
+\end{prop}
+
+\begin{proof}
+Let \(R\) be a field; in particular \(R\) is commutative. We need to show that \(R\) does not contain any zero divisors. To this end, suppose \(r,s \in R\) such that \(rs = 0\). If \(r \neq 0_R\), then \(r\) is a unit in \(R\). Now \(r^{-1}rs = 0_R\), so that \(1_R \cdot s = 0_R\), and thus \(s = 0_R\). That is, either \(r = 0_R\) or \(s = 0_R\). So \(R\) does not contain any zero divisors.
+\end{proof}
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}
+Show that if \(R\) and \(S\) are nontrivial rings, then \(R \oplus S\) is \emph{not} a domain.
+\end{exercise}
+
+\begin{exercise}
+Show that every subring of a domain is a domain. In particular, every subring of a field is a domain.
+\end{exercise}
+
+\begin{exercise}
+Show that every domain (hence every field) has characteristic 0 or a prime. (cf. \ref{dfn:characteristic})
+\end{exercise}
+
+\begin{exercise}
+Show that \(\ZZ/(n)\) is a field if and only if \(n\) is prime.
+\end{exercise}
+
+\begin{dfn}[Group of Units]
+Let \(R\) be a unital ring. The \emph{group of units} of \(R\) is the set \(\UNITS{R} = \{ u \in R \mid u\ \mathrm{is\ a\ unit} \}\).
+\end{dfn}
+
+\begin{exercise} \label{exerc:units-form-group}
+Let \(R\) be a unital ring. Show that the following hold.
+\begin{proplist*}
+\item \(1_R\) is a unit.
+\item If \(u, v \in \UNITS{R}\), then \(uv \in \UNITS{R}\).
+\item If \(u \in \UNITS{R}\), then \(u^{-1} \in \UNITS{R}\).
+\end{proplist*}
+\end{exercise}
+
+\begin{exercise}
+Show that \(\UNITS{\ZZ} = \{ 1, -1 \}\).
+\end{exercise}
+
+\begin{exercise}
+Show that \(\UNITS{\ZZ/(n)} = \{ [a] \in \ZZ/(n) \mid \GCD{a}{n} = 1 \}\).
+\end{exercise}
+
+\begin{exercise}
+Let \(X\) be a nonempty set. Show that \(\UNITS{\POW{X}} = \{X\}\).
+\end{exercise}
+
+\begin{exercise}
+Let \(A\) be a CU ring. Show that \[ \UNITS{\MAT{2}{A}} = \left\{ \begin{bmatrix} a & b \\ c & d \end{bmatrix} \mid ad - bc\ \mathrm{is\ a\ unit\ in}\ A \right\}. \]
+\end{exercise}
+
+\begin{exercise}
+Show that if \(R\) is a domain, then the nilradical of \(R\) is \(0\). (cf. \autoref{dfn:nilradical})
+\end{exercise}
+
+\begin{exercise}[Every finite domain is a field.]
+Let \(R\) be a \emph{finite} integral domain. In this exercise we will show that \(R\) must be a field.
+\begin{proplist}
+\item Let \(r \in R\) be a nonzero element and define a mapping \(\varphi_r : R \rightarrow R\) by \(\varphi_r(x) = rx\). Show that \(\varphi_r\) must be injective.
+\item Deduce that \(\varphi_r\) must be bijective.
+\item Deduce that \(r\) must be a unit in \(R\), and then that \(R\) must be a field.
+\end{proplist}
+\end{exercise}
+
+\begin{dfn}[Fractional Integers] \label{dfn:fractional-integers}
+Let \(k \in \ZZ\) with \(k \neq 0\). We define the set of \emph{fractional integers} with denominator \(k\) to be \[ \ZZFRAC{k} = \left\{ \frac{a}{k^t} \mid a \in \ZZ, t \in \NN \right\} \subseteq \QQ. \]
+\end{dfn}
+
+\begin{exercise}
+Show that \(\ZZFRAC{k}\) is a unital subring of \(\QQ\).
+\end{exercise}
+
+\begin{exercise}
+Show that the units in \(\ZZFRAC{k}\) are of the form \(\frac{\pm 1}{2^t}\) or \(\pm 2^t\) where \(t \in \NN\).
+\end{exercise}
+
+(@@@) one-sided zerodivisors and units
+
+(@@@) zero divisor graph
+
+\textbf{Skew fields.}
