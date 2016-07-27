@@ -1,4 +1,3 @@
 *.pdf
-geo-warnings.txt
-rings-warnings.txt
-nonwords.txt
+*-warnings.txt
+*-nonwords.txt
