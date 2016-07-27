@@ -1,0 +1,123 @@
+\begin{prop}[Supplements are unique] \mbox{}
+\begin{itemize}
+\item Suppose that $\ANGLE{A}{O}{B}$ and $\ANGLE{B}{O}{C}$ are a linear pair, and that $\ANGLE{X}{P}{Y}$ and $\ANGLE{Y}{P}{Z}$ are a linear pair. If $\ANGLE{A}{O}{B} \equiv \ANGLE{X}{P}{Y}$, then $\ANGLE{B}{O}{C} \equiv \ANGLE{Y}{P}{Z}$.
+\item Suppose $\ANGLE{A}{B}{C}$ and $\ANGLE{X}{Y}{Z}$ are supplementary, and that $\ANGLE{A}{B}{C}$ and $\ANGLE{H}{K}{L}$ are supplementary. Then $\ANGLE{X}{Y}{Z} \equiv \ANGLE{H}{K}{L}$.
+\end{itemize}
+\end{prop}
+
+\begin{proof}
+Suppose we have two such linear pairs. Without loss of generality, we can suppose that \[ \SEGMENT{O}{A} \equiv \SEGMENT{O}{B} \equiv \SEGMENT{O}{C} \equiv \SEGMENT{P}{X} \equiv \SEGMENT{P}{Y} \equiv \SEGMENT{P}{Z}. \] (If they aren't, we can use Circle Separation and the Segment Copy construction to find such points.) Now $\TRIANGLE{B}{O}{A} \equiv \TRIANGLE{Y}{P}{X}$ by SAS, so that $\ANGLE{B}{A}{O} \equiv \ANGLE{Y}{X}{P}$. Now $\SEGMENT{A}{C} \equiv \SEGMENT{X}{Z}$, so that $\TRIANGLE{B}{A}{C} \equiv \TRIANGLE{Y}{X}{Z}$ by SAS. So $\SEGMENT{B}{C} \equiv \SEGMENT{Y}{Z}$, and thus $\TRIANGLE{B}{O}{C} \equiv \TRIANGLE{Y}{P}{Z}$ by SSS. Thus $\ANGLE{B}{O}{C} \equiv \ANGLE{Y}{P}{Z}$.
+
+The second statement follows easily.
+\end{proof}
+
+\begin{cor}
+Vertical pairs of angles are congruent.
+\end{cor}
+
+
+\begin{dfn}[Transversal]
+Suppose we have three lines $\ell_1$, $\ell_2$, and $t$ in a plane geometry. We say that $t$ is a \emph{transversal} of $\ell_1$ and $\ell_2$ if $t$ cuts both $\ell_1$ and $\ell_2$ at unique points, and these points are distinct.
+\end{dfn}
+
+Suppose $t$ is a transversal of $\ell_1$ and $\ell_2$, cutting these lines at $O_1$ and $O_2$, respectively as shown.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+  \coordinate (x1) at (-5,0);
+  \coordinate (y1) at (4,0);
+  \draw [<->] (x1) -- (y1);
+  \node at (4,-0.5) {$\ell_1$};
+
+  \coordinate (x2) at (-4,5);
+  \coordinate (y2) at (4,3);
+  \draw [<->] (x2) -- (y2);
+  \node  at (-3,5.5) {$\ell_2$};
+
+  \coordinate (x3) at (-1,-1);
+  \coordinate (y3) at (1,6);
+  \draw [<->] (x3) -- (y3);
+  \node at (0.7,6) {$t$};
+
+  \coordinate [label=below right:$O_1$] (o1) at (intersection of x1--y1 and x3--y3);
+  \draw [fill] (o1) circle [radius=1pt];
+
+  \coordinate [label=below left:$O_2$] (o2) at (intersection of x2--y2 and x3--y3);
+  \draw [fill] (o2) circle [radius=1pt];
+
+  \coordinate (x4) at (-0.5,2);
+  \coordinate (y4) at (1,3);
+
+  \coordinate [label=below:$A$] (a) at (intersection of x1--y1 and x4--y4);
+  \draw [fill] (a) circle [radius=1pt];
+  \coordinate [label=below:$B$] (b) at (intersection of x2--y2 and x4--y4);
+  \draw [fill] (b) circle [radius=1pt];
+\end{tikzpicture}
+\end{center}
+
+If $A$ is on $\ell_1$ and $B$ is on $\ell_2$ such that $A$ and $B$ are on opposite sides of $t$, then we say that $\ANGLE{A}{O_1}{O_2}$ and $\ANGLE{B}{O_2}{O_1}$ are \emph{alternate interior angles} of this transversal.
+
+\begin{prop}[Alternate Interior Angles]
+If two lines $\ell_1$ and $\ell_2$ are cut by a transversal $t$ so that a pair of alternate interior angles are congruent, then $\ell_1$ and $\ell_2$ are parallel.
+\end{prop}
+
+\begin{proof}
+Suppose $t$ meets $\ell_1$ and $\ell_2$ at points $O_1$ and $O_2$ respectively, and that $A$ and $B$ are on $\ell_1$ and $\ell_2$, respectively, and on opposite sides of $t$. Let $C$ be on $\ell_1$ such that $\BETWEEN{A}{O_1}{C}$. Suppose by way of contradiction that $\ell_1$ and $\ell_2$ are \emph{not} parallel; rather, they meet at a point $X$ which (WLOG) is on the $A$-side of $t$. Copy $\SEGMENT{O_1}{X}$ onto $\RAY{O_2}{B}$ at the point $Y$. Now $\SEGMENT{O_1}{X} \equiv \SEGMENT{O_2}{Y}$, $\SEGMENT{O_1}{O_2} \equiv \SEGMENT{O_2}{O_1}$, and $\ANGLE{X}{O_1}{O_2} \equiv \ANGLE{Y}{O_2}{O_1}$, so by SAS we have $\TRIANGLE{X}{O_1}{O_2} \equiv \TRIANGLE{Y}{O_2}{O_1}$. In particular, $\ANGLE{O_2}{O_1}{Y} \equiv \ANGLE{O_1}{O_2}{X}$.
+
+Now $\ANGLE{X}{O_2}{O_1}$ and $\ANGLE{O_1}{O_2}{Y}$ are supplementary, and $\ANGLE{O_1}{O_2}{Y} \equiv \ANGLE{A}{O_1}{O_2}$, so that $\ANGLE{A}{O_1}{O_2}$ and $\ANGLE{X}{O_2}{O_1}$ are supplementary. Since $\ANGLE{X}{O_2}{O_1} \equiv \ANGLE{Y}{O_1}{O_2}$, we have that $\ANGLE{A}{O_1}{O_2}$ and $\ANGLE{Y}{O_1}{O_2}$ are supplementary. But also $\ANGLE{A}{O_1}{O_2}$ and $\ANGLE{O_2}{O_1}{C}$ are supplementary. Now $\ANGLE{O_2}{O_1}{Y} \equiv \ANGLE{O_2}{O_1}{C}$. By the uniqueness of congruent angles on a half-plane, we have that $O_1$, $C$, and $Y$ are collinear, so that $Y \in \ell_1$. But now $\ell_1$ and $ell_2$ have two points in common -- $X$ and $Y$ -- and thus must be equal, a contradiction.
+
+So in fact $\ell_1$ and $\ell_2$ must be parallel.  
+\end{proof}
+
+\begin{prop}[AAS]
+Suppose we have triangles $\TRIANGLE{A}{B}{C}$ and $\TRIANGLE{X}{Y}{Z}$ such that $\ANGLE{C}{A}{B} \equiv \ANGLE{Z}{X}{Y}$, $\ANGLE{A}{B}{C} \equiv \ANGLE{X}{Y}{Z}$, and $\SEGMENT{B}{C} \equiv \SEGMENT{Y}{Z}$. Then $\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{X}{Y}{Z}$.
+\end{prop}
+
+\begin{proof}
+Copy $\SEGMENT{B}{A}$ onto $\RAY{Y}{X}$ at the point $W$. Note that $\TRIANGLE{W}{Y}{Z} \equiv \TRIANGLE{A}{B}{C}$ by SAS, so that $\ANGLE{B}{A}{C} \equiv \TRIANGLE{Y}{W}{Z}$. Suppose now that $W$ and $X$ are distinct points. In this case $\LINE{X}{Z}$ and $\LINE{W}{Z}$ are lines cut by a transversal $\LINE{X}{Y}$. Moreover, if we let $U$ be a point such that $\BETWEEN{U}{X}{Z}$, then $\ANGLE{U}{X}{W}$ and $\ANGLE{Y}{X}{Z}$ are vertical, hence congruent, and so $\ANGLE{U}{X}{W} \equiv \ANGLE{Y}{X}{Z}$. But now by the Alternate Interior Angles theorem $\LINE{X}{Z}$ and $\LINE{W}{Z}$ must be parallel, a contradiction since they meet at $Z$.
+
+So in fact $X$ and $W$ are the same point, and thus $\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{X}{Y}{Z}$ by SAS.
+\end{proof}
+
+\begin{prop}[HL]
+Let $\TRIANGLE{A}{B}{C}$ and $\TRIANGLE{X}{Y}{Z}$ be triangles such that $\ANGLE{B}{C}{A}$ and $\ANGLE{Y}{Z}{X}$ are right and $\SEGMENT{A}{B} \equiv \SEGMENT{X}{Y}$ and $\SEGMENT{B}{C} \equiv \SEGMENT{Y}{Z}$. Then $\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{X}{Y}{Z}$.
+\end{prop}
+
+\begin{proof}
+Copy $\SEGMENT{Z}{X}$ onto the ray opposite $\RAY{C}{A}$ at the point $D$. Now $\ANGLE{B}{C}{D}$ is a right angle, since it is supplementary to $\ANGLE{A}{C}{B}$. By SAS, we have $\TRIANGLE{X}{Y}{Z} \equiv \TRIANGLE{D}{C}{B}$, and thus $\SEGMENT{B}{D} \equiv \SEGMENT{Y}{X} \equiv \SEGMENT{B}{A}$. Now $\TRIANGLE{A}{B}{D}$ is isoceles with $\SEGMENT{B}{A} \equiv \SEGMENT{B}{D}$, so that $\ANGLE{B}{A}{C} \equiv \ANGLE{B}{A}{D} \equiv \ANGLE{B}{D}{A} \equiv \ANGLE{Y}{X}{Z}$. By AAS, we have $\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{X}{Y}{Z}$.
+\end{proof}
+
+\begin{prop}
+A triangle formed by three noncollinear points cannot have two interior angles which are both right.
+\end{prop}
+
+\begin{proof}
+Such a triangle would violate the Alternate Interior Angles theorem since right angles are self-supplementary, and any two right angles are congruent.
+\end{proof}
+
+
+\begin{construct}[Angle Bisector]
+Let $A$, $O$, and $B$ be noncollinear points. There exists a unique line $\ell$, containing $O$, such that if $U \in \ell$ is different from $O$ then $\ANGLE{A}{O}{U} \equiv \ANGLE{B}{O}{U}$. This line is called the \emph{bisector} of $\ANGLE{A}{O}{B}$.
+\end{construct}
+
+\begin{proof}
+Note that we can assume WLOG that $\SEGMENT{O}{A} \equiv \SEGMENT{O}{B}$; if not, construct such a point on $\RAY{O}{B}$ using the Circle Separation property. Since the intersection of $\CIRCLE{A}{O}$ and $\CIRCLE{B}{O}$ contains a point not on $\LINE{A}{B}$, by Circle Cut Transfer there is a second point $U$ on the opposite side of $\LINE{A}{B}$ such that $\SEGMENT{A}{U} \equiv \SEGMENT{B}{U}$. Let $\ell = \LINE{O}{U}$. Note that $\TRIANGLE{A}{O}{U} \equiv \TRIANGLE{B}{O}{U}$ by SSS, so that $\ANGLE{A}{O}{U} \equiv \ANGLE{B}{O}{U}$. Then if $V$ is a point such that $\BETWEEN{V}{O}{U}$, we have $\ANGLE{V}{O}{A} \equiv \ANGLE{V}{O}{B}$, since these are supplementary to congruent angles.
+
+To see uniqueness, note that any such line must contain $O$ and $U$.
+\end{proof}
+
+\begin{cor}
+$A$ and $B$ are on opposite sides of the bisector of $\ANGLE{A}{O}{B}$. In particular, the bisector of $\ANGLE{A}{O}{B}$ contains points which are interior to $\ANGLE{A}{O}{B}$.
+\end{cor}
+
+\begin{proof}
+Suppose otherwise, and let $U \neq O$ be a point on the bisector. Then $\ANGLE{U}{O}{A}$ and $\ANGLE{U}{O}{B}$ are congruent angles on the same half-plane of a ray, so that $A$, $B$, and $O$ are collinear -- a contradiction. By the plane separation property there is a point $W$ between $A$ and $B$ which is on the bisector; this point is interior to $\ANGLE{A}{O}{B}$ as needed.
+\end{proof}
+
+\begin{construct}[Segment Midpoint]
+Let $A$ and $B$ be distinct points. There is a unique point $M$ such that $\BETWEEN{A}{M}{B}$ and $\SEGMENT{A}{M} \equiv \SEGMENT{B}{M}$. This point is called the \emph{midpoint} of $\SEGMENT{A}{B}$.
+\end{construct}
+
+\begin{proof}
+Construct a point $O$ such that $\TRIANGLE{A}{O}{B}$ is equilateral, and construct the bisector of $\ANGLE{A}{O}{B}$. By the Crossbar theorem, this bisector must cut $\SEGMENT{A}{B}$ at an interior point, say $M$. Now $\TRIANGLE{O}{A}{M} \equiv \TRIANGLE{O}{B}{M}$ by SAS, and thus $\SEGMENT{A}{M} \equiv \SEGMENT{B}{M}$ as needed. Note that $M$ is unique by the uniqueness of congruent segments on a ray.
+\end{proof}

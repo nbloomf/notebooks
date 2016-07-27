@@ -1,0 +1,43 @@
+\begin{prop}
+Let $A$, $O$, and $B$ be distinct points. A point $P$ in $\INTANGLE{A}{O}{B}$ is on the bisector of $\ANGLE{A}{O}{B}$ if and only if $\SEGMENT{P}{X} \equiv \SEGMENT{P}{Y}$, where $X$ is the foot of $P$ on $\LINE{O}{A}$ and $Y$ is the foot of $P$ on $\LINE{O}{B}$.
+\end{prop}
+
+\begin{proof}
+Suppose $P$ has this property. Now $\TRIANGLE{O}{P}{X}$ and $\TRIANGLE{O}{P}{Y}$ are right, with $\SEGMENT{P}{X} \equiv \SEGMENT{P}{Y}$ and $\SEGMENT{O}{P} \equiv \SEGMENT{O}{P}$. By the HL Theorem, $\TRIANGLE{O}{P}{X} \equiv \TRIANGLE{O}{P}{Y}$, and thus $\ANGLE{X}{O}{P} \equiv \ANGLE{Y}{O}{P}$. So $P$ is on the bisector of $\ANGLE{A}{O}{B}$.
+
+Conversely, suppose $P$ is on the bisector of $\ANGLE{A}{O}{P}$, and let $X$ be the foot of $P$ on $\LINE{O}{A}$ and $Y$ the foot of $P$ on $\LINE{O}{B}$. Now $\TRIANGLE{X}{O}{P} \equiv \TRIANGLE{Y}{O}{P}$ by AAS, so that $\SEGMENT{P}{X} \equiv \SEGMENT{P}{Y}$. 
+\end{proof}
+
+\begin{construct}[Incircle Theorem]
+Let $A$, $B$, and $C$ be distinct points. Then we have the following.
+\begin{enumerate}
+\item The bisectors of the interior angles of $\TRIANGLE{A}{B}{C}$ are concurrent at a point $O$, called the \emph{incenter} of the triangle.
+
+\item The feet of $O$ on the sides of $\TRIANGLE{A}{B}{C}$ lie on a circle, called the \emph{incircle} of $\TRIANGLE{A}{B}{C}$, which is centered at $O$ and tangent to the sides of $\TRIANGLE{A}{B}{C}$.
+\end{enumerate}
+\end{construct}
+
+\begin{proof}
+Let $\RAY{A}{A'}$ be the bisector of $\ANGLE{B}{A}{C}$. By the Crossbar Theorem this ray cuts $\SEGMENT{B}{C}$ at a point $A''$. Let $\RAY{B}{B'}$ be the bisector of $\ANGLE{A}{B}{C}$; again by the Crossbar Theorem this ray cuts $\SEGMENT{A}{A''}$ at a point $O$. Let $X$, $Y$, and $Z$ be the feet of $O$ on $\LINE{A}{C}$, $\LINE{A}{B}$, and $\LINE{B}{C}$, respectively. Since $O$ is on the bisectors of $\ANGLE{B}{A}{C}$ and $\ANGLE{A}{B}{C}$, we have $\SEGMENT{O}{X} \equiv \SEGMENT{O}{Y}$ and $\SEGMENT{O}{Y} \equiv \SEGMENT{O}{Z}$; thus $\SEGMENT{O}{X} \equiv \SEGMENT{O}{Z}$, and so $O$ is also on the bisector of $\ANGLE{B}{C}{A}$. Thus the bisectors of the interior angles of $\TRIANGLE{A}{B}{C}$ are concurrent at $O$.
+
+Now $X$, $Y$, and $Z$ are the feet of $O$ on the sides of $\TRIANGLE{A}{B}{C}$, and we've seen that $\SEGMENT{O}{X} \equiv \SEGMENT{O}{Y} \equiv \SEGMENT{O}{Z}$. Thus the circle $\Circle{O}{X}$ contains $X$, $Y$, and $Z$, and moreover is tangent to the sides of $\TRIANGLE{A}{B}{C}$ at $X$, $Y$, and $Z$.
+\end{proof}
+
+\begin{construct}[Excircle Theorem]
+Let $A$, $B$, and $C$ be distinct points forming $\TRIANGLE{A}{B}{C}$. Then we have the following.
+\begin{enumerate}
+\item The bisector of the interior angle at $A$ and the exterior angles at $B$ and $C$ are concurrent at a point $O$, called the \emph{excenter} of $\TRIANGLE{A}{B}{C}$ at $A$.
+
+\item The feet of $O$ on the (extended) sides of $\TRIANGLE{A}{B}{C}$ lie on a circle, called the \emph{excircle} of $\TRIANGLE{A}{B}{C}$ at $A$, which is centered at $O$ and tangent to the sides of $\TRIANGLE{A}{B}{C}$.
+\end{enumerate}
+\end{construct}
+
+\begin{proof}
+Essentially the same as the proof of the Incircle Theorem.
+\end{proof}
+
+To every triangle we can associate four special circles: the incircle, and one excircle for each vertex. These circles are tangent to all three (extended) sides of the circle.
+
+\begin{prop}
+Any circle which is tangent to all three (extended) sides of a triangle is either the incircle or one of the excircles.
+\end{prop}
