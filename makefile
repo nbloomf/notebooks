@@ -30,5 +30,5 @@ count:
           wc --lines
 
 badness:
-	@find src/ -name '*.tex' | xargs grep '\. ' > zz-sentence-ends.txt 2>&1
-	@find src/ -name '*.tex' | xargs grep 'ref{exerc:' > zz-refs.txt 2>&1
+	-@find src/ -name '*.tex' | xargs grep '\. ' > zz-sentence-ends.txt 2>&1
+	-@find src/ -name '*.tex' | xargs grep '\\ref{exerc:' > zz-refs.txt 2>&1
