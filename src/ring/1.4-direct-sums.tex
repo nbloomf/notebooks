@@ -1,20 +1,26 @@
-How do we find concrete examples of rings? Most sets don't have obvious choices for the plus and times operations lying around. But if we have some \emph{existing} rings, equipped with plus and times, we might hope to use that existing arithmetic to construct a new one. So a major motivating question throughout this text is what we will call
+How do we find concrete examples of rings?
+Most sets don't have obvious choices for the plus and times operations lying around.
+But if we have some \emph{existing} rings, equipped with plus and times, we might hope to use that existing arithmetic to construct a new one.
+So a major motivating question throughout this text is what we will call \emph{The Construction Problem}.
 \begin{titlebox}{The Construction Problem}
 \begin{center}
 How can we build new rings out of the ``parts'' of old ones?
 \end{center}
 \end{titlebox}
-We will see that, while this question is nebulous enough to avoid a complete answer, there are many useful partial answers. The first, and perhaps the simplest, is to construct \emph{direct sums}: two (or more) rings glued together as a cartesian product.
+We will see that, while this question is nebulous enough to avoid a complete answer, there are many useful partial answers.
+The first, and perhaps the simplest, is to construct \emph{direct sums}: two (or more) rings glued together as a cartesian product.
 
 \begin{dfn}[Direct Sum of Two Rings] \label{dfn:direct-sum}
-Let \(R\) and \(S\) be rings. Then the \emph{direct sum} \index{direct sum} of \(R\) and \(S\), denoted \(R \oplus S\), is the cartesian product \[ R \oplus S = \{ (r,s) \mid r \in R, s \in S \} \] equipped with the ``componentwise'' operations defined as follows.
+Let \(R\) and \(S\) be rings.
+Then the \emph{direct sum}\index{direct sum} of \(R\) and \(S\), denoted \(R \oplus S\), is the cartesian product \[ R \oplus S = \{ (r,s) \mid r \in R, s \in S \} \] equipped with the ``componentwise'' operations defined as follows.
 \begin{eqnarray*}
 (r_1, s_1) + (r_2, s_2) & = & (r_1 + r_2, s_1 + s_2) \\
 (r_1, s_1) \cdot (r_2, s_2) & = & (r_1 \cdot r_2, s_1 \cdot s_2)
 \end{eqnarray*}
 \end{dfn}
 
-The cartesian product is one of the least sophisticated ways to bolt two sets together, and the least sophisticated way to attempt a ring structure on a cartesian product is to perform arithmetic coordinatewise. Of course we have to verify that these operations make \(R \oplus S\) into a ring; the proof of this is left to the exercises.
+The cartesian product is one of the least sophisticated ways to bolt two sets together, and the least sophisticated way to attempt a ring structure on a cartesian product is to perform arithmetic coordinatewise.
+Of course we have to verify that these operations make \(R \oplus S\) into a ring; the proof of this is left to the exercises.
 
 \begin{prop} \label{prop:direct-sum}
 Given rings \(R\) and \(S\) we have the following.
@@ -25,11 +31,15 @@ Given rings \(R\) and \(S\) we have the following.
 \end{proplist}
 \end{prop}
 
-Although (or perhaps because) the direct sum is such a simple way to build new rings out of old ones, it is a very important tool in our quest to understand the structure of rings. We also get some mappings for free, the coordinate projections \(\pi_1\) and \(\pi_2\) and injections \(\iota_1\) and \(\iota_2\). These mappings are simple, but they play a very important structural role for the direct sum.
+Although (or perhaps because) the direct sum is such a simple way to build new rings out of old ones, it is a very important tool in our quest to understand the structure of rings.
+We also get some mappings for free: the coordinate projections \(\pi_1\) and \(\pi_2\) and injections \(\iota_1\) and \(\iota_2\).
+These mappings are simple, but they play a very important structural role for the direct sum.
 
 \begin{examples}
-\item The ring \(\ZZ \oplus \ZZ\) is, as a set, \[ \ZZ \oplus \ZZ = \{ (a,b) \mid a,b \in \ZZ \}. \] In this ring we have, for example, \[ (1,2) + (4,-3) = (1+4, 2-3) = (5,-1) \] and \[ (2,-1) \cdot (5,0) = (2 \cdot 5, -1 \cdot 0) = (10,0). \]
-\item The ring \(\ZZ/(2) \oplus \ZZ/(2)\) has 4 elements. The cayley table of this ring is shown in \autoref{fig:cayley-zz2pzz2}.
+\item The ring \(\ZZ \oplus \ZZ\) is, as a set, \[ \ZZ \oplus \ZZ = \{ (a,b) \mid a,b \in \ZZ \}. \]
+In this ring we have, for example, \[ (1,2) + (4,-3) = (1+4, 2-3) = (5,-1) \] and \[ (2,-1) \cdot (5,0) = (2 \cdot 5, -1 \cdot 0) = (10,0). \]
+\item The ring \(\ZZ/(2) \oplus \ZZ/(2)\) has 4 elements.
+The cayley table of this ring is shown in \autoref{fig:cayley-zz2pzz2}.
 \begin{figure}[h!]
 \begin{center}
 \small
@@ -52,11 +62,16 @@ Although (or perhaps because) the direct sum is such a simple way to build new r
 \end{tabular}
 \addtolength{\tabcolsep}{2pt}
 \end{center}
-\caption{Cayley tables of \(\ZZ/(2) \oplus \ZZ/(2)\).\label{fig:cayley-zz2pzz2}}
+\caption{\label{fig:cayley-zz2pzz2} Cayley tables of \(\ZZ/(2) \oplus \ZZ/(2)\).}
 \end{figure}
 \end{examples}
 
-We can think of \(\oplus\) like an operation on \emph{rings}, which takes two rings and builds a new one. It isn't an operation quite like plus on \(\ZZ\), though, because operations can only be defined on \emph{sets}, but there is no set of all rings. But it is still reasonable to hope that as an operation-like thing, \(\oplus\) behaves nicely. For instance, we might hope that for two rings \(R\) and \(S\), we have \(R \oplus S = S \oplus R\). Of course this cannot possibly be true; as sets, \(R \oplus S\) and \(S \oplus R\) will generally be disjoint. In the next section, we will see how to get around this restriction.
+We can think of \(\oplus\) like an operation on \emph{rings}, which takes two rings and builds a new one.
+It isn't an operation quite like plus on \(\ZZ\), though, because operations can only be defined on \emph{sets}, but there is no set of all rings.
+But it is still reasonable to hope that as an operation-like thing \(\oplus\) behaves nicely.
+For instance, we might hope that for two rings \(R\) and \(S\), we have \(R \oplus S = S \oplus R\).
+Of course this cannot possibly be true; as sets, \(R \oplus S\) and \(S \oplus R\) will generally be disjoint.
+In the next section, we will see how to get around this restriction.
 
 There are other ways to put a ring structure on a cartesian product of rings; some of these are explored in the exercises, and another is in \autoref{sec:quad-ext}.
 
@@ -75,6 +90,7 @@ Construct the cayley tables of the following rings.
 \end{proplist*}
 \end{exercise}
 
+
 \begin{exercise}
 Let \(R\) and \(S\) be rings.
 \begin{proplist*}
@@ -86,9 +102,11 @@ Let \(R\) and \(S\) be rings.
 \end{proplist*}
 \end{exercise}
 
+
 \begin{exercise}
-Show that if \(R\) is unital, then the coordinate projection \(\pi_1 : R \oplus S \rightarrow R\) is a unital homomorphism.
+Show that if \(R\) is unital then the coordinate projection \(\pi_1 : R \oplus S \rightarrow R\) is a unital homomorphism.
 \end{exercise}
+
 
 \begin{exercise}
 Prove \propref{prop:direct-sum}.
@@ -97,21 +115,28 @@ Prove \propref{prop:direct-sum}.
 \begin{exercise}
 Let \(R\) and \(S\) be rings and let \((r,s) \in R \oplus S\).
 \begin{proplist}
-\item Show that \((r,s)^n = (r^n, s^n)\) for all \(n \in \NN \setminus \{0\}\). (cf. \eref{exerc:ring-powers})
+\item Show that \((r,s)^n = (r^n, s^n)\) for all \(n \in \NN \setminus \{0\}\).
+(cf. \eref{exerc:ring-powers}.)
 \item If \(R\) and \(S\) are both unital, show that this identity also holds for \(n = 0\).
 \end{proplist}
 \end{exercise}
 
+
 \begin{exercise}
-Let \(R\) and \(S\) be rings and let \((r,s) \in R \oplus S\). Show that \(n(r,s) = (nr, ns)\) for all \(n \in \ZZ\). (cf. \eref{exerc:elt-mult})
+Let \(R\) and \(S\) be rings and let \((r,s) \in R \oplus S\).
+Show that \(n(r,s) = (nr, ns)\) for all \(n \in \ZZ\).
+(cf. \eref{exerc:elt-mult}.)
 \end{exercise}
+
 
 \begin{exercise}
 Show that \(\CHAR{R \oplus S} = \LCM{\CHAR{R}}{\CHAR{S}}\).
 \end{exercise}
 
+
 \begin{exercise}[Universal Property of Binary Direct Sums.] \label{exerc:up-direct-sum} \index{universal property!of direct sums}
-Let \(R\), \(S\), and \(T\) be rings. Suppose we have ring homomorphisms \(\varphi : T \rightarrow R\) and \(\psi : T \rightarrow S\). Then there is a unique ring homomorphism \(\Theta : T \rightarrow R \oplus S\) such that the following diagram commutes.
+Let \(R\), \(S\), and \(T\) be rings, and suppose we have ring homomorphisms \(\varphi : T \rightarrow R\) and \(\psi : T \rightarrow S\).
+Show that there is a unique ring homomorphism \(\Theta : T \rightarrow R \oplus S\) such that the following diagram commutes.
 \begin{center}
 \begin{tikzcd}
  & T \arrow[ld,"\varphi"'] \arrow[rd, "\psi"] \arrow[d, dashed, "\Theta"] & \\
@@ -121,38 +146,54 @@ R & R \oplus S \arrow[l,"\pi_1"] \arrow[r, "\pi_2"'] & S
 That is, there is a unique \(\Theta\) such that \(\pi_1 \circ \Theta = \varphi\) and \(\pi_2 \circ \Theta = \psi\).
 \end{exercise}
 
-Before we give the proof of this result, a note on its importance. The punchline of \eref{exerc:up-direct-sum} asserts the existence of a unique homomorphism \(\Theta\) through which any pair \((\varphi, \psi)\) must ``factor through''. This is the first of several results about rings known as \emph{universal properties}. The precise meaning of the term ``universal property'' is not important for us at the moment; it is enough to think of them as giving us ``unique homomorphisms for free'', in this case, homomorphisms into a direct sum. They usually also involve a kind of unique factorization of homomorphisms as we have here.
+
+Before we give the proof of this result, a note on its importance. The punchline of \eref{exerc:up-direct-sum} asserts the existence of a unique homomorphism \(\Theta\) through which any pair \((\varphi, \psi)\) must ``factor''.
+This is the first of several results about rings known as \emph{universal properties}.
+The precise meaning of the term ``universal property'' is not important for us at the moment; it is enough to think of them as giving us unique homomorphisms for free -- in this case, homomorphisms into a direct sum.
+They usually also involve a kind of unique factorization of homomorphisms as we have here.
+
 
 \begin{exercise}
-When is the induced map in UPDP unital?
+When is the induced map in \eref{exerc:up-direct-sum} unital?
 \end{exercise}
 
+
 \begin{exercise}
-Let \(R\), \(S\), and \(T\) be rings with homomorphisms \(\varphi : T \rightarrow R\) and \(\psi : T \rightarrow S\). Show that if \(\varphi\) and \(\psi\) are both injective, then the induced map \(\Theta : T \rightarrow R \oplus S\) is injective.
+Let \(R\), \(S\), and \(T\) be rings with homomorphisms \(\varphi : T \rightarrow R\) and \(\psi : T \rightarrow S\).
+Show that if \(\varphi\) and \(\psi\) are both injective, then the induced map \(\Theta : T \rightarrow R \oplus S\) is injective.
 \end{exercise}
+
 
 \begin{exercise}
 Let \(\varphi : R_1 \rightarrow R_2\) and \(\psi : S_1 \rightarrow S_2\) be ring homomorphisms.
 \begin{proplist}
-\item Show that the mapping \(\Theta : R_1 \oplus S_1 \rightarrow R_2 \oplus S_2\) given by \(\Theta(r,s) = (\varphi(r), \psi(s))\) is a homomorphism. We refer to this mapping as \(\varphi \oplus \psi\).
-\item (@@@) surjective
-\item (@@@) injective
+\item Show that the mapping \(\Theta : R_1 \oplus S_1 \rightarrow R_2 \oplus S_2\) given by \(\Theta(r,s) = (\varphi(r), \psi(s))\) is a homomorphism.
+We refer to this mapping as \(\varphi \oplus \psi\).
+\item Show that \(\varphi \oplus \psi\) is surjective if and only if $\varphi$ and $\psi$ are both surjective.
+\item Show that \(\varphi \oplus \psi\) is injective if and only if $\varphi$ and $\psi$ are both injective.
 \item (@@@) unital
 \end{proplist}
 \end{exercise}
 
+
 \begin{exercise}[A Zero-Square Ring.]
-The componentwise operations are not the only way to turn the setwise cartesian product of rings into a ring. Here is another. Let \(S\) be a commutative ring and let \(R = S \times S \times S\). Define addition on \(R\) componentwise, and define multiplication by \[ (a_1,a_2,a_3) \cdot (b_1,b_2,b_3) = (0,0,a_1b_2 - a_2b_1). \] Show that \(R\) is a ring, and that \(x^2 = 0\) for all \(x \in R\).
+The direct sum is one way to make the cartesian product of rings into a ring; here is another.
+Let \(S\) be a commutative ring and let \(R = S \times S \times S\).
+Define addition on \(R\) coordinatewise, and define multiplication by \[ (a_1,a_2,a_3) \cdot (b_1,b_2,b_3) = (0,0,a_1b_2 - a_2b_1). \]
+Show that \(R\) is a ring, and that \(x^2 = 0\) for all \(x \in R\).
 \end{exercise}
 
-\begin{exercise}
-(@@@) move to subrings \textbf{Direct Products.} Let \(\Lambda\) be a nonempty set and let \(\mathcal{R} = \{ R_i \mid i \in \Lambda \}\) be a family of rings indexed by \(\Lambda\). We denote by \[ \prod_{i \in \Lambda} R_i \] the set of all mappings \(r : \Lambda \rightarrow \bigcup_{i \in \Lambda} R_i\) such that \(r(i) \in R_i\) for all \(i \in \Lambda\).
+
+\begin{exercise}[Direct Products.] \label{exerc:direct-product}
+Let \(\Lambda\) be a nonempty set and let \(\mathcal{R} = \{ R_i \mid i \in \Lambda \}\) be a family of rings indexed by \(\Lambda\).
+We denote by \[ \prod_{i \in \Lambda} R_i \] the set of all mappings \(r : \Lambda \rightarrow \bigcup_{i \in \Lambda} R_i\) such that \(r(i) \in R_i\) for all \(i \in \Lambda\).
 \begin{proplist}
 \item Show that \(\prod_{i \in \Lambda} R_i\) is a ring with respect to pointwise plus and times.
 \item Show that \(\prod_{i \in \Lambda} R_i\) is commutative if and only if \(R_i\) is commutative for each \(i \in \Lambda\).
 \item Show that \(\prod_{i \in \Lambda} R_i\) is unital if and only if \(R_i\) is unital for each \(i \in \Lambda\).
 \end{proplist}
 \end{exercise}
+
 
 \begin{exercise}
 (@@@) move to subrings \textbf{Direct Sums.} Let \(\Lambda\) be a nonempty set and let \(\mathcal{R} = \{ R_i \mid i \in \Lambda \}\) be a family of rings indexed by \(\Lambda\). We say that an element \(\alpha \in \prod_{i \in \Lambda} R_i\) has \emph{finite support} if \(\alpha(i) = 0\) for all but finitely many \(i \in \Lambda\). We denote by \[ \bigoplus_{i \in \Lambda} R_i \] the set of all \(\alpha \in \prod_{i \in \Lambda} R_i\) of finite support.
@@ -163,27 +204,38 @@ The componentwise operations are not the only way to turn the setwise cartesian 
 \end{proplist}
 \end{exercise}
 
-\begin{dfn}
-Let \(R\) and \(S\) be rings, and let \(\theta : R \rightarrow \END{S}\) be a mapping. Note that \(\END{R}\) is not (generally) a ring under pointwise addition and composition, so \(\theta\) cannot possibly be a ring homomorphism. Instead, we say that \(\theta\) is a \emph{prehomomorphism} if \(\theta(a + b) = \theta(a) + \theta(b)\) and \(\theta(ab) = \theta(a)\theta(b)\) for all \(a,b \in R\). In this case, note that \(\IM{\theta}\) is a ring.
 
-If \(\theta\) is a prehomomorphism such that \(\IM{theta}\) is commutative, we can define an alternative arithmetic on the cartesian product \(R \times S\) as follows. Addition is performed coordinatewise, while \[ (r_1, s_1) \cdot (r_2, s_2) = (r_1r_2, \theta(r_1)(s_2) + \theta(r_2)(s_1)). \] We call this the \emph{null extension} of \(S\) by \(R\) via \(\theta\), denoted \(\REXTEND{R}{\theta}{S}\)
+\begin{dfn}[Null Extensions of Rings.] \label{dfn:null-extension}
+Let \(R\) and \(S\) be rings and let \(\theta : R \rightarrow \END{S}\) be a mapping.
+Note that \(\END{R}\) is not (generally) a ring under pointwise addition and composition, so \(\theta\) cannot possibly be a ring homomorphism.
+Instead, we say that \(\theta\) is a \emph{prehomomorphism} if \(\theta(a + b) = \theta(a) + \theta(b)\) and \(\theta(ab) = \theta(a)\theta(b)\) for all \(a,b \in R\).
+In this case, note that \(\IM{\theta}\) is a ring.
+
+If \(\theta\) is a prehomomorphism such that \(\IM{theta}\) is commutative, we can define an alternative arithmetic on the cartesian product \(R \times S\) as follows.
+Addition is performed coordinatewise, while \[ (r_1, s_1) \cdot (r_2, s_2) = (r_1r_2, \theta(r_1)(s_2) + \theta(r_2)(s_1)). \]
+We call this the \emph{null extension} of \(S\) by \(R\) via \(\theta\), denoted \(\REXTEND{R}{\theta}{S}\).
 \end{dfn}
+
 
 \begin{exercise}
 Show that \(\REXTEND{R}{\theta}{S}\) is a ring.
 \end{exercise}
 
+
 \begin{exercise}
 Let \(S\) be a ring.
 \begin{proplist}
-\item Show that the map \(\theta : 0 \rightarrow \END{S}\) given by \(\theta(0)(s) = 0_S\) is a prehomomorphism, and that \(\IM{\theta}\) is commutative.
-\item Show that \(\REXTEND{0}{\theta}{S}\) is a null ring, which has the same additive structure as \(S\). We call this the \emph{nullification} of \(S\), and denote it \(S^0\).
+\item Show that the map \(\theta : 0 \rightarrow \END{S}\) given by \(\theta(0)(s) = 0_S\) is a prehomomorphism and that \(\IM{\theta}\) is commutative.
+\item Show that \(\REXTEND{0}{\theta}{S}\) is a null ring which has the same additive structure as \(S\).
+We call this the \emph{nullification} of \(S\) and denote it \(S^0\).
 \end{proplist}
 \end{exercise}
 
+
 \begin{exercise}
-Let \(R\) be a ring and \(N\) a null ring, and suppose we have a prehomomorphism \(\theta\) with \(\IM{\theta}\) commutative.
+Let \(R\) be a ring and \(N\) a null ring, and suppose we have a prehomomorphism \(\theta\) with \(\IM{\theta}\) commutative. (@@@ what was I going to say here?)
 \end{exercise}
+
 
 \begin{exercise}
 Let \(R\) be a commutative ring. We define operations on the set \(\HAM{R} = R \times R \times R \times R\) by (@@@)

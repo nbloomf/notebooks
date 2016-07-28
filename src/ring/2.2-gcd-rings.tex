@@ -51,7 +51,7 @@ Let \(R\) be a domain with \(a,b \in R\). We have the following.
 \end{inlineproplist}
 \end{proof}
 
-The next result is very important: it roughly says that if $a$ divides a product but is relatively prime to one of the factors, then it must divide the other factor.
+The next result is very important: it roughly says that if \(a\) divides a product but is relatively prime to one of the factors, then it must divide the other factor.
 
 \begin{prop}[Euclid's Lemma] \label{prop:euclids-lemma}
 Let \(R\) be a domain with \(a,b,c \in R\). \index{Euclid's Lemma}
@@ -71,7 +71,7 @@ Let \(R\) be a domain with \(a,b,c \in R\). \index{Euclid's Lemma}
 In fact many nice properties hold for greatest common divisors, all of which are contingent on GCDs existing in the first place -- and this is not guaranteed! That is, there are some domains, like \(\ZZ\), where \(\GCD{a}{b}\) is always nonempty, but there are other domains containing elements which do not have any greatest common divisors. (We explore some examples in the exercises.) Those rings, like \(\ZZ\), where GCDs always exist are special enough to warrant a definition.
 
 \begin{dfn}[GCD Ring] \label{dfn:gcd-ring}
-Let \(R\) be a domain. We say that \(R\) is a \emph{GCD ring} if any two elements of \(R\) have a greatest common divisor. \index{GCD ring} If $R$ is also a domain, we say it is a \emph{GCD domain}. \index{GCD domain}
+Let \(R\) be a domain. We say that \(R\) is a \emph{GCD ring} if any two elements of \(R\) have a greatest common divisor. \index{GCD ring} If \(R\) is also a domain, we say it is a \emph{GCD domain}. \index{GCD domain}
 \end{dfn}
 
 Of course our motivating example \(\ZZ\) is a GCD domain, and we will see many more. Now several of the nice things we can say about GCDs in \(\ZZ\) hold in an arbitrary GCD domain.
@@ -115,32 +115,32 @@ Remember that unlike \(\ZZ\), in a GCD domain we only know that greatest common 
 %---------%
 
 \begin{exercise}
-Let $R$ and $S$ be domains, and let $x,y \in R \oplus S$. Show that if $x|y$ and $y|x$ then $x \ASSOC y$.
+Let \(R\) and \(S\) be domains, and let \(x,y \in R \oplus S\). Show that if \(x|y\) and \(y|x\) then \(x \ASSOC y\).
 \end{exercise}
 
 \begin{exercise}
-Let $R$ and $S$ be GCD domains with $r_1,r_2 \in R$ and $s_1,s_2 \in S$, and let $d_r \in \GCD{r_1}{r_2}$ and $d_s \in \GCD{s_1}{s_2}$. Show that $(d_r, d_s) \in \GCD{(r_1,s_1)}{(r_2,s_2)}$.
+Let \(R\) and \(S\) be GCD domains with \(r_1,r_2 \in R\) and \(s_1,s_2 \in S\), and let \(d_r \in \GCD{r_1}{r_2}\) and \(d_s \in \GCD{s_1}{s_2}\). Show that \((d_r, d_s) \in \GCD{(r_1,s_1)}{(r_2,s_2)}\).
 \end{exercise}
 
 \begin{exercise}
-Let $X$ be a nonempty set and let $a,b \in \POW{X}$. Show that if $a|b$ and $b|a$ then $a = b$.
+Let \(X\) be a nonempty set and let \(a,b \in \POW{X}\). Show that if \(a|b\) and \(b|a\) then \(a = b\).
 \end{exercise}
 
 \begin{exercise}
-Let $X$ be a nonempty set, and let $A, B \in \POW{X}$. Show that $A \cup B \in \GCD{A}{B}$.
+Let \(X\) be a nonempty set, and let \(A, B \in \POW{X}\). Show that \(A \cup B \in \GCD{A}{B}\).
 \end{exercise}
 
 \begin{exercise}
-(@@@) Let $n > 1$.
+(@@@) Let \(n > 1\).
 \begin{proplist*}
-\item Show that $k \ASSOC \GCD{k}{n}$.
-\item Show that the associate classes of $\ZZ/(n)$ are of the form $\GCD{k}{n}$ for $0 \leq k < n$.
-\item Show that if $a|b$ and $b|a$ then $a \ASSOC b$.
+\item Show that \(k \ASSOC \GCD{k}{n}\).
+\item Show that the associate classes of \(\ZZ/(n)\) are of the form \(\GCD{k}{n}\) for \(0 \leq k < n\).
+\item Show that if \(a|b\) and \(b|a\) then \(a \ASSOC b\).
 \end{proplist*}
 \end{exercise}
 
-\begin{exercise}[$\ZZ/(n)$ has greatest common divisors.]
-(@@@) Let $n > 1$, let $a,b \in \ZZ/(n)$, and let $d$ be the greatest common divisor of $a$, $b$, and $n$ in $\ZZ$. Show that $d \in \GCD{a}{b}$ in $\ZZ/(n)$.
+\begin{exercise}[\(\ZZ/(n)\) has greatest common divisors.]
+(@@@) Let \(n > 1\), let \(a,b \in \ZZ/(n)\), and let \(d\) be the greatest common divisor of \(a\), \(b\), and \(n\) in \(\ZZ\). Show that \(d \in \GCD{a}{b}\) in \(\ZZ/(n)\).
 \end{exercise}
 
 \begin{exercise}
@@ -157,7 +157,7 @@ That is, \(\wedge\) is a partial function \(\ASSOCLAT{R} \times \ASSOCLAT{R} \ri
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a GCD domain, and let \(\wedge\) be defined on \(\ASSOCLAT{R}\) as in \eref{exerc:gcd-meet}. Show that the following hold for all $A,B,C \in \ASSOCLAT{R}$.
+Let \(R\) be a GCD domain, and let \(\wedge\) be defined on \(\ASSOCLAT{R}\) as in \eref{exerc:gcd-meet}. Show that the following hold for all \(A,B,C \in \ASSOCLAT{R}\).
 \begin{proplist*}
 \item \(A \wedge A = A\)
 \item \(A \wedge B = B \wedge A\)

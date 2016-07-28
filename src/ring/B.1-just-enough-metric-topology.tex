@@ -1,24 +1,31 @@
-Recall that if \(R\) is a ring and \(A\) any nonempty set, then the set \(R^A\) of all mappings \(A \rightarrow R\) is a ring with pointwise arithmetic. As a special case, an element \(\alpha\) of the ring \(R^\NN\) is called a \DefTerm{sequence} of \(R\), and the image of a sequence \(\alpha\) at a particular natural number index \(i\) is denoted \(\alpha_i\) rather than the usual \(\alpha(i)\). Given \(r \in R\), we denote by \(\TILDE{r}\) the constant sequence with value \(r\); that is, \(\TILDE{r}_i = r\) for all \(i\).
+Recall that if \(R\) is a ring and \(A\) any nonempty set, then the set \(R^A\) of all mappings \(A \rightarrow R\) is a ring with pointwise arithmetic.
+As a special case, an element \(\alpha\) of the ring \(R^\NN\) is called a \emph{sequence}\index{sequence} of \(R\).
+We will denote the image of a sequence \(\alpha\) at a particular natural number index \(i\) by \(\alpha_i\) rather than the usual \(\alpha(i)\).
+Given \(r \in R\), we denote by \(\TILDE{r}\) the constant sequence with value \(r\); that is, \(\TILDE{r}_i = r\) for all \(i\).
 
-It's about to start looking a lot like calculus in here. Do not be alarmed; we will only do as much analysis as is absolutely necessary. This section proceeds at a much faster pace.
+It's about to start looking a lot like calculus in here.
+Do not be alarmed; we will only do as much analysis as is absolutely necessary.
+This section proceeds at a much faster pace.
 
 \begin{dfn}[Absolute Value] \label{dfn:abs-val}
-Let \(R\) be a ring. A mapping \(v : R \rightarrow \QQ\) is called a (rational) \DefTerm{absolute value} if the following properties are satisfied.
+Let \(R\) be a ring.
+A mapping \(v : R \rightarrow \QQ\) is called a (rational) \emph{absolute value}\index{absolute value} if the following properties are satisfied.
 \begin{proplist}
 \item \(v(x) \geq 0\) for all \(x \in R\).
 \item \(v(x) = 0\) if and only if \(x = 0_R\).
 \item \(v(xy) = v(x)v(y)\) for all \(x,y \in R\).
-\item \(v(x+y) \leq v(x) + v(y)\) for all \(x,y \in R\). (Triangle Inequality)
+\item The Triangle Inequality: \(v(x+y) \leq v(x) + v(y)\) for all \(x,y \in R\).
 \end{proplist}
 \end{dfn}
 
-The basic example of an absolute value on a ring is the usual absolute value on \(\QQ\). For now, in the interest of brevity, we will save any more examples for the exercises or the later sections of this chapter.
+The basic example of an absolute value on a ring is the usual absolute value on \(\QQ\).
+For now, in the interest of brevity, we will save any more examples for the exercises or the later sections of this chapter.
 
 \begin{prop} \label{prop:abs-val-basics}
 If \(R\) is a ring with absolute value \(v\) then we have the following.
 \begin{proplist}
 \item If \(x,y \in R\) and \(xy = 0_R\), then either \(x = 0_R\) or \(y = 0_R\).
-\item \(v(x-y) \geq v(x) - v(y)\) for all \(x,y \in R\). \label{prop:abs-val-basics:reverse-ti}
+\item \label{prop:abs-val-basics:reverse-ti} \(v(x-y) \geq v(x) - v(y)\) for all \(x,y \in R\).
 \item \(v(-x) = v(x)\) for all \(x \in R\).
 \item If \(R\) is unital, then \(v(1_R) = 1\).
 \item If \(R\) is unital and \(u \in R\) a unit, then \(v(u^{-1}) = 1/v(u)\).
@@ -27,70 +34,100 @@ If \(R\) is a ring with absolute value \(v\) then we have the following.
 
 \begin{proof}
 \begin{inlineproplist}
-\item If \(xy = 0_R\), then \(v(x)v(y) = v(xy) = 0\). Since \(\QQ\) is a field, either \(v(x) = 0\) (so \(x = 0_R\)) or \(v(y) = 0\) (so \(y = 0_R\)).
+\item If \(xy = 0_R\), then \(v(x)v(y) = v(xy) = 0\).
+Since \(\QQ\) is a field, either \(v(x) = 0\) (so that \(x = 0_R\)) or \(v(y) = 0\) (so that \(y = 0_R\)).
 \item We have \[ v(x) = v(x-y+y) \leq v(x-y) + v(y) \] so that \(v(x) - v(y) \leq v(x-y)\).
-\item Note that \(v(-x)^2 = v((-x)^2) = v(x^2) = v(x)^2\), so that \(v(-x)^2 - v(x)^2 = 0\) in \(\QQ\). Thus \((v(-x) + v(x))(v(-x) - v(x)) = 0\). Since \(\QQ\) is a field, one of these factors must be zero. But note that \(v(-x) + v(x) = 0\) can only be true if \(v(x) = v(-x) = 0\) since the value of \(v\) is nonnegative. In this case we have \(x = 0_R = -x\), and so \(v(x) = v(-x)\). If \(x \neq 0_R\), then \(v(x) + v(-x)\) is nonzero, so that \(v(x) - v(-x) = 0\), and thus \(v(-x) = v(x)\).
-\item Note that \(v(1_R) = v(1_R^2) = v(1_R)^2\), so that \(v(1_R)(1 - v(1_R)) = 0\). Since \(1_R \neq 0_R\), we have \(v(1_R) \neq 0\), and thus \(1 - v(1_R) = 0\). So \(v(1_R) = 1\).
+\item Note that \(v(-x)^2 = v((-x)^2) = v(x^2) = v(x)^2\), so that \(v(-x)^2 - v(x)^2 = 0\) in \(\QQ\).
+Thus \((v(-x) + v(x))(v(-x) - v(x)) = 0\).
+Since \(\QQ\) is a field, one of these factors must be zero.
+But note that \(v(-x) + v(x) = 0\) can only be true if \(v(x) = v(-x) = 0\) since the value of \(v\) is nonnegative.
+In this case we have \(x = 0_R = -x\), and so \(v(x) = v(-x)\).
+If \(x \neq 0_R\), then \(v(x) + v(-x)\) is nonzero, so that \(v(x) - v(-x) = 0\), and thus \(v(-x) = v(x)\).
+\item Note that \(v(1_R) = v(1_R^2) = v(1_R)^2\), so that \(v(1_R)(1 - v(1_R)) = 0\).
+Since \(1_R \neq 0_R\), we have \(v(1_R) \neq 0\), and thus \(1 - v(1_R) = 0\).
+So \(v(1_R) = 1\).
 \item We have \(1 = v(1_R) = v(uu^{-1}) = v(u)v(u^{-1})\) as needed.
 \end{inlineproplist}
 \end{proof}
 
 \begin{dfn}[Bounded Sequence]
-Let \(R\) be a ring with absolute value \(v\). A sequence \(\alpha : \NN \rightarrow R\) is called \DefTerm[sequence]{bounded} if there is a positive rational number \(B\) such that \(v(\alpha_i) \leq B\) for all \(i \in \NN\). In this case we say that \(B\) is a \emph{bound} of \(\alpha\).
+Let \(R\) be a ring with absolute value \(v\). A sequence \(\alpha : \NN \rightarrow R\) is called \emph{bounded}\index{sequence!bounded} if there is a positive rational number \(B\) such that \(v(\alpha_i) \leq B\) for all \(i \in \NN\). In this case we say that \(B\) is a \emph{bound} of \(\alpha\).
 \end{dfn}
 
-For instance constant sequences are bounded since \(v(\TILDE{r}_i) \leq v(r) < v(r) + 1\).
+For instance the constant sequence \(r_i = r\) is bounded since \(v(\TILDE{r}_i) \leq v(r) < v(r) + 1\).
 
 \begin{prop}
-Let \(R\) be a ring and \(v\) an absolute value on \(R\). Then the set \(\mathcal{B}\) of all bounded sequences of \(R\) is a subring of the ring of all sequences of \(R\). If \(R\) is unital, then \(\mathcal{B}\) is a unital subring.
+Let \(R\) be a ring and \(v\) an absolute value on \(R\).
+Then the set \(\mathcal{B}\) of all bounded sequences of \(R\) is a subring of the ring of all sequences of \(R\).
+If \(R\) is unital, then \(\mathcal{B}\) is a unital subring.
 \end{prop}
 
 \begin{proof}
 Following the Subring Criterion (\ref{prop:subring-criterion}), it suffices to show that \(\mathcal{B}\) is nonempty and closed under multiplication and subtraction.
 \begin{inlineproplist}
-\item Every constant sequence, such as \(\TILDE{0_R}\), is bounded. So \(\mathcal{B}\) is nonempty.
-\item Suppose \(\alpha\) and \(\beta\) are bounded sequences, with \(v(\alpha_i) \leq B_\alpha\) and \(v(\beta_i) \leq B_\beta\) for all natural numbers \(i\). Then for all \(i\) we have  \[ v((\alpha\beta)_i) = v(\alpha_i \beta_i) = v(\alpha_i)v(\beta_i) \leq B_\alpha B_\beta, \] using the fact that \(v(x)\) is nonnegative for all \(x\). So \(B_\alpha B_\beta\) is a bound of \(\alpha\beta\).
+\item Every constant sequence, such as \(\TILDE{0_R}\), is bounded.
+So \(\mathcal{B}\) is nonempty.
+\item Suppose \(\alpha\) and \(\beta\) are bounded sequences, with \(v(\alpha_i) \leq B_\alpha\) and \(v(\beta_i) \leq B_\beta\) for all natural numbers \(i\).
+Then for all \(i\) we have  \[ v((\alpha\beta)_i) = v(\alpha_i \beta_i) = v(\alpha_i)v(\beta_i) \leq B_\alpha B_\beta, \] using the fact that \(v(x)\) is nonnegative for all \(x\).
+So \(B_\alpha B_\beta\) is a bound of \(\alpha\beta\).
 \item Suppose again that \(\alpha\) and \(\beta\) are bounded by \(B_\alpha\) and \(B_\beta\), respectively, and let \(i \in \NN\). Then we have \[ v((\alpha - \beta)_i) = v(\alpha_i - \beta_i) \leq v(\alpha_i) + v(-\beta_i) = v(\alpha_i) + v(\beta_i) \leq B_\alpha + B_\beta. \] So \(B_\alpha + B_\beta\) is a bound of \(\alpha - \beta\).
 \end{inlineproplist}
 Finally, if \(R\) is unital, then \(\mathcal{B}\) contains the constant sequence \(\TILDE{1_R}\), which is the one in \(R^\NN\).
 \end{proof}
 
 \begin{dfn}[Convergent Sequence]
-Let \(R\) be a ring with absolute value \(v\). A sequence \(\alpha : \NN \rightarrow R\) is called \DefTerm[sequence]{convergent} if there is an \(\ell \in R\) such that for every rational number \(\varepsilon > 0\), there exists a natural number \(N\) such that \(v(\alpha_i - \ell) < \varepsilon\) whenever \(i \geq N\). In this case we say \(\ell\) is a \DefTerm{limit} of the sequence \(\alpha\).
+Let \(R\) be a ring with absolute value \(v\).
+A sequence \(\alpha : \NN \rightarrow R\) is called \emph{convergent}\index{sequence!convergent} if there is an \(\ell \in R\) such that for every rational number \(\varepsilon > 0\), there exists a natural number \(N\) such that \(v(\alpha_i - \ell) < \varepsilon\) whenever \(i \geq N\).
+In this case we say \(\ell\) is a \emph{limit}\index{limit!of a sequence} of the sequence \(\alpha\).
 \end{dfn}
 
 \begin{prop}
-The limit of a convergent sequence is unique. If \(\alpha\) is a convergent sequence then we denote its (unique) limit by \(\LIM{\alpha}\) or by \(\LIM[n]{\alpha_n}\).
+The limit of a convergent sequence is unique.
+If \(\alpha\) is a convergent sequence then we denote its (unique) limit by \(\LIM{\alpha}\) or by \(\LIM[n]{\alpha_n}\).
 \end{prop}
 
 \begin{proof}
-Suppose \(\alpha\) is a convergent sequence with limits \(\ell_1\) and \(\ell_2\), and suppose further that \(\ell_1 \neq \ell_2\). In particular we have \(v(\ell_1 - \ell_2) > 0\). Choose a rational number \(\varepsilon\) such that \(0 < \varepsilon < v(\ell_1 - \ell_2)/2\). Since \(\alpha\) is convergent with limits \(\ell_1\) and \(\ell_2\), there exists a natural number \(k\) sufficiently large that \(v(\alpha_k - \ell_1) < \varepsilon\) and \(v(\alpha_k - \ell_2) < \varepsilon\). Then we have \[ v(\ell_1 - \ell_2) = v(\ell_1 - \alpha_k + \alpha_k - \ell_2) \leq v(\ell_1 - \alpha_k) + v(\alpha_k - \ell_2) < 2\varepsilon < v(\ell_1 - \ell_2), \] a contradiction.
+Suppose \(\alpha\) is a convergent sequence with limits \(\ell_1\) and \(\ell_2\), and suppose further that \(\ell_1 \neq \ell_2\).
+In particular we have \(v(\ell_1 - \ell_2) > 0\).
+Choose a rational number \(\varepsilon\) such that \(0 < \varepsilon < v(\ell_1 - \ell_2)/2\).
+Since \(\alpha\) is convergent with limits \(\ell_1\) and \(\ell_2\), there exists a natural number \(k\) sufficiently large that \(v(\alpha_k - \ell_1) < \varepsilon\) and \(v(\alpha_k - \ell_2) < \varepsilon\).
+Then we have \[ v(\ell_1 - \ell_2) = v(\ell_1 - \alpha_k + \alpha_k - \ell_2) \leq v(\ell_1 - \alpha_k) + v(\alpha_k - \ell_2) < 2\varepsilon < v(\ell_1 - \ell_2), \] a contradiction.
 \end{proof}
 
 \begin{prop} \label{prop:convergent-seq-subset}
 Let \(R\) be a ring with absolute value \(v\). Then among the sequences of \(R\) we have the following.
 \begin{proplist}
-\item Every constant sequence is convergent. \label{prop:convergent-seq-subset:constant}
-\item Every convergent sequence is bounded. \label{prop:convergent-seq-subset:bounded}
+\item \label{prop:convergent-seq-subset:constant} Every constant sequence is convergent.
+\item \label{prop:convergent-seq-subset:bounded} Every convergent sequence is bounded.
 \end{proplist}
 \end{prop}
 
 \begin{proof}
 \begin{inlineproplist}
-\item Let \(r \in R\). Given a rational number \(\epsilon > 0\), set \(N = 0\). Now for all natural numbers \(i \geq N\) we have \[ v(\TILDE{r}_i - r) = v(r - r) = v(0_R) = 0 < \varepsilon, \] so \(\TILDE{r}\) is convergent with limit \(r\).
-\item Suppose \(\alpha\) is a convergent sequence with limit \(\ell\). Since \(1 > 0\), there is a natural number \(N\) with the property that \(v(\alpha_i - \ell) < 1\) for all \(i \geq N\). Using \sref{prop:abs-val-basics}{reverse-ti}, we have \(v(\alpha_i) - v(\ell) < 1\), and thus \(v(\alpha_i) < v(\ell) + 1\) for all \(i \geq N\). Now set \[ B = \max(v(\alpha_0), v(\alpha_1), \ldots, v(\alpha_{N-1}), v(\ell) + 1). \] By construction we have \(v(\alpha_i) \leq B\) for all \(i \in \NN\); thus \(B\) is a bound of \(\alpha\).
+\item Let \(r \in R\).
+Given a rational number \(\epsilon > 0\), set \(N = 0\).
+Now for all natural numbers \(i \geq N\) we have \[ v(\TILDE{r}_i - r) = v(r - r) = v(0_R) = 0 < \varepsilon, \] so \(\TILDE{r}\) is convergent with limit \(r\).
+\item Suppose \(\alpha\) is a convergent sequence with limit \(\ell\). Since \(1 > 0\), there is a natural number \(N\) with the property that \(v(\alpha_i - \ell) < 1\) for all \(i \geq N\).
+Using \sref{prop:abs-val-basics}{reverse-ti}, we have \(v(\alpha_i) - v(\ell) < 1\), and thus \(v(\alpha_i) < v(\ell) + 1\) for all \(i \geq N\).
+Now set \[ B = \max(v(\alpha_0), v(\alpha_1), \ldots, v(\alpha_{N-1}), v(\ell) + 1). \]
+By construction we have \(v(\alpha_i) \leq B\) for all \(i \in \NN\); thus \(B\) is a bound of \(\alpha\).
 \end{inlineproplist}
 \end{proof}
 
 \begin{prop} \label{prop:convergent-sequences-are-subring}
-Let \(R\) be a ring with absolute value \(v\). Then the set \(\mathcal{V}\) of all convergent sequences of \(R\) is a subring of the ring of all sequences of \(R\). If \(R\) is unital, then \(\mathcal{V}\) is a unital subring.
+Let \(R\) be a ring with absolute value \(v\).
+Then the set \(\mathcal{V}\) of all convergent sequences of \(R\) is a subring of the ring of all sequences of \(R\).
+If \(R\) is unital, then \(\mathcal{V}\) is a unital subring.
 \end{prop}
 
 \begin{proof}
 Again following the Subring Criterion (\ref{prop:subring-criterion}) it suffices to show that \(\mathcal{V}\) is nonempty and closed under subtraction and multiplication.
 \begin{inlineproplist}
 \item Every constant sequence, such as \(\TILDE{0_R}\), is convergent, so that \(\mathcal{V}\) is not empty.
-\item Suppose \(\alpha\) and \(\beta\) are convergent sequences with \(\LIM{\alpha} = \ell_\alpha\) and \(\LIM{\beta} = \ell_\beta\), and let \(\varepsilon > 0\) be an arbitrary rational number. Note that \(\varepsilon/2\) is positive, so that (since \(\alpha\) and \(\beta\) are convergent) there exist natural numbers \(N_\alpha\) and \(N_\beta\) such that \[ v(\alpha_i - \ell_\alpha) < \varepsilon/2 \quad \mathrm{when}\ i \geq N_\alpha \] and \[ v(\beta_i - \ell_\beta) < \varepsilon/2 \quad \mathrm{when}\ i \geq N_\beta. \] Set \(N = \max(N_\alpha, N_\beta)\). Now if \(i \geq N\), we have
+\item Suppose \(\alpha\) and \(\beta\) are convergent sequences with \(\LIM{\alpha} = \ell_\alpha\) and \(\LIM{\beta} = \ell_\beta\), and let \(\varepsilon > 0\) be an arbitrary rational number.
+Note that \(\varepsilon/2\) is positive, so that (since \(\alpha\) and \(\beta\) are convergent) there exist natural numbers \(N_\alpha\) and \(N_\beta\) such that \[ v(\alpha_i - \ell_\alpha) < \varepsilon/2 \quad \mathrm{when}\ i \geq N_\alpha \] and \[ v(\beta_i - \ell_\beta) < \varepsilon/2 \quad \mathrm{when}\ i \geq N_\beta. \]
+Set \(N = \max(N_\alpha, N_\beta)\).
+Now if \(i \geq N\), we have the following.
 \begin{eqnarray*}
 v\left((\alpha - \beta)_i - (\ell_\alpha - \ell_\beta)\right)
  & = & v(\alpha_i - \beta_i - \ell_\alpha + \ell_\beta) \\
@@ -100,7 +137,13 @@ v\left((\alpha - \beta)_i - (\ell_\alpha - \ell_\beta)\right)
  & = & \varepsilon.
 \end{eqnarray*}
 Thus \(\alpha - \beta\) is convergent.
-\item Again suppose \(\alpha\) and \(\beta\) are convergent sequences with \(\LIM{\alpha} = \ell_\alpha\) and \(\LIM{\beta} = \ell_\beta\), and let \(\varepsilon > 0\). By \sref{prop:convergent-seq-subset}{bounded}, \(\alpha\) is also bounded; say \(v(\alpha_i) \leq B_\alpha\) for all \(i\). Now let \(U = \max\left(B_\alpha, v(\ell_\beta)\right)\). Since \(U > 0\), we have \(\varepsilon/(2U) > 0\). Since \(\alpha\) and \(\beta\) are convergent, there exist natural numbers \(N_\alpha\) and \(N_\beta\) such that \[ v(\alpha_i - \ell_\alpha) < \frac{\varepsilon}{2U} \quad \mathrm{when}\ i \geq N_\alpha \] and \[ v(\beta_i - \ell_\beta) < \frac{\varepsilon}{2U} \quad \mathrm{when}\ i \geq N_\beta. \] Let \(N = \max(N_\alpha, N_\beta)\). Then if \(i \geq N\) we have
+\item Again suppose \(\alpha\) and \(\beta\) are convergent sequences with \(\LIM{\alpha} = \ell_\alpha\) and \(\LIM{\beta} = \ell_\beta\), and let \(\varepsilon > 0\).
+By \sref{prop:convergent-seq-subset}{bounded}, \(\alpha\) is also bounded; say \(v(\alpha_i) \leq B_\alpha\) for all \(i\).
+Now let \(U = \max\left(B_\alpha, v(\ell_\beta)\right)\).
+Since \(U > 0\), we have \(\varepsilon/(2U) > 0\).
+Since \(\alpha\) and \(\beta\) are convergent, there exist natural numbers \(N_\alpha\) and \(N_\beta\) such that \[ v(\alpha_i - \ell_\alpha) < \frac{\varepsilon}{2U} \quad \mathrm{when}\ i \geq N_\alpha \] and \[ v(\beta_i - \ell_\beta) < \frac{\varepsilon}{2U} \quad \mathrm{when}\ i \geq N_\beta. \]
+Let \(N = \max(N_\alpha, N_\beta)\).
+Then if \(i \geq N\) we have the following.
 \begin{eqnarray*}
 v((\alpha\beta)_i - \ell_\alpha \ell_\beta)
  & = & v(\alpha_i\beta_i - \ell_\alpha \ell_\beta) \\
@@ -110,43 +153,62 @@ v((\alpha\beta)_i - \ell_\alpha \ell_\beta)
  & < & U \cdot \frac{\varepsilon}{2U} + \frac{\varepsilon}{2U} \cdot U \\
  & = & \varepsilon.
 \end{eqnarray*}
-(Note that \(R\) is not necessarily commutative!) So \(\alpha\beta\) is convergent.
+(Note that \(R\) is not necessarily commutative!)
+So \(\alpha\beta\) is convergent.
 \end{inlineproplist}
 Finally, if \(R\) is unital, then \(\mathcal{V}\) contains the constant sequence \(\TILDE{1_R}\), which is the one in \(R^\NN\).
 \end{proof}
 
 \begin{cor}
-If \(\alpha\) and \(\beta\) are convergent sequences, then so are \(\alpha - \beta\), \(\alpha \beta\), and \(\alpha + \beta\), and in fact we have \(\LIM{\alpha - \beta} = \LIM{\alpha} - \LIM{\beta}\), \(\LIM{\alpha\beta} = \LIM{\alpha}\LIM{\beta}\), and \(\LIM{\alpha + \beta} = \LIM{\alpha} + \LIM{\beta}\). In particular, letting \(\mathcal{V}\) denote the set of convergent sequences of \(R\), the mapping \(\lim : \mathcal{V} \rightarrow R\) is a ring homomorphism.
+If \(\alpha\) and \(\beta\) are convergent sequences, then so are \(\alpha - \beta\), \(\alpha \beta\), and \(\alpha + \beta\), and in fact we have \(\LIM{\alpha - \beta} = \LIM{\alpha} - \LIM{\beta}\), \(\LIM{\alpha\beta} = \LIM{\alpha}\LIM{\beta}\), and \(\LIM{\alpha + \beta} = \LIM{\alpha} + \LIM{\beta}\).
+In particular, letting \(\mathcal{V}\) denote the set of convergent sequences of \(R\), the mapping \(\lim : \mathcal{V} \rightarrow R\) is a ring homomorphism.
 \end{cor}
 
 \begin{dfn}[Cauchy Sequence]
-Let \(R\) be a ring with absolute value \(v\). A sequence \(\alpha : \NN \rightarrow R\) is called \DefTerm[sequence]{cauchy} if for every rational number \(\varepsilon > 0\) there exists a natural number \(M\) such that \(v(\alpha_j - \alpha_i) < \varepsilon\) whenever \(i,j \geq M\).
+Let \(R\) be a ring with absolute value \(v\).
+A sequence \(\alpha : \NN \rightarrow R\) is called \emph{cauchy}\index{sequence!cauchy} if for every rational number \(\varepsilon > 0\) there exists a natural number \(M\) such that \(v(\alpha_j - \alpha_i) < \varepsilon\) whenever \(i,j \geq M\).
 \end{dfn}
 
 \begin{prop} \label{prop:cauchy-seq-subset}
-Let \(R\) be a ring with absolute value \(v\). Then among the sequences of \(R\) we have the following.
+Let \(R\) be a ring with absolute value \(v\).
+Then among the sequences of \(R\) we have the following.
 \begin{proplist}
-\item Every convergent sequence is cauchy. \label{prop:cauchy-seq-subset:convergent}
-\item Every cauchy sequence is bounded. \label{prop:cauchy-seq-subset:bounded}
+\item \label{prop:cauchy-seq-subset:convergent} Every convergent sequence is cauchy.
+\item \label{prop:cauchy-seq-subset:bounded} Every cauchy sequence is bounded.
 \end{proplist}
 \end{prop}
 
 \begin{proof}
 \begin{inlineproplist}
-\item Let \(\alpha\) be a convergent sequence with limit \(\ell\). Let \(\varepsilon > 0\). Now \(\varepsilon/2 > 0\), and since \(\alpha\) is convergent there exists a natural number \(N\) such that \(v(\alpha_i - \ell) < \varepsilon/2\) whenever \(i,j \geq N\). Setting \(M = N\), whenever \(i \geq M\), we have \[ v(\alpha_j - \alpha_i) = v(\alpha_j - \ell + \ell - \alpha_i) \leq v(\alpha_j - \ell) + v(\ell - \alpha_i) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon. \] Thus \(\alpha\) is cauchy.
-\item Suppose \(\alpha\) is cauchy. Since \(1 > 0\), there is a natural number \(M\) such that \(v(\alpha_j - \alpha_i) < 1\) whenever \(i,j \geq M\). In particular, we have \(v(\alpha_j - \alpha_M) < 1\) whenever \(j \geq M\). Using \sref{prop:abs-val-basics}{reverse-ti}, we have \(v(\alpha_j) - v(\alpha_M) < 1\), so that \(v(\alpha_j) < v(\alpha_M) + 1\) whenever \(j \geq M\). Now set \[ B = \max(v(\alpha_0), v(\alpha_1), \ldots, v(\alpha_{M-1}, v(\alpha_M) + 1). \] Now \(v(\alpha_i) < B\) for all \(i \in \NN\), so that \(B\) is a bound for \(\alpha\).
+\item Let \(\alpha\) be a convergent sequence with limit \(\ell\).
+Let \(\varepsilon > 0\).
+Now \(\varepsilon/2 > 0\), and since \(\alpha\) is convergent there exists a natural number \(N\) such that \(v(\alpha_i - \ell) < \varepsilon/2\) whenever \(i,j \geq N\).
+Setting \(M = N\), whenever \(i \geq M\), we have \[ v(\alpha_j - \alpha_i) = v(\alpha_j - \ell + \ell - \alpha_i) \leq v(\alpha_j - \ell) + v(\ell - \alpha_i) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon. \]
+Thus \(\alpha\) is cauchy.
+\item Suppose \(\alpha\) is cauchy.
+Since \(1 > 0\), there is a natural number \(M\) such that \(v(\alpha_j - \alpha_i) < 1\) whenever \(i,j \geq M\).
+In particular, we have \(v(\alpha_j - \alpha_M) < 1\) whenever \(j \geq M\).
+Using \sref{prop:abs-val-basics}{reverse-ti} we have \(v(\alpha_j) - v(\alpha_M) < 1\), so that \(v(\alpha_j) < v(\alpha_M) + 1\) whenever \(j \geq M\).
+Now set \[ B = \max(v(\alpha_0), v(\alpha_1), \ldots, v(\alpha_{M-1}, v(\alpha_M) + 1). \]
+We then have \(v(\alpha_i) < B\) for all \(i \in \NN\), so that \(B\) is a bound for \(\alpha\).
 \end{inlineproplist}
 \end{proof}
 
 \begin{prop}
-Let \(R\) be a ring with absolute value \(v\). Then the set \(\mathcal{C}\) of all cauchy sequences of \(R\) is a subring of the ring of all sequences of \(R\). If \(R\) is unital, then \(\mathcal{C}\) is a unital subring.
+Let \(R\) be a ring with absolute value \(v\).
+Then the set \(\mathcal{C}\) of all cauchy sequences of \(R\) is a subring of the ring of all sequences of \(R\).
+If \(R\) is unital, then \(\mathcal{C}\) is a unital subring.
 \end{prop}
 
 \begin{proof}
 Again we follow the Subring Criterion (\ref{prop:subring-criterion}), showing that \(\mathcal{C}\) is not empty and closed under subtraction and multiplication.
 \begin{inlineproplist}
-\item Every constant sequence, such as \(\TILDE{0_R}\), is convergent, hence cauchy. So \(\mathcal{C}\) is not empty.
-\item Suppose \(\alpha\) and \(\beta\) are cauchy, and let \(\varepsilon > 0\). Now \(\varepsilon/2 > 0\), and so there exist natural numbers \(M_\alpha\) and \(M_\beta\) such that \[ v(\alpha_j - \alpha_i) < \varepsilon/2 \quad \mathrm{when}\ i,j \geq M_\alpha \] and \[ v(\beta_j - \beta_i) < \varepsilon/2 \quad \mathrm{when}\ i,j \geq M_\beta. \] Let \(M = \max(M_\alpha, M_\beta)\). Now if \(i,j \geq M\), we have
+\item Every constant sequence, such as \(\TILDE{0_R}\), is convergent, hence cauchy.
+So \(\mathcal{C}\) is not empty.
+\item Suppose \(\alpha\) and \(\beta\) are cauchy, and let \(\varepsilon > 0\).
+Now \(\varepsilon/2 > 0\), and so there exist natural numbers \(M_\alpha\) and \(M_\beta\) such that \[ v(\alpha_j - \alpha_i) < \varepsilon/2 \quad \mathrm{when}\ i,j \geq M_\alpha \] and \[ v(\beta_j - \beta_i) < \varepsilon/2 \quad \mathrm{when}\ i,j \geq M_\beta. \]
+Let \(M = \max(M_\alpha, M_\beta)\).
+Now if \(i,j \geq M\), we have the following.
 \begin{eqnarray*}
 v\left( (\alpha - \beta)_j - (\alpha - \beta)_i \right)
  & = & v(\alpha_j - \beta_j - \alpha_i + \beta_j) \\
@@ -156,7 +218,12 @@ v\left( (\alpha - \beta)_j - (\alpha - \beta)_i \right)
  & = & \varepsilon.
 \end{eqnarray*}
 Thus \(\alpha - \beta\) is cauchy as needed.
-\item Suppose \(\alpha\) and \(\beta\) are cauchy, and choose a rational number \(\varepsilon > 0\). Now by \sref{prop:cauchy-seq-subset}{bounded}, both \(\alpha\) and \(\beta\) are bounded; say \(B_\alpha\) and \(B_\beta\) are rational numbers such that \(v(\alpha_i) \leq B_\alpha\) and \(v(\beta_i) \leq B_\beta\) for all \(i\). Now \(\varepsilon/(2B_\beta) > 0\), and since \(\alpha\) is cauchy, there is a natural number \(M_\alpha\) such that \(v(\alpha_j - \alpha_i) < \varepsilon/(2B_\alpha)\) whenever \(i,j \geq M_\alpha\). Similarly, there is a natural number \(M_\beta\) such that \(v(\beta_j - \beta_i) < \varepsilon/(2B_\alpha)\) whenever \(i,j \geq M_\beta\). Now let \(M = \max(M_\alpha,M_\beta)\). Then if \(i,j \geq M\), we have
+\item Suppose \(\alpha\) and \(\beta\) are cauchy, and choose a rational number \(\varepsilon > 0\).
+Now by \sref{prop:cauchy-seq-subset}{bounded}, both \(\alpha\) and \(\beta\) are bounded; say \(B_\alpha\) and \(B_\beta\) are rational numbers such that \(v(\alpha_i) \leq B_\alpha\) and \(v(\beta_i) \leq B_\beta\) for all \(i\).
+Now \(\varepsilon/(2B_\beta) > 0\), and since \(\alpha\) is cauchy, there is a natural number \(M_\alpha\) such that \(v(\alpha_j - \alpha_i) < \varepsilon/(2B_\alpha)\) whenever \(i,j \geq M_\alpha\).
+Similarly, there is a natural number \(M_\beta\) such that \(v(\beta_j - \beta_i) < \varepsilon/(2B_\alpha)\) whenever \(i,j \geq M_\beta\).
+Now let \(M = \max(M_\alpha,M_\beta)\).
+Then if \(i,j \geq M\), we have the following.
 \begin{eqnarray*}
 v\left((\alpha\beta)_j - (\alpha\beta)_i\right)
  & = & v(\alpha_j\beta_j - \alpha_i\beta_i) \\
@@ -164,64 +231,96 @@ v\left((\alpha\beta)_j - (\alpha\beta)_i\right)
  & = & v\left( \alpha_j(\beta_j - \beta_i) + (\alpha_j - \alpha_i)\beta_i \right) \\
  & \leq & v(\alpha_j)v(\beta_j - \beta_i) + v(\alpha_j - \alpha_i)v(\beta_i) \\
  & < & B_\alpha \frac{\varepsilon}{2B_\alpha} + \frac{\varepsilon}{2B_\beta} B_\beta \\
- & = & \varepsilon
+ & = & \varepsilon.
 \end{eqnarray*}
-So that \(\alpha\beta\) is cauchy as needed.
+Thus \(\alpha\beta\) is cauchy as needed.
 \end{inlineproplist}
 Finally, if \(R\) is unital then the constant sequence \(\TILDE{1_R}\) is cauchy.
 \end{proof}
 
 \begin{prop} \label{prop:cauchy-bound-away-from-zero}
-If \(\alpha\) is a cauchy sequence which \emph{does not} converge to \(0_R\), then there is a rational number \(\delta > 0\) and a natural number \(T\) such that \(v(\alpha_i) \geq \delta\) for all \(i \geq T\). That is, if a cauchy sequence does not converge to zero, the it is eventually bounded away from zero.
+If \(\alpha\) is a cauchy sequence which \emph{does not} converge to \(0_R\), then there is a rational number \(\delta > 0\) and a natural number \(T\) such that \(v(\alpha_i) \geq \delta\) for all \(i \geq T\).
+That is, if a cauchy sequence does not converge to zero, the it is eventually bounded away from zero.
 \end{prop}
 
 \begin{proof}
-Since \(\alpha\) does not converge to zero, there exists a rational number \(\varepsilon\) such that for every natural number \(N\), there exists an index \(i \geq N\) such that \(v(\alpha_i) \geq \varepsilon\). (This is the negation of the statement ``\(\alpha\) converges to zero''.) Now since \(\alpha\) is cauchy, and since \(\varepsilon/2 > 0\), there is a natural number \(M\) such that \(v(\alpha_j - \alpha_i) < \varepsilon/2\) whenever \(i,j \geq M\). There exists an index \(k \geq M\) such that \(v(\alpha_k) \geq \varepsilon\).
-
-Now \(v(\alpha_k - \alpha_i) < \varepsilon/2\) for all \(i \geq M\), and so we have, for all such \(i\),
+Since \(\alpha\) does not converge to zero, there exists a rational number \(\varepsilon\) such that for every natural number \(N\), there exists an index \(i \geq N\) such that \(v(\alpha_i) \geq \varepsilon\).
+(This is the negation of the statement ``\(\alpha\) converges to zero''.)
+Now since \(\alpha\) is cauchy, and since \(\varepsilon/2 > 0\), there is a natural number \(M\) such that \(v(\alpha_j - \alpha_i) < \varepsilon/2\) whenever \(i,j \geq M\).
+There exists an index \(k \geq M\) such that \(v(\alpha_k) \geq \varepsilon\).
+Now \(v(\alpha_k - \alpha_i) < \varepsilon/2\) for all \(i \geq M\), and so for all \(i\) we have the following.
 \begin{eqnarray*}
 \varepsilon & \leq & v(\alpha_k) \\
  & = & v(\alpha_k - \alpha_i + \alpha_i) \\
  & \leq & v(\alpha_k - \alpha_i) + v(\alpha_i) \\
- & < & \varepsilon/2 + v(\alpha_i)
+ & < & \varepsilon/2 + v(\alpha_i).
 \end{eqnarray*}
-so that \(v(\alpha_i) > \varepsilon/2\). The result holds with \(\delta = \varepsilon/2\) and \(T = M\). 
+So \(v(\alpha_i) > \varepsilon/2\).
+The result then holds with \(\delta = \varepsilon/2\) and \(T = M\). 
 \end{proof}
 
-So we have a chain of inclusions among the sequences: \[ \mathrm{convergent} \subseteq \mathrm{cauchy} \subseteq \mathrm{bounded} \subseteq \mathrm{sequences} \] Moreover this is not just a chain of sub\emph{sets}, but of sub\emph{rings}, meaning that we get some additional ring-theoretic results for free. For instance: a sequence is called \DefTerm[sequence]{null} if it converges to \(0_R\). Then we can show that the set of null sequences is an \emph{ideal} in the ring of bounded sequences.
+So we have a chain of inclusions among the sequences: \[ \mathrm{convergent} \subseteq \mathrm{cauchy} \subseteq \mathrm{bounded} \subseteq \mathrm{sequences}. \]
+Moreover this is not just a chain of sub\emph{sets}, but of sub\emph{rings}, meaning that we get some additional ring-theoretic results for free.
+We say that a sequence is \emph{null}\index{sequence!null} if it converges to \(0_R\).
+Then we can show that the set of null sequences is an \emph{ideal} in the ring of bounded sequences.
 
 \begin{prop}
-Let \(R\) be a ring with absolute value \(v\). Then the set \(\mathcal{N}\) of all null sequences of \(R\) is a two-sided ideal in the ring \(\mathcal{B}\) of all bounded sequences of \(R\). In particular, \(\mathcal{N}\) is also a two-sided ideal in the ring \(\mathcal{C}\) of all cauchy sequences and the ring \(\mathcal{V}\) of all convergent sequences.
+Let \(R\) be a ring with absolute value \(v\).
+Then the set \(\mathcal{N}\) of all null sequences of \(R\) is a two-sided ideal in the ring \(\mathcal{B}\) of all bounded sequences of \(R\).
+In particular, \(\mathcal{N}\) is also a two-sided ideal in the ring \(\mathcal{C}\) of all cauchy sequences and the ring \(\mathcal{V}\) of all convergent sequences.
 \end{prop}
 
 \begin{proof}
-Certainly we have \(\mathcal{N} \subseteq \mathcal{V} \subseteq \mathcal{C} \subseteq \mathcal{B}\). Now we establish that \(\mathcal{N}\) is a subring of \(R^\NN\); using the Subring Criterion, we certainly have \(\TILDE{0_R} \in \mathcal{N}\), and if \(\alpha,\beta \in \mathcal{N}\) then \(\alpha - \beta\) and \(\alpha\beta\) are convergent by \ref{prop:convergent-sequences-are-subring} and we have \[ \LIM{\alpha - \beta} = \LIM{\alpha} - \LIM{\beta} = 0_R - 0_R = 0_R \] and \[ \LIM{\alpha\beta} = \LIM{\alpha}\LIM{\beta} = 0_R \cdot 0_R = 0_R \] as needed. It remains to be seen that \(\mathcal{N}\) absorbs \(\mathcal{B}\) under multiplication from either side. To this end, suppose \(\alpha\) is a bounded sequence of \(R\) with \(v(\alpha_i) \leq B\) for all \(i\), and that \(\zeta\) is a null sequence. Let \(\varepsilon > 0\). Now \(\varepsilon/B > 0\), and since \(\zeta\) converges to \(0_R\), there exists a natural number \(N\) such that \(v(\alpha_i) < \varepsilon/B\) whenever \(i \geq N\). Now for all \(i \geq N\), we have \[ v((\alpha\zeta)_i) = v(\alpha_i \zeta_i) = v(\alpha_i)v(\zeta_i) \leq \frac{\varepsilon}{B} B = \varepsilon \] and similarly \(v((\zeta\alpha)_i) < \varepsilon\). So \(\alpha\zeta\) and \(\zeta\alpha\) are null sequences as needed.
+Certainly we have \(\mathcal{N} \subseteq \mathcal{V} \subseteq \mathcal{C} \subseteq \mathcal{B}\).
+Now we establish that \(\mathcal{N}\) is a subring of \(R^\NN\).
+Using the Subring Criterion, we certainly have \(\TILDE{0_R} \in \mathcal{N}\), and if \(\alpha,\beta \in \mathcal{N}\) then \(\alpha - \beta\) and \(\alpha\beta\) are convergent by \ref{prop:convergent-sequences-are-subring} and we have \[ \LIM{\alpha - \beta} = \LIM{\alpha} - \LIM{\beta} = 0_R - 0_R = 0_R \] and \[ \LIM{\alpha\beta} = \LIM{\alpha}\LIM{\beta} = 0_R \cdot 0_R = 0_R \] as needed.
+It remains to be seen that \(\mathcal{N}\) absorbs \(\mathcal{B}\) under multiplication from either side.
+To this end, suppose \(\alpha\) is a bounded sequence of \(R\) with \(v(\alpha_i) \leq B\) for all \(i\), and that \(\zeta\) is a null sequence.
+Let \(\varepsilon > 0\).
+Now \(\varepsilon/B > 0\), and since \(\zeta\) converges to \(0_R\), there exists a natural number \(N\) such that \(v(\alpha_i) < \varepsilon/B\) whenever \(i \geq N\).
+Now for all \(i \geq N\) we have \[ v((\alpha\zeta)_i) = v(\alpha_i \zeta_i) = v(\alpha_i)v(\zeta_i) \leq \frac{\varepsilon}{B} B = \varepsilon \] and similarly \(v((\zeta\alpha)_i) < \varepsilon\).
+So \(\alpha\zeta\) and \(\zeta\alpha\) are null sequences as needed.
 \end{proof}
 
 \begin{prop}
-The set of null sequences is a prime ideal in the set of cauchy sequences. That is, if \(\alpha\) and \(\beta\) are cauchy sequences and \(\alpha\beta\) converges to \(0_R\), then either \(\alpha\) or \(\beta\) must converge to \(0_R\).
+The set of null sequences is a prime ideal in the set of cauchy sequences.
+That is, if \(\alpha\) and \(\beta\) are cauchy sequences and \(\alpha\beta\) converges to \(0_R\), then either \(\alpha\) or \(\beta\) must converge to \(0_R\).
 \end{prop}
 
 \begin{proof}
-Suppose \(\alpha\) and \(\beta\) are cauchy and that \(\alpha\beta\) converges to \(0_R\). Suppose further without loss of generality that \(\alpha\) does not converge to \(0_R\). By \ref{prop:cauchy-bound-away-from-zero}, there exists a rational number \(\delta > 0\) and a natural number \(T\) such that \(v(\alpha_i) \geq \delta\) whenever \(i \geq T\). Now let \(\varepsilon > 0\); then also \(\varepsilon\delta > 0\). Since \(\alpha\beta\) converges to \(0_R\), there is a natural number \(N\) such that \(v(\alpha_i\beta_i) < \varepsilon\delta\) whenever \(i \geq N\). If we set \(N_1 = \max(N, T)\), then whenever \(i \geq N_1\) in fact we have \[ \delta v(\beta_i) \leq v(\alpha_i)v(\beta_i) = v(\alpha_i\beta_i) < \delta\varepsilon; \] since \(\delta > 0\), we have \(v(\beta_i) < \varepsilon\) for all \(i \geq N_1\). Thus \(\beta\) converges to \(0_R\).
+Suppose \(\alpha\) and \(\beta\) are cauchy and that \(\alpha\beta\) converges to \(0_R\).
+Suppose further without loss of generality that \(\alpha\) does not converge to \(0_R\).
+By \ref{prop:cauchy-bound-away-from-zero}, there exists a rational number \(\delta > 0\) and a natural number \(T\) such that \(v(\alpha_i) \geq \delta\) whenever \(i \geq T\).
+Now let \(\varepsilon > 0\); then also \(\varepsilon\delta > 0\).
+Since \(\alpha\beta\) converges to \(0_R\), there is a natural number \(N\) such that \(v(\alpha_i\beta_i) < \varepsilon\delta\) whenever \(i \geq N\).
+If we set \(N_1 = \max(N, T)\), then whenever \(i \geq N_1\) in fact we have \[ \delta v(\beta_i) \leq v(\alpha_i)v(\beta_i) = v(\alpha_i\beta_i) < \delta\varepsilon; \] since \(\delta > 0\), we have \(v(\beta_i) < \varepsilon\) for all \(i \geq N_1\).
+Thus \(\beta\) converges to \(0_R\).
 \end{proof}
 
-We are finally prepared for the punchline of this section:
+We are finally prepared for the punchline of this section.
 
 \begin{dfn}[Cauchy Completion]
-Let \(R\) be a ring with absolute value \(v\). Letting \(\mathcal{C}\) denote the set of cauchy sequences on \(R\) and \(\mathcal{N}\) the set of null sequences on \(R\), we define \(\VALCOMP{R}{v} = \mathcal{C}/\mathcal{N}\) to be the \DefTerm{cauchy completion} of \(R\) with respect to \(v\).
+Let \(R\) be a ring with absolute value \(v\).
+Letting \(\mathcal{C}\) denote the set of cauchy sequences on \(R\) and \(\mathcal{N}\) the set of null sequences on \(R\), we define \(\VALCOMP{R}{v} = \mathcal{C}/\mathcal{N}\) to be the \emph{cauchy completion}\index{cauchy completion} of \(R\) with respect to \(v\).
 \end{dfn}
 
 \begin{prop}
 \begin{proplist}
-\item If \(R\) is a commutative unital ring, then \(\VALCOMP{R}{v}\) is an integral domain.
-\item Let \(R\) be a ring with absolute value \(v\). Then the mapping \(\iota : R \rightarrow \VALCOMP{R}{v}\) given by \(\iota(r) = \TILDE{r} + N\) is an injective ring homomorphism.
+\item If \(R\) is a commutative unital ring then \(\VALCOMP{R}{v}\) is an integral domain.
+\item Let \(R\) be a ring with absolute value \(v\).
+Then the mapping \(\iota : R \rightarrow \VALCOMP{R}{v}\) given by \(\iota(r) = \TILDE{r} + N\) is an injective ring homomorphism.
 \end{proplist}
 \end{prop}
 
 \begin{proof}
 (@@@)
 \end{proof}
+
+
+
+%---------%
+\Exercises%
+%---------%
 
 \begin{exercise}
 Let \(k\) be a field and let \(R\) be the field of rational functions in one variable over \(k\). Show that \(v(p/q) = 2^{deg p - deg q}\) is an absolute value on \(R\). (@@@) is this true?

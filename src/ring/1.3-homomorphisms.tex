@@ -1,27 +1,39 @@
-The ring axioms represent a kind of abstract \emph{structure}. When two objects have the same kind of structure the \emph{structure-preserving mappings} between them are often useful. For example, consider the ring \(\ZZ/(5)\) of integers mod 5. As a set, \(\ZZ/(5)\) contains five equivalence classes of integers. We have a natural mapping \(\pi : \ZZ \rightarrow \ZZ/(5)\), namely the mapping that sends an integer \(k\) to its remainder (equivalence class) mod 5. Importantly this mapping respects the arithmetic on \(\ZZ\) in the sense that \(\pi(a+b) = \pi(a) + \pi(b)\) and \(\pi(ab) = \pi(a)\pi(b)\) -- the sum (product) of residues is the residue of the sum (product). This mapping can be used to show, for instance, that the equation \(a^4 + b^4 + c^4 = 4d^4\) has no nontrivial solutions in \(\ZZ\) by transporting any such solution to the finite ring \(\ZZ/(5)\). And so, we formalize the notion of ``structure-preserving map'' as follows.
+The ring axioms represent a kind of abstract \emph{structure}.
+When two objects have the same kind of structure the \emph{structure-preserving mappings} between them are often useful.
+For example, consider the ring \(\ZZ/(5)\) of integers mod 5.
+As a set, \(\ZZ/(5)\) contains five equivalence classes of integers.
+We have a natural mapping \(\pi : \ZZ \rightarrow \ZZ/(5)\), namely the mapping that sends an integer \(k\) to its remainder (equivalence class) mod 5.
+Importantly this mapping respects the arithmetic on \(\ZZ\) in the sense that \(\pi(a+b) = \pi(a) + \pi(b)\) and \(\pi(ab) = \pi(a)\pi(b)\) -- the sum (product) of residues is the residue of the sum (product).
+This mapping can be used to show, for instance, that the equation \(a^4 + b^4 + c^4 = 4d^4\) has no nontrivial solutions in \(\ZZ\) by transporting any such solution to the finite ring \(\ZZ/(5)\).
+We can formalize the notion of ``structure-preserving map'' as follows.
 
 \begin{dfn}[Ring Homomorphism] \label{dfn:ring-hom}
-Let \(R\) and \(S\) be rings. A mapping \(\varphi : R \rightarrow S\) is called a \emph{ring homomorphism} if the following are satisfied. \index{homomorphism}
+Let \(R\) and \(S\) be rings. A mapping \(\varphi : R \rightarrow S\) is called a \emph{ring homomorphism}\index{homomorphism} if the following are satisfied.
 \begin{proplist}
 \item \(\varphi(a + b) = \varphi(a) + \varphi(b)\) for all \(a,b \in R\).
 \item \(\varphi(ab) = \varphi(a)\varphi(b)\) for all \(a,b \in R\).
 \end{proplist}
-If \(R\) and \(S\) are both unital rings, we say that \(\varphi\) is \emph{unital} if, in addition to the above, \(\varphi(1_R) = 1_S\). \index{unital!homomorphism}
+If \(R\) and \(S\) are both unital rings, we say that \(\varphi\) is \emph{unital}\index{unital!homomorphism} if, in addition to the above, \(\varphi(1_R) = 1_S\).
 \end{dfn}
 
-A homomorphism \(\varphi : R \rightarrow S\) ``transports'' the structure of \(R\) into \(S\); in a concrete sense there is a ``shadow'' of \(R\) inside \(S\). If \(R\) and \(S\) are both unital rings, then the one element is an extra bit of structure which may be preserved.
+A homomorphism \(\varphi : R \rightarrow S\) ``transports'' the structure of \(R\) into \(S\); in a concrete sense there is a ``shadow'' of \(R\) inside \(S\).
+If \(R\) and \(S\) are both unital rings then the one element is an extra bit of structure which may be preserved.
 
 \begin{prop} \mbox{} \label{prop:ring-cat}
 \begin{proplist}
-\item If \(R\) is a ring, then the \emph{identity map} \(\ID[R] : R \rightarrow R\) given by \(\ID[R](x) = x\) is a ring homomorphism. If \(R\) is unital, then \(\ID\) is unital. \label{prop:ring-cat:id}
-\item If \(\varphi : R \rightarrow S\) and \(\psi : S \rightarrow T\) are ring homomorphisms, then the \emph{composite map} \(\psi \circ \varphi : R \rightarrow T\) is a homomorphism. If \(\varphi\) and \(\psi\) are unital, then \(\psi \circ \varphi\) is unital. \label{prop:ring-cat:comp}
+\item \label{prop:ring-cat:id} If \(R\) is a ring then the \emph{identity map} \(\ID[R] : R \rightarrow R\) given by \(\ID[R](x) = x\) is a ring homomorphism.
+If \(R\) is unital, then \(\ID\) is unital.
+\item \label{prop:ring-cat:comp} If \(\varphi : R \rightarrow S\) and \(\psi : S \rightarrow T\) are ring homomorphisms, then the \emph{composite map} \(\psi \circ \varphi : R \rightarrow T\) is a homomorphism.
+If \(\varphi\) and \(\psi\) are unital, then \(\psi \circ \varphi\) is unital.
 \end{proplist}
 \end{prop}
 
 \begin{proof}
 \begin{inlineproplist}
-\item Letting \(x,y \in R\), we have \(\ID[R](x+y) = x+y = \ID[R](x) + \ID[R](y)\) and likewise \(\ID[R](xy) = xy = \ID[R](x)\ID[R](y)\), so that \(\ID[R]\) is a ring homomorphism. If \(R\) is unital, then \(\ID[R](1_R) = 1_R\) by definition.
-\item Let \(x,y \in R\). We have
+\item Letting \(x,y \in R\), we have \(\ID[R](x+y) = x+y = \ID[R](x) + \ID[R](y)\) and likewise \(\ID[R](xy) = xy = \ID[R](x)\ID[R](y)\), so that \(\ID[R]\) is a ring homomorphism.
+If \(R\) is unital, then \(\ID[R](1_R) = 1_R\) by definition.
+\item Let \(x,y \in R\).
+We have
 \begin{eqnarray*}
 (\psi \circ \varphi)(x+y)
  & = & \psi(\varphi(x+y)) \\
@@ -29,48 +41,66 @@ A homomorphism \(\varphi : R \rightarrow S\) ``transports'' the structure of \(R
  & = & \psi(\varphi(x)) + \psi(\varphi(y)) \\
  & = & (\psi \circ \varphi)(x) + (\psi \circ \varphi)(y)
 \end{eqnarray*}
-so that \(\psi \circ \varphi\) preserves plus. Similarly, \((\psi \circ \varphi)(xy) = (\psi \circ \varphi)(x)(\psi \circ \varphi)(y)\) for all \(x,y \in R\), so that \(\psi \circ \varphi\) preserves times. Finally, if \(\varphi\) and \(\psi\) are unital, we have \((\psi \circ \varphi)(1_R) = \psi(\varphi(1_R)) = \psi(1_S) = 1_T\), thus \(\psi \circ \varphi\) is unital.
+so that \(\psi \circ \varphi\) preserves plus.
+Similarly, \((\psi \circ \varphi)(xy) = (\psi \circ \varphi)(x)(\psi \circ \varphi)(y)\) for all \(x,y \in R\), so that \(\psi \circ \varphi\) preserves times.
+Finally, if \(\varphi\) and \(\psi\) are unital, we have \((\psi \circ \varphi)(1_R) = \psi(\varphi(1_R)) = \psi(1_S) = 1_T\) and thus \(\psi \circ \varphi\) is unital.
 \end{inlineproplist}
 \end{proof}
 
 Although by definition a homomorphism preserves only plus and times, we can show that the zero and negation are also preserved.
 
 \begin{prop} \label{prop:ring-hom-basics}
-If \(\varphi : R \rightarrow S\) is a ring homomorphism, then we have the following.
+If \(\varphi : R \rightarrow S\) is a ring homomorphism then we have the following.
 \begin{proplist}
-\item \(\varphi(0_R) = 0_S\). \label{prop:ring-hom-basics:zero}
-\item \(\varphi(-a) = -\varphi(a)\) for all \(r \in R\). \label{prop:ring-hom-basics:neg}
-\item \(\varphi(a-b) = \varphi(a) - \varphi(b)\) for all \(a,b \in R\). \label{prop:ring-hom-basics:minus}
+\item \label{prop:ring-hom-basics:zero} \(\varphi(0_R) = 0_S\).
+\item \label{prop:ring-hom-basics:neg} \(\varphi(-a) = -\varphi(a)\) for all \(r \in R\).
+\item \label{prop:ring-hom-basics:minus} \(\varphi(a-b) = \varphi(a) - \varphi(b)\) for all \(a,b \in R\).
 \end{proplist}
 \end{prop}
 
 \begin{proof}
 \begin{inlineproplist}
-\item Note that \(\varphi(0_R) + \varphi(0_R) = \varphi(0_R + 0_R) = \varphi(0_R)\). By \sref{prop:ring-basics}{zero-unique}, we have \(\varphi(0_R) = 0_S\).
-\item Note that \(\varphi(a) + \varphi(-a) = \varphi(a + (-a)) = \varphi(0_R) = 0_S\), using \ref{prop:ring-hom-basics:zero}. By \sref{prop:ring-basics}{negative-unique}, we have \(\varphi(-a) = -\varphi(a)\).
+\item Note that \(\varphi(0_R) + \varphi(0_R) = \varphi(0_R + 0_R) = \varphi(0_R)\).
+By \sref{prop:ring-basics}{zero-unique}, we have \(\varphi(0_R) = 0_S\).
+\item Note that \(\varphi(a) + \varphi(-a) = \varphi(a + (-a)) = \varphi(0_R) = 0_S\), using \ref{prop:ring-hom-basics:zero}.
+By \sref{prop:ring-basics}{negative-unique} we have \(\varphi(-a) = -\varphi(a)\).
 \item Follows from \ref{prop:ring-hom-basics:neg}.
 \end{inlineproplist}
 \end{proof}
 
-
 \begin{examples}
 \item The natural projection \(\pi : \ZZ \rightarrow \ZZ/(n)\) is a surjective unital ring homomorphism for any \(n\).
 
-\item If \(R\) is any ring, then there is exactly one ring homomorphism \(\varphi : R \rightarrow 0\), and exactly one homomorphism \(\psi : 0 \rightarrow R\). Neither of these is ever unital.
+\item If \(R\) is any ring, then there is exactly one ring homomorphism \(\varphi : R \rightarrow 0\), and exactly one homomorphism \(\psi : 0 \rightarrow R\).
+Neither of these is ever unital.
 
-\item Let \(R\) be any unital ring. Then \(\varphi : R \rightarrow \MAT{2}{R}\) given by \[ \varphi(r) = \begin{bmatrix} 0 & 0 \\ -r & r \end{bmatrix} \] is a ring homomorphism. Although \(R\) (and hence \(\MAT{2}{R}\)) is unital, \(\varphi\) is \emph{not} a unital homomorphism. (Why?)
+\item Let \(R\) be any unital ring.
+Then \(\varphi : R \rightarrow \MAT{2}{R}\) given by \[ \varphi(r) = \begin{bmatrix} 0 & 0 \\ -r & r \end{bmatrix} \] is a ring homomorphism.
+Although \(R\) (and hence \(\MAT{2}{R}\)) is unital, \(\varphi\) is \emph{not} a unital homomorphism.
+(Why?)
 \end{examples}
 
-When studying algebra, it is often the case that we are concerned with several objects at once along with some of the homomorphisms among them. In this case we can make our lives easier by using a \emph{commutative diagram}. \index{commutative diagram} A \emph{diagram} is a collection of rings and homomorphisms among them, represented graphically using labeled arrows. For example, suppose we are concerned with rings \(A\), \(B\), \(C\), and \(D\), as well as homomorphisms \(\varphi : A \rightarrow B\), \(\psi : C \rightarrow D\), \(\chi : A \rightarrow C\), and \(\theta : B \rightarrow D\). We might represent these data using the following diagram.
+When studying algebra, it is often the case that we are concerned with several objects at once along with some of the homomorphisms among them.
+In this case we can make our lives easier by using a \emph{commutative diagram}\index{commutative diagram}.
+A \emph{diagram} is a collection of rings and homomorphisms among them, represented graphically using labeled arrows.
+For example, suppose we are concerned with rings \(A\), \(B\), \(C\), and \(D\), as well as homomorphisms \(\varphi : A \rightarrow B\), \(\psi : C \rightarrow D\), \(\chi : A \rightarrow C\), and \(\theta : B \rightarrow D\).
+We might represent these data using the following diagram.
 \begin{center}
 \begin{tikzcd}
 A \arrow[r,"\varphi"] \arrow[d, "\chi"'] & B \arrow[d, "\theta"] \\
 C \arrow[r, "\psi"']                     & D
 \end{tikzcd}
 \end{center}
-The arrows are meant to suggest the flow of elements through a network of conduits. A diagram is said to \emph{commute} if any two composite chains of homomorphisms with the same start and end points are equal. For instance, the above diagram is commutative precisely when \(\theta \circ \varphi = \psi \circ \chi\). This is a powerful idea; when a diagram commutes we can prove things about mappings using substitution.
+The arrows are meant to suggest the flow of elements through a network of conduits.
+A diagram is said to \emph{commute} if any two composite chains of homomorphisms with the same start and end points are equal.
+For instance, the above diagram is commutative precisely when \(\theta \circ \varphi = \psi \circ \chi\).
+This is a powerful idea; when a diagram commutes we can prove things about mappings using substitution.
 
-It turns out that lots of important theorems can be stated in the form ``there is a unique map which makes such-and-such diagram commute''. It also turns out that, once we get used to thinking in terms of homomorphisms, this can be a powerful way to prove theorems. (Diagrams can also look pretty.) We will see several commutative diagrams in this text, but as an initial example, \ref{prop:ring-cat} can be understood to assert that the two diagrams in \autoref{fig:ring-cat-diagram} commute for any \(\varphi\) and \(\psi\). (Why?)
+It turns out that lots of important theorems can be stated in the form ``there is a unique map which makes such-and-such diagram commute''.
+It also turns out that, once we get used to thinking in terms of homomorphisms, this can be a powerful way to prove theorems.
+(Diagrams can also look pretty.)
+We will see several commutative diagrams in this text, but as an initial example, \ref{prop:ring-cat} can be understood to assert that the two diagrams in \autoref{fig:ring-cat-diagram} commute for any \(\varphi\) and \(\psi\).
+(Why?)
 \begin{figure}[h!]
 \begin{center}
 \begin{tikzcd}
@@ -92,6 +122,7 @@ R \arrow[r, "\varphi" description] \arrow[rd, "\varphi"'] & S \arrow[d, "\ID"] &
 Show that the projection map \(\pi : \ZZ \rightarrow \ZZ/(n)\) given by \(\pi(k) = [k]\) is a unital ring homomorphism.
 \end{exercise}
 
+
 \begin{exercise}
 Let \(\varphi : R \rightarrow S\) be a ring homomorphism.
 \begin{proplist}
@@ -100,15 +131,22 @@ Let \(\varphi : R \rightarrow S\) be a ring homomorphism.
 \end{proplist}
 \end{exercise}
 
+
 \begin{exercise}
 Show that if \(\varphi : R \rightarrow S\) is a homomorphism, then \[ \varphi\left( \sum_{i=a}^b r_i \right) = \sum_{i=a}^b \varphi(r_i) \] for all finite sequences \(r_i\).
 \end{exercise}
 
+
 \begin{exercise}
-Let \(R\) and \(S\) be rings. Show that the map \(\varphi : R \rightarrow S\) given by \(\varphi(x) = 0_S\) for all \(x \in R\) is a ring homomorphism. Is this map ever unital?
+Let \(R\) and \(S\) be rings.
+Show that the map \(\varphi : R \rightarrow S\) given by \(\varphi(x) = 0_S\) for all \(x \in R\) is a ring homomorphism.
+Is this map ever unital?
 \end{exercise}
 
-If we wish to understand a ring, we must also understand the homomorphisms to and from that ring. The next three exercises characterize some of the homomorphisms involving $0$, $\ZZ$, and $\ZZ/(n)$.
+
+If we wish to understand a ring, we must also understand the homomorphisms to and from that ring.
+The next three exercises characterize some of the homomorphisms involving \(0\), \(\ZZ\), and \(\ZZ/(n)\).
+
 
 \begin{exercise}[Homomorphisms to and from \(0\).]
 Let \(R\) be a ring.
@@ -118,67 +156,97 @@ Let \(R\) be a ring.
 \end{proplist*}
 \end{exercise}
 
+
 \begin{exercise}[Homomorphisms from \(\ZZ\).] \label{exerc:homs-from-zz}
 Let \(R\) be a ring.
 \begin{proplist}
-\item Let \(\varphi : \ZZ \rightarrow R\) be a ring homomorphism. Show that \(\varphi\) is uniquely determined by its image at \(1\) in the following sense: if \(\psi\) is another ring homomorphism \(\ZZ \rightarrow R\) such that \(\psi(1) = \varphi(1)\), then \(\psi = \varphi\).
-\item Let \(a \in R\) be a fixed element. Show that there exists a ring homomorphism \(\varphi : \ZZ \rightarrow R\) such that \(\varphi(1) = a\). (Hint: there's only one way to do it.)
-\item Show that if \(R\) is unital, then there is a \emph{unique} unital ring homomorphism \(\ZZ \rightarrow R\).
+\item Let \(\varphi : \ZZ \rightarrow R\) be a ring homomorphism.
+Show that \(\varphi\) is uniquely determined by its image at \(1\) in the following sense: if \(\psi\) is another ring homomorphism \(\ZZ \rightarrow R\) such that \(\psi(1) = \varphi(1)\), then \(\psi = \varphi\).
+\item Let \(a \in R\) be a fixed element.
+Show that there exists a ring homomorphism \(\varphi : \ZZ \rightarrow R\) such that \(\varphi(1) = a\).
+(Hint: There's only one way to do it.)
+\item Show that if \(R\) is unital then there is a \emph{unique} unital ring homomorphism \(\ZZ \rightarrow R\).
 \end{proplist}
 \end{exercise}
+
 
 \begin{exercise}[Homomorphisms from \(\ZZ/(n)\).] \label{exerc:homs-from-zzn}
 Let \(n \geq 2\) be a positive integer and let \(R\) be a ring.
 \begin{proplist}
 \item Show that every ring homomorphism \(\varphi : \ZZ/(n) \rightarrow R\) is uniquely determined by its image of \(1\) in the following sense: if \(\psi\) is another ring homomorphism \(\ZZ/(n) \rightarrow R\) such that \(\psi(1) = \varphi(1)\), then \(\psi = \varphi\).
-\item Let \(a \in R\) be a fixed element. Show that there exists a ring homomorphism \(\varphi : \ZZ/(n) \rightarrow R\) such that \(\varphi(1) = a\) if and only if \(a\) is annihilated by a divisor of \(n\). Take care that your map is well-defined. (Hint: there's only one way to do it.)
+\item Let \(a \in R\) be a fixed element.
+Show that there exists a ring homomorphism \(\varphi : \ZZ/(n) \rightarrow R\) such that \(\varphi(1) = a\) if and only if \(a\) is annihilated by a divisor of \(n\).
+Take care that your map is well-defined.
+(Hint: There's only one way to do it.)
 \item Show that if \(R\) is unital and \(\CHAR{R}\) divides \(n\), then there is a \emph{unique} unital ring homomorphism \(\ZZ/(n) \rightarrow R\).
 \end{proplist}
 \end{exercise}
 
-\begin{exercise}
-Show that if \(\varphi : R \rightarrow S\) is a unital ring homomorphism, then \(\CHAR{S}\) divides \(\CHAR{R}\). (@@@)
-\end{exercise}
 
 \begin{exercise}
-Let \(R\) be a commutative ring and \(e \in R\) idempotent. Show that the ``multiplication map'' \(\mu_e : R \rightarrow R\) given by \(\mu_e(x) = ex\) is a ring homomorphism. If \(R\) is also unital, is \(\mu_e\) ever unital? (@@@)
+(@@@) characterize the homomorphisms \(\ZZ/(m) \rightarrow \ZZ/(n)\).
 \end{exercise}
 
+
 \begin{exercise}
-Let \(A\) be a nonempty set, with \(a \in A\) a fixed element, and let \(R\) be a ring. Show that the \emph{evaluation map} \(\varepsilon_a : R^A \rightarrow R\) given by \(\varepsilon_a(f) = f(a)\) is a ring homomorphism. Show that if \(R\) is a unital ring, then \(\varepsilon_a\) is a unital homomorphism.
+Show that if \(\varphi : R \rightarrow S\) is a unital ring homomorphism, then \(\CHAR{S}\) divides \(\CHAR{R}\). (@@@ is this true)
 \end{exercise}
+
+
+\begin{exercise}
+Let \(R\) be a commutative ring and \(e \in R\) idempotent.
+Show that the ``multiplication map'' \(\mu_e : R \rightarrow R\) given by \(\mu_e(x) = ex\) is a ring homomorphism.
+If \(R\) is also unital, is \(\mu_e\) ever unital?
+\end{exercise}
+
+
+\begin{exercise}
+Let \(A\) be a nonempty set with \(a \in A\) a fixed element, and let \(R\) be a ring.
+Show that the \emph{evaluation map} \(\varepsilon_a : R^A \rightarrow R\) given by \(\varepsilon_a(f) = f(a)\) is a ring homomorphism.
+Show that if \(R\) is a unital ring then \(\varepsilon_a\) is a unital homomorphism.
+\end{exercise}
+
 
 \begin{exercise}
 Let \(\varphi : R \rightarrow S\) be a ring homomorphism and let \(a \in R\).
 \begin{proplist}
-\item Show that if \(a\) is idempotent, then \(\varphi(a)\) is idempotent, but the converse does not hold.
-\item Show that if \(a\) is nilpotent, then \(\varphi(a)\) is nilpotent, but the converse does not hold.
+\item Show that if \(a\) is idempotent, then \(\varphi(a)\) is idempotent, but the converse does not always hold.
+\item Show that if \(a\) is nilpotent, then \(\varphi(a)\) is nilpotent, but the converse does not always hold.
 \end{proplist}
 \end{exercise}
 
+
 \begin{exercise}
-Let \(X\) and \(Y\) be sets and \(f : X \rightarrow Y\) an injective map. Denote by \(\Phi_f\) the induced map \(\POW{X} \rightarrow \POW{Y}\) given by \(\Phi_f(A) = f[A]\).
+Let \(X\) and \(Y\) be sets and \(f : X \rightarrow Y\) an injective map.
+Denote by \(\Phi_f\) the induced map \(\POW{X} \rightarrow \POW{Y}\) given by \(\Phi_f(A) = f[A]\).
 \begin{proplist}
 \item Show that \(\Phi_f\) is a ring homomorphism.
 \item Show that \(\Phi_f\) is unital if and only if \(f\) is surjective.
 \end{proplist}
 \end{exercise}
 
+
 \begin{dfn}[Endomorphism] \label{dfn:endo}
-Let \(R\) be a ring. A ring homomorphism \(R \rightarrow R\) is called an \index{endomorphism} \emph{endomorphism}. We denote by \(\END{R}\) the set of all ring endomorphisms of \(R\), and by \(\ENDU{R}\) the set of all \emph{unital} ring endomorphisms of \(R\). Certainly we have \(\ENDU{R} \subseteq \END{R}\), and neither set is empty, since \(\ID[R]\) is a unital endomorphism.
+Let \(R\) be a ring.
+A ring homomorphism \(R \rightarrow R\) is called an \emph{endomorphism}\index{endomorphism}.
+We denote by \(\END{R}\) the set of all ring endomorphisms of \(R\), and by \(\ENDU{R}\) the set of all \emph{unital} ring endomorphisms of \(R\).
+Certainly we have \(\ENDU{R} \subseteq \END{R}\), and neither set is empty, since \(\ID[R]\) is a unital endomorphism.
 \end{dfn}
 
+
 \begin{exercise}[Endomorphism Arithmetic.]
-Given a ring \(R\), the set \(\END{R}\) comes with a sort of arithmetic. We define the sum of two endos pointwise, and the product of two endos by composition.
+Given a ring \(R\), the set \(\END{R}\) comes with a sort of arithmetic.
+We define the sum of two endos pointwise and the product of two endos by composition.
 \begin{proplist}
-\item Show that if \(\alpha, \beta \in \END{R}\), then \(\alpha\beta \in \END{R}\).
-\item Show that if \(\alpha, \beta \in \END{R}\), then \(\alpha + \beta\) need not be in \(\END{R}\). (Give an example.)
-\item Show that if \(\alpha, \beta \in \ENDU{R}\), then \(\alpha + \beta\) is not in \(\ENDU{R}\).
+\item Show that if \(\alpha, \beta \in \END{R}\) then \(\alpha\beta \in \END{R}\).
+\item Show that if \(\alpha, \beta \in \END{R}\) then \(\alpha + \beta\) need not be in \(\END{R}\).
+(Give an example.)
+\item Show that if \(\alpha, \beta \in \ENDU{R}\) then \(\alpha + \beta\) is not in \(\ENDU{R}\).
 \end{proplist}
 \end{exercise}
 
-\begin{exercise}
-Show that if \(R\) is a null ring, then \(\END{R}\) is a ring. (It turns out that this ring is extremely important.)
-\end{exercise}
 
-(@@@) characterize the homomorphisms \(\ZZ/(m) \rightarrow \ZZ/(n)\).
+\begin{exercise}
+Show that if \(R\) is a null ring then \(\END{R}\) is a ring.
+(It turns out that this ring is extremely important.)
+\end{exercise}

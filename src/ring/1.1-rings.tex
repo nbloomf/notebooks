@@ -1,4 +1,8 @@
-So far we've studied two kinds of numbers: the integers, \(\ZZ\), that we know and love, and the integers modulo \(n\), \(\ZZ/(n)\), which are a little strange. These kinds of numbers differ in some crucial ways. For example, \(\ZZ\) comes with a useful order relation \(\leq\) while \(\ZZ/(n)\) does not, and in \(\ZZ/(n)\) it may be possible to find ``nonzero'' numbers \(a\) and \(b\) such that \(ab \equiv 0\), which cannot happen in \(\ZZ\). However both \(\ZZ\) and \(\ZZ/(n)\) have an arithmetic -- plus and times -- which behave very similarly. Addition is associative and commutative, there is a zero element with certain properties, and so on.
+So far we've studied two kinds of numbers: the integers, \(\ZZ\), that we know and love, and the integers modulo \(n\), \(\ZZ/(n)\), which are a little strange.
+These kinds of numbers differ in some crucial ways.
+For example, \(\ZZ\) comes with a useful order relation \(\leq\) while \(\ZZ/(n)\) does not, and in \(\ZZ/(n)\) it may be possible to find ``nonzero'' numbers \(a\) and \(b\) such that \(ab \equiv 0\), which cannot happen in \(\ZZ\).
+However both \(\ZZ\) and \(\ZZ/(n)\) have an arithmetic -- plus and times -- which behave very similarly.
+Addition is associative and commutative, there is a zero element with certain properties, and so on.
 
 In mathematics, when different concrete objects have behavior in common it is frequently useful to ``factor out'' the common behavior as an abstract definition, like this.
 
@@ -14,56 +18,84 @@ A \emph{ring}\index{ring} is a set \(R\) equipped with a special element \(0_R \
 \end{itemize}
 \end{dfn}
 
-For example, both \(\ZZ\) and \(\ZZ/(n)\) are rings with their corresponding plus and times. We will refer to this list of six properties as ``the ring axioms''. It is important to remember that the symbols \(+\) and \(\cdot\) will, from now on, depend on context: each specific ring has its own arithmetic, which generally has nothing to do with numbers. Many of the basic properties of arithmetic in \(\ZZ\) can be derived from these axioms alone and thus hold in any ring.
+For example, both \(\ZZ\) and \(\ZZ/(n)\) are rings with their corresponding plus and times.
+We will refer to this list of six properties as ``the ring axioms''.
+It is important to remember that the symbols \(+\) and \(\cdot\) will, from now on, depend on context: each specific ring has its own arithmetic, which generally has nothing to do with numbers.
+Many of the basic properties of arithmetic in \(\ZZ\) can be derived from these axioms alone and thus hold in any ring.
 
 \begin{prop} \label{prop:ring-basics}
 The following hold in any ring \(R\).
 \begin{proplist}
-\item The zero element of \(R\) is unique in the following sense: if \(a,b \in R\) such that \(a+b = a\), then \(b = 0_R\). \label{prop:ring-basics:zero-unique}
-\item Negative elements in \(R\) are unique in the following sense: if \(a,b \in R\) such that \(a+b = 0_R\), then \(b = -a\). \label{prop:ring-basics:negative-unique}
-\item \(-(-a) = a\) for all \(a \in R\). \label{prop:ring-basics:neg-neg}
-\item \(0_R \cdot a = a \cdot 0_R = 0_R\) for all \(a \in R\). \label{prop:ring-basics:zero-times}
-\item \((-a)b = a(-b) = -(ab)\) for all \(a,b \in R\). \label{prop:ring-basics:move-neg}
-\item \((-a)(-b) = ab\) for all \(a,b \in R\). \label{prop:ring-basics:neg-times-neg}
+\item \label{prop:ring-basics:zero-unique} The zero element of \(R\) is unique in the following sense: if \(a,b \in R\) such that \(a+b = a\), then \(b = 0_R\).
+\item \label{prop:ring-basics:negative-unique} Negative elements in \(R\) are unique in the following sense: if \(a,b \in R\) such that \(a+b = 0_R\), then \(b = -a\).
+\item \label{prop:ring-basics:neg-neg} \(-(-a) = a\) for all \(a \in R\).
+\item \label{prop:ring-basics:zero-times} \(0_R \cdot a = a \cdot 0_R = 0_R\) for all \(a \in R\).
+\item \label{prop:ring-basics:move-neg} \((-a)b = a(-b) = -(ab)\) for all \(a,b \in R\).
+\item \label{prop:ring-basics:neg-times-neg} \((-a)(-b) = ab\) for all \(a,b \in R\).
 \end{proplist}
 \end{prop}
 
 \begin{proof}
 \begin{inlineproplist}
-\item Suppose \(a+b = a\). Now \(-a + (a+b) = -a + a\), and by A1 \((-a + a) + b = -a + a\). By A3 we have \(0_R + b = 0_R\), and by A2 we have \(b = 0_R\).
-\item Suppose \(a + b = 0_R\). Now \(-a + (a+b) = -a + 0_R\), and by A1 we have \((-a+a)+b = -a+0_R\). By A3 we have \(0_R + b = -a + 0_R\), and using A2 (twice) we have \(b = -a\).
+\item Suppose \(a+b = a\).
+Now \(-a + (a+b) = -a + a\), and by A1 we have \((-a + a) + b = -a + a\).
+Using A3 we have \(0_R + b = 0_R\), and by A2 we have \(b = 0_R\).
+\item Suppose \(a + b = 0_R\).
+Now \(-a + (a+b) = -a + 0_R\), and by A1 we have \((-a+a)+b = -a+0_R\).
+By A3 we have \(0_R + b = -a + 0_R\), and using A2 (twice) we have \(b = -a\).
 \item By definition, \((-a) + a = 0_R\), so by the uniqueness of negatives we have \(a = -(-a)\).
-\item Let \(a \in R\). Now \(a \cdot a + 0_R \cdot a = (a + 0_R) \cdot a = a \cdot a\), and so \(0_R \cdot a = 0_R\). The other equality is similar.
-\item Let \(a,b \in R\). Now \((-a)b + ab = (-a + a)b = 0_R \cdot b = 0_R\), so that \((-a)b = -(ab)\). The other equality is similar.
+\item Let \(a \in R\).
+Now \(a \cdot a + 0_R \cdot a = (a + 0_R) \cdot a = a \cdot a\), and so \(0_R \cdot a = 0_R\).
+The other equality is proved similarly.
+\item Let \(a,b \in R\).
+Now \((-a)b + ab = (-a + a)b = 0_R \cdot b = 0_R\), so that \((-a)b = -(ab)\).
+The other equality is proved similarly.
 \item Using \paref{prop:ring-basics:move-neg} (twice) and \paref{prop:ring-basics:neg-neg}, we have \[ (-a)(-b) = -(a(-b)) = -(-(ab)) = ab. \qedhere \]
 \end{inlineproplist}
 \end{proof}
 
-We can interpret \sref{prop:ring-basics}{zero-unique} as saying, ``if it acts like zero, it is zero'', and likewise \sref{prop:ring-basics}{negative-unique} says ``if it acts like \(-a\), it is \(-a\)''. These two properties are particularly handy in practice.
+We can interpret \sref{prop:ring-basics}{zero-unique} as saying, ``if it acts like zero, it is zero'', and likewise \sref{prop:ring-basics}{negative-unique} says ``if it acts like \(-a\), it is \(-a\)''.
+These two properties are particularly handy in practice.
 
-Abstract definitions like \ref{dfn:ring} are great -- they can make writing proofs easier, for instance, by throwing away unnecessary details. But abstract definitions are only useful if they represent the behavior of more concrete objects which we care about for some reason. Here is a short list of some basic examples.
+Abstract definitions like \ref{dfn:ring} are great -- they can make writing proofs easier, for instance, by throwing away unnecessary details.
+But abstract definitions are only useful if they represent the behavior of more concrete objects which we care about for some reason.
+Here is a short list of some basic examples.
 
 \begin{examples}
-\item \textbf{Rings of numbers.} \label{examp:numbers} The integers \(\ZZ\) and the modular integers \(\ZZ/(n)\) are our prototypical examples of rings, using the usual plus and times. The rational numbers \(\QQ\) are also a ring under the usual plus and times; we will prove this later. We will define \(\QQ\) in \autoref{sec:localization}. The real numbers \(\RR\) and the complex numbers \(\CC\) are also rings under the usual plus and times. However, even defining these sets of ``numbers'' is complicated, so we will avoid using \(\RR\) and \(\CC\) as examples for as long as possible. For the curious, \(\RR\) and \(\CC\) are defined in \autoref{sec:reals}.
+\item \textbf{Rings of numbers.} \label{examp:numbers} The integers \(\ZZ\) and the modular integers \(\ZZ/(n)\) are our prototypical examples of rings, using the usual plus and times.
+The rational numbers \(\QQ\) are also a ring under the usual plus and times; we will prove this later.
+We will define \(\QQ\) in \autoref{sec:localization}.
+The real numbers \(\RR\) and the complex numbers \(\CC\) are also rings under the usual plus and times.
+However, even defining these sets of ``numbers'' is complicated, so we will avoid using \(\RR\) and \(\CC\) as examples for as long as possible.
+For the curious, \(\RR\) and \(\CC\) are defined in \autoref{sec:reals}.
 
-\item \textbf{The trivial ring.} \label{examp:zero-ring} What is the smallest possible ring? Every ring must (by definition) have at least one element, the zero. Suppose this is \emph{all} we have. Now the arithmetic is necessarily pretty boring: \(0+0 = 0\) and \(0 \cdot 0 = 0\). It is straightforward to check that these operations make the set \(\{0\}\) into a ring. This example isn't very interesting, so we call it the \emph{trivial ring}. (Later on we will see that this ring isn't totally useless.)
+\item \textbf{The trivial ring.} \label{examp:zero-ring} What is the smallest possible ring?
+Every ring must (by definition) have at least one element, the zero.
+Suppose this is \emph{all} we have.
+Now the arithmetic is necessarily pretty boring: \(0+0 = 0\) and \(0 \cdot 0 = 0\).
+It is straightforward to check that these operations make the set \(\{0\}\) into a ring.
+This example isn't very interesting, so we call it the \emph{trivial ring}.
+(Later on we will see that this ring isn't totally useless.)
 
-\item \textbf{Rings of functions.} \label{examp:rings-of-functions} Suppose we have a ring \(R\), and let \(A\) be any nonempty set. Then the set \(R^A = \{ \varphi \mid \varphi : A \rightarrow R \}\) of all mappings \(A \rightarrow R\) is a ring under the ``pointwise'' operations \[ (\alpha + \beta)(x) = \alpha(x) + \beta(x) \quad \mathrm{and} \quad (\alpha\beta)(x) = \alpha(x) \beta(x). \]
+\item \textbf{Rings of functions.} \label{examp:rings-of-functions} Suppose we have a ring \(R\), and let \(A\) be any nonempty set.
+Then the set \(R^A = \{ \varphi \mid \varphi : A \rightarrow R \}\) of all mappings \(A \rightarrow R\) is a ring under the ``pointwise'' operations \[ (\alpha + \beta)(x) = \alpha(x) + \beta(x) \quad \mathrm{and} \quad (\alpha\beta)(x) = \alpha(x) \beta(x). \]
 
-\item \textbf{Matrix rings.} Let \(R\) be a ring, and consider the set \[ \MAT{2}{R} = \left\{ \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} \mid a_{11}, a_{12}, a_{21}, a_{22} \in R \right\} \] of all \(2 \times 2\) matrices with entries in \(R\). The usual matrix addition and multiplication make \(\MAT{2}{R}\) into a ring. Specifically, we define
+\item \textbf{Matrix rings.} Let \(R\) be a ring, and consider the set \[ \MAT{2}{R} = \left\{ \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} \mid a_{11}, a_{12}, a_{21}, a_{22} \in R \right\} \] of all \(2 \times 2\) matrices with entries in \(R\).
+The usual matrix addition and multiplication make \(\MAT{2}{R}\) into a ring.
+Specifically, we define \[\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} + \begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix} = \begin{bmatrix} a_{11} + b_{11} & a_{12} + b_{12} \\ a_{21} + b_{21} & a_{22} + b_{22} \end{bmatrix}\] and \[\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} \cdot \begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix} = \begin{bmatrix} a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\ a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22} \end{bmatrix}.\]
 
-\[\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} + \begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix} = \begin{bmatrix} a_{11} + b_{11} & a_{12} + b_{12} \\ a_{21} + b_{21} & a_{22} + b_{22} \end{bmatrix}\]
+\item \textbf{Even integers.} Consider the set \(2\ZZ = \{ 2k \mid k \in \ZZ \}\) consisting of only the even integers.
+It is not too difficult to show that this set is a ring under the usual plus and times.
 
-and
-
-\[\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} \cdot \begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix} = \begin{bmatrix} a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\ a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22} \end{bmatrix}.\]
-
-\item \textbf{Even integers.} Consider the set \(2\ZZ = \{ 2k \mid k \in \ZZ \}\) consisting of only the even integers. It is not too difficult to show that this set is a ring under the usual plus and times.
-
-\item \textbf{Rings of sets.} \label{examp:rings-of-sets} \index{ring!of sets} Let \(X\) be any nonempty set. The powerset \(\POW{X}\) is a ring under the operations \(A + B = (A \setminus B) \cup (B \setminus A)\) and \(A \cdot B = A \cap B\). This is called a \emph{ring of sets}. Similarly, the sets \(\POWP{X}\) of proper subsets and \(\POWF{X}\) of finite subsets are rings under these operations.
+\item \textbf{Rings of sets.} \label{examp:rings-of-sets} \index{ring!of sets} Let \(X\) be any nonempty set.
+The powerset \(\POW{X}\) is a ring under the operations \(A + B = (A \setminus B) \cup (B \setminus A)\) and \(A \cdot B = A \cap B\).
+This is called a \emph{ring of sets}.
+Similarly, the sets \(\POWP{X}\) of proper subsets and \(\POWF{X}\) of finite subsets are rings under these operations.
 \end{examples}
 
-Two of the most important examples of rings are rings of polynomials and rings of matrices of arbitrary (fixed) size. We will look at these in more depth later. 
+This is just the beginning of our list of rings; we will see many more.
+Two of the most important examples of rings are rings of polynomials and rings of matrices of arbitrary (fixed) size.
+We will look at these in more depth later. 
 
 
 
@@ -72,43 +104,63 @@ Two of the most important examples of rings are rings of polynomials and rings o
 %---------%
 
 \begin{exercise}
-Let \(R\) be a ring. Show that \(-0_R = 0_R\). (Hint: use \sref{prop:ring-basics}{negative-unique})
+Let \(R\) be a ring.
+Show that \(-0_R = 0_R\).
+(Hint: Use \sref{prop:ring-basics}{negative-unique}.)
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a ring. Show that \(\MAT{2}{R}\) is a ring by verifying that each of the properties in Definition \ref{dfn:ring} hold. This will be tedious.
+Let \(R\) be a ring.
+Show that \(\MAT{2}{R}\) is a ring by verifying that each of the properties in Definition \ref{dfn:ring} hold.
+This will be tedious.
 \end{exercise}
 
 \begin{exercise}
 Let \(X\) be a set.
 \begin{proplist}
-\item Show that the ring of sets \(\POW{X}\) is a ring under the operations given in \ref{examp:rings-of-sets} by verifying that each of the properties in Definition \ref{dfn:ring} hold. This will be tedious.
-\item Show also that \(\POWP{X}\) and \(\POWF{X}\) are rings. Note that you will need to verify that the plus and times given in \ref{examp:rings-of-sets} are total; that is, the sum and product of proper or finite sets is again proper or finite.
+\item Show that the ring of sets \(\POW{X}\) is a ring under the operations given in \ref{examp:rings-of-sets} by verifying that each of the properties in Definition \ref{dfn:ring} hold.
+This will be tedious.
+\item Show also that \(\POWP{X}\) and \(\POWF{X}\) are rings.
+Note that you will need to verify that the plus and times given in \ref{examp:rings-of-sets} are total; that is, the sum and product of proper or finite sets is again proper or finite.
 \end{proplist}
 \end{exercise}
 
-\begin{exercise}
-Let \(R\) be a ring, and let \(a \in R\). Show that the set \(aR = \{ ar \mid r \in R \}\) is a ring under the usual plus and times by verifying that each of the properties in Definition \ref{dfn:ring} hold. Note that you must also show that these operations are total; that is, that the sum and product of multiples of \(a\) are again multiples of \(a\). This will be tedious. \label{exerc:aR-is-ring}
+\begin{exercise} \label{exerc:aR-is-ring}
+Let \(R\) be a ring and let \(a \in R\).
+Show that the set \(aR = \{ ar \mid r \in R \}\) is a ring under the usual plus and times by verifying that each of the properties in Definition \ref{dfn:ring} hold.
+Note that you must also show that these operations are total; that is, that the sum and product of multiples of \(a\) are again multiples of \(a\).
+This will be tedious.
 \end{exercise}
 
 \begin{dfn}[Big Sigma] \label{dfn:big-sigma}
-Let \(R\) be a ring. We define the \emph{big sigma} operator on finite lists \(r_i\) of elements of \(R\) inductively as follows: \[ \sum_{i=1}^0 r_i = 0_R \quad\quad \mathrm{and} \quad\quad \sum_{i=1}^{n+1} r_i = \left( \sum_{i=1}^n r_i \right) + r_{n+1}. \] Then, if \(a \leq b\) are integers we define \[ \sum_{i=a}^b r_i = \sum_{i=1}^{b-a+1} r_{a+i-1}. \]
+Let \(R\) be a ring.
+We define the \emph{big sigma} operator on finite lists \(r_i\) of elements of \(R\) inductively as follows: \[ \sum_{i=1}^0 r_i = 0_R \quad\quad \mathrm{and} \quad\quad \sum_{i=1}^{n+1} r_i = \left( \sum_{i=1}^n r_i \right) + r_{n+1}. \]
+Then if \(a,b \in \ZZ\) such that \(a \leq b\) we define \[ \sum_{i=a}^b r_i = \sum_{i=1}^{b-a+1} r_{a+i-1}. \]
 \end{dfn}
 
-\begin{exercise}%
-Let \(R\) be a ring and \(r_i \in R\). Show that for all integers \(a \leq b \leq c\) the following holds. (Hint: use induction.) \label{exerc:big-sigma-break} \[ \left( \sum_{i=a}^b r_i \right) + \left( \sum_{i=b+1}^c r_i \right) = \sum_{i=a}^c r_i. \]
+\begin{exercise} \label{exerc:big-sigma-break}
+Let \(R\) be a ring and let \(r_i \in R\).
+Show that for all integers \(a \leq b \leq c\) we have \[ \left( \sum_{i=a}^b r_i \right) + \left( \sum_{i=b+1}^c r_i \right) = \sum_{i=a}^c r_i. \]
+(Hint: Use induction.)
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a ring and \(r_i, s \in R\). Show that for all integers \(n\) the following holds. (Hint: use induction.) \[ s \cdot \left( \sum_{i=1}^n r_i \right) = \sum_{i=1}^n sr_i \quad\quad \mathrm{and} \quad\quad \left( \sum_{i=1}^n r_i \right) \cdot s = \sum_{i=1}^n r_i s. \]
+Let \(R\) be a ring and \(r_i, s \in R\).
+Show that for all integers \(n\) we have \[ s \cdot \left( \sum_{i=1}^n r_i \right) = \sum_{i=1}^n sr_i \quad\quad \mathrm{and} \quad\quad \left( \sum_{i=1}^n r_i \right) \cdot s = \sum_{i=1}^n r_i s. \]
+(Hint: Use induction.)
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a ring, let \(r_i \in R\) for \(1 \leq i \leq n\), and let \(\sigma\) be a permutation of \([1,n]\). Show that the following holds. (Hint: use induction and \eref{exerc:big-sigma-break}.) \[ \sum_{i=1}^n r_{\sigma(i)} = \sum_{i=1}^n r_i.  \]
+Let \(R\) be a ring, let \(r_i \in R\) for \(1 \leq i \leq n\), and let \(\sigma\) be a permutation of \([1,n]\).
+Show that \[ \sum_{i=1}^n r_{\sigma(i)} = \sum_{i=1}^n r_i. \]
+(Hint: Use induction and \eref{exerc:big-sigma-break}.)
 \end{exercise}
 
 \begin{dfn}[Multiples of an element] \label{dfn:mult-elt}
-Let \(R\) be a ring and \(a \in R\) a fixed element. Given \(n \in \ZZ\), we define \[ na = \sum_{i=1}^n a \] if \(n \geq 0\), and \(na = -(-n)a\) if \(n < 0\). That is, \[ na = \underbrace{a + a + \cdots + a}_{n\ \mathrm{times}} \] for positive \(n\). We will call the ring elements \(na\) the \emph{multiples} of \(a\) in \(R\).
+Let \(R\) be a ring and \(a \in R\) a fixed element.
+Given \(n \in \ZZ\), we define \[ na = \sum_{i=1}^n a \] if \(n \geq 0\) and \(na = -(-n)a\) if \(n < 0\).
+That is, \[ na = \underbrace{a + a + \cdots + a}_{n\ \mathrm{times}} \] for positive \(n\).
+We will call the ring elements \(na\) the \emph{multiples} of \(a\) in \(R\).
 \end{dfn}
 
 \begin{exercise}
@@ -120,42 +172,46 @@ For the following rings \(R\) and elements \(x \in R\), compute \(2x\), \(3x\), 
 \end{proplist}
 \end{exercise}
 
-\begin{exercise}
-Show that the following properties hold for all \(a,b \in R\) and \(m,n \in \ZZ\). \label{exerc:elt-mult}
+\begin{exercise} \label{exerc:elt-mult}
+Show that the following properties hold for all \(a,b \in R\) and \(m,n \in \ZZ\).
 \begin{proplist*}
-\item \(0a = 0_R\)
-\item \(n 0_R = 0_R\)
-\item \(n(a+b) = na + nb\)
-\item \(n(ab) = (na)b = a(nb)\)
-\item \(n(-a) = -(na)\)
-\item \((m+n)a = ma + na\)
-\item \((mn)a = m(na)\)
+\item \(0a = 0_R\).
+\item \(n 0_R = 0_R\).
+\item \(n(a+b) = na + nb\).
+\item \(n(ab) = (na)b = a(nb)\).
+\item \(n(-a) = -(na)\).
+\item \((m+n)a = ma + na\).
+\item \((mn)a = m(na)\).
 \end{proplist*}
 \end{exercise}
 
 \begin{dfn}[Powers of an element] \label{dfn:pow-elt}
-Let \(R\) be a ring and \(a \in R\) a fixed element. We define a mapping \(a^\ast : \NN \setminus \{0\} \rightarrow R\) inductively as follows: \(a^1 = a\) and \(a^{n+1} = a^n a\). We will call the ring elements \(a^n\) the \emph{powers} of \(a\) in \(R\).
+Let \(R\) be a ring and \(a \in R\) a fixed element.
+We define a mapping \(a^\ast : \NN \setminus \{0\} \rightarrow R\) inductively as follows: \(a^1 = a\) and \(a^{n+1} = a^n a\).
+We will call the ring elements \(a^n\) the \emph{powers} of \(a\) in \(R\).
 \end{dfn}
 
 \begin{exercise}
-Let \(R = \ZZ/(7)\) and \(x = [2]\). Compute \(x^2\), \(x^3\), and \(x^4\).
+Let \(R = \ZZ/(7)\) and \(x = [2]\).
+Compute \(x^2\), \(x^3\), and \(x^4\).
 \end{exercise}
 
-\begin{exercise}
-Show that the following properties hold for all \(a \in R\) and \(m,n \in \NN \setminus \{0\}\). \label{exerc:ring-powers}
-\begin{proplist}
-\item \(a^{m+n} = a^m a^n\)
-\item \(a^{mn} = (a^m)^n\)
+\begin{exercise} \label{exerc:ring-powers}
+Show that the following properties hold for all \(a \in R\) and \(m,n \in \NN \setminus \{0\}\).
+\begin{proplist*}
+\item \(a^{m+n} = a^m a^n\).
+\item \(a^{mn} = (a^m)^n\).
 \item \((-a)^m = a^m\) if \(m\) is even and \(-a^m\) if \(m\) is odd.
-\end{proplist}
+\end{proplist*}
 \end{exercise}
 
 \begin{dfn}[Idempotent] \label{dfn:idempotent}
-We say that an element \(r\) in a ring \(R\) is \emph{idempotent} \index{idempotent!element} if \(r^2 = r\). For instance, \(0_R\) is idempotent by \sref{prop:ring-basics}{zero-times}.
+We say that an element \(r\) in a ring \(R\) is \emph{idempotent} \index{idempotent!element} if \(r^2 = r\).
+For instance, \(0_R\) is idempotent by \sref{prop:ring-basics}{zero-times}.
 \end{dfn}
 
 \begin{exercise}
-Determine which elements (if any) of the following rings are idempotent:
+Determine which elements (if any) of the following rings are idempotent.
 \begin{proplist*}
 \item \(\ZZ/(5)\)
 \item \(\ZZ/(12)\)
@@ -168,7 +224,9 @@ Show that if \(a\) and \(b\) are idempotent elements such that \(ab = ba\), then
 \end{exercise}
 
 \begin{dfn}[Nilpotent] \label{dfn:nilpotent}
-We say that an element \(r\) in a ring \(R\) is \emph{nilpotent} \index{nilpotent!element} if \(r^n = 0_R\) for some positive natural number \(n\). For instance, \(0_R\) is nilpotent in any ring since \(0_R^2 = 0_R\). If \(r \in R\) is nilpotent, the \emph{smallest} positive integer \(k\) such that \(r^k = 0_R\) is called the \emph{index of nilpotency} of \(r\), and denoted \(\ION{r}\).
+We say that an element \(r\) in a ring \(R\) is \emph{nilpotent} \index{nilpotent!element} if \(r^n = 0_R\) for some positive natural number \(n\).
+For instance, \(0_R\) is nilpotent in any ring since \(0_R^2 = 0_R\).
+If \(r \in R\) is nilpotent, the \emph{smallest} positive integer \(k\) such that \(r^k = 0_R\) is called the \emph{index of nilpotency} of \(r\) and is denoted \(\ION{r}\).
 \end{dfn}
 
 \begin{exercise}
@@ -179,7 +237,7 @@ Determine which elements of the following rings are nilpotent.
 \end{proplist*}
 \end{exercise}
 
-\begin{dfn}[Boolean Ring]
+\begin{dfn}[Boolean Ring] \label{dfn:boolean-ring}
 A ring \(R\) is called \emph{boolean} \index{ring!boolean} if all of its elements are idempotent; that is, for all \(a \in R\) we have \(a^2 = a\).
 \end{dfn}
 
@@ -187,20 +245,23 @@ A ring \(R\) is called \emph{boolean} \index{ring!boolean} if all of its element
 Show that the ring \(\ZZ/(n)\) is boolean if and only if \(n = 2\).
 \end{exercise}
 
-\begin{exercise}
-Show that if \(R\) is a boolean ring, then \(-a = a\) for all \(a \in R\). (Hint: Meditate upon \((a+a)^2\).) \label{exerc:boolean-neg}
+\begin{exercise} \label{exerc:boolean-neg}
+Show that if \(R\) is a boolean ring, then \(-a = a\) for all \(a \in R\).
+(Hint: Meditate upon \((a+a)^2\).)
 \end{exercise}
 
 \begin{exercise}
 Let \(X\) be a nonempty set.
-\begin{proplist}
-\item Show that the ring of sets \(\POW{X}\) (cf. \eref{examp:rings-of-sets}) is boolean.
+\begin{proplist*}
+\item Show that the ring of sets \(\POW{X}\) is boolean.
+(cf. \eref{examp:rings-of-sets}.)
 \item Show that \(\POWP{X}\) and \(\POWF{X}\) are boolean.
-\end{proplist}
+\end{proplist*}
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a ring and \(A\) a set. Show that \(R^A\) is boolean if and only if \(R\) is boolean.
+Let \(R\) be a ring and \(A\) a set.
+Show that \(R^A\) is boolean if and only if \(R\) is boolean.
 \end{exercise}
 
 \begin{exercise}
@@ -208,7 +269,10 @@ Show that \(\MAT{2}{R}\) is boolean if and only if \(R\) is the trivial ring.
 \end{exercise}
 
 \begin{dfn}[Integer Annihilator] \label{dfn:zz-annihilator}
-Let \(R\) be a ring with \(a \in R\) and let \(n \in \ZZ\). We say that \(n\) is an \emph{annihilator} of \(a\) if \(na = 0_R\). We say that \(n\) is an \emph{annihilator} \index{annihilator} of \(R\) if \(n\) annihilates every element of \(R\). For instance, the integer 0 is an annihilator of every ring.
+Let \(R\) be a ring with \(a \in R\) and let \(n \in \ZZ\).
+We say that \(n\) is an \emph{annihilator} of \(a\) if \(na = 0_R\).
+We say that \(n\) is an \emph{annihilator} \index{annihilator} of \(R\) if \(n\) annihilates every element of \(R\).
+For instance, the integer 0 is an annihilator of every ring.
 \end{dfn}
 
 \begin{exercise}
@@ -216,11 +280,14 @@ Show that \(n\) is an annihilator of \(\ZZ/(n)\) for all \(n > 1\).
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a ring. Show that if \(m\) and \(n\) are annihilators of \(R\), then \(m+n\), \(mn\), and \(-m\) are also annihilators of \(R\).
+Let \(R\) be a ring.
+Show that if \(m\) and \(n\) are annihilators of \(R\), then \(m+n\), \(mn\), and \(-m\) are also annihilators of \(R\).
 \end{exercise}
 
 \begin{dfn}[Additive Order]
-Let \(R\) be a ring and \(a \in R\). If \(a\) has a positive integer annihilator, then by the well-ordering property of \(\NN\) it has a \emph{least} positive annihilator. The \emph{additive order} of \(a\), denoted \(\ADDORD{a}\), is the least positive annihilator of \(a\) if it exists and is \(0\) otherwise.
+Let \(R\) be a ring and let \(a \in R\).
+If \(a\) has a positive integer annihilator, then by the well-ordering property of \(\NN\) it has a \emph{least} positive annihilator.
+The \emph{additive order} of \(a\), denoted \(\ADDORD{a}\), is the least positive annihilator of \(a\) if it exists and is \(0\) otherwise.
 \end{dfn}
 
 \begin{exercise}
@@ -228,15 +295,19 @@ Let \(R\) be a ring and \(a \in R\). If \(a\) has a positive integer annihilator
 \end{exercise}
 
 \begin{dfn}[Characteristic] \label{dfn:characteristic}
-Let \(R\) be a ring. If \(R\) has a positive annihilator, then by the well-ordering property of \(\NN\) it has a \emph{least} positive annihilator. The \emph{characteristic} \index{characteristic} of \(R\), denoted \(\CHAR{R}\), is the least positive annihilator of \(R\) if it exists and is 0 otherwise.
+Let \(R\) be a ring.
+If \(R\) has a positive annihilator, then by the well-ordering property of \(\NN\) it has a \emph{least} positive annihilator.
+The \emph{characteristic} \index{characteristic} of \(R\), denoted \(\CHAR{R}\), is the least positive annihilator of \(R\) if it exists and is 0 otherwise.
 \end{dfn}
 
 \begin{exercise}
-Show that \(\CHAR{\ZZ} = 0\). (Hint: Note that \(na = na\), where on the left we have the \(n\)th multiple of \(a\) as defined in \eref{exerc:elt-mult} and on the right we have ordinary integer multiplication.)
+Show that \(\CHAR{\ZZ} = 0\).
+(Hint: Note that \(na = na\), where on the left we have the \(n\)th multiple of \(a\) as defined in \eref{exerc:elt-mult} and on the right we have ordinary integer multiplication.)
 \end{exercise}
 
 \begin{exercise}
-Show that \(\CHAR{\ZZ/(n)} = n\). (Hint: Show that no \(k\) with \(0 < k < n\) can be an annihilator.)
+Show that \(\CHAR{\ZZ/(n)} = n\).
+(Hint: Show that no \(k\) with \(0 < k < n\) can be an annihilator.)
 \end{exercise}
 
 \begin{exercise}
@@ -248,15 +319,19 @@ Show that \(\CHAR{R} = 1\) if and only if \(R\) is the zero ring.
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a ring. Show that \(\CHAR{\MAT{2}{R}} = \CHAR{R}\).
+Let \(R\) be a ring.
+Show that \(\CHAR{\MAT{2}{R}} = \CHAR{R}\).
 \end{exercise}
 
 \begin{exercise}
-Show that every boolean ring has characteristic 2. Give an example of a ring with characteristic 2 which is not boolean. (cf. \eref{exerc:boolean-neg})
+Show that every boolean ring has characteristic 2.
+Give an example of a ring with characteristic 2 which is not boolean.
+(cf. \eref{exerc:boolean-neg}.)
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a ring and \(A\) a nonempty set. Show that \(\CHAR{R^A} = \CHAR{R}\).
+Let \(R\) be a ring and \(A\) a nonempty set.
+Show that \(\CHAR{R^A} = \CHAR{R}\).
 \end{exercise}
 
 \begin{dfn}[Null Ring] \label{dfn:null-ring}
@@ -267,28 +342,39 @@ We say that a ring \(R\) is \emph{null} \index{ring!null} if \(xy = 0_R\) for al
 Show that the trivial ring is null.
 \end{exercise}
 
+
 \begin{exercise}
 Let \(R = \ZZ/(4)\) and let \(a = [2]\).
 \begin{proplist*}
-\item Show that the ring \(aR\) contains 2 elements. (cf. \eref{exerc:aR-is-ring})
+\item Show that the ring \(aR\) contains 2 elements.
+(cf. \eref{exerc:aR-is-ring}.)
 \item Show that \(aR\) is null.
 \end{proplist*}
 \end{exercise}
+
 
 \begin{exercise}
 Show that if \(R\) is a null ring and \(A\) a nonempty set, then the ring \(R^A\) is null.
 \end{exercise}
 
+
 \begin{exercise}
 Show that if \(R\) is a null ring, then the ring \(\MAT{2}{R}\) is null.
 \end{exercise}
 
-One of the main activities in \(\ZZ\) or \(\QQ\) is to solve \emph{equations}. An equation over a ring \(R\) is an expression involving elements of \(R\), the arithmetic operations, one or more \emph{variables}, and a single equals sign. To \emph{solve} an equation means to find all the elements of \(R\) which can be substituted in for the variables to yield a true statement. Solving equations in a general ring may be difficult. \medskip
+
+One of the main activities in \(\ZZ\) or \(\QQ\) is to solve \emph{equations}.
+An equation over a ring \(R\) is an expression involving elements of \(R\), the arithmetic operations, one or more \emph{variables}, and a single equals sign.
+To \emph{solve} an equation means to find all the elements of \(R\) which can be substituted in for the variables to yield a true statement.
+Solving equations in a general ring may be difficult. \medskip
+
 
 \begin{exercise}
 Find all elements \(x \in \ZZ/(3)\) which satisfy the equation \(x^3 + 1 = 0\).
 \end{exercise}
 
+
 \begin{exercise}
 Find all the matrices \(x \in \MAT{2}{\ZZ/(5)}\) which satisfy the equation \(x^2 = 0\).
+This will be tedious.
 \end{exercise}

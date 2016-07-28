@@ -1,46 +1,46 @@
 To show that a given incidence geometry is an ordered geometry, we need to (1) specify how to detect when one point is between to others and (2) specify how to determine when two points are on the same side of a line.
 
-\subsection{Betweenness in $\RR^2$}
+\subsection{Betweenness in \(\RR^2\)}
 
 \begin{prop}
 The cartesian plane is an ordered geometry with 
 \begin{proplist}
-\item Given points $A$, $B$, and $C$ in $\RR^2$, we say $\BETWEEN{A}{C}{B}$ if the equation $C = A + t(B-A)$ has a solution $t \in [0,1]$. This is a betweenness relation.
-\item Given a line $\ell = \LINE{A}{B}$, we define two half-planes as follows: \[ H_1 = \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} > 0 \right\} \] and \[ H_2 = \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} < 0 \right\}. \]
+\item Given points \(A\), \(B\), and \(C\) in \(\RR^2\), we say \(\BETWEEN{A}{C}{B}\) if the equation \(C = A + t(B-A)\) has a solution \(t \in [0,1]\). This is a betweenness relation.
+\item Given a line \(\ell = \LINE{A}{B}\), we define two half-planes as follows: \[ H_1 = \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} > 0 \right\} \] and \[ H_2 = \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} < 0 \right\}. \]
 \end{proplist}
 \end{prop}
 
 
 \begin{itemize}
-\item[B1.] Suppose $\BETWEEN{A}{B}{A}$. Now $B = A + t(A - A) = A$ as needed.
-\item[B2.] Suppose $A$, $B$, and $C$ are distinct points such that $\BETWEEN{A}{C}{B}$. By definition, we have $C = A + t(B-A)$ for some real number $t \in [0,1]$. Certainly $C \in \LINE{A}{B}$. Moreover, note that
+\item[B1.] Suppose \(\BETWEEN{A}{B}{A}\). Now \(B = A + t(A - A) = A\) as needed.
+\item[B2.] Suppose \(A\), \(B\), and \(C\) are distinct points such that \(\BETWEEN{A}{C}{B}\). By definition, we have \(C = A + t(B-A)\) for some real number \(t \in [0,1]\). Certainly \(C \in \LINE{A}{B}\). Moreover, note that
 \begin{eqnarray*}
 B + (1-t)(A-B) & = & B + A - B - t(A-B) \\
  & = & A + t(B-A) \\
  & = & C,
 \end{eqnarray*}
-so that $\BETWEEN{B}{C}{A}$.
-\item[B3.] Suppose we have distinct points $A$, $B$, and $C$ such that $\BETWEEN{A}{B}{C}$ and $\BETWEEN{B}{C}{A}$.
-Now $B = A + t(C-A)$ and $C = B + u(A-B)$ for some real numbers $u,t \in [0,1]$ by definition.
-Substituting the second equation into the first, we see that $B = A + t(1-u)(B - A)$, so that $0 = (t(1-u) - 1)(B - A)$. Since $A$ and $B$ are distinct, we must have $t(1-u) = 1$. Similarly, substituting the first equation into the second, we have $u(1-t) = 1$. Then $t$ must be a root of the quadratic $t^2 - t + 1$, which has no real solutions.
+so that \(\BETWEEN{B}{C}{A}\).
+\item[B3.] Suppose we have distinct points \(A\), \(B\), and \(C\) such that \(\BETWEEN{A}{B}{C}\) and \(\BETWEEN{B}{C}{A}\).
+Now \(B = A + t(C-A)\) and \(C = B + u(A-B)\) for some real numbers \(u,t \in [0,1]\) by definition.
+Substituting the second equation into the first, we see that \(B = A + t(1-u)(B - A)\), so that \(0 = (t(1-u) - 1)(B - A)\). Since \(A\) and \(B\) are distinct, we must have \(t(1-u) = 1\). Similarly, substituting the first equation into the second, we have \(u(1-t) = 1\). Then \(t\) must be a root of the quadratic \(t^2 - t + 1\), which has no real solutions.
 \end{itemize}
 
-We can say something a little stronger about the intersection of a segment and a line in $\RR^2$; this next fact will become useful later, so we state and prove it now.
+We can say something a little stronger about the intersection of a segment and a line in \(\RR^2\); this next fact will become useful later, so we state and prove it now.
 
-The Cartesian Plane has the Trichotomy Property, as we show. Let $A$, $B$, and $C$ be distinct collinear points. Now $C \in \LINE{A}{B}$, so that $C = A + t(B-A)$ for some real number $t$. If $t \in [0,1]$, then $\BETWEEN{A}{C}{B}$. If $t > 1$, then $\frac{1}{t} \in (0,1)$, and we have $B = A + \frac{1}{t}(C-A)$ so that $\BETWEEN{A}{B}{C}$. If $t < 0$, then $\frac{-t}{1-t} \in (0,1]$ and we have $A = C + \frac{-t}{1-t}(B-C)$, so that $\BETWEEN{C}{A}{B}$.
+The Cartesian Plane has the Trichotomy Property, as we show. Let \(A\), \(B\), and \(C\) be distinct collinear points. Now \(C \in \LINE{A}{B}\), so that \(C = A + t(B-A)\) for some real number \(t\). If \(t \in [0,1]\), then \(\BETWEEN{A}{C}{B}\). If \(t > 1\), then \(\frac{1}{t} \in (0,1)\), and we have \(B = A + \frac{1}{t}(C-A)\) so that \(\BETWEEN{A}{B}{C}\). If \(t < 0\), then \(\frac{-t}{1-t} \in (0,1]\) and we have \(A = C + \frac{-t}{1-t}(B-C)\), so that \(\BETWEEN{C}{A}{B}\).
 
 \begin{prop}
-Let $A,B \in \RR^2$ be distinct points and let $X = (x_1, x_2), Y = (y_1, y_2) \in \RR^2$ be distinct points not in $\ell_{A,B}$. Then $\SEGMENT{X}{Y} \cap \LINE{A}{B}$ consists of a single point if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ x_1 & x_2 & 1 \end{bmatrix} \quad \mathrm{and} \quad \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ y_1 & y_2 & 1 \end{bmatrix} \] have opposite signs.
+Let \(A,B \in \RR^2\) be distinct points and let \(X = (x_1, x_2), Y = (y_1, y_2) \in \RR^2\) be distinct points not in \(\ell_{A,B}\). Then \(\SEGMENT{X}{Y} \cap \LINE{A}{B}\) consists of a single point if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ x_1 & x_2 & 1 \end{bmatrix} \quad \mathrm{and} \quad \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ y_1 & y_2 & 1 \end{bmatrix} \] have opposite signs.
 \end{prop}
 
 \begin{proof}
-Note that $\LINE{X}{Y} \cap \LINE{A}{B}$ contains exactly one point if and only if the equation $X + t(Y-X) = A + u(B-A)$ has a unique solution $(t,u)$. In fact we have \[ \begin{bmatrix} t \\ -u \end{bmatrix} = \begin{bmatrix} y_1 - x_1 & b_1 - a_1 \\ y_2 - x_2 & b_2 - a_2 \end{bmatrix}^{-1} \begin{bmatrix} a_1 - x_1 \\ a_2 - x_2 \end{bmatrix}. \] Comparing entries of this matrix, we see that \[ t = \frac{(b_2-a_2)(a_1-x_1) + (a_1-b_1)(a_2-x_2)}{(y_1-x_1)(b_2-a_2) - (y_2-x_2)(b_1-a_1)}. \] Note that the unique point in $\LINE{X}{Y} \cap \LINE{A}{B}$ is in fact in the segment $\SEGMENT{X}{Y}$ if and only if $t \in [0,1]$.
+Note that \(\LINE{X}{Y} \cap \LINE{A}{B}\) contains exactly one point if and only if the equation \(X + t(Y-X) = A + u(B-A)\) has a unique solution \((t,u)\). In fact we have \[ \begin{bmatrix} t \\ -u \end{bmatrix} = \begin{bmatrix} y_1 - x_1 & b_1 - a_1 \\ y_2 - x_2 & b_2 - a_2 \end{bmatrix}^{-1} \begin{bmatrix} a_1 - x_1 \\ a_2 - x_2 \end{bmatrix}. \] Comparing entries of this matrix, we see that \[ t = \frac{(b_2-a_2)(a_1-x_1) + (a_1-b_1)(a_2-x_2)}{(y_1-x_1)(b_2-a_2) - (y_2-x_2)(b_1-a_1)}. \] Note that the unique point in \(\LINE{X}{Y} \cap \LINE{A}{B}\) is in fact in the segment \(\SEGMENT{X}{Y}\) if and only if \(t \in [0,1]\).
 
-There are now two possibilities, depending on whether the denominator of $t$ is positive or negative. If the denominator of $t$ is positive, we can see that $t \in (0,1)$ if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ x_1 & x_2 & 1 \end{bmatrix} > 0 > \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ y_1 & y_2 & 1 \end{bmatrix}. \] If the denominator of $t$ is negative, then $t \in (0,1)$ if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ x_1 & x_2 & 1 \end{bmatrix} < 0 < \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ y_1 & y_2 & 1 \end{bmatrix}. \qedhere \]
+There are now two possibilities, depending on whether the denominator of \(t\) is positive or negative. If the denominator of \(t\) is positive, we can see that \(t \in (0,1)\) if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ x_1 & x_2 & 1 \end{bmatrix} > 0 > \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ y_1 & y_2 & 1 \end{bmatrix}. \] If the denominator of \(t\) is negative, then \(t \in (0,1)\) if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ x_1 & x_2 & 1 \end{bmatrix} < 0 < \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ y_1 & y_2 & 1 \end{bmatrix}. \qedhere \]
 \end{proof}
 
-Certainly both $H_1$ and $H_2$ are not empty, and they are disjoint by construction.
+Certainly both \(H_1\) and \(H_2\) are not empty, and they are disjoint by construction.
 
-To see that $H_1$ is convex, suppose BWOC that we have points $X,Y \in H_1$ and a point $Z = (z_1, z_2)$ such that $\BETWEEN{X}{Z}{Y}$ and $Z \notin H_1$. Now \[ m = \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ z_1 & z_2 & 1 \end{bmatrix} \] is either 0 or negative. If $m = 0$, then in fact $Z \in \LINE{A}{B}$. Since $X,Y \notin \LINE{A}{B}$, we have that $\SEGMENT{X}{Y}$ and $\LINE{A}{B}$ meet at a single point $Z$; but we've seen this can only happen if $X \in H_1$ and $Y \in H_2$ (or vice versa). Suppose instead that $m < 0$; that is, $Z \in H_2$. Now we have that $\SEGMENT{X}{Z}$ and $\SEGMENT{Y}{Z}$ each intersect $\LINE{A}{B}$ at unique points, say $W$ and $V$, respectively. Note that $\BETWEEN{X}{W}{Z}$ and $\BETWEEN{Y}{V}{Z}$. Since $\BETWEEN{X}{Z}{Y}$, we have that $X$, $Y$, $Z$, $W$, and $V$ are all collinear. If $W$ and $V$ are distinct points, then in fact $X, Y \in \LINE{W}{V} = \LINE{A}{B}$, a contradiction. If $W = V$, then we have $\BETWEEN{X}{W}{Z}$ and $\BETWEEN{Y}{W}{Z}$, so by the 4-point axiom, $\BETWEEN{W}{Z}{Y}$, a contradiction. So we must have $Z \in H_1$, and thus $H_1$ is convex. A similar argument shows that $H_2$ is convex.
+To see that \(H_1\) is convex, suppose BWOC that we have points \(X,Y \in H_1\) and a point \(Z = (z_1, z_2)\) such that \(\BETWEEN{X}{Z}{Y}\) and \(Z \notin H_1\). Now \[ m = \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ z_1 & z_2 & 1 \end{bmatrix} \] is either 0 or negative. If \(m = 0\), then in fact \(Z \in \LINE{A}{B}\). Since \(X,Y \notin \LINE{A}{B}\), we have that \(\SEGMENT{X}{Y}\) and \(\LINE{A}{B}\) meet at a single point \(Z\); but we've seen this can only happen if \(X \in H_1\) and \(Y \in H_2\) (or vice versa). Suppose instead that \(m < 0\); that is, \(Z \in H_2\). Now we have that \(\SEGMENT{X}{Z}\) and \(\SEGMENT{Y}{Z}\) each intersect \(\LINE{A}{B}\) at unique points, say \(W\) and \(V\), respectively. Note that \(\BETWEEN{X}{W}{Z}\) and \(\BETWEEN{Y}{V}{Z}\). Since \(\BETWEEN{X}{Z}{Y}\), we have that \(X\), \(Y\), \(Z\), \(W\), and \(V\) are all collinear. If \(W\) and \(V\) are distinct points, then in fact \(X, Y \in \LINE{W}{V} = \LINE{A}{B}\), a contradiction. If \(W = V\), then we have \(\BETWEEN{X}{W}{Z}\) and \(\BETWEEN{Y}{W}{Z}\), so by the 4-point axiom, \(\BETWEEN{W}{Z}{Y}\), a contradiction. So we must have \(Z \in H_1\), and thus \(H_1\) is convex. A similar argument shows that \(H_2\) is convex.
 
-Finally, we need to show that if $X \in H_1$ and $Y \in H_2$, then $\SEGMENT{X}{Y} \cap \LINE{A}{B}$ consists of a unique point. We showed precisely this previously.
+Finally, we need to show that if \(X \in H_1\) and \(Y \in H_2\), then \(\SEGMENT{X}{Y} \cap \LINE{A}{B}\) consists of a unique point. We showed precisely this previously.

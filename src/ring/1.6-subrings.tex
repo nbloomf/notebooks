@@ -21,26 +21,29 @@ To avoid this, we single out exactly those subsets of \(R\) for which this does 
 That is, the subsets which are closed under the arithmetic on \(R\).
 
 \begin{dfn}[Subring] \label{dfn:subring}
-Let \(R\) be a ring and \(S \subseteq R\) a subset. We say that \(S\) is a \DefTerm{subring} of \(R\) if \(S\) is closed under the operations in \(R\). Specifically,
+Let \(R\) be a ring and \(S \subseteq R\) a subset.
+We say that \(S\) is a \DefTerm{subring} of \(R\) if \(S\) is closed under the operations in \(R\) as follows.
 \begin{proplist*}
-\item \(0_R \in S\), \label{dfn:subring:zero}
-\item If \(x,y \in S\) then \(x+y \in S\), \label{dfn:subring:plus}
-\item If \(x \in S\) then \(-x \in S\), and \label{dfn:subring:neg}
-\item If \(x,y \in S\) then \(xy \in S\). \label{dfn:subring:times}
+\item \label{dfn:subring:zero} \(0_R \in S\),
+\item \label{dfn:subring:plus} If \(x,y \in S\) then \(x+y \in S\),
+\item \label{dfn:subring:neg} If \(x \in S\) then \(-x \in S\), and
+\item \label{dfn:subring:times} If \(x,y \in S\) then \(xy \in S\).
 \end{proplist*}
-If \(R\) is unital, we say that a subring \(S\) is \emph{unital} if in addition \(1_R \in S\). \index{unital!subring}
+If \(R\) is unital, we say that a subring \(S\) is \emph{unital}\index{unital!subring} if in addition \(1_R \in S\).
 \end{dfn}
 
-Of course we then have that
-
 \begin{prop} \label{prop:subring-is-ring}
-If \(R\) is a ring and \(S \subseteq R\) a subring, then \(S\) is itself a ring under the restricted operations on \(R\). If \(S\) is a unital subring of \(R\), then \(S\) is a unital ring.
+If \(R\) is a ring and \(S \subseteq R\) a subring, then \(S\) is itself a ring under the restricted operations on \(R\).
+If \(S\) is a unital subring of \(R\) then \(S\) is a unital ring.
 \end{prop}
 
-Using the definition, showing that a given sub\emph{set} of a ring is a sub\emph{ring} requires verifying four properties (or five if we want a unital subring). We have a slightly more efficient way to achieve this called the Subring Criterion.
+Using the definition, showing that a given sub\emph{set} of a ring is a sub\emph{ring} requires verifying four properties (or five if we want a unital subring).
+We have a slightly more efficient way to achieve this called the Subring Criterion.
 
 \begin{prop}[Subring Criterion] \label{prop:subring-criterion}
-Let \(S \subseteq R\) be a subset. Then \(S\) is a subring of \(R\) if and only if \(S\) is not empty and is closed under subtraction and multiplication. That is, \(S\) is a subring of \(R\) iff the following hold.
+Let \(S \subseteq R\) be a subset.
+Then \(S\) is a subring of \(R\) if and only if \(S\) is not empty and is closed under subtraction and multiplication.
+That is, \(S\) is a subring of \(R\) if and only if the following hold.
 \begin{proplist*}
 \item \(S \neq \varnothing\).
 \item If \(x,y \in S\) then \(x-y \in S\).
@@ -49,25 +52,47 @@ Let \(S \subseteq R\) be a subset. Then \(S\) is a subring of \(R\) if and only 
 \end{prop}
 
 \begin{proof}
-First suppose \(S \subseteq R\) is a subring. Then \(S \neq \varnothing\), since \(0_R \in S\). Now if \(x,y \in S\), we have \(xy \in S\), and \(-y \in S\), and \(x + (-y) \in S\). So \(S\) satisfies the Subring Criterion. Conversely, suppose \(S\) satisfies the Subring Criterion. Since \(S\) is not empty, it contains an element \(s\), and since \(S\) is closed under subtraction we have \(0_R = s - s \in S\). Now if \(x\) is any element of \(S\) we have \(-x = 0_R - x \in S\), so that \(S\) is closed under negation. If \(x,y \in S\), then \(x+y = x-(-y) \in S\) and \(xy \in S\). Thus \(S\) is a subring of \(R\).
+First suppose \(S \subseteq R\) is a subring.
+Then \(S \neq \varnothing\), since \(0_R \in S\).
+Now if \(x,y \in S\), we have \(xy \in S\), and \(-y \in S\), and \(x + (-y) \in S\).
+So \(S\) satisfies the Subring Criterion.
+Conversely, suppose \(S\) satisfies the Subring Criterion.
+Since \(S\) is not empty, it contains an element \(s\), and since \(S\) is closed under subtraction we have \(0_R = s - s \in S\).
+Now if \(x\) is any element of \(S\) we have \(-x = 0_R - x \in S\), so that \(S\) is closed under negation.
+If \(x,y \in S\), then \(x+y = x-(-y) \in S\) and \(xy \in S\).
+Thus \(S\) is a subring of \(R\).
 \end{proof}
 
-The Subring Criterion is a slick way to show that a given subset of a ring is a subring. We have a yet more efficient way to characterize \emph{unital} subrings.
+The Subring Criterion is a slick way to show that a given subset of a ring is a subring.
+We have a yet more efficient way to characterize \emph{unital} subrings.
 
 \begin{prop}[Unital Subring Criterion] \label{prop:unital-subring-criterion}
-Let \(R\) be a unital ring. Then \(S \subseteq R\) is a unital subring if and only if \(1_R \in S\) and for all \(x,y,z \in S\), \(x-yz \in S\).
+Let \(R\) be a unital ring.
+Then \(S \subseteq R\) is a unital subring if and only if \(1_R \in S\) and for all \(x,y,z \in S\), \(x-yz \in S\).
 \end{prop}
 
 \begin{proof}
-Certainly if \(S\) is a unital subring of \(R\) then it satisfies the Unital Subring Criterion. Conversely, suppose \(S\) satisfies the Unital Subring Criterion. Now \(S\) is not empty since \(1_R \in S\). If \(x,y \in S\), then \(x-y = x - 1_R \cdot y \in S\), so that \(S\) is closed under subtraction. Now \(0_R = 1-R - 1_R1_R \in S\) and \(-x = 0_R - 1_R \cdot x \in S\) whenever \(x \in S\), so if \(x,y \in S\) we have \(xy = 0_R - (-x)y \in S\). By the Subring Criterion \(S\) is a subring of \(R\), and since \(1_R \in S\), it is a \emph{unital} subring of \(R\).
+Certainly if \(S\) is a unital subring of \(R\) then it satisfies the Unital Subring Criterion.
+Conversely, suppose \(S\) satisfies the Unital Subring Criterion.
+Now \(S\) is not empty since \(1_R \in S\).
+If \(x,y \in S\), then \(x-y = x - 1_R \cdot y \in S\), so that \(S\) is closed under subtraction.
+Now \(0_R = 1-R - 1_R1_R \in S\) and \(-x = 0_R - 1_R \cdot x \in S\) whenever \(x \in S\), so if \(x,y \in S\) we have \(xy = 0_R - (-x)y \in S\).
+By the Subring Criterion \(S\) is a subring of \(R\), and since \(1_R \in S\), it is a \emph{unital} subring of \(R\).
 \end{proof}
 
 \begin{examples}
-\item \textbf{The zero subring.} Let \(R\) be any ring. The subset \(0 = \{0_R\} \subseteq R\) is a subring, called the \emph{zero subring}. (Show it!!)
+\item \textbf{The zero subring.} Let \(R\) be any ring.
+The subset \(0 = \{0_R\} \subseteq R\) is a subring, called the \emph{zero subring}.
+(Show it!)
 
-\item Let \(R\) be a ring and \(k\) a positive integer, and define \(kR = \{ kr \mid r \in R \}\). Then \(kR \subseteq R\) is a subring, but is \emph{not} a unital subring. (@@@)
+\item Let \(R\) be a ring and \(k\) a positive integer, and define \(kR = \{ kr \mid r \in R \}\).
+Then \(kR \subseteq R\) is a subring, but is \emph{not} a unital subring. (@@@)
 
-\item Let \(R\) be any ring and \(a \in R\). Then \(aR = \{ ar \mid r \in R \}\) is a subring of \(R\). (This is the content of \eref{exerc:aR-is-ring}.) Similarly, \(Ra = \{ ra \mid r \in R \}\) is a subring of \(R\). These subrings do not have to be the same!
+\item Let \(R\) be any ring and \(a \in R\).
+Then \(aR = \{ ar \mid r \in R \}\) is a subring of \(R\).
+(This is the content of \eref{exerc:aR-is-ring}.)
+Similarly, \(Ra = \{ ra \mid r \in R \}\) is a subring of \(R\).
+These subrings do not have to be the same!
 
 \item If \(S_1, S_2 \subseteq R\) are (unital) subrings of \(R\), then \(S_1 \cap S_2 \subseteq R\) is also a (unital) subring of \(R\).
 \end{examples}
@@ -75,10 +100,11 @@ Certainly if \(S\) is a unital subring of \(R\) then it satisfies the Unital Sub
 There are two special subrings associated to every ring homomorphism: the \emph{image} and the \emph{kernel}.
 
 \begin{prop}[Image and Kernel] \label{dfn:im-ker}
-Let \(\varphi : R \rightarrow S\) be a ring homomorphism. Then we have the following.
+Let \(\varphi : R \rightarrow S\) be a ring homomorphism.
+Then we have the following.
 \begin{proplist}
-\item The set \[ \KER{\varphi} = \{ r \in R \mid \varphi(r) = 0 \}, \] called the \DefTerm{kernel} of \(\varphi\), is a subring of \(R\).
-\item The set \[ \IM{\varphi} = \{ s \in S \mid s = \varphi(r)\ \mathrm{for\ some}\ r \in R \}, \] called the \DefTerm{image} of \(\varphi\), is a subring of \(S\).
+\item The set \[ \KER{\varphi} = \{ r \in R \mid \varphi(r) = 0 \}, \] called the \emph{kernel}\index{kernel} of \(\varphi\), is a subring of \(R\).
+\item The set \[ \IM{\varphi} = \{ s \in S \mid s = \varphi(r)\ \mathrm{for\ some}\ r \in R \}, \] called the \emph{image}\index{image} of \(\varphi\), is a subring of \(S\).
 \end{proplist}
 \end{prop}
 
@@ -86,8 +112,8 @@ Let \(\varphi : R \rightarrow S\) be a ring homomorphism. Then we have the follo
 (@@@)
 \end{proof}
 
-The image of a homomorphism is everything in the codomain that ``gets hit'', while the kernel is everything in the domain that is ``sent to zero''. We can visualize these subsets as in \autoref{fig:im-ker}.
-
+The image of a homomorphism is everything in the codomain that ``gets hit'', while the kernel is everything in the domain that is ``sent to zero''.
+We can visualize these subsets as in \autoref{fig:im-ker}.
 \begin{figure}[h!]
 \begin{center}
 \begin{tikzpicture}[scale=0.5]
@@ -96,25 +122,24 @@ The image of a homomorphism is everything in the codomain that ``gets hit'', whi
   \draw [pattern=north west lines, pattern color=gray] (-7,0) ellipse (1.5 and 3);
   \draw [fill] (-7,-1) circle (0.1) node [below] {\(0_R\)};
   \node at (-7,1.5) {\(\KER{\varphi}\)};
-
   \draw (7,0) ellipse (3 and 5);
   \node at (7,4) {\(S\)};
   \draw [pattern=north west lines, pattern color=gray] (7,0) ellipse (1.5 and 3);
   \draw [fill] (7,-1) circle (0.1) node [below] {\(0_S\)};
   \node at (7,1.5) {\(\IM{\varphi}\)};
-
   \draw [gray] (-7,3) -- (7,-1);
   \draw [gray] (-7,-3) -- (7,-1);
   \draw [gray] (-7,5) -- (7,3);
   \draw [gray] (-7,-5) -- (7,-3);
-
   \node at (0,-5) {\(\varphi\)};
 \end{tikzpicture}
 \caption{The image and kernel of a homomorphism. \label{fig:im-ker}}
 \end{center}
 \end{figure}
-
-The kernels of ring homomorphisms turn out to be very important, as we will see later in \autoref{chap:quot}. As a preview, we can think of homomorphisms \(\varphi : R \rightarrow S\) as projecting a ``shadow'' of \(R\) into \(S\) such that parts of \(R\) get collapsed down in the shadow. The kernel is the part of \(R\) which is collapsed to zero. As a consequence, the kernel measures how badly a homomorphism fails to be injective. Specifically:
+The kernels of ring homomorphisms turn out to be very important, as we will see later in \autoref{chap:quot}.
+As a preview, we can think of homomorphisms \(\varphi : R \rightarrow S\) as projecting a ``shadow'' of \(R\) into \(S\) such that parts of \(R\) get collapsed down in the shadow.
+The kernel is the part of \(R\) which is collapsed to zero.
+As a consequence, the kernel measures how badly a homomorphism fails to be injective as in the following result.
 
 \begin{prop} \label{prop:ker-zero}
 A ring homomorphism \(\varphi\) is injective if and only if \(\KER{\varphi} = 0\).
@@ -170,7 +195,8 @@ In particular, if \(R\) is a unital ring and \(e \neq 1_R\), then \(S\) is not a
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a ring, and let \(\mathcal{S}\) be an arbitrary family of subrings of \(R\). Show that \(\bigcap_{S \in \mathcal{S}} S\) is a subring of \(R\).
+Let \(R\) be a ring and let \(\mathcal{S}\) be an arbitrary family of subrings of \(R\).
+Show that \(\bigcap_{S \in \mathcal{S}} S\) is a subring of \(R\).
 \end{exercise}
 
 \begin{dfn}[Triangular Matrix, Diagonal Matrix] \label{dfn:triangular-diagonal-matrix}

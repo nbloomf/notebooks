@@ -1,11 +1,16 @@
-In a general ring with 1, or even a general domain, elements typically do not have multiplicative inverses. Those which do are called units and are very special. In this section we will see how a domain can be ``extended'' to a larger ring so that any given element can be made into a unit. First we need a definition.
+In a general ring with 1, or even a general domain, elements typically do not have multiplicative inverses.
+Those which do are called \emph{units} and are very special.
+In this section we will see how a domain can be ``extended'' to a larger ring so that any given element can be made into a unit.
+First we need a definition.
 
 \begin{dfn}[Multiplicative Subset] \label{dfn:multiplicative-subset}
-Let \(R\) be a domain and \(S \subseteq R\). We say that \(S\) is a \emph{multiplicative subset} (or a set of \emph{denominators}) of \(R\) if \(0 \notin R\) and if \(S\) is closed under multiplication. \index{multiplicative subset}
+Let \(R\) be a domain and \(S \subseteq R\).
+We say that \(S\) is a \emph{multiplicative subset}\index{multiplicative subset} (or a set of \emph{denominators}) of \(R\) if \(0 \notin R\) and if \(S\) is closed under multiplication.
 \end{dfn}
 
-Domains have plenty of multiplicative sets. For instance, the set of all nonzero elements is multiplicative. If \(a \in R\) is not zero, then the set \(S = \{ 1, a, a^2, a^3, \ldots \}\) of powers of \(a\) is multiplicative.
-
+Domains have plenty of multiplicative sets.
+For instance, the set of all nonzero elements is multiplicative.
+If \(a \in R\) is not zero, then the set \(S = \{ 1, a, a^2, a^3, \ldots \}\) of powers of \(a\) is multiplicative.
 Here is the punch line of this section.
 
 \begin{framed}
@@ -17,18 +22,26 @@ Let \(R\) be a domain and \(S \subseteq R\) a multiplicative subset. We define a
 This relation \(\Phi\) is an equivalence.
 \end{prop}
 
-\begin{proof} \mbox{}
-\begin{itemize}
-\item \(rs = rs\) for all \(r \in R\) and \(s \in S\), so that \((s,r) \Phi (s,r)\).
-\item Suppose \((s_1,r_1) \Phi (s_2,r_2)\). Then \(r_1s_2 = r_2s_1\), so that \(r_2s_1 = r_1s_2\), and thus \((s_2,r_1) \Phi (s_1,r_1)\).
-\item Suppose \((s_1, r_1) \Phi (s_2, r_2)\) and \((s_2, r_2) \Phi (s_3, r_3)\). Now \(r_1s_2 = r_2s_1\) and \(r_2s_3 = r_3s_2\). We then have \(r_1s_2r_2s_3 = r_2s_1r_3s_2\); rearranging (since \(R\) is commutative) and using cancellation, we have \(r_1s_3 = r_3s_1\). So \((s_1, r_1) \Phi (s_3, r_3)\) as needed. \qedhere
-\end{itemize}
+\begin{proof}
+\begin{inlineproplist}
+\item We have \(rs = rs\) for all \(r \in R\) and \(s \in S\), so that \((s,r) \Phi (s,r)\).
+\item Suppose \((s_1,r_1) \Phi (s_2,r_2)\).
+Then \(r_1s_2 = r_2s_1\), so that \(r_2s_1 = r_1s_2\), and thus \((s_2,r_1) \Phi (s_1,r_1)\).
+\item Suppose \((s_1, r_1) \Phi (s_2, r_2)\) and \((s_2, r_2) \Phi (s_3, r_3)\).
+Now \(r_1s_2 = r_2s_1\) and \(r_2s_3 = r_3s_2\).
+We then have \(r_1s_2r_2s_3 = r_2s_1r_3s_2\); rearranging (since \(R\) is commutative) and using cancellation, we have \(r_1s_3 = r_3s_1\).
+So \((s_1, r_1) \Phi (s_3, r_3)\) as needed.
+\end{inlineproplist}
 \end{proof}
 
-Since \(\Phi\) is an equivalence, it induces a partition on the set \(S \times R\). We will denote this quotient set \(\LOCALIZE{R}{S} = (S \times R)/\Phi\), and denote the equivalence class of \((s,r)\) by \(\frac{r}{s}\).
+Since \(\Phi\) is an equivalence, it induces a partition on the set \(S \times R\).
+We will denote this quotient set \(\LOCALIZE{R}{S} = (S \times R)/\Phi\) and denote the equivalence class of \((s,r)\) by \(\frac{r}{s}\).
 
 \begin{prop}
-Let \(R\) be a domain with \(S \subseteq R\) a multiplicative subset. Define operations \(+\) and \(\cdot\) on \(\LOCALIZE{R}{S}\) as follows. \[ \frac{r_1}{s_1} + \frac{r_2}{s_2} = \frac{r_1s_2 + r_2s_1}{s_1s_2} \quad \mathrm{and} \quad \frac{r_1}{s_1} \cdot \frac{r_2}{s_2} = \frac{r_1r_2}{s_1s_2}. \] Then we have the following.
+Let \(R\) be a domain with \(S \subseteq R\) a multiplicative subset.
+Define operations \(+\) and \(\cdot\) on \(\LOCALIZE{R}{S}\) as follows.
+\[ \frac{r_1}{s_1} + \frac{r_2}{s_2} = \frac{r_1s_2 + r_2s_1}{s_1s_2} \quad \mathrm{and} \quad \frac{r_1}{s_1} \cdot \frac{r_2}{s_2} = \frac{r_1r_2}{s_1s_2}. \]
+Then we have the following.
 \begin{proplist}
 \item \(+\) and \(\cdot\) are well-defined.
 \item \(\LOCALIZE{R}{S}\), with these operations, is an integral domain, which we call the \emph{localization} of \(R\) \emph{at} \(S\).
@@ -43,47 +56,57 @@ Let \(R\) be a domain with \(S \subseteq R\) a multiplicative subset. Define ope
 So \(S^{-1}R\) is a new ring which contains a ``copy'' (homomorphic image) of \(R\), within which the elements of \(S\) become units.
 
 \begin{dfn}
-Let \(R\) be a domain and let \(D = \{ x \in R \mid x \neq 0 \}\) be the multiplicative subset of all nonzero elements of \(R\). Then the localization \(D^{-1}R\) is a field, called the \emph{field of fractions} of \(R\).
+Let \(R\) be a domain and let \(D = \{ x \in R \mid x \neq 0 \}\) be the multiplicative subset of all nonzero elements of \(R\).
+Then the localization \(D^{-1}R\) is a field, called the \emph{field of fractions} of \(R\).
 \end{dfn}
 
 For example, \(\QQ\) is properly defined as the field of fractions of \(\ZZ\).
 
-\subsection*{Special things}
 
-\begin{prop}
-If \(R\) is a UFD and \(S \subseteq R\) any multiplicative set, then \(S^{-1}R\) is also a UFD.
-\end{prop}
-
-\begin{proof}
-(type this)
-\end{proof}
-
-\begin{prop}
-If \(R\) is a Euclidean domain and \(S \subseteq R\) any multiplicative set, then \(S^{-1}R\) is a Euclidean domain.
-\end{prop}
-
-\begin{proof}
-(type this)
-\end{proof}
 
 %---------%
 \Exercises%
 %---------%
 
 \begin{exercise}
-Let \(R\) be a domain and \(S,T \subseteq R\) multiplicative sets. Show that \(ST = \{ st \mid s \in S, t \in T \}\) is multiplicative.
+Let \(R\) be a domain and \(S,T \subseteq R\) multiplicative sets.
+Show that \(ST = \{ st \mid s \in S, t \in T \}\) is multiplicative.
 \end{exercise}
 
+
 \begin{exercise}
-Let \(R\) be a GCD domain, with \(F\) its field of fractions. An element \(\frac{a}{b} \in F\) is said to be \emph{reduced} (or in \emph{lowest terms}) if \(\GCD{a}{b} = 1\).
+Let \(R\) be a GCD domain, with \(F\) its field of fractions.
+An element \(\frac{a}{b} \in F\) is said to be \emph{reduced} (or in \emph{lowest terms}) if \(\GCD{a}{b} = 1\).
 \begin{proplist}
 \item Show that every element of \(F\) has a reduced representative.
 \item Show that reduced fractions are unique in the following sense: If \(\frac{a}{b} = \frac{c}{d}\) are both reduced, then \(c = au\) and \(d = bu\) for some unit \(u\).
 \end{proplist}
 \end{exercise}
 
-\begin{enumerate}
-\item (do stuff in \(\ZZ[\frac{1}{2}]\))
 
-\item \textbf{Universal Property of Localization.} Let \(R\) be a ring and let \(D \subseteq R\) be a multiplicative subset. Suppose \(\varphi : R \rightarrow S\) is a ring homomorphism (with \(S\) unital) such that \(\varphi(d)\) is a unit in \(S\) for all \(d \in D\). Then there is a unique ring homomorphism (@@@)
-\end{enumerate}
+\begin{exercise}
+(@@@ do stuff in \(\ZZ[\frac{1}{2}]\))
+\end{exercise}
+
+
+\begin{exercise}
+If \(R\) is a UFD and \(S \subseteq R\) any multiplicative set, then \(S^{-1}R\) is also a UFD.
+\end{exercise}
+
+
+\begin{exercise}
+If \(R\) is a Euclidean domain and \(S \subseteq R\) any multiplicative set, then \(S^{-1}R\) is a Euclidean domain.
+\end{exercise}
+
+
+\begin{exercise}[Universal Property of Localization]
+Let \(R\) be a ring and let \(D \subseteq R\) be a multiplicative subset.
+Suppose \(\varphi : R \rightarrow S\) is a ring homomorphism (with \(S\) unital) such that \(\varphi(d)\) is a unit in \(S\) for all \(d \in D\). Show that there is a unique ring homomorphism \(\Phi : \LOCALIZE{R}{D} \rightarrow S\) such that the following diagram commutes.
+\begin{center}
+\begin{tikzcd}
+R \arrow[d,"\iota"] \arrow[r,"\varphi"] & S \\
+\LOCALIZE{R}{D} \arrow[ur,"\Phi"] & 
+\end{tikzcd}
+\end{center}
+That is, a unique \(\Phi\) such that \(\varphi = \Phi \circ \iota\).
+\end{exercise}

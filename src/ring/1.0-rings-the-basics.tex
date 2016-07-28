@@ -1,5 +1,17 @@
-You've been using integer arithmetic since before you were in school. By \emph{arithmetic}, I mean not only the basic arithmetic operations -- plus, times, and powers -- on the integers, but also the \emph{properties} that these operations satisfy. For instance, it is simple enough to verify that \[ (2 + 3) + 6 = 11 \quad\quad \mathrm{and} \quad\quad 2 + (3 + 6) = 11. \] The fact that these two addition problems simplify to the same result is just a specific example of the more general fact that, if \(a\), \(b\), and \(c\) are any three integers at all, then \[ (a+b)+c = a+(b+c). \] This is called the \emph{associative property} of integer addition, and is just one of several such properties you probably use without even thinking; properties with names like \emph{commutativity} and \emph{distributivity}. This combination of \textbf{objects} with \textbf{operations} and \textbf{properties} is quite powerful.
+You've been using integer arithmetic since before you were in school.
+By \emph{arithmetic}, I mean not only the basic arithmetic operations -- plus, times, and powers -- on the integers, but also the \emph{properties} that these operations satisfy.
+For instance, it is simple enough to verify that \[ (2 + 3) + 6 = 11 \quad\quad \mathrm{and} \quad\quad 2 + (3 + 6) = 11. \]
+The fact that these two addition problems simplify to the same result is just a specific example of the more general fact that, if \(a\), \(b\), and \(c\) are any three integers at all, then \[ (a+b)+c = a+(b+c). \]
+This is called the \emph{associative property} of integer addition and is just one of several such properties you probably use without even thinking; properties with names like \emph{commutativity} and \emph{distributivity}.
+This combination of \textbf{objects} with \textbf{operations} and \textbf{properties} -- \textbf{arithmetic} -- is quite powerful.
 
-More recently, you've also learned to use \emph{modular arithmetic} in \(\ZZ/(n)\). This is a strange view of \(\ZZ\) where we only care about remainders when integers are divided by some fixed \emph{modulus} \(n\). It turns out that the plus and times in \(\ZZ\) have counterparts in \(\ZZ/(n)\) which satisfy many (but not all!) of the same properties. We still have distributivity, for instance, but while there do not exist nonzero integers \(a\) and \(b\) such that \(ab = 0\), the same is not true in \(\ZZ/(n)\). For example, the residues 2 and 3 are both nonzero in \(\ZZ/(6)\), but \(2 \cdot 3 \equiv 0 \pmod{6}\).
+More recently you've also learned to use \emph{modular arithmetic} in \(\ZZ/(n)\).
+This is a strange view of \(\ZZ\) where we only care about remainders when integers are divided by some fixed \emph{modulus} \(n\).
+It turns out that the plus and times in \(\ZZ\) have counterparts in \(\ZZ/(n)\) which satisfy many (but not all!) of the same properties.
+We still have distributivity, for instance, but while there do not exist nonzero integers \(a\) and \(b\) such that \(ab = 0\), the same is not true in \(\ZZ/(n)\).
+For instance the residues 2 and 3 are both nonzero in \(\ZZ/(6)\), but \(2 \cdot 3 \equiv 0 \pmod{6}\).
 
-That is, \(\ZZ\) and \(\ZZ/(n)\) are different in some ways, but alike in others. Very often when this occurs in mathematics -- when we have two or more useful gadgets with similar behavior -- it is useful to distill the common behavior into an abstract definition. This will be our project in \autoref{chap:rings}. The common behavior of \(\ZZ\) and \(\ZZ/(n)\) (and some other examples) will be singled out in the definition of a class of objects we call \emph{rings}.
+That is, \(\ZZ\) and \(\ZZ/(n)\) are different in some ways, but alike in others.
+Very often when this occurs in mathematics -- when we have two or more useful gadgets with similar behavior -- it is useful to distill the common behavior into an abstract definition.
+This will be our project in \autoref{chap:rings}.
+The common behavior of \(\ZZ\) and \(\ZZ/(n)\) (and some other examples) will be singled out in the definition of a class of objects we call \emph{rings}.
