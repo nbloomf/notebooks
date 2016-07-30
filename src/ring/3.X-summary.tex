@@ -1,5 +1,5 @@
-Polynomials provide a natural way to construct new rings out of old ones. Rings of polynomials inherit some nice structure from their coefficient rings, particularly if those rings are domains.
-
+Polynomials provide a natural way to construct new rings out of old ones.
+Rings of polynomials inherit some nice structure from their coefficient rings, particularly if those rings are domains.
 \begin{center}
 \begin{tikzpicture}[scale=0.3]
   \node (fld1) at (-5,0)  {Field};
@@ -22,7 +22,8 @@ Polynomials provide a natural way to construct new rings out of old ones. Rings 
   \draw [->] (dom1) edge (dom2);
 \end{tikzpicture}
 \end{center}
+One might expect that detecting irreducibles and finding irreducible factorizations would be more difficult in \(\ZZ[x]\), say, than in \(\ZZ\), but in fact the opposite is true.
+This is ultimately due to the existence of the derivative on \(R[x]\) and to some other aspects of the structure of \(R[x]\) which will be explored later.
 
-One might expect that detecting irreducibles and finding irreducible factorizations would be more difficult in \(\ZZ[x]\), say, than in \(\ZZ\), but in fact the opposite is true. This is ultimately due to the existence of the derivative on \(R[x]\) and to some other aspects of the structure of \(R[x]\) which will be explored later.
-
-We've seen here that if \(R\) is a UFD, then \(R[x]\) is also a UFD, but have not seen any kind of algorithm which computes factorizations in \(R[x]\). In the exercises of this and the next section we construct algorithms which work in some important special cases, including \(\ZZ\) and \(\ZZ/(p)\).
+(@@@) We've seen here that if \(R\) is a UFD, then \(R[x]\) is also a UFD, but have not seen any kind of algorithm which computes factorizations in \(R[x]\).
+In the exercises of this and the next section we construct algorithms which work in some important special cases, including \(\ZZ\) and \(\ZZ/(p)\).
