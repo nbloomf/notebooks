@@ -1,0 +1,38 @@
+style
+=====
+say "if and only if" instead of "iff"
+one sentence per line
+use \(x\) for inline math mode instead of $x$ (tex-words needs this)
+make a Hint macro and use it (badness check)
+each exercise needs a label, which should be right after \begin{exercise} (badness check)
+use \autoref for Section and Chapter and Figure, \eref for Exercise, and (???) (badness check)
+no space between emph and index (badness check)
+
+
+
+The Basic Problems
+==================
+visualization
+  - commutative diagrams
+  - divisor lattices
+  - subring/ideal lattices
+  - zero divisor graphs
+classification
+decomposition
+construction
+  - direct sums & products
+  - subrings
+  - quotient rings
+  - polynomial rings
+  - matrix rings
+distinction
+representation
+solution
+
+
+
+The Basic Questions
+===================
+what is the simplest example?
+can any hypotheses be dropped?
+can it be parameterized?
