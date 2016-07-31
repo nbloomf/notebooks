@@ -1,24 +1,30 @@
-In addition to the arithmetic structure, the ring of integers has a \emph{divisibility structure} which we are able to use to some effect. This is the language we use in \(\ZZ\) to say things about greatest common divisors and unique factorization. And so we carry the ``divides'' concept to any commutative ring.
+In addition to the arithmetic structure, the ring of integers has a \emph{divisibility structure} which we are able to use to some effect.
+This is the language we use in \(\ZZ\) to say things about greatest common divisors and unique factorization.
+And so we carry the ``divides'' concept to any commutative ring.
 
 \begin{dfn}[Divides] \label{dfn:divides}
-Let \(R\) be a commutative ring, with \(a,b \in R\). We say \(a\) \emph{divides} \(b\), denoted \(a|b\), if there is an element \(c \in R\) such that \(b = ac\). In this case we say that \(a\) is a \emph{divisor} of \(b\). \index{divides}
+Let \(R\) be a commutative ring with \(a,b \in R\).
+We say \(a\) \emph{divides}\index{divides} \(b\), denoted \(a|b\), if there is an element \(c \in R\) such that \(b = ac\).
+In this case we say that \(a\) is a \emph{divisor} of \(b\).
 \end{dfn}
 
 Divisibility captures some of the multiplicative structure on \(R\) and, as a relation, enjoys some of the familiar properties from \(\ZZ\).
 
 \begin{prop} \label{prop:divides-basics}
-Let \(R\) be a commutative ring with \(a,b,c \in R\). Then we have the following.
+Let \(R\) be a commutative ring with \(a,b,c \in R\).
+Then we have the following.
 \begin{proplist*}
-\item \(a|a\) \label{prop:divides-basics:refl}
-\item If \(a|b\) and \(b|c\) then \(a|c\) \label{prop:divides-basics:trans}
-\item \(a|0\). \label{prop:divides-basics:zero}
+\item \label{prop:divides-basics:refl} \(a|a\).
+\item \label{prop:divides-basics:trans} If \(a|b\) and \(b|c\) then \(a|c\).
+\item \label{prop:divides-basics:zero} \(a|0\).
 \end{proplist*}
 \end{prop}
 
 \begin{proof}
 \begin{inlineproplist}
 \item We have \(a = a \cdot 1\), so \(a|a\).
-\item Suppose \(a|b\) and \(b|c\); then there exist \(h,k \in R\) such that \(b = ah\) and \(c = bk\). Now \(c = a(hk)\), so that \(a|c\).
+\item Suppose \(a|b\) and \(b|c\); then there exist \(h,k \in R\) such that \(b = ah\) and \(c = bk\).
+Now \(c = a(hk)\), so that \(a|c\).
 \item \(0 = a \cdot 0\) as needed.
 \end{inlineproplist}
 \end{proof}
@@ -28,29 +34,37 @@ If \(R\) is unital, we can say a bit more.
 \begin{prop} \label{prop:divides-u-basics}
 Let \(R\) be a CU ring and \(a,u \in R\) with \(u\) a unit.
 \begin{proplist*}
-\item \(1|a\) for all \(a \in R\). \label{prop:divides-u-basics:one}
-\item If \(u \in R\) is a unit, then \(u|a\). \label{prop:divides-u-basics:unit}
-\item If \(u \in R\) is a unit and \(a|u\), then \(a\) is a unit. \label{prop:divides-u-basics:unit-div}
+\item \label{prop:divides-u-basics:one} \(1|a\) for all \(a \in R\).
+\item \label{prop:divides-u-basics:unit} If \(u \in R\) is a unit, then \(u|a\).
+\item \label{prop:divides-u-basics:unit-div} If \(u \in R\) is a unit and \(a|u\), then \(a\) is a unit.
 \end{proplist*} 
 \end{prop}
 
 \begin{proof}
 \begin{inlineproplist}
 \item Note that \(a \cdot 1 = a\).
-\item First note that \(a = 1 \cdot a\), so that \(1|a\). Now if \(u \in R\) is a unit, then by definition we have an element \(v\) such that \(1 = uv\), so that \(u|1\). By \sref{prop:divides-basics}{trans} we have \(u|a\).
-\item Say \(ab = u\). Now \(abu^{-1} = 1_R\), and thus \(a\) is a unit.
+\item First note that \(a = 1 \cdot a\), so that \(1|a\).
+Now if \(u \in R\) is a unit, then by definition we have an element \(v\) such that \(1 = uv\), so that \(u|1\).
+By \sref{prop:divides-basics}{trans} we have \(u|a\).
+\item Say \(ab = u\).
+Now \(abu^{-1} = 1_R\), and thus \(a\) is a unit.
 \end{inlineproplist}
 \end{proof}
 
-We should not let our intuition about divisibility in \(\ZZ\) go too far, though, as divisibility in an arbitrary commutative ring can be very strange. For example, in \(\ZZ\), if \(a|b\) then in a specific sense \(a\) is ``smaller than'' \(b\), and we cannot have never-ending chains of integers, each divisible by the next. This alone makes \(\ZZ\) very special. In fact \autoref{chap:domains} is devoted to understanding how divisibility in \(R\) is different from divisibility in \(\ZZ\), at least when \(R\) is a domain.
+We should not let our intuition about divisibility in \(\ZZ\) go too far, though, as divisibility in an arbitrary commutative ring can be very strange.
+For example, in \(\ZZ\) if \(a|b\) then in a specific sense \(a\) is ``smaller than'' \(b\), and we cannot have never-ending chains of integers, each divisible by the next.
+This alone makes \(\ZZ\) very special.
+In fact \autoref{chap:domains} is devoted to understanding how divisibility in \(R\) is different from divisibility in \(\ZZ\), at least when \(R\) is a domain.
 
 Two ring elements which differ only by a unit factor are indistinguishable from the perspective of divisibility; we call such pairs \emph{associates}.
 
 \begin{dfn}[Associate] \label{dfn:associate}
-Let \(R\) be a CU ring. If \(a,b \in R\), we say \(a\) \emph{is associate to} \(b\), denoted \(a \ASSOC b\), if there is a \emph{unit} \(u \in R\) such that \(b = ua\). \index{associate}
+Let \(R\) be a CU ring.
+If \(a,b \in R\), we say \(a\) \emph{is associate to}\index{associate} \(b\), denoted \(a \ASSOC b\), if there is a \emph{unit} \(u \in R\) such that \(b = ua\).
 \end{dfn}
 
-We will say quite a bit more about associate elements in \autoref{chap:domains}. For now, to help get a handle on the concept, we consider only two special cases.
+We will say quite a bit more about associate elements in \autoref{chap:domains}.
+For now, to help get a handle on the concept, we consider only two special cases.
 
 \begin{prop}
 Let \(R\) be a CU ring.
@@ -69,28 +83,48 @@ Let \(R\) be a CU ring.
 \end{inlineproplist}
 \end{proof}
 
-In a CU ring, every element is divisible by (1) units and (2) its associates. These are called \emph{trivial divisors}. In general, a ring element will have more divisors. Some ring elements, however, have \emph{only} the trivial divisors. These are special. In \(\ZZ\), such elements are called \emph{prime}. However, for some very good reasons that will be made clear later, in a general ring such elements are called \emph{irreducible}.
+In a CU ring, every element is divisible by (1) units and (2) its associates.
+These are called \emph{trivial divisors}.
+In general, a ring element will have more divisors.
+Some ring elements, however, have \emph{only} the trivial divisors.
+These are special.
+In \(\ZZ\), such elements are called \emph{prime}.
+However, for some very good reasons that will be made clear later, in a general ring such elements are called \emph{irreducible}.
 
 \begin{dfn}[Irreducible] \label{dfn:irreducible-element}
-Let \(R\) be a CU ring and \(x \in R\) a nonzero nonunit. We say that \(x\) is \emph{irreducible} \index{irreducible} in \(R\) if, whenever \(a,b \in R\) such that \(x = ab\), either \(a\) or \(b\) is a unit.
+Let \(R\) be a CU ring and \(x \in R\) a nonzero nonunit.
+We say that \(x\) is \emph{irreducible}\index{irreducible} in \(R\) if, whenever \(a,b \in R\) such that \(x = ab\), either \(a\) or \(b\) is a unit.
 \end{dfn}
 
-For example, in \(\ZZ\) the irreducible elements are precisely the prime integers in the usual sense. If \(R\) is a field, then by a quirk of logic \(R\) has no irreducible elements. (There are no nonzero nonunits!)
+For example, in \(\ZZ\) the irreducible elements are precisely the prime integers in the usual sense.
+If \(R\) is a field, then by a quirk of logic \(R\) has no irreducible elements.
+(There are no nonzero nonunits!)
 
-It is somewhat unfortunate that our most immediate examples of irreducible elements are the prime integers -- you may be wondering why we use the word ``irreducible'' for the generalized concept. But recall that there are in fact two different ways to characterize the prime integers (@@@). In \(\ZZ\) these two are equivalent, but in a general ring they are not -- so we split the familiar concept of \emph{primeness} into two.
+It is somewhat unfortunate that our most immediate examples of irreducible elements are the prime integers -- you may be wondering why we use the word ``irreducible'' for the generalized concept.
+But recall that there are in fact two different ways to characterize the prime integers; these are discussed in \ref{dfn:zz-prime} and \ref{prop:zz-prime-2}.
+In \(\ZZ\) these two are equivalent, but in a general ring they are not -- so we split the familiar concept of \emph{primeness} into two.
 
 \begin{dfn}[Prime] \label{dfn:prime-element}
-Let \(R\) be a CU ring and \(p \in R\) a nonzero nonunit. We say that \(p \in R\) is \emph{prime} \index{prime!element} if whenever \(p|ab\), either \(p|a\) or \(p|b\) (or both).
+Let \(R\) be a CU ring and \(p \in R\) a nonzero nonunit.
+We say that \(p \in R\) is \emph{prime}\index{prime!element} if whenever \(p|ab\), either \(p|a\) or \(p|b\) (or both).
 \end{dfn}
 
-The distinction between ``irreducible'' and ``prime'' is a subtle one; at first glance we've simply replaced the equality by divisibility. Roughly, \emph{irreducible} means \emph{has no nontrivial divisors}, while \emph{prime} means \emph{cannot be nontrivially decomposed}. These two ideas are equivalent in \(\ZZ\), as we know, but different in general. They are related, however, as in the following result.
+The distinction between ``irreducible'' and ``prime'' is a subtle one; at first glance we've simply replaced the equality by divisibility.
+Roughly, \emph{irreducible} means \emph{has no nontrivial divisors}, while \emph{prime} means \emph{cannot be nontrivially decomposed}.
+These two ideas are equivalent in \(\ZZ\), as we know, but different in general.
+They are related, however, as in the following result.
 
 \begin{prop}
 If \(R\) is a domain, then every prime element is also irreducible.
 \end{prop}
 
 \begin{proof}
-Suppose \(p \in R\) is prime, and factor \(p\) as \(p = ab\). In particular, \(p|ab\), and since \(p\) is prime, WLOG we have \(p|a\). Say \(a = pt\). Now \(p = ab = ptb\), and by cancellation, \(tb = 1\). In particular \(b\) is a unit. Thus \(p\) is irreducible.
+Suppose \(p \in R\) is prime, and factor \(p\) as \(p = ab\).
+In particular, \(p|ab\), and since \(p\) is prime, WLOG we have \(p|a\).
+Say \(a = pt\).
+Now \(p = ab = ptb\), and by cancellation, \(tb = 1\).
+In particular \(b\) is a unit.
+Thus \(p\) is irreducible.
 \end{proof}
 
 
@@ -100,15 +134,18 @@ Suppose \(p \in R\) is prime, and factor \(p\) as \(p = ab\). In particular, \(p
 %---------%
 
 \begin{exercise}
-Find all the divisors of 4 in \(\ZZ\). Prove that your list is complete.
+Find all the divisors of 4 in \(\ZZ\).
+Prove that your list is complete.
 \end{exercise}
 
 \begin{exercise}
-Let \(X\) be a nonempty set, and let \(A,B \in \POW{X}\). Show that \(A|B\) if and only if \(B \subseteq A\).
+Let \(X\) be a nonempty set, and let \(A,B \in \POW{X}\).
+Show that \(A|B\) if and only if \(B \subseteq A\).
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) and \(S\) be rings, with \((a,b), (r,s) \in R \oplus S\). Show that \((a,b) | (r,s)\) if and only if \(a|r\) and \(b|s\).
+Let \(R\) and \(S\) be rings, with \((a,b), (r,s) \in R \oplus S\).
+Show that \((a,b) | (r,s)\) if and only if \(a|r\) and \(b|s\).
 \end{exercise}
 
 \begin{exercise}
@@ -116,35 +153,42 @@ Let \(R\) and \(S\) be rings, with \((a,b), (r,s) \in R \oplus S\). Show that \(
 \end{exercise}
 
 \begin{exercise}
-Let \(\varphi : R \rightarrow S\) be a ring homomorphism with \(a,b \in R\). Show that if \(a|b\), then \(\varphi(r)|\varphi(s)\).
+Let \(\varphi : R \rightarrow S\) be a ring homomorphism with \(a,b \in R\).
+Show that if \(a|b\), then \(\varphi(r)|\varphi(s)\).
 \end{exercise}
 
 \begin{exercise}
-Let \(R = \POW{\NN}\), and consider the elements of \(R\) of the form \(r_k = [1,k]\). Show that \(r_k|r_\ell\) if and only if \(k \geq \ell\).
+Let \(R = \POW{\NN}\) and consider the elements of \(R\) of the form \(r_k = [1,k]\).
+Show that \(r_k|r_\ell\) if and only if \(k \geq \ell\).
 \end{exercise}
 
 \begin{exercise} \label{exerc:assoc-equiv}
-Let \(R\) be a CU ring. Show that ``is associate to'' is an equivalence relation.
+Let \(R\) be a CU ring.
+Show that ``is associate to'' is an equivalence relation.
 \end{exercise}
 
 \begin{exercise} \label{exerc:associate-divides}
-Let \(R\) be a CU ring. Then we have the following.
+Let \(R\) be a CU ring.
+Show that the following hold.
 \begin{proplist*}
-\item If \(x \ASSOC y\), then \(z|x\) if and only if \(z|y\) for all \(z \in R\). \label{exerc:associate-divides:divide-R}
-\item If \(x \ASSOC y\), then \(x|z\) if and only if \(y|z\) for all \(z \in R\). \label{exerc:associate-divides:divide-L}
+\item \label{exerc:associate-divides:divide-R} If \(x \ASSOC y\), then \(z|x\) if and only if \(z|y\) for all \(z \in R\).
+\item \label{exerc:associate-divides:divide-L} If \(x \ASSOC y\), then \(x|z\) if and only if \(y|z\) for all \(z \in R\).
 \end{proplist*}
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a domain, with \(a,b \in R\). Show that if \(a|b\) and \(b|a\) then \(a \ASSOC b\).
+Let \(R\) be a domain with \(a,b \in R\).
+Show that if \(a|b\) and \(b|a\) then \(a \ASSOC b\).
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a domain, with \(a,b,c \in R\). Show that if \(ac|bc\) then \(a|b\).
+Let \(R\) be a domain with \(a,b,c \in R\).
+Show that if \(ac|bc\) then \(a|b\).
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a domain and \(a,b \in R\) such that \(a \ASSOC b\). Show the following.
+Let \(R\) be a domain and \(a,b \in R\) such that \(a \ASSOC b\).
+Show that the following hold.
 \begin{proplist*}
 \item If \(a\) is irreducible, then \(b\) is irreducible.
 \item If \(a\) is prime, then \(b\) is prime.
@@ -152,11 +196,13 @@ Let \(R\) be a domain and \(a,b \in R\) such that \(a \ASSOC b\). Show the follo
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a domain with \(a,b,c \in R\) and \(c \neq 0\). Show that if \(ac \ASSOC bc\), then \(a \ASSOC b\).
+Let \(R\) be a domain with \(a,b,c \in R\) and \(c \neq 0\).
+Show that if \(ac \ASSOC bc\), then \(a \ASSOC b\).
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) and \(S\) be CU rings. Show that \((r_1,s_1) \ASSOC (r_2,s_2)\) in \(R \oplus S\) if and only if \(r_1 \ASSOC r_2\) in \(R\) and \(s_1 \ASSOC s_2\) in \(S\).
+Let \(R\) and \(S\) be CU rings.
+Show that \((r_1,s_1) \ASSOC (r_2,s_2)\) in \(R \oplus S\) if and only if \(r_1 \ASSOC r_2\) in \(R\) and \(s_1 \ASSOC s_2\) in \(S\).
 \end{exercise}
 
 \begin{exercise}

@@ -51,7 +51,9 @@ So \(v(1_R) = 1\).
 \end{proof}
 
 \begin{dfn}[Bounded Sequence]
-Let \(R\) be a ring with absolute value \(v\). A sequence \(\alpha : \NN \rightarrow R\) is called \emph{bounded}\index{sequence!bounded} if there is a positive rational number \(B\) such that \(v(\alpha_i) \leq B\) for all \(i \in \NN\). In this case we say that \(B\) is a \emph{bound} of \(\alpha\).
+Let \(R\) be a ring with absolute value \(v\).
+A sequence \(\alpha : \NN \rightarrow R\) is called \emph{bounded}\index{sequence!bounded} if there is a positive rational number \(B\) such that \(v(\alpha_i) \leq B\) for all \(i \in \NN\).
+In this case we say that \(B\) is a \emph{bound} of \(\alpha\).
 \end{dfn}
 
 For instance the constant sequence \(r_i = r\) is bounded since \(v(\TILDE{r}_i) \leq v(r) < v(r) + 1\).
@@ -70,7 +72,8 @@ So \(\mathcal{B}\) is nonempty.
 \item Suppose \(\alpha\) and \(\beta\) are bounded sequences, with \(v(\alpha_i) \leq B_\alpha\) and \(v(\beta_i) \leq B_\beta\) for all natural numbers \(i\).
 Then for all \(i\) we have  \[ v((\alpha\beta)_i) = v(\alpha_i \beta_i) = v(\alpha_i)v(\beta_i) \leq B_\alpha B_\beta, \] using the fact that \(v(x)\) is nonnegative for all \(x\).
 So \(B_\alpha B_\beta\) is a bound of \(\alpha\beta\).
-\item Suppose again that \(\alpha\) and \(\beta\) are bounded by \(B_\alpha\) and \(B_\beta\), respectively, and let \(i \in \NN\). Then we have \[ v((\alpha - \beta)_i) = v(\alpha_i - \beta_i) \leq v(\alpha_i) + v(-\beta_i) = v(\alpha_i) + v(\beta_i) \leq B_\alpha + B_\beta. \] So \(B_\alpha + B_\beta\) is a bound of \(\alpha - \beta\).
+\item Suppose again that \(\alpha\) and \(\beta\) are bounded by \(B_\alpha\) and \(B_\beta\), respectively, and let \(i \in \NN\).
+Then we have \[ v((\alpha - \beta)_i) = v(\alpha_i - \beta_i) \leq v(\alpha_i) + v(-\beta_i) = v(\alpha_i) + v(\beta_i) \leq B_\alpha + B_\beta. \] So \(B_\alpha + B_\beta\) is a bound of \(\alpha - \beta\).
 \end{inlineproplist}
 Finally, if \(R\) is unital, then \(\mathcal{B}\) contains the constant sequence \(\TILDE{1_R}\), which is the one in \(R^\NN\).
 \end{proof}
@@ -95,7 +98,8 @@ Then we have \[ v(\ell_1 - \ell_2) = v(\ell_1 - \alpha_k + \alpha_k - \ell_2) \l
 \end{proof}
 
 \begin{prop} \label{prop:convergent-seq-subset}
-Let \(R\) be a ring with absolute value \(v\). Then among the sequences of \(R\) we have the following.
+Let \(R\) be a ring with absolute value \(v\).
+Then among the sequences of \(R\) we have the following.
 \begin{proplist}
 \item \label{prop:convergent-seq-subset:constant} Every constant sequence is convergent.
 \item \label{prop:convergent-seq-subset:bounded} Every convergent sequence is bounded.
@@ -107,7 +111,8 @@ Let \(R\) be a ring with absolute value \(v\). Then among the sequences of \(R\)
 \item Let \(r \in R\).
 Given a rational number \(\epsilon > 0\), set \(N = 0\).
 Now for all natural numbers \(i \geq N\) we have \[ v(\TILDE{r}_i - r) = v(r - r) = v(0_R) = 0 < \varepsilon, \] so \(\TILDE{r}\) is convergent with limit \(r\).
-\item Suppose \(\alpha\) is a convergent sequence with limit \(\ell\). Since \(1 > 0\), there is a natural number \(N\) with the property that \(v(\alpha_i - \ell) < 1\) for all \(i \geq N\).
+\item Suppose \(\alpha\) is a convergent sequence with limit \(\ell\).
+Since \(1 > 0\), there is a natural number \(N\) with the property that \(v(\alpha_i - \ell) < 1\) for all \(i \geq N\).
 Using \sref{prop:abs-val-basics}{reverse-ti}, we have \(v(\alpha_i) - v(\ell) < 1\), and thus \(v(\alpha_i) < v(\ell) + 1\) for all \(i \geq N\).
 Now set \[ B = \max(v(\alpha_0), v(\alpha_1), \ldots, v(\alpha_{N-1}), v(\ell) + 1). \]
 By construction we have \(v(\alpha_i) \leq B\) for all \(i \in \NN\); thus \(B\) is a bound of \(\alpha\).
@@ -256,7 +261,7 @@ Now \(v(\alpha_k - \alpha_i) < \varepsilon/2\) for all \(i \geq M\), and so for 
  & < & \varepsilon/2 + v(\alpha_i).
 \end{eqnarray*}
 So \(v(\alpha_i) > \varepsilon/2\).
-The result then holds with \(\delta = \varepsilon/2\) and \(T = M\). 
+The result then holds with \(\delta = \varepsilon/2\) and \(T = M\).
 \end{proof}
 
 So we have a chain of inclusions among the sequences: \[ \mathrm{convergent} \subseteq \mathrm{cauchy} \subseteq \mathrm{bounded} \subseteq \mathrm{sequences}. \]
@@ -323,5 +328,7 @@ Then the mapping \(\iota : R \rightarrow \VALCOMP{R}{v}\) given by \(\iota(r) = 
 %---------%
 
 \begin{exercise}
-Let \(k\) be a field and let \(R\) be the field of rational functions in one variable over \(k\). Show that \(v(p/q) = 2^{deg p - deg q}\) is an absolute value on \(R\). (@@@) is this true?
+Let \(k\) be a field and let \(R\) be the field of rational functions in one variable over \(k\).
+Show that \(v(p/q) = 2^{deg p - deg q}\) is an absolute value on \(R\).
+(@@@) is this true?
 \end{exercise}

@@ -23,7 +23,8 @@ Let \(a\) and \(b\) be integers.
 \end{dfn}
 
 \begin{prop}
-Any two integers (not both zero) have a unique greatest common divisor, which we denote \(\GCD{a}{b}\). We also define \(\GCD{0}{0} = 0\) as a special case.
+Any two integers (not both zero) have a unique greatest common divisor, which we denote \(\GCD{a}{b}\).
+We also define \(\GCD{0}{0} = 0\) as a special case.
 \end{prop}
 
 \begin{prop} \mbox{}
@@ -41,14 +42,18 @@ If \(a\) and \(b\) are integers with \(b > 0\), and if \(a = qb + r\) where \(0 
 \end{prop}
 
 \begin{proof}
-Let \(d = \GCD{a}{b}\) and \(e = \GCD{b}{r}\). We need to show that \(d = e\); to do this, we will show that \(d \leq e\) and \(e \leq d\).
+Let \(d = \GCD{a}{b}\) and \(e = \GCD{b}{r}\).
+We need to show that \(d = e\); to do this, we will show that \(d \leq e\) and \(e \leq d\).
 \begin{itemize}
-\item By definition we have \(d|a\) and \(d|b\); that is, \(a = da'\) and \(b = db'\) for some integers \(a'\) and \(b'\). Now \[ r = a - qb = da' - qdb' = d(a' - qb'), \] so that \(d|r\). In particular, \(d\) is a common divisor of \(b\) and \(r\), and so \(d \leq e\).
-\item Similarly, we have \(e|b\) and \(e|r\), so that \(e|a\), and thus \(e \leq d\). \qedhere
+\item By definition we have \(d|a\) and \(d|b\); that is, \(a = da'\) and \(b = db'\) for some integers \(a'\) and \(b'\).
+Now \[ r = a - qb = da' - qdb' = d(a' - qb'), \] so that \(d|r\).
+In particular, \(d\) is a common divisor of \(b\) and \(r\), and so \(d \leq e\).
+\item Similarly, we have \(e|b\) and \(e|r\), so that \(e|a\), and thus \(e \leq d\).
 \end{itemize}
 \end{proof}
 
-The Euclidean Algorithm gives us a way to explicitly compute the GCD of two integers \emph{as long as} we can compute quotients and remainders as in the Division Algorithm; in fact, it is quite fast. Note that since \(r\) is strictly less than \(b\), this recursion must eventually terminate with a statement of the form \(\GCD{a}{0}\).
+The Euclidean Algorithm gives us a way to explicitly compute the GCD of two integers \emph{as long as} we can compute quotients and remainders as in the Division Algorithm; in fact, it is quite fast.
+Note that since \(r\) is strictly less than \(b\), this recursion must eventually terminate with a statement of the form \(\GCD{a}{0}\).
 
 
 \begin{thm}[Bezout's Identity]
@@ -58,12 +63,21 @@ If \(a\) and \(b\) are integers, then there exist integers \(u\) and \(v\) such 
 \begin{proof}
 We start with the case \(b \geq 0\), proceeding by strong induction.
 \begin{itemize}
-\item \textbf{Base Case} (\(b = 0\)): Note that \(\GCD{a}{0} = a = a \cdot 1 + 0 \cdot 0\) as needed. That is, the result holds with \(u = 1\) and \(v = 0\).
-\item \textbf{Base Case} (\(b = 1\)): Note that \(\GCD{a}{1} = 1 = a \cdot 0 + 1 \cdot 1\) as needed. That is, the result holds with \(u = 0\) and \(v = 1\).
-\item \textbf{Inductive Step}: Suppose the result holds for all integers \(b'\) with \(0 \leq b' < b\), where \(b > 1\). That is, for all such \(b'\) and all integers \(a\) there exist integers \(u\) and \(v\) such that \(\GCD{a}{b'} = au + b'v\). Now consider \(b\). By the division algorithm we have integers \(q\) and \(r\) such that \(a = qb + r\) and \(0 \leq r < b\). We have two possibilities to consider.
+\item \textbf{Base Case} (\(b = 0\)): Note that \(\GCD{a}{0} = a = a \cdot 1 + 0 \cdot 0\) as needed.
+That is, the result holds with \(u = 1\) and \(v = 0\).
+\item \textbf{Base Case} (\(b = 1\)): Note that \(\GCD{a}{1} = 1 = a \cdot 0 + 1 \cdot 1\) as needed.
+That is, the result holds with \(u = 0\) and \(v = 1\).
+\item \textbf{Inductive Step}: Suppose the result holds for all integers \(b'\) with \(0 \leq b' < b\), where \(b > 1\).
+That is, for all such \(b'\) and all integers \(a\) there exist integers \(u\) and \(v\) such that \(\GCD{a}{b'} = au + b'v\).
+Now consider \(b\).
+By the division algorithm we have integers \(q\) and \(r\) such that \(a = qb + r\) and \(0 \leq r < b\).
+We have two possibilities to consider.
 \begin{itemize}
-\item If \(r = 0\), then in fact \(b|a\), since \(a = qb\). So \(\GCD{a}{b} = b = a \cdot 0 + q \cdot b\). That is, the result holds with \(u = 0\) and \(v = 1\).
-\item If \(r > 0\), then by the induction hypothesis there exist integers \(u'\) and \(v'\) such that \(\GCD{b}{r} = bu' + rv'\). By the euclidean algorithm, we have
+\item If \(r = 0\), then in fact \(b|a\), since \(a = qb\).
+So \(\GCD{a}{b} = b = a \cdot 0 + q \cdot b\).
+That is, the result holds with \(u = 0\) and \(v = 1\).
+\item If \(r > 0\), then by the induction hypothesis there exist integers \(u'\) and \(v'\) such that \(\GCD{b}{r} = bu' + rv'\).
+By the euclidean algorithm, we have
 \begin{eqnarray*}
 \GCD{a}{b} & = & \GCD{b}{r} \\
  & = & bu' + rv' \\
@@ -78,7 +92,7 @@ By Strong Induction, for all \(b \geq 0\) and all integers \(a\) there exist int
 Now suppose \(b < 0\), so that \(-b > 0\).
 By the previous discussion, there exist integers \(u'\) and \(v'\) such that \(\GCD{a}{-b} = au' + (-b)v'\).
 Now \[ \GCD{a}{b} = \GCD{a}{-b} = au' + (-b)v' = au' + b(-v'). \]
-That is, the result holds with \(u = u'\) and \(v = -v'\).  
+That is, the result holds with \(u = u'\) and \(v = -v'\). 
 \end{proof}
 
 Similar to the Euclidean Algorithm, this proof of Bezout's Identity provides us with a strategy for actually finding the coefficients \(u\) and \(v\) recursively.

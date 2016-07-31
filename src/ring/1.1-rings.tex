@@ -87,9 +87,9 @@ Specifically, we define \[\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \en
 \item \textbf{Even integers.} Consider the set \(2\ZZ = \{ 2k \mid k \in \ZZ \}\) consisting of only the even integers.
 It is not too difficult to show that this set is a ring under the usual plus and times.
 
-\item \textbf{Rings of sets.} \label{examp:rings-of-sets} \index{ring!of sets} Let \(X\) be any nonempty set.
+\item \textbf{Rings of sets.} \label{examp:rings-of-sets} Let \(X\) be any nonempty set.
 The powerset \(\POW{X}\) is a ring under the operations \(A + B = (A \setminus B) \cup (B \setminus A)\) and \(A \cdot B = A \cap B\).
-This is called a \emph{ring of sets}.
+This is called a \emph{ring of sets}\index{ring!of sets}.
 Similarly, the sets \(\POWP{X}\) of proper subsets and \(\POWF{X}\) of finite subsets are rings under these operations.
 \end{examples}
 
@@ -206,7 +206,7 @@ Show that the following properties hold for all \(a \in R\) and \(m,n \in \NN \s
 \end{exercise}
 
 \begin{dfn}[Idempotent] \label{dfn:idempotent}
-We say that an element \(r\) in a ring \(R\) is \emph{idempotent} \index{idempotent!element} if \(r^2 = r\).
+We say that an element \(r\) in a ring \(R\) is \emph{idempotent}\index{idempotent!element} if \(r^2 = r\).
 For instance, \(0_R\) is idempotent by \sref{prop:ring-basics}{zero-times}.
 \end{dfn}
 
@@ -224,7 +224,7 @@ Show that if \(a\) and \(b\) are idempotent elements such that \(ab = ba\), then
 \end{exercise}
 
 \begin{dfn}[Nilpotent] \label{dfn:nilpotent}
-We say that an element \(r\) in a ring \(R\) is \emph{nilpotent} \index{nilpotent!element} if \(r^n = 0_R\) for some positive natural number \(n\).
+We say that an element \(r\) in a ring \(R\) is \emph{nilpotent}\index{nilpotent!element} if \(r^n = 0_R\) for some positive natural number \(n\).
 For instance, \(0_R\) is nilpotent in any ring since \(0_R^2 = 0_R\).
 If \(r \in R\) is nilpotent, the \emph{smallest} positive integer \(k\) such that \(r^k = 0_R\) is called the \emph{index of nilpotency} of \(r\) and is denoted \(\ION{r}\).
 \end{dfn}
@@ -238,7 +238,7 @@ Determine which elements of the following rings are nilpotent.
 \end{exercise}
 
 \begin{dfn}[Boolean Ring] \label{dfn:boolean-ring}
-A ring \(R\) is called \emph{boolean} \index{ring!boolean} if all of its elements are idempotent; that is, for all \(a \in R\) we have \(a^2 = a\).
+A ring \(R\) is called \emph{boolean}\index{ring!boolean} if all of its elements are idempotent; that is, for all \(a \in R\) we have \(a^2 = a\).
 \end{dfn}
 
 \begin{exercise}
@@ -271,7 +271,7 @@ Show that \(\MAT{2}{R}\) is boolean if and only if \(R\) is the trivial ring.
 \begin{dfn}[Integer Annihilator] \label{dfn:zz-annihilator}
 Let \(R\) be a ring with \(a \in R\) and let \(n \in \ZZ\).
 We say that \(n\) is an \emph{annihilator} of \(a\) if \(na = 0_R\).
-We say that \(n\) is an \emph{annihilator} \index{annihilator} of \(R\) if \(n\) annihilates every element of \(R\).
+We say that \(n\) is an \emph{annihilator}\index{annihilator} of \(R\) if \(n\) annihilates every element of \(R\).
 For instance, the integer 0 is an annihilator of every ring.
 \end{dfn}
 
@@ -297,7 +297,7 @@ The \emph{additive order} of \(a\), denoted \(\ADDORD{a}\), is the least positiv
 \begin{dfn}[Characteristic] \label{dfn:characteristic}
 Let \(R\) be a ring.
 If \(R\) has a positive annihilator, then by the well-ordering property of \(\NN\) it has a \emph{least} positive annihilator.
-The \emph{characteristic} \index{characteristic} of \(R\), denoted \(\CHAR{R}\), is the least positive annihilator of \(R\) if it exists and is 0 otherwise.
+The \emph{characteristic}\index{characteristic} of \(R\), denoted \(\CHAR{R}\), is the least positive annihilator of \(R\) if it exists and is 0 otherwise.
 \end{dfn}
 
 \begin{exercise}
@@ -335,7 +335,7 @@ Show that \(\CHAR{R^A} = \CHAR{R}\).
 \end{exercise}
 
 \begin{dfn}[Null Ring] \label{dfn:null-ring}
-We say that a ring \(R\) is \emph{null} \index{ring!null} if \(xy = 0_R\) for all \(x,y \in R\).
+We say that a ring \(R\) is \emph{null}\index{ring!null} if \(xy = 0_R\) for all \(x,y \in R\).
 \end{dfn}
 
 \begin{exercise}

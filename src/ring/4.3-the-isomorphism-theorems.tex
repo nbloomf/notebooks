@@ -1,9 +1,13 @@
-Defining a mapping on a quotient set is generally difficult, for the same reason that defining operations on a quotient set is difficult; the most natural thing to try is to define our mapping in terms of representatives, but this is generally not well-defined.
+Defining a mapping on a quotient set is generally difficult, for the same reason that defining operations on a quotient set is difficult.
+The most natural thing to try is to define our mapping in terms of representatives, but this is generally not well-defined.
 
-The first important result about quotient rings gives us a standard way to construct homomorphisms on a quotient ring that bypasses this difficulty. This result, known as the First Isomorphism Theorem, is due to Emmy Noether, and is an important tool in ring theory.
+The first important result about quotient rings gives us a standard way to construct homomorphisms on a quotient ring that bypasses this difficulty.
+This result, known as the First Isomorphism Theorem, is due to Emmy Noether, and is an important tool in ring theory.
 
-\begin{prop}[First Isomorphism Theorem for Rings]
-Let \(R\) be a ring and \(I\) an ideal of \(R\), and suppose \(\varphi : R \rightarrow S\) is a ring homomorphism. If \(I \subseteq \KER{\varphi}\), then there is a ring homomorphism \(\overline{\varphi} : R/I \rightarrow S\) such that \(\overline{\varphi}(x + I) = \varphi(x)\). That is, \(\varphi = \overline{\varphi} \circ \pi_I\), so that the following diagram commutes.
+\begin{prop}[First Isomorphism Theorem for Rings] \label{prop:fit}
+Let \(R\) be a ring and \(I\) an ideal of \(R\) and suppose \(\varphi : R \rightarrow S\) is a ring homomorphism.
+If \(I \subseteq \KER{\varphi}\), then there is a ring homomorphism \(\overline{\varphi} : R/I \rightarrow S\) such that \(\overline{\varphi}(x + I) = \varphi(x)\).
+That is, \(\varphi = \overline{\varphi} \circ \pi_I\), so that the following diagram commutes.
 \begin{center}
 \begin{tikzcd}
 R \arrow[r, "\varphi"] \arrow[d, "\pi_I"'] & S \\
@@ -17,15 +21,22 @@ R/I \arrow[ru, dashed, "\overline{\varphi}"'] &
 \end{proof}
 
 \begin{cor}
-If \(\varphi : R \rightarrow S\) is a homomorphism then the induced map \(\overline{\varphi} : R/\KER{\varphi} \rightarrow S\) is injective. If \(\varphi\) is surjective then \(\overline{\varphi}\) is an isomorphism.
+If \(\varphi : R \rightarrow S\) is a homomorphism then the induced map \(\overline{\varphi} : R/\KER{\varphi} \rightarrow S\) is injective.
+If \(\varphi\) is surjective then \(\overline{\varphi}\) is an isomorphism.
 \end{cor}
 
-Another way to state FIT is as follows: If \(\varphi\) is a ring homomorphism and \(I\) an ideal contained in the kernel of \(\varphi\), then \(\varphi\) factors through the projection induced by \(I\). This terminology is inspired by the commutative diagram associated to FIT, in which we literally have \(\varphi = \overline{\varphi} \circ \pi\).
+Another way to state FIT is as follows: If \(\varphi\) is a ring homomorphism and \(I\) an ideal contained in the kernel of \(\varphi\), then \(\varphi\) factors through the projection induced by \(I\).
+This terminology is inspired by the commutative diagram associated to FIT, in which we literally have the ``factorization'' \(\varphi = \overline{\varphi} \circ \pi\).
 
-Two other nice results relate the ideals of a ring to ideals of its subrings and of its quotients. In a nutshell, every ideal in \(R/I\) corresponds nicely to an ideal in \(R\). Ideals in a subring \(S \subseteq R\) correspond (kind of) to ideals in \(R\), but the correspondence is not nearly as nice. So while subrings and quotient rings are opposite concepts in a concrete sense, there is a fundamental asymmetry. This is not too surprising; for instance every domain (which tend to have lots of nontrivial ideals) can be embedded in a field (which we will see have none).
+Two other nice results relate the ideals of a ring to ideals of its subrings and of its quotients.
+In a nutshell, every ideal in \(R/I\) corresponds nicely to an ideal in \(R\).
+Ideals in a subring \(S \subseteq R\) correspond (kind of) to ideals in \(R\), but the correspondence is not nearly as nice.
+So while subrings and quotient rings are opposite concepts in a concrete sense, there is a fundamental asymmetry.
+This is not too surprising; for instance every domain (which tend to have lots of nontrivial ideals) can be embedded in a field (which we will see have none).
 
 \begin{prop}[Second Isomorphism Theorem for Rings]
-Let \(R\) be a ring, with \(S \subseteq R\) a subring and \(I \subseteq R\) an ideal. Then we have the following.
+Let \(R\) be a ring with \(S \subseteq R\) a subring and \(I \subseteq R\) an ideal.
+Then we have the following.
 \begin{proplist}
 \item \(S \cap I\) is an ideal in \(S\),
 \item \(I\) is an ideal in \(S + I\), and

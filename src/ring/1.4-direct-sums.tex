@@ -134,7 +134,7 @@ Show that \(\CHAR{R \oplus S} = \LCM{\CHAR{R}}{\CHAR{S}}\).
 \end{exercise}
 
 
-\begin{exercise}[Universal Property of Binary Direct Sums.] \label{exerc:up-direct-sum} \index{universal property!of direct sums}
+\begin{exercise}[Universal Property of Binary Direct Sums.]\label{exerc:up-direct-sum}\index{universal property!of direct sums}
 Let \(R\), \(S\), and \(T\) be rings, and suppose we have ring homomorphisms \(\varphi : T \rightarrow R\) and \(\psi : T \rightarrow S\).
 Show that there is a unique ring homomorphism \(\Theta : T \rightarrow R \oplus S\) such that the following diagram commutes.
 \begin{center}
@@ -147,7 +147,8 @@ That is, there is a unique \(\Theta\) such that \(\pi_1 \circ \Theta = \varphi\)
 \end{exercise}
 
 
-Before we give the proof of this result, a note on its importance. The punchline of \eref{exerc:up-direct-sum} asserts the existence of a unique homomorphism \(\Theta\) through which any pair \((\varphi, \psi)\) must ``factor''.
+Before we give the proof of this result, a note on its importance.
+The punchline of \eref{exerc:up-direct-sum} asserts the existence of a unique homomorphism \(\Theta\) through which any pair \((\varphi, \psi)\) must ``factor''.
 This is the first of several results about rings known as \emph{universal properties}.
 The precise meaning of the term ``universal property'' is not important for us at the moment; it is enough to think of them as giving us unique homomorphisms for free -- in this case, homomorphisms into a direct sum.
 They usually also involve a kind of unique factorization of homomorphisms as we have here.
@@ -196,7 +197,9 @@ We denote by \[ \prod_{i \in \Lambda} R_i \] the set of all mappings \(r : \Lamb
 
 
 \begin{exercise}
-(@@@) move to subrings \textbf{Direct Sums.} Let \(\Lambda\) be a nonempty set and let \(\mathcal{R} = \{ R_i \mid i \in \Lambda \}\) be a family of rings indexed by \(\Lambda\). We say that an element \(\alpha \in \prod_{i \in \Lambda} R_i\) has \emph{finite support} if \(\alpha(i) = 0\) for all but finitely many \(i \in \Lambda\). We denote by \[ \bigoplus_{i \in \Lambda} R_i \] the set of all \(\alpha \in \prod_{i \in \Lambda} R_i\) of finite support.
+(@@@) move to subrings \textbf{Direct Sums.} Let \(\Lambda\) be a nonempty set and let \(\mathcal{R} = \{ R_i \mid i \in \Lambda \}\) be a family of rings indexed by \(\Lambda\).
+We say that an element \(\alpha \in \prod_{i \in \Lambda} R_i\) has \emph{finite support} if \(\alpha(i) = 0\) for all but finitely many \(i \in \Lambda\).
+We denote by \[ \bigoplus_{i \in \Lambda} R_i \] the set of all \(\alpha \in \prod_{i \in \Lambda} R_i\) of finite support.
 \begin{proplist}
 \item Show that \(\bigoplus_{i \in \Lambda} R_i\) is a subring of \(\prod_{i \in \Lambda} R_i\).
 \item Show that \(\bigoplus_{i \in \Lambda} R_i\) is commutative if and only if \(R_i\) is commutative for each \(i \in \Lambda\).
@@ -233,12 +236,14 @@ We call this the \emph{nullification} of \(S\) and denote it \(S^0\).
 
 
 \begin{exercise}
-Let \(R\) be a ring and \(N\) a null ring, and suppose we have a prehomomorphism \(\theta\) with \(\IM{\theta}\) commutative. (@@@ what was I going to say here?)
+Let \(R\) be a ring and \(N\) a null ring, and suppose we have a prehomomorphism \(\theta\) with \(\IM{\theta}\) commutative.
+(@@@ what was I going to say here?)
 \end{exercise}
 
 
 \begin{exercise}
-Let \(R\) be a commutative ring. We define operations on the set \(\HAM{R} = R \times R \times R \times R\) by (@@@)
+Let \(R\) be a commutative ring.
+We define operations on the set \(\HAM{R} = R \times R \times R \times R\) by (@@@)
 \begin{proplist}
 \item These operations make \(\HAM{R}\) a noncommutative ring.
 \item The map \(\iota : R \rightarrow \HAM{R}\) given by \(\iota(r) = (r,0,0,0)\) is an injective ring homomorphism.

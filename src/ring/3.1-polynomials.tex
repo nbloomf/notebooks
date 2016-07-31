@@ -1,9 +1,14 @@
-We've been working with polynomials since taking algebra in middle school. But what is a polynomial, exactly? In this section, we will extend some of our ideas about rings to sets of polynomials. First, though, we need to have a better idea of what makes a polynomial a polynomial. It is easy enough to come up with some examples of polynomials as we'd see them in College Algebra.
+We've been working with polynomials since taking algebra in middle school.
+But what is a polynomial, exactly? In this section, we will extend some of our ideas about rings to sets of polynomials.
+First, though, we need to have a better idea of what makes a polynomial a polynomial.
+It is easy enough to come up with some examples of polynomials as we'd see them in College Algebra.
 \[ x^2 + x - 1 \quad\quad x^3 - 1 \quad\quad 7 \quad\quad \frac{1}{2}x^7 - \frac{2}{3}x^2 + 1 \quad\quad \pi x^3 + e x + \sqrt{2} \]
 Just as important, we can come up with examples of things that sort of look like polynomials but aren't.
 \[ x^{1/2} + 2x \quad\quad x^{-1} + x^{\sqrt{2}} \quad\quad x^2 + x = 7x^3  \quad\quad 1 + x + x^2 + \cdots \]
 
-From here, let's try to extract a definition that includes all the examples we want but none of the ones we don't. A polynomial in the \textbf{variable} \(x\) is an \textbf{expression} (not an equation) which can be written as a \textbf{finite sum} of things of the form \(cx^k\), where \(c\) is \textbf{some kind of number} and \(k\) is a \textbf{natural number exponent}. The \(c\)s are called the coefficients of the polynomial.
+From here, let's try to extract a definition that includes all the examples we want but none of the ones we don't.
+A polynomial in the \textbf{variable} \(x\) is an \textbf{expression} (not an equation) which can be written as a \textbf{finite sum} of things of the form \(cx^k\), where \(c\) is \textbf{some kind of number} and \(k\) is a \textbf{natural number exponent}.
+The \(c\)s are called the coefficients of the polynomial.
 
 We can add polynomials by ``combining like terms'', such as
 \begin{eqnarray*}
@@ -30,18 +35,27 @@ We can even multiply polynomials by using the ``distributive property'' over and
 \end{tabular}
 \end{center}
 
-As lazy mathematicians we might start to suspect that the ``variable'', \(x\), is not so special, and really just serves as a placeholder to keep the coefficients separate. We may even come to think of a polynomial as just a list of coefficients, only using the variables to keep track of what position each coefficient takes in the list. But then a list is really a mapping from the natural numbers, say \(f : \NN \rightarrow \QQ\) (if the coefficients are rational numbers), where \(f(i)\) is the coefficient of \(x^i\), and by convention the \(f(i)\) are all zero after some point. Now the arithmetic of polynomials corresponds to a funny arithmetic on functions \(\NN \rightarrow \QQ\). Note that to make the arithmetic on \emph{polynomials} work, we just need to have an arithmetic on \emph{coefficients} -- which is provided by a ring.
+As lazy mathematicians we might start to suspect that the ``variable'', \(x\), is not so special, and really just serves as a placeholder to keep the coefficients separate.
+We may even come to think of a polynomial as just a list of coefficients, only using the variables to keep track of what position each coefficient takes in the list.
+But then a list is really a mapping from the natural numbers, say \(f : \NN \rightarrow \QQ\) (if the coefficients are rational numbers), where \(f(i)\) is the coefficient of \(x^i\), and by convention the \(f(i)\) are all zero after some point.
+Now the arithmetic of polynomials corresponds to a funny arithmetic on functions \(\NN \rightarrow \QQ\).
+Note that to make the arithmetic on \emph{polynomials} work, we just need to have an arithmetic on \emph{coefficients} -- which is provided by a ring.
 
 \begin{dfn}[Polynomial] \label{dfn:polynomial}
-Let \(R\) be a ring. A mapping \(a : \NN \rightarrow R\) is called a \emph{polynomial} with \emph{coefficients in \(R\)} if there is a natural number \(M\) such that \(a_i = 0\) whenever \(i > M\). \index{polynomial}
+Let \(R\) be a ring.
+A mapping \(a : \NN \rightarrow R\) is called a \emph{polynomial}\index{polynomial} with \emph{coefficients in \(R\)} if there is a natural number \(M\) such that \(a_i = 0\) whenever \(i > M\).
 
-The polynomial \(X\) given by \(X(k) = 1\) if \(k = 1\) and \(0\) otherwise is called the \emph{indeterminate}. The ring of polynomials over \(R\) with indeterminate \(X\) is denoted \(R[X]\).
+The polynomial \(X\) given by \(X(k) = 1\) if \(k = 1\) and \(0\) otherwise is called the \emph{indeterminate}.
+The ring of polynomials over \(R\) with indeterminate \(X\) is denoted \(R[X]\).
 \end{dfn}
 
-That is, a polynomial is an infinite list of elements of \(R\) which is ``eventually'' zero. This may seem like a strange way to think about polynomials at first, but it's not really so different from the way we define matrices. Like matrices, what makes polynomials interesting is that they inherit a natural arithmetic from \(R\).
+That is, a polynomial is an infinite list of elements of \(R\) which is ``eventually'' zero.
+This may seem like a strange way to think about polynomials at first, but it's not really so different from the way we define matrices.
+Like matrices, what makes polynomials interesting is that they inherit a natural arithmetic from \(R\).
 
 \begin{prop}
-Let \(R\) be a ring and \(x\) an indeterminate. We define operations \(+\) and \(\cdot\) on \(R[x]\) as follows: if \(a,b \in R[x]\), then 
+Let \(R\) be a ring and \(x\) an indeterminate.
+We define operations \(+\) and \(\cdot\) on \(R[x]\) as follows: if \(a,b \in R[x]\), then 
 \begin{eqnarray*}
 (a + b)(k) & = & a(k) + b(k) \\
 (a \cdot b)(k) & = & \sum_{i+j=k} a(i) b(j)
@@ -50,19 +64,27 @@ where the arithmetic on the right hand sides takes place in \(R\).
 \begin{proplist}
 \item These operations make \(R[x]\) into a ring.
 \item \(R[x]\) is commutative if and only if \(R\) is commutative.
-\item \(R[x]\) is unital if and only if \(R\) is unital. In this case \(1_{R[x]}\) is the polynomial whose \(0\)th coefficient is \(1_R\) and whose every other coefficient is \(0_R\).
+\item \(R[x]\) is unital if and only if \(R\) is unital.
+In this case \(1_{R[x]}\) is the polynomial whose \(0\)th coefficient is \(1_R\) and whose every other coefficient is \(0_R\).
 \end{proplist}
 \end{prop}
 
-That is, the \(k\)th coefficient of a sum is the sum of \(k\)th coefficients, and the \(k\)th coefficient of a product is a linear combination of the coefficients of the factors. To be clear: This is the usual polynomial arithmetic we know and love, but with coefficients coming from any fixed ring rather than from a ring of numbers.
+That is, the \(k\)th coefficient of a sum is the sum of \(k\)th coefficients, and the \(k\)th coefficient of a product is a linear combination of the coefficients of the factors.
+To be clear: This is the usual polynomial arithmetic we know and love, but with coefficients coming from any fixed ring rather than from a ring of numbers.
 
 \begin{dfn}[Degree and Leading Coefficient] \label{dfn:degree-and-leading-coefficient}
-Let \(R\) be a ring and \(a \in R[x]\) a nonzero polynomial. By definition there is some natural number \(M\) such that \(a_i = 0\) when \(i > M\); the \emph{smallest} such \(M\) is called the \emph{degree} \index{degree!of a polynomial} of \(a\) and is denoted \(\deg{a}\). Now \(a_{\deg{a}}\), which is nonzero if \(a \neq 0\), is called the \emph{leading coefficient} \index{leading coefficient} of \(a\).
+Let \(R\) be a ring and \(a \in R[x]\) a nonzero polynomial.
+By definition there is some natural number \(M\) such that \(a_i = 0\) when \(i > M\); the \emph{smallest} such \(M\) is called the \emph{degree}\index{degree!of a polynomial} of \(a\) and is denoted \(\deg{a}\).
+Now \(a_{\deg{a}}\), which is nonzero if \(a \neq 0\), is called the \emph{leading coefficient}\index{leading coefficient} of \(a\).
 
-If \(R\) is unital and the leading coefficient of \(a\) is \(1_R\), we say that \(a(x)\) is \emph{monic}. \index{monic} The degree of the zero polynomial is left undefined.
+If \(R\) is unital and the leading coefficient of \(a\) is \(1_R\), we say that \(a(x)\) is \emph{monic}\index{monic}.
+The degree of the zero polynomial is left undefined.
 \end{dfn}
 
-We can think of the degree of a polynomial as a kind of size. We can use the degree to decompose polynomials into ``sum of powers'' form; a polynomial \(p\) of degree \(d\) can be written as \[ p = \sum_{i=0}^d p_ix^i \] (see \eref{exerc:poly-expand}). As an example let \(R = \ZZ/(6)\) and consider the two polynomials \[ p = 1 + 2x^2 \quad \mathrm{and} \quad q = 2 + 3x. \] Now \(p(0) = 1\), \(p(2) = 2\), and \(p(i) = 0\) otherwise, and \(q(0) = 2\), \(q(1) = 3\), and \(q(i) = 0\) otherwise. So we have
+We can think of the degree of a polynomial as a kind of size.
+We can use the degree to decompose polynomials into ``sum of powers'' form; a polynomial \(p\) of degree \(d\) can be written as \[ p = \sum_{i=0}^d p_ix^i \] (see \eref{exerc:poly-expand}).
+As an example let \(R = \ZZ/(6)\) and consider the two polynomials \[ p = 1 + 2x^2 \quad \mathrm{and} \quad q = 2 + 3x. \] Now \(p(0) = 1\), \(p(2) = 2\), and \(p(i) = 0\) otherwise, and \(q(0) = 2\), \(q(1) = 3\), and \(q(i) = 0\) otherwise.
+So we have
 \begin{eqnarray*}
 p + q & = & (p_0 + q_0) + (p_1 + q_1)x + (p_2 + q_2)x^2 \\
  & = & (1 + 2) + (0 + 3)x + (2 + 0)x^2 \\
@@ -77,10 +99,12 @@ pq & = & p_0q_0 + (p_0q_1 + p_1q_0)x + (p_0q_2 + p_1q_1 + p_2q_0)x^2 \\
  & = & 2 + 3x + 4x^2
 \end{eqnarray*}
 
-So far this business about polynomials works over any ring. But over a domain, we can say a little more.
+So far this business about polynomials works over any ring.
+But over a domain, we can say a little more.
 
 \begin{prop}
-Let \(R\) be a domain. Then we have the following.
+Let \(R\) be a domain.
+Then we have the following.
 \begin{proplist*}
 \item If \(a\) and \(b\) are nonzero, then \(ab\) is nonzero, and moreover \(\deg{ab} = \deg{a} + \deg{b}\) for all nonzero \(a,b \in R\).
 \item \(u \in R[x]\) is a unit if and only if \(\deg{u} = 0\) and \(u_0\) is a unit in \(R\).
@@ -89,16 +113,27 @@ Let \(R\) be a domain. Then we have the following.
 
 \begin{proof}
 \begin{inlineproplist}
-\item Let \(a,b \in R[x]\) be nonzero; say \(m = \deg{a}\) and \(n = \deg{b}\). Note that \[ (ab)_{m+n} = \sum_{i+j = m+n} a_ib_j. \] Now if \(i > m\), then \(a(i) = 0\), and if \(i < m\) then \(j > n\) and \(b(j) = 0\). So the only possible nonzero term is \(a_mb_n\). Moreover, \(a_m\) and \(b_n\) are not zero (being the leading terms of \(a\) and \(b\)) and since \(R\) is a domain, \(a_mb_n \neq 0\). Thus \((ab)_{m+n} = a_mb_n \neq 0\), and so \(ab \neq 0\). Now note that \(\deg{ab} \geq m+n\). To see that this is in fact an equality, let \(k > m+n\). Now \[ (ab)_k = \sum_{i+j = k} a(i)b(j). \] As before, if \(i > m\) then \(a(i) = 0\), and if \(i \leq m\), then \(j > n\) and we have \(b(j) = 0\). So \((ab)_k = 0\) if \(k > m+n\), and thus \(\deg{ab} = m+n = \deg{a} + \deg{b}\).
-\item Let \(u \in R[x]\) be a unit. Now \(1 = uu^{-1}\), and we have \[ 0 = \deg{1} = \deg{uu^{-1}} = \deg{u} + \deg{u^{-1}}. \] Since the degree of a polynomial is a natural number, we must have \(\deg{u} = \deg{u^{-1}} = 0\).
+\item Let \(a,b \in R[x]\) be nonzero; say \(m = \deg{a}\) and \(n = \deg{b}\).
+Note that \[ (ab)_{m+n} = \sum_{i+j = m+n} a_ib_j. \] Now if \(i > m\), then \(a(i) = 0\), and if \(i < m\) then \(j > n\) and \(b(j) = 0\).
+So the only possible nonzero term is \(a_mb_n\).
+Moreover, \(a_m\) and \(b_n\) are not zero (being the leading terms of \(a\) and \(b\)) and since \(R\) is a domain, \(a_mb_n \neq 0\).
+Thus \((ab)_{m+n} = a_mb_n \neq 0\), and so \(ab \neq 0\).
+Now note that \(\deg{ab} \geq m+n\).
+To see that this is in fact an equality, let \(k > m+n\).
+Now \[ (ab)_k = \sum_{i+j = k} a(i)b(j). \] As before, if \(i > m\) then \(a(i) = 0\), and if \(i \leq m\), then \(j > n\) and we have \(b(j) = 0\).
+So \((ab)_k = 0\) if \(k > m+n\), and thus \(\deg{ab} = m+n = \deg{a} + \deg{b}\).
+\item Let \(u \in R[x]\) be a unit.
+Now \(1 = uu^{-1}\), and we have \[ 0 = \deg{1} = \deg{uu^{-1}} = \deg{u} + \deg{u^{-1}}. \] Since the degree of a polynomial is a natural number, we must have \(\deg{u} = \deg{u^{-1}} = 0\).
 \end{inlineproplist}
 \end{proof}
 
 \begin{cor}
-Let \(R\) be a domain. Then the map \(N : R[x] \rightarrow \NN\) given by \(N(a) = 2^{\deg{a}}\) if \(a \neq 0\) and \(N(0) = 0\) is a multiplicative norm.
+Let \(R\) be a domain.
+Then the map \(N : R[x] \rightarrow \NN\) given by \(N(a) = 2^{\deg{a}}\) if \(a \neq 0\) and \(N(0) = 0\) is a multiplicative norm.
 \end{cor}
 
-In the rest of this chapter we will be concerned mostly with \(R[x]\) when \(R\) is a domain. In this situation we will consider two basic questions:
+In the rest of this chapter we will be concerned mostly with \(R[x]\) when \(R\) is a domain.
+In this situation we will consider two basic questions:
 
 \begin{framed}
 \begin{enumerate}
@@ -115,8 +150,11 @@ In the rest of this chapter we will be concerned mostly with \(R[x]\) when \(R\)
 
 \begin{exercise}
 \begin{proplist}
-\item In \((\ZZ/(3))[x]\), let \(p(x) = [1] + [2]x\) and \(q(x) = [2] + x\). Find \(p+q\) and \(pq\).
-\item In \((\ZZ/(6))[x]\), let \(p(x) = [1] + [2]x\) and \(q(x) = [1] + x + [3]x^2\). Compute \(pq\).\item In \(\MAT{2}{\ZZ}[x]\), let \[ p(x) = \begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\ 0 & 1 \end{bmatrix} x. \] Find \(p^2\).
+\item In \((\ZZ/(3))[x]\), let \(p(x) = [1] + [2]x\) and \(q(x) = [2] + x\).
+Find \(p+q\) and \(pq\).
+\item In \((\ZZ/(6))[x]\), let \(p(x) = [1] + [2]x\) and \(q(x) = [1] + x + [3]x^2\).
+Compute \(pq\).\item In \(\MAT{2}{\ZZ}[x]\), let \[ p(x) = \begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\ 0 & 1 \end{bmatrix} x. \]
+Find \(p^2\).
 \end{proplist}
 \end{exercise}
 
@@ -131,7 +169,8 @@ Let \(R\) be a ring with \(c \in R\), \(p\) a polynomial over \(R\) of degree \(
 \end{exercise}
 
 \begin{exercise}[A polynomial map.]
-Suppose \(\varphi : R \rightarrow S\) is a ring homomorphism. Show that the mapping \(\Phi : R[x] \rightarrow S[x]\) given by \(\Phi(a)(k) = \varphi(a(k))\) for all \(k \in \NN\) is the unique ring homomorphism which makes the following diagram commute.
+Suppose \(\varphi : R \rightarrow S\) is a ring homomorphism.
+Show that the mapping \(\Phi : R[x] \rightarrow S[x]\) given by \(\Phi(a)(k) = \varphi(a(k))\) for all \(k \in \NN\) is the unique ring homomorphism which makes the following diagram commute.
 \begin{center}
 \begin{tikzcd}
 R \arrow[r, "\varphi"] \arrow[d, "\iota"'] & S \arrow[d, "\iota"] \\
@@ -142,7 +181,10 @@ Show that if \(\varphi\) is injective, then \(\Phi\) is injective, and that if \
 \end{exercise}
 
 \begin{dfn}[Derivative]
-Let \(R\) be a ring. We define a mapping \(\DERIV : R[x] \rightarrow R[x]\), called the \emph{derivative}, \index{derivative} as follows. Given \(a(x) \in R[x]\), \[ \DERIV(a)(k) = (k+1)a(k+1) \] for all \(k \in \NN\). For instance, if \(a(x) = a_0 + a_1x + a_2x^2 + \cdots + a_nx^n\), then \[ \DERIV(a(x)) = a_1 + 2a_2x + 3a_3x^2 + \cdots + na_nx^{n-1}. \] Note that the derivative of a polynomial is defined here purely formally; there are no limits involved.
+Let \(R\) be a ring.
+We define a mapping \(\DERIV : R[x] \rightarrow R[x]\), called the \emph{derivative}\index{derivative}, as follows.
+Given \(a(x) \in R[x]\), \[ \DERIV(a)(k) = (k+1)a(k+1) \] for all \(k \in \NN\).
+For instance, if \(a(x) = a_0 + a_1x + a_2x^2 + \cdots + a_nx^n\), then \[ \DERIV(a(x)) = a_1 + 2a_2x + 3a_3x^2 + \cdots + na_nx^{n-1}. \] Note that the derivative of a polynomial is defined here purely formally; there are no limits involved.
 \end{dfn}
 
 \begin{exercise}

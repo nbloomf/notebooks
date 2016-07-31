@@ -1,7 +1,11 @@
-In an incidence geometry, we have the ability to detect whether three given points are collinear. However an arbitrary incidence geometry has no notion of ``order'' for the points on a given line, as we intuitively expect. For instance, the points \((0,0)\), \((1,1)\), and \((2,2)\) are collinear in \(\RR^2\) and we think of \((1,1)\) as being ``between'' the other two. But in the Fano plane, does it make sense to order the points on a line?
+In an incidence geometry, we have the ability to detect whether three given points are collinear.
+However an arbitrary incidence geometry has no notion of ``order'' for the points on a given line, as we intuitively expect.
+For instance, the points \((0,0)\), \((1,1)\), and \((2,2)\) are collinear in \(\RR^2\) and we think of \((1,1)\) as being ``between'' the other two.
+But in the Fano plane, does it make sense to order the points on a line?
 
 \begin{dfn}[Betweenness]
-Let \(P\) be an incidence geometry. We say that a ternary relation \(\BETWEEN{\ast}{\ast}{\ast}\) on \(P\) is a \emph{betweenness relation} if the following properties hold.
+Let \(P\) be an incidence geometry.
+We say that a ternary relation \(\BETWEEN{\ast}{\ast}{\ast}\) on \(P\) is a \emph{betweenness relation} if the following properties hold.
 \begin{proplist}
 \item[B1.] If \(\BETWEEN{x}{y}{z}\), then \(x\), \(y\), and \(z\) are distinct and \(\COLLINEAR{x}{y}{z}\).
 \item[B2.] If \(x\) and \(y\) are points such that \(\BETWEEN{x}{z}{y}\), then \(\BETWEEN{y}{z}{x}\).
@@ -12,12 +16,15 @@ Let \(P\) be an incidence geometry. We say that a ternary relation \(\BETWEEN{\a
 \end{proplist}
 \end{dfn}
 
-If \(\BETWEEN{x}{y}{z}\), we say that \(z\) is \emph{between} \(x\) and \(y\). As shorthand, if \(x\), \(y\), \(z\), and \(w\) are distinct points, we will say \([xyzw]\) precisely when \(\BETWEEN{x}{y}{z}\), \(\BETWEEN{x}{y}{w}\), \(\BETWEEN{x}{z}{w}\), and \(\BETWEEN{y}{z}{w}\). More generally, if \(x_1, \ldots, x_n\) are distinct points, then \([x_1x_2 \ldots x_n]\) means that \(\BETWEEN{x_i}{x_j}{x_k}\) for all triples \((i,j,k)\) with \(1 \leq i < j < k \leq n\).
+If \(\BETWEEN{x}{y}{z}\), we say that \(z\) is \emph{between} \(x\) and \(y\).
+As shorthand, if \(x\), \(y\), \(z\), and \(w\) are distinct points, we will say \([xyzw]\) precisely when \(\BETWEEN{x}{y}{z}\), \(\BETWEEN{x}{y}{w}\), \(\BETWEEN{x}{z}{w}\), and \(\BETWEEN{y}{z}{w}\).
+More generally, if \(x_1, \ldots, x_n\) are distinct points, then \([x_1x_2 \ldots x_n]\) means that \(\BETWEEN{x_i}{x_j}{x_k}\) for all triples \((i,j,k)\) with \(1 \leq i < j < k \leq n\).
 
 \begin{dfn}[Segment, Ray]
 Let \(x\) and \(y\) be distinct points in an ordered geometry \(P\).
 \begin{proplist}
-\item The set \[ \SEGMENT{x}{y} = \{ z \in P \mid z = x\ \mathrm{or}\ z = y\ \mathrm{or}\ \BETWEEN{x}{z}{y} \} \] is called the \emph{segment}\index{segment} with \emph{endpoints} \(x\) and \(y\). If \(z \in \SEGMENT{x}{y}\) and \(z \neq x\) and \(z \neq y\), we say that \(z\) is \emph{interior to} \(\SEGMENT{x}{y}\).
+\item The set \[ \SEGMENT{x}{y} = \{ z \in P \mid z = x\ \mathrm{or}\ z = y\ \mathrm{or}\ \BETWEEN{x}{z}{y} \} \] is called the \emph{segment}\index{segment} with \emph{endpoints} \(x\) and \(y\).
+If \(z \in \SEGMENT{x}{y}\) and \(z \neq x\) and \(z \neq y\), we say that \(z\) is \emph{interior to} \(\SEGMENT{x}{y}\).
 \item The set \[ \RAY{x}{y} = \{ z \in P \mid z = x\ \mathrm{or}\ z = y\ \mathrm{or}\ \BETWEEN{x}{z}{y}\ \mathrm{or}\ \BETWEEN{x}{y}{z} \} \] is called the \emph{ray}\index{ray} with \emph{vertex} \(x\) \emph{toward} \(y\).
 \end{proplist}
 \end{dfn}
@@ -35,7 +42,8 @@ If \(P\) is an incidence geometry and \(\BETWEEN{\cdot}{\cdot}{\cdot}\) a betwee
 
 
 \begin{prop}
-Suppose \(\mathcal{P}\) is an incidence geometry and \(\BETWEEN{\cdot}{\cdot}{\cdot}\) a betweenness relation with the Trichotomy Property. Then the following hold.
+Suppose \(\mathcal{P}\) is an incidence geometry and \(\BETWEEN{\cdot}{\cdot}{\cdot}\) a betweenness relation with the Trichotomy Property.
+Then the following hold.
 \begin{enumerate}
 \item For all distinct points \(x\) and \(y\), \[ \LINE{x}{y} = \{ z \mid z = x\ \mathrm{or}\ z = y\ \mathrm{or}\ \BETWEEN{z}{x}{y}\ \mathrm{or}\ \BETWEEN{x}{z}{y}\ \mathrm{or}\ \BETWEEN{x}{y}{z} \}. \]
 \item \(\RAY{x}{y} \cap \RAY{y}{x} = \SEGMENT{x}{y}\) for all distinct points \(x\) and \(y\).
@@ -66,7 +74,8 @@ If \(\mathcal{P}\) is an incidence geometry with a betweenness relation having b
 %---------%
 
 \begin{exercise}
-Suppose \(P\) is an incidence geometry with a betweenness relation. If \(x\), \(y\), and \(z\) are distinct points such that \(\BETWEEN{x}{y}{z}\), then the following hold.
+Suppose \(P\) is an incidence geometry with a betweenness relation.
+If \(x\), \(y\), and \(z\) are distinct points such that \(\BETWEEN{x}{y}{z}\), then the following hold.
 \begin{proplist}
 \item \(\SEGMENT{x}{y} \cup \SEGMENT{y}{z} = \SEGMENT{x}{z}\).
 \item \(\SEGMENT{x}{y} \cap \SEGMENT{y}{z} = \{y\}\).
@@ -76,15 +85,18 @@ Suppose \(P\) is an incidence geometry with a betweenness relation. If \(x\), \(
 \end{exercise}
 
 \begin{dfn}[Convexity]
-Let \(P\) be an incidence geometry with a betweenness relation. A non empty set \(S\) of points in \(\mathcal{P}\) is called \emph{convex}\index{convex} if it is closed under betweenness in the following sense: if \(x,y \in S\) and \(\BETWEEN{x}{z}{y}\), then \(z \in S\).
+Let \(P\) be an incidence geometry with a betweenness relation.
+A non empty set \(S\) of points in \(\mathcal{P}\) is called \emph{convex}\index{convex} if it is closed under betweenness in the following sense: if \(x,y \in S\) and \(\BETWEEN{x}{z}{y}\), then \(z \in S\).
 \end{dfn}
 
 \begin{exercise}
-Let \(P\) be an incidence geometry with a betweenness relation, and let \(S \subseteq P\). Show that \(S\) is convex if and only if \(\SEGMENT{x}{y} \subseteq S\) for all distinct points \(x,y \in S\).
+Let \(P\) be an incidence geometry with a betweenness relation, and let \(S \subseteq P\).
+Show that \(S\) is convex if and only if \(\SEGMENT{x}{y} \subseteq S\) for all distinct points \(x,y \in S\).
 \end{exercise}
 
 \begin{exercise}
-Let \(P\) be an incidence geometry and \(x,y \in P\) distinct points. Show that the following sets are convex.
+Let \(P\) be an incidence geometry and \(x,y \in P\) distinct points.
+Show that the following sets are convex.
 \begin{proplist}
 \item \(\LINE{x}{y}\)
 \item \(\SEGMENT{x}{y}\)

@@ -29,8 +29,8 @@ Then we have the following.
 \begin{proof}
 \begin{inlineproplist}
 \item Let \(a,b \in R\) and suppose \(\GCD{a}{b}\) is not empty; say \(x\) is a greatest common divisor of \(a\) and \(b\).
-It suffices to show that if \(y \ASSOC x\), then \(y\) is also a greatest common divisor of \(a\) and \(b\). By
-\eref{exerc:associate-divides} we have that \(y|a\) and \(y|b\), and if \(c|a\) and \(c|b\), then \(c|x\), so that \(c|y\) by \eref{exerc:associate-divides}.
+It suffices to show that if \(y \ASSOC x\), then \(y\) is also a greatest common divisor of \(a\) and \(b\).
+By \eref{exerc:associate-divides} we have that \(y|a\) and \(y|b\), and if \(c|a\) and \(c|b\), then \(c|x\), so that \(c|y\) by \eref{exerc:associate-divides}.
 \item Say \(b = ua\), and suppose we have \(d \in \GCD{a}{c}\).
 Now \(d|a\), so that \(d|b\) by \eref{exerc:associate-divides}.
 That is, \(d\) is a common divisor of \(b\) and \(c\).
@@ -80,7 +80,7 @@ Now if \(c|a\) and \(c|u\), then \(c\) is a unit by \sref{prop:divides-basics}{u
 
 The next result is very important: it roughly says that if \(a\) divides a product but is relatively prime to one of the factors, then it must divide the other factor.
 
-\begin{prop}[Euclid's Lemma] \label{prop:euclids-lemma} \index{Euclid's Lemma}
+\begin{prop}[Euclid's Lemma]\label{prop:euclids-lemma}\index{Euclid's Lemma}
 Let \(R\) be a domain with \(a,b,c \in R\).
 \begin{proplist*}
 \item \label{prop:euclids-lemma:dist} If \(d \in \GCD{a}{b}\) and \(e \in \GCD{ac}{bc}\) then \(e \ASSOC dc\).
@@ -208,7 +208,9 @@ Show that \(d \in \GCD{a}{b}\) in \(\ZZ/(n)\).
 \end{exercise}
 
 \begin{exercise} \label{exerc:gcd-meet}
-Let \(R\) be a CU ring, and let \(\ASSOCLAT{R}\) be the set of \(\ASSOC\)-equivalence classes of \(R\) (see \ref{dfn:assoc-sld}). Define a relation \(\wedge \subseteq (\ASSOCLAT{R} \times \ASSOCLAT{R}) \times \ASSOCLAT{R}\) as follows. \[ \wedge = \left\{ \left(([a],[b]), \GCD{a}{b}\right) \mid a,b \in R\ \mathrm{such\ that}\ \GCD{a}{b} \neq \varnothing \right\}. \]
+Let \(R\) be a CU ring, and let \(\ASSOCLAT{R}\) be the set of \(\ASSOC\)-equivalence classes of \(R\) (see \ref{dfn:assoc-sld}).
+Define a relation \(\wedge \subseteq (\ASSOCLAT{R} \times \ASSOCLAT{R}) \times \ASSOCLAT{R}\) as follows.
+\[ \wedge = \left\{ \left(([a],[b]), \GCD{a}{b}\right) \mid a,b \in R\ \mathrm{such\ that}\ \GCD{a}{b} \neq \varnothing \right\}. \]
 \begin{proplist}
 \item Show that \(\wedge\) is well-defined.
 \item Show that \(\wedge\) is total if and only if \(R\) is a GCD domain.
@@ -217,7 +219,8 @@ That is, \(\wedge\) is a partial function \(\ASSOCLAT{R} \times \ASSOCLAT{R} \ri
 \end{exercise}
 
 \begin{exercise}
-Let \(R\) be a GCD domain, and let \(\wedge\) be defined on \(\ASSOCLAT{R}\) as in \eref{exerc:gcd-meet}. Show that the following hold for all \(A,B,C \in \ASSOCLAT{R}\).
+Let \(R\) be a GCD domain, and let \(\wedge\) be defined on \(\ASSOCLAT{R}\) as in \eref{exerc:gcd-meet}.
+Show that the following hold for all \(A,B,C \in \ASSOCLAT{R}\).
 \begin{proplist*}
 \item \(A \wedge A = A\)
 \item \(A \wedge B = B \wedge A\)
@@ -230,15 +233,17 @@ Let \(R\) be a GCD domain, and let \(\wedge\) be defined on \(\ASSOCLAT{R}\) as 
 \item Show that the equation \(a^2 + ab + b^2 = 2\) has no solutions in \(\ZZ\).
 \item Show that no element of \(\ZZ[\sqrt{-3}]\) has norm 2 (@@@).
 \item Show that 2 is irreducible in \(\ZZ[\sqrt{-3}]\).
-\item Show that 2 divides \(4 = (1 + \sqrt{-3})(1 - \sqrt{-3})\) in \(\ZZ[\sqrt{-3}]\), but that 2 does not divide \(1 + \sqrt{-3}\) or \(1 - \sqrt{-3}\). In particular, 2 is not prime in \(\ZZ[\sqrt{-3}]\).
+\item Show that 2 divides \(4 = (1 + \sqrt{-3})(1 - \sqrt{-3})\) in \(\ZZ[\sqrt{-3}]\), but that 2 does not divide \(1 + \sqrt{-3}\) or \(1 - \sqrt{-3}\).
+In particular, 2 is not prime in \(\ZZ[\sqrt{-3}]\).
 \item Conclude that \(\ZZ[\sqrt{-3}]\) is not a GCD domain.
 \end{proplist}
 \end{exercise}
 
 \begin{dfn}[Least Common Multiple]
-Let \(R\) be a domain, with \(a,b \in R\). We say that \(m \in R\) is a \emph{least common multiple} \index{least common multiple} of \(a\) and \(b\) in \(R\) if
+Let \(R\) be a domain, with \(a,b \in R\).
+We say that \(m \in R\) is a \emph{least common multiple}\index{least common multiple} of \(a\) and \(b\) in \(R\) if the following hold.
 \begin{proplist}
-\item \(m\) is a common multiple of \(a\) and \(b\); that is, \(a|m\) and \(b|m\), and \index{common multiple}
+\item \(m\) is a \emph{common multiple}\index{common multiple} of \(a\) and \(b\); that is, \(a|m\) and \(b|m\).
 \item \(m\) is least among the common multiples of \(a\) and \(b\); that is, if \(n \in R\) such that \(a|n\) and \(b|n\), then \(m|n\).
 \end{proplist}
 The set of all least common multiples of \(a\) and \(b\) is denoted \(\LCM{a}{b}\).

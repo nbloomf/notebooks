@@ -1,25 +1,36 @@
 We say that two lines are \emph{perpendicular} if they form a right angle.
 
 \begin{dfn}[Foot]
-Let \(\ell\) be a line and \(p\) a point not on \(\ell\) in a plane geometry. We say that a point \(f \in \ell\) is a \emph{foot} of \(p\) on \(\ell\) if \(\ell\) and \(\LINE{F}{P}\) are perpendicular.
+Let \(\ell\) be a line and \(p\) a point not on \(\ell\) in a plane geometry.
+We say that a point \(f \in \ell\) is a \emph{foot} of \(p\) on \(\ell\) if \(\ell\) and \(\LINE{F}{P}\) are perpendicular.
 \end{dfn}
 
 \begin{construct}[Foot of a point]
-Let \(\ell\) be a line and \(p\) a point not on \(\ell\) in a plane geometry. Then \(p\) has a unique foot on \(\ell\).
+Let \(\ell\) be a line and \(p\) a point not on \(\ell\) in a plane geometry.
+Then \(p\) has a unique foot on \(\ell\).
 \end{construct}
 
 \begin{proof}
-To see existence, let \(x\) and \(y\) be distinct points on \(\ell\). Note that \(\CIRCLE{x}{p} \cap \CIRCLE{y}{p}\) is not empty, and by Circle Cut Transfer there is a second point \(o\) in the intersection of these circles which is on the opposite side of \(\ell\). By the Plane Separation property, \(\ell\) and \(\SEGMENT{o}{p}\) meet at a unique point \(f\). Now \(\TRIANGLE{o}{x}{y} \equiv \TRIANGLE{p}{x}{y}\) by SSS, so that \(\ANGLE{p}{x}{f} \equiv \ANGLE{o}{x}{f}\). Then \(\TRIANGLE{p}{x}{f} \equiv \TRIANGLE{o}{x}{f}\) by SAS. Then \(\ANGLE{p}{f}{x} \equiv \ANGLE{o}{f}{x}\), so that \(\ell\) and \(\LINE{o}{p}\) meet at a right angle as needed.
+To see existence, let \(x\) and \(y\) be distinct points on \(\ell\).
+Note that \(\CIRCLE{x}{p} \cap \CIRCLE{y}{p}\) is not empty, and by Circle Cut Transfer there is a second point \(o\) in the intersection of these circles which is on the opposite side of \(\ell\).
+By the Plane Separation property, \(\ell\) and \(\SEGMENT{o}{p}\) meet at a unique point \(f\).
+Now \(\TRIANGLE{o}{x}{y} \equiv \TRIANGLE{p}{x}{y}\) by SSS, so that \(\ANGLE{p}{x}{f} \equiv \ANGLE{o}{x}{f}\).
+Then \(\TRIANGLE{p}{x}{f} \equiv \TRIANGLE{o}{x}{f}\) by SAS.
+Then \(\ANGLE{p}{f}{x} \equiv \ANGLE{o}{f}{x}\), so that \(\ell\) and \(\LINE{o}{p}\) meet at a right angle as needed.
 
 To see uniqueness, note that if \(p\) has two distinct feet \(f_1\) and \(f_2\) on \(\ell\) then \(p\), \(f_1\), and \(f_2\) form a triangle with two internal right angles -- a contradiction.
 \end{proof}
 
 \begin{construct}[Perpendicular at a point]
-Let \(\ell\) be a line and \(p \in \ell\) a point in a plane geometry. There exists a unique line \(t\) containing \(p\) which is perpendicular to \(\ell\).
+Let \(\ell\) be a line and \(p \in \ell\) a point in a plane geometry.
+There exists a unique line \(t\) containing \(p\) which is perpendicular to \(\ell\).
 \end{construct}
 
 \begin{proof}
-Let \(x\) be a point on \(\ell\) different from \(p\), and copy \(\SEGMENT{p}{x}\) to the opposite side of \(p\) at a point \(y\) by Circle Separation. Note that \(p\) is the midpoint of \(\SEGMENT{x}{y}\). Construct a point \(z\) such that \(\TRIANGLE{x}{y}{z}\) is equilateral. Now \(\TRIANGLE{z}{x}{p} \equiv \TRIANGLE{z}{y}{p}\) by SSS, so that \(\ANGLE{z}{p}{x} \equiv \ANGLE{z}{p}{y}\), and thus \(\LINE{p}{z}\) is perpendicular to \(\ell\).
+Let \(x\) be a point on \(\ell\) different from \(p\), and copy \(\SEGMENT{p}{x}\) to the opposite side of \(p\) at a point \(y\) by Circle Separation.
+Note that \(p\) is the midpoint of \(\SEGMENT{x}{y}\).
+Construct a point \(z\) such that \(\TRIANGLE{x}{y}{z}\) is equilateral.
+Now \(\TRIANGLE{z}{x}{p} \equiv \TRIANGLE{z}{y}{p}\) by SSS, so that \(\ANGLE{z}{p}{x} \equiv \ANGLE{z}{p}{y}\), and thus \(\LINE{p}{z}\) is perpendicular to \(\ell\).
 
 Uniqueness follows from the uniqueness of angles on a half-plane.
 \end{proof}
@@ -35,60 +46,95 @@ In a plane geometry, a line and a circle can have at most two points in common.
 \end{prop}
 
 \begin{proof}
-Let \(\ell\) be a line and \(\CIRCLE{o}{a}\) a circle which have at least three points in common; say \(x\), \(y\), and \(z\). Suppose WLOG that \(\BETWEEN{x}{y}{z}\). Note that \(o\) cannot also be on \(\ell\), as in this case \(z\) cannot be distinct from both \(x\) and \(y\) by the uniqueness of congruent segments on rays. Now \(\ANGLE{o}{y}{x} \equiv \ANGLE{o}{x}{y}\), \(\ANGLE{o}{y}{z} \equiv \ANGLE{o}{z}{y}\), and \(\ANGLE{o}{x}{z} \equiv \ANGLE{o}{z}{x}\) by Pons Asinorum. In particular, \(\ANGLE{o}{y}{x}\) is right, so that \(\TRIANGLE{o}{x}{y}\) has two right interior angles -- a contradiction.
+Let \(\ell\) be a line and \(\CIRCLE{o}{a}\) a circle which have at least three points in common; say \(x\), \(y\), and \(z\).
+Suppose WLOG that \(\BETWEEN{x}{y}{z}\).
+Note that \(o\) cannot also be on \(\ell\), as in this case \(z\) cannot be distinct from both \(x\) and \(y\) by the uniqueness of congruent segments on rays.
+Now \(\ANGLE{o}{y}{x} \equiv \ANGLE{o}{x}{y}\), \(\ANGLE{o}{y}{z} \equiv \ANGLE{o}{z}{y}\), and \(\ANGLE{o}{x}{z} \equiv \ANGLE{o}{z}{x}\) by Pons Asinorum.
+In particular, \(\ANGLE{o}{y}{x}\) is right, so that \(\TRIANGLE{o}{x}{y}\) has two right interior angles -- a contradiction.
 \end{proof}
 
 \begin{dfn}[Tangent, Secant]
-Let \(\ell\) be a line and \(C\) a circle in a plane geometry. We say that \(\ell\) is \emph{tangent to} \(C\) if \(\ell\) and \(C\) have exactly one point in common. Suppose this point is \(t\); in this case we say that \(\ell\) is tangent to \(C\) \emph{at} \(t\). Similarly, we say that \(\ell\) is a \emph{secant} of \(C\) if \(\ell\) and \(C\) have exactly two distinct points in common.
+Let \(\ell\) be a line and \(C\) a circle in a plane geometry.
+We say that \(\ell\) is \emph{tangent to} \(C\) if \(\ell\) and \(C\) have exactly one point in common.
+Suppose this point is \(t\); in this case we say that \(\ell\) is tangent to \(C\) \emph{at} \(t\).
+Similarly, we say that \(\ell\) is a \emph{secant} of \(C\) if \(\ell\) and \(C\) have exactly two distinct points in common.
 \end{dfn}
 
 \begin{prop}
-Let \(\ell\) be a line and \(C\) a circle with center \(o\) in a plane geometry. Then \(\ell\) is tangent to \(C\) if and only if \(o\) is not on \(\ell\) and the foot of \(o\) on \(\ell\) is on \(C\).
+Let \(\ell\) be a line and \(C\) a circle with center \(o\) in a plane geometry.
+Then \(\ell\) is tangent to \(C\) if and only if \(o\) is not on \(\ell\) and the foot of \(o\) on \(\ell\) is on \(C\).
 \end{prop}
 
 \begin{proof}
-Suppose \(\ell\) is tangent to \(C\) at \(p\). If \(o \in \ell\), then \(\ell \cap C\) contains a second point by Circle Separation; so in fact \(o\) is not on \(\ell\). Let \(f\) be the foot of \(o\) on \(\ell\). If \(f \neq p\), then \(o\), \(f\), and \(p\) are noncollinear and form a triangle. Since \(\SEGMENT{o}{p} \equiv \SEGMENT{o}{f}\) and \(\ANGLE{o}{f}{p}\) is right, \(\ANGLE{o}{p}{f}\) is also right by Pons Asinorum. But no triangle can have two right interior angles.
+Suppose \(\ell\) is tangent to \(C\) at \(p\).
+If \(o \in \ell\), then \(\ell \cap C\) contains a second point by Circle Separation; so in fact \(o\) is not on \(\ell\).
+Let \(f\) be the foot of \(o\) on \(\ell\).
+If \(f \neq p\), then \(o\), \(f\), and \(p\) are noncollinear and form a triangle.
+Since \(\SEGMENT{o}{p} \equiv \SEGMENT{o}{f}\) and \(\ANGLE{o}{f}{p}\) is right, \(\ANGLE{o}{p}{f}\) is also right by Pons Asinorum.
+But no triangle can have two right interior angles.
 
-Conversely, suppose \(\ell\) does not contain \(o\) and that the foot \(f\) of \(o\) on \(\ell\) is on \(C\). Suppose BWOC that there is a second point \(g \in \ell \cap C\). Now \(o\), \(f\), and \(g\) are noncollinear, and \(\SEGMENT{o}{f} \equiv \SEGMENT{o}{g}\), and \(\ANGLE{o}{f}{g}\) is right (by the definition of foot). So \(\ANGLE{o}{g}{f}\) is right by Pons Asinorum, again a contradiction. So \(C \cap \ell\) contains exactly one point as needed. 
+Conversely, suppose \(\ell\) does not contain \(o\) and that the foot \(f\) of \(o\) on \(\ell\) is on \(C\).
+Suppose BWOC that there is a second point \(g \in \ell \cap C\).
+Now \(o\), \(f\), and \(g\) are noncollinear, and \(\SEGMENT{o}{f} \equiv \SEGMENT{o}{g}\), and \(\ANGLE{o}{f}{g}\) is right (by the definition of foot).
+So \(\ANGLE{o}{g}{f}\) is right by Pons Asinorum, again a contradiction.
+So \(C \cap \ell\) contains exactly one point as needed.
 \end{proof}
 
 \begin{construct}[Tangent at a point]
-Let \(C\) be a circle with center \(o\) and let \(p\) be a point on \(C\). There exists a line \(\ell\) which is tangent to \(C\) at \(p\).
+Let \(C\) be a circle with center \(o\) and let \(p\) be a point on \(C\).
+There exists a line \(\ell\) which is tangent to \(C\) at \(p\).
 \end{construct}
 
 \begin{proof}
-Construct the line \(\ell\) which is perpendicular to \(\LINE{o}{p}\) at \(p\). Then \(o\) is not on \(\ell\), and \(p\) is the foot of \(o\) on \(\ell\). So \(\ell\) is tangent to \(C\) at \(p\).
+Construct the line \(\ell\) which is perpendicular to \(\LINE{o}{p}\) at \(p\).
+Then \(o\) is not on \(\ell\), and \(p\) is the foot of \(o\) on \(\ell\).
+So \(\ell\) is tangent to \(C\) at \(p\).
 \end{proof}
 
 \begin{construct}[Second cut of line and circle]
-Let \(\ell\) be a line and \(C\) a circle with center \(o\) in a plane geometry such that \(\ell\) is not tangent to \(C\). Suppose \(p \in \ell \cap C\). We may construct the second point in \(\ell \cap C\).
+Let \(\ell\) be a line and \(C\) a circle with center \(o\) in a plane geometry such that \(\ell\) is not tangent to \(C\).
+Suppose \(p \in \ell \cap C\).
+We may construct the second point in \(\ell \cap C\).
 \end{construct}
 
 \begin{proof}
-If \(o\) is on \(\ell\), use Circle Separation. If \(o\) not on \(\ell\), construct the foot \(f\) of \(o\) on \(\ell\). Using Circle Separation, copy \(\SEGMENT{f}{p}\) onto the opposite side of \(f\) from \(p\) at the point \(q\). Note that \(\TRIANGLE{o}{f}{p} \equiv \TRIANGLE{o}{f}{q}\) by SAS, so that \(\SEGMENT{o}{p} \equiv \SEGMENT{o}{q}\); thus \(q \in \ell \cap C\) as needed.
+If \(o\) is on \(\ell\), use Circle Separation.
+If \(o\) not on \(\ell\), construct the foot \(f\) of \(o\) on \(\ell\).
+Using Circle Separation, copy \(\SEGMENT{f}{p}\) onto the opposite side of \(f\) from \(p\) at the point \(q\).
+Note that \(\TRIANGLE{o}{f}{p} \equiv \TRIANGLE{o}{f}{q}\) by SAS, so that \(\SEGMENT{o}{p} \equiv \SEGMENT{o}{q}\); thus \(q \in \ell \cap C\) as needed.
 \end{proof}
 
 \subsection*{Comparing Segments}
 
 \begin{dfn}
-Let \(\SEGMENT{a}{b}\) and \(\SEGMENT{c}{d}\) be segments in a plane geometry. We say that \(\SEGMENT{a}{b} \leq \SEGMENT{c}{d}\) if there is a point \(x \in \SEGMENT{c}{d}\) such that \(\SEGMENT{a}{b} \equiv \SEGMENT{c}{x}\).
+Let \(\SEGMENT{a}{b}\) and \(\SEGMENT{c}{d}\) be segments in a plane geometry.
+We say that \(\SEGMENT{a}{b} \leq \SEGMENT{c}{d}\) if there is a point \(x \in \SEGMENT{c}{d}\) such that \(\SEGMENT{a}{b} \equiv \SEGMENT{c}{x}\).
 \end{dfn}
 
 \begin{prop} \mbox{}
 \begin{enumerate}
 \item If \(\SEGMENT{a_1}{b_1} \equiv \SEGMENT{a_2}{b_2}\), \(\SEGMENT{c_1}{d_1} \equiv \SEGMENT{c_2}{d_2}\), and \(\SEGMENT{a_1}{b_1} \leq \SEGMENT{c_1}{d_1}\), then \(\SEGMENT{a_2}{b_2} \leq \SEGMENT{c_2}{d_2}\).
 \item If \(\SEGMENT{a}{b} \leq \SEGMENT{c}{d}\) and \(\SEGMENT{c}{d} \leq \SEGMENT{e}{f}\), then \(\SEGMENT{a}{b} \leq \SEGMENT{e}{f}\).
-\item If \(\BETWEEN{a}{b}{c}\), then \(\SEGMENT{a}{b} \leq \SEGMENT{a}{c}\). If \([abcd]\), then \(\SEGMENT{b}{c} \leq \SEGMENT{a}{d}\).
+\item If \(\BETWEEN{a}{b}{c}\), then \(\SEGMENT{a}{b} \leq \SEGMENT{a}{c}\).
+If \([abcd]\), then \(\SEGMENT{b}{c} \leq \SEGMENT{a}{d}\).
 \item If \(\SEGMENT{a}{b} \leq \SEGMENT{c}{d}\) and \(\SEGMENT{c}{d} \leq \SEGMENT{a}{b}\), then \(\SEGMENT{a}{b} \equiv \SEGMENT{c}{d}\).
 \end{enumerate}
 \end{prop}
 
 \begin{proof}
-\item There is a point \(x \in \SEGMENT{c_1}{d_1}\) such that \(\SEGMENT{a_1}{b_1} \equiv \SEGMENT{c_1}{x}\). Now copy \(\SEGMENT{c_1}{x}\) onto \(\RAY{c_2}{d_2}\) at the point \(y\); note that \(\BETWEEN{c_2}{y}{d_2}\), so that \(y \in \SEGMENT{c_2}{d_2}\). Now \(\SEGMENT{a_2}{b_2} \equiv \SEGMENT{c_2}{y}\) as needed.
+\item There is a point \(x \in \SEGMENT{c_1}{d_1}\) such that \(\SEGMENT{a_1}{b_1} \equiv \SEGMENT{c_1}{x}\).
+Now copy \(\SEGMENT{c_1}{x}\) onto \(\RAY{c_2}{d_2}\) at the point \(y\); note that \(\BETWEEN{c_2}{y}{d_2}\), so that \(y \in \SEGMENT{c_2}{d_2}\).
+Now \(\SEGMENT{a_2}{b_2} \equiv \SEGMENT{c_2}{y}\) as needed.
 
-\item There exists a point \(x \in \SEGMENT{c}{d}\) such that \(\SEGMENT{a}{b} \equiv \SEGMENT{c}{x}\), and a point \(y \in \SEGMENT{e}{f}\) such that \(\SEGMENT{c}{d} \equiv \SEGMENT{e}{y}\). Now copy \(\SEGMENT{c}{x}\) onto \(\RAY{e}{y}\) at the point \(z\); note that \(\BETWEEN{e}{z}{y}\); in particular, \(\SEGMENT{a}{b} \equiv \SEGMENT{e}{z}\).
+\item There exists a point \(x \in \SEGMENT{c}{d}\) such that \(\SEGMENT{a}{b} \equiv \SEGMENT{c}{x}\), and a point \(y \in \SEGMENT{e}{f}\) such that \(\SEGMENT{c}{d} \equiv \SEGMENT{e}{y}\).
+Now copy \(\SEGMENT{c}{x}\) onto \(\RAY{e}{y}\) at the point \(z\); note that \(\BETWEEN{e}{z}{y}\); in particular, \(\SEGMENT{a}{b} \equiv \SEGMENT{e}{z}\).
 
 \item Clear.
 
-\item There exists a point \(x \in \SEGMENT{c}{d}\) such that \(\SEGMENT{c}{x} \equiv \SEGMENT{a}{b}\). Now either \(x = c\), \(x = d\), or \(\BETWEEN{c}{x}{d}\). If \(x = c\), then \(b = a\), and \(d = c\), so that \(\SEGMENT{a}{b} \equiv \SEGMENT{c}{d}\). Suppose \(\BETWEEN{c}{x}{d}\). There is a point \(y \in \SEGMENT{a}{b}\) such that \(\SEGMENT{c}{y} \equiv \SEGMENT{a}{b}\); but now \(\BETWEEN{a}{b}{y}\), a contradiction. So we have \(x = d\) as needed.
+\item There exists a point \(x \in \SEGMENT{c}{d}\) such that \(\SEGMENT{c}{x} \equiv \SEGMENT{a}{b}\).
+Now either \(x = c\), \(x = d\), or \(\BETWEEN{c}{x}{d}\).
+If \(x = c\), then \(b = a\), and \(d = c\), so that \(\SEGMENT{a}{b} \equiv \SEGMENT{c}{d}\).
+Suppose \(\BETWEEN{c}{x}{d}\).
+There is a point \(y \in \SEGMENT{a}{b}\) such that \(\SEGMENT{c}{y} \equiv \SEGMENT{a}{b}\); but now \(\BETWEEN{a}{b}{y}\), a contradiction.
+So we have \(x = d\) as needed.
 \end{proof}

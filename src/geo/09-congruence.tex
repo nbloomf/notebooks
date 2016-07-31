@@ -1,7 +1,9 @@
-Intuitively, we want to say that two sets of points in a geometry are ``congruent'' if they have the same size and shape. Rather than defining congruence once and for all, we will define congruence in terms of primitive congruence relations on two special kinds of sets: segments and angles.
+Intuitively, we want to say that two sets of points in a geometry are ``congruent'' if they have the same size and shape.
+Rather than defining congruence once and for all, we will define congruence in terms of primitive congruence relations on two special kinds of sets: segments and angles.
 
 \begin{dfn}[Segment Congruence]
-Let \(P\) be an ordered geometry, and suppose we have an equivalence relation on pairs of points, denoted \(\SEGCONG{\ast}{\ast}{\ast}{\ast}\). We call \(\SEGCONG{\ast}{\ast}{\ast}{\ast}\) a \emph{segment congruence}\index{congruence!of segments} if the following properties are satisfied.
+Let \(P\) be an ordered geometry, and suppose we have an equivalence relation on pairs of points, denoted \(\SEGCONG{\ast}{\ast}{\ast}{\ast}\).
+We call \(\SEGCONG{\ast}{\ast}{\ast}{\ast}\) a \emph{segment congruence}\index{congruence!of segments} if the following properties are satisfied.
 \begin{proplist}
 \item[SC1.] \(\SEGCONG{x}{x}{y}{y}\) for all points \(x\) and \(y\).
 \item[SC2.] \(\SEGCONG{x}{y}{y}{x}\) for all points \(x\) and \(y\).
@@ -13,7 +15,8 @@ In this case, \(\SEGCONG{\ast}{\ast}{\ast}{\ast}\) is well-defined on the set of
 The first property handles the ``trivial'' case, the second makes the relation well-defined on segments, and the third ensures that it differentiates between segments on the same ray which share an endpoint.
 
 \begin{dfn}[Angle Congruence]
-Let \(P\) be an ordered geometry, and suppose we have an equivalence relation on triples of points, denoted \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\). We call \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\) an \emph{angle congruence}\index{congruence!of angles} if the following properties are satisfied.
+Let \(P\) be an ordered geometry, and suppose we have an equivalence relation on triples of points, denoted \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\).
+We call \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\) an \emph{angle congruence}\index{congruence!of angles} if the following properties are satisfied.
 \begin{itemize}
 \item[AC1.] If \(\BETWEEN{x}{y}{z}\) and \(\BETWEEN{a}{b}{c}\), then \(\ANGCONG{x}{y}{z}{a}{b}{c}\) and \(\ANGCONG{y}{x}{z}{b}{a}{c}\), and it is not the case that \(\ANGCONG{x}{y}{z}{y}{x}{z}\).
 \item[AC2.] If \(x \in \RAY{o}{a}\) and \(y \in \RAY{o}{b}\) and \(x\), \(y\), and \(o\) are distinct, then \(\ANGCONG{a}{o}{b}{x}{o}{y}\).
@@ -26,13 +29,16 @@ In this case, \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\) is an equivalence
 Much like the properties of segment congruence, the first property handles the trivial cases, the second and third make the relation well-defined on angles, and the fourth ensures that it differentiates between angles on one half-plane which share a vertex.
 
 \begin{dfn}[Congruence Geometry]
-Let \(P\) be an ordered geometry. If \(P\) has a segment congruence and an angle congruence, we say that \(P\) is an \emph{ordered geometry}\index{ordered geometry}.
+Let \(P\) be an ordered geometry.
+If \(P\) has a segment congruence and an angle congruence, we say that \(P\) is an \emph{ordered geometry}\index{ordered geometry}.
 \end{dfn}
 
-We can define congruence of many different kinds of figures in terms of segment and angle congruence. For instance...
+We can define congruence of many different kinds of figures in terms of segment and angle congruence.
+For instance...
 
 \begin{dfn}[Triangle Congruence]
-Let \(a\), \(b\), and \(c\) be distinct points, and let \(x\), \(y\), and \(z\) be distinct points. We say that \(\TRIANGLE{a}{b}{c}\) is \emph{congruent}\index{congruence!of triangles} to \(\TRIANGLE{x}{y}{z}\), denoted \(\TRIANGLE{a}{b}{c} \equiv \TRIANGLE{x}{y}{z}\), if \[ \SEGMENT{a}{b} \equiv \SEGMENT{x}{y}, \quad \SEGMENT{b}{c} \equiv \SEGMENT{y}{z}, \quad \mathrm{and} \quad \SEGMENT{c}{a} \equiv \SEGMENT{z}{x} \] and \[ \ANGLE{a}{b}{c} \equiv \ANGLE{x}{y}{z}, \quad \ANGLE{b}{c}{a} \equiv \ANGLE{y}{z}{x}, \quad \mathrm{and} \quad \ANGLE{c}{a}{b} \equiv \ANGLE{z}{x}{y}. \]
+Let \(a\), \(b\), and \(c\) be distinct points, and let \(x\), \(y\), and \(z\) be distinct points.
+We say that \(\TRIANGLE{a}{b}{c}\) is \emph{congruent}\index{congruence!of triangles} to \(\TRIANGLE{x}{y}{z}\), denoted \(\TRIANGLE{a}{b}{c} \equiv \TRIANGLE{x}{y}{z}\), if \[ \SEGMENT{a}{b} \equiv \SEGMENT{x}{y}, \quad \SEGMENT{b}{c} \equiv \SEGMENT{y}{z}, \quad \mathrm{and} \quad \SEGMENT{c}{a} \equiv \SEGMENT{z}{x} \] and \[ \ANGLE{a}{b}{c} \equiv \ANGLE{x}{y}{z}, \quad \ANGLE{b}{c}{a} \equiv \ANGLE{y}{z}{x}, \quad \mathrm{and} \quad \ANGLE{c}{a}{b} \equiv \ANGLE{z}{x}{y}. \]
 \end{dfn}
 
 \begin{dfn}
@@ -45,7 +51,8 @@ Let \(a\), \(b\), and \(c\) be distinct points.
 
 
 \begin{dfn}[Supplementary Angles]
-We say that angles \(\ANGLE{a}{o}{b}\) and \(\ANGLE{x}{p}{y}\) are \emph{supplementary}\index{supplementary angles} if there is a linear pair, \(\ANGLE{u}{q}{v}\) and \(\ANGLE{v}{q}{w}\), such that \(\ANGLE{a}{o}{b} \equiv \ANGLE{u}{q}{v}\) and \(\ANGLE{x}{p}{y} \equiv \ANGLE{v}{q}{w}\). In this case we say that \(\ANGLE{x}{p}{y}\) is a \emph{supplement} of \(\ANGLE{a}{o}{b}\).
+We say that angles \(\ANGLE{a}{o}{b}\) and \(\ANGLE{x}{p}{y}\) are \emph{supplementary}\index{supplementary angles} if there is a linear pair, \(\ANGLE{u}{q}{v}\) and \(\ANGLE{v}{q}{w}\), such that \(\ANGLE{a}{o}{b} \equiv \ANGLE{u}{q}{v}\) and \(\ANGLE{x}{p}{y} \equiv \ANGLE{v}{q}{w}\).
+In this case we say that \(\ANGLE{x}{p}{y}\) is a \emph{supplement} of \(\ANGLE{a}{o}{b}\).
 \end{dfn}
 
 \begin{prop}

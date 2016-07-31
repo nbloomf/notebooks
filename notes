@@ -6,7 +6,7 @@ use \(x\) for inline math mode instead of $x$ (tex-words needs this)
 make a Hint macro and use it (badness check)
 each exercise needs a label, which should be right after \begin{exercise} (badness check)
 use \autoref for Section and Chapter and Figure, \eref for Exercise, and (???) (badness check)
-no space between emph and index (badness check)
+no space between emph and index in definitions (badness check)
 
 
 
@@ -36,3 +36,11 @@ The Basic Questions
 what is the simplest example?
 can any hypotheses be dropped?
 can it be parameterized?
+
+
+
+Topics
+======
+symmetric polynomials
+formal power series
+multivariate polynomials

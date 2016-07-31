@@ -1,33 +1,46 @@
-One of our big questions is to what extent the structure of \(R\) is reflected in the structure of \(R[x]\); if \(R\) has more ``technology'' available, perhaps this can be used to say interesting things about the polynomials over \(R\). In fact, thanks to the polynomial long division algorithm, if \(R\) is a domain then \(R[x]\) is already sitting inside a Euclidean domain -- namely \(F[x]\) where \(F\) is the field of fractions of \(R\). So it doesn't take much to get extra technology in \(R[x]\).
+One of our big questions is to what extent the structure of \(R\) is reflected in the structure of \(R[x]\); if \(R\) has more ``technology'' available, perhaps this can be used to say interesting things about the polynomials over \(R\).
+In fact, thanks to the polynomial long division algorithm, if \(R\) is a domain then \(R[x]\) is already sitting inside a Euclidean domain -- namely \(F[x]\) where \(F\) is the field of fractions of \(R\).
+So it doesn't take much to get extra technology in \(R[x]\).
 
 \begin{dfn}[Content of a polynomial] \label{dfn:poly-content}
-Let \(R\) be a GCD domain and let \(p(x) \in R[x]\) be a polynomial with coefficients \(a_i\). We define the \emph{content} of \(p(x)\) to be \[ \CONTENT{p} = \left\{ \begin{array}{ll} 0 & \mathrm{if}\ p(x) = 0 \\ \GCDS{a_0,a_1,\ldots,a_d} & \mathrm{if}\ p(x) \neq 0, \mathrm{where}\ d = \deg{p}. \end{array} \right. \] If \(\CONTENT{p} = 1\), we say that \(p(x)\) is \emph{primitive}. \index{content} \index{primitive!polynomial}
+Let \(R\) be a GCD domain and let \(p(x) \in R[x]\) be a polynomial with coefficients \(a_i\).
+We define the \emph{content}\index{content} of \(p(x)\) to be \[ \CONTENT{p} = \left\{ \begin{array}{ll} 0 & \mathrm{if}\ p(x) = 0 \\ \GCDS{a_0,a_1,\ldots,a_d} & \mathrm{if}\ p(x) \neq 0, \mathrm{where}\ d = \deg{p}. \end{array} \right. \] If \(\CONTENT{p} = 1\), we say that \(p(x)\) is \emph{primitive}\index{primitive!polynomial}.
 \end{dfn}
 
-Since the content of a polynomial is defined as a greatest common divisor, it may be difficult to actually compute \(\CONTENT{p}\). But if our ring of coefficients is a Euclidean domain with an effective division algorithm, computing \(\CONTENT{p}\) is not too bad with the Euclidean algorithm. Our primary example is the GCD domain \(\ZZ\). For example, over this ring we have \[ \CONTENT{2x^3 + 4x - 6} = \GCDS{2,4,-6} = 2. \] Every monic polynomial is primitive, and (less interestingly) every nonzero polynomial over a field is primitive.
+Since the content of a polynomial is defined as a greatest common divisor, it may be difficult to actually compute \(\CONTENT{p}\).
+But if our ring of coefficients is a Euclidean domain with an effective division algorithm, computing \(\CONTENT{p}\) is not too bad with the Euclidean algorithm.
+Our primary example is the GCD domain \(\ZZ\).
+For example, over this ring we have \[ \CONTENT{2x^3 + 4x - 6} = \GCDS{2,4,-6} = 2. \] Every monic polynomial is primitive, and (less interestingly) every nonzero polynomial over a field is primitive.
 
 \begin{prop} \label{prop:content-basics}
 Let \(R\) be a GCD domain.
 \begin{proplist}
 \item Every polynomial \(a(x) \in R[x]\) can be written as \(a(x) = \CONTENT{a} \overline{a}(x)\), where \(\overline{a}(x) \in R[x]\) is primitive.
-\item Let \(d \in R\) and \(a(x) \in R[x]\). Then the constant polynomial \(d\) divides \(a(x)\) in \(R[x]\) if and only if \(d\) divides \(\CONTENT{a}\) in \(R\).
-\item Let \(d \in R\) and \(a(x), b(x) \in R[x]\). If \(d|\CONTENT{a+b}\) and \(d|\CONTENT{a}\), then \(d|\CONTENT{b}\).
+\item Let \(d \in R\) and \(a(x) \in R[x]\).
+Then the constant polynomial \(d\) divides \(a(x)\) in \(R[x]\) if and only if \(d\) divides \(\CONTENT{a}\) in \(R\).
+\item Let \(d \in R\) and \(a(x), b(x) \in R[x]\).
+If \(d|\CONTENT{a+b}\) and \(d|\CONTENT{a}\), then \(d|\CONTENT{b}\).
 \item If \(d \in R\) and \(a(x) \in R[x]\), then \(\CONTENT{da} = d\CONTENT{a}\).
-\item Let \(F\) be the field of fractions of \(R\) and let \(q(x) \in F[x]\). Then there is a fraction \(\frac{u}{v} \in F\) such that \(p(x) = \frac{u}{v}q(x)\) is in \(R[x]\) and is primitive there.
+\item Let \(F\) be the field of fractions of \(R\) and let \(q(x) \in F[x]\).
+Then there is a fraction \(\frac{u}{v} \in F\) such that \(p(x) = \frac{u}{v}q(x)\) is in \(R[x]\) and is primitive there.
 \item \(\CONTENT{x^n a(x)} = \CONTENT{a(x)}\).
 \end{proplist}
 \end{prop}
 
 \begin{proof}
 \begin{inlineproplist}
-\item If \(a(x) = 0\), set \(\overline{a}(x) = 1\). Suppose \(a(x) \neq 0\). Now \(\CONTENT{a} = \GCDS{a_0,a_1,\ldots,a_n}\), and in particular for each \(i\) we have \(a_i = \CONTENT{a}\overline{a}_i\) for some \(\overline{a}_i\), and \(\GCDS{\overline{a}_0, \overline{a}_1, \ldots, \overline{a}_n} = 1\). Let \(\overline{a}(x) = \sum_{i=0}^n \overline{a}_i x^i\).
+\item If \(a(x) = 0\), set \(\overline{a}(x) = 1\).
+Suppose \(a(x) \neq 0\).
+Now \(\CONTENT{a} = \GCDS{a_0,a_1,\ldots,a_n}\), and in particular for each \(i\) we have \(a_i = \CONTENT{a}\overline{a}_i\) for some \(\overline{a}_i\), and \(\GCDS{\overline{a}_0, \overline{a}_1, \ldots, \overline{a}_n} = 1\).
+Let \(\overline{a}(x) = \sum_{i=0}^n \overline{a}_i x^i\).
 
 \item (write these)
 \end{inlineproplist}
 \end{proof}
 
 \begin{prop}[Gauss' Lemma -- Part I] \label{prop:gauss-lemma-1}
-Let \(R\) be a GCD Domain with \(a(x), b(x) \in R[x]\). If \(a(x)\) and \(b(x)\) are primitive, then \(a(x)b(x)\) is primitive.
+Let \(R\) be a GCD Domain with \(a(x), b(x) \in R[x]\).
+If \(a(x)\) and \(b(x)\) are primitive, then \(a(x)b(x)\) is primitive.
 \end{prop}
 
 \begin{proof}
@@ -37,11 +50,28 @@ We proceed by induction on the number \(k\) of nonzero terms of \(a\) and \(b\) 
 
 \textbf{Base Case} (\(k = 1\)): If \(a\) and \(b\) together have exactly one nonzero term, then either \(a(x) = 0\) or \(b(x) = 0\); one is not primitive.
 
-\textbf{Base Case} (\(k = 2\)): If \(a(x)\) and \(b(x)\) together have exactly two nonzero terms, then each must have exactly one. (Otherwise one is zero and thus not primitive.) Say \(a(x) = a_n x^n\) and \(b(x) = b_m x^m\). If both \(a(x)\) and \(b(x)\) are primitive, then \(a_n = \CONTENT{a}\) and \(b_m = \CONTENT{b}\) are units, so that \(\CONTENT{ab} = a_nb_m\) is a unit; hence \(a(x)b(x)\) is primitive.
+\textbf{Base Case} (\(k = 2\)): If \(a(x)\) and \(b(x)\) together have exactly two nonzero terms, then each must have exactly one.
+(Otherwise one is zero and thus not primitive.)
+Say \(a(x) = a_n x^n\) and \(b(x) = b_m x^m\).
+If both \(a(x)\) and \(b(x)\) are primitive, then \(a_n = \CONTENT{a}\) and \(b_m = \CONTENT{b}\) are units, so that \(\CONTENT{ab} = a_nb_m\) is a unit; hence \(a(x)b(x)\) is primitive.
 
-\textbf{Inductive Step:} Suppose the result holds for all pairs of primitive polynomials having less than \(n > 2\) nonzero terms together, and suppose that \(a(x)\) and \(b(x)\) are primitive with exactly \(n\) nonzero terms together. Say \(\deg{a} = n\) and \(\deg{b} = m\), so that the leading coefficients of \(a\), \(b\), and \(ab\) are \(a_n\), \(b_m\), and \(a_nb_m\), respectively. Now let \(c = \CONTENT{ab}\), and suppose BWOC that \(c\) is \emph{not} a unit. Note that \(c|a_nb_m\). Now \(\GCD{c}{a_n}\) and \(\GCD{c}{b_m}\) cannot both be units in \(R\). (If \(\GCD{c}{a_n} = 1\), then by Euclid's lemma we have \(c | \GCD{c}{b_m}\).) So suppose WLOG that \(\GCD{c}{a_n} = d\) is not a unit.
+\textbf{Inductive Step:} Suppose the result holds for all pairs of primitive polynomials having less than \(n > 2\) nonzero terms together, and suppose that \(a(x)\) and \(b(x)\) are primitive with exactly \(n\) nonzero terms together.
+Say \(\deg{a} = n\) and \(\deg{b} = m\), so that the leading coefficients of \(a\), \(b\), and \(ab\) are \(a_n\), \(b_m\), and \(a_nb_m\), respectively.
+Now let \(c = \CONTENT{ab}\), and suppose BWOC that \(c\) is \emph{not} a unit.
+Note that \(c|a_nb_m\).
+Now \(\GCD{c}{a_n}\) and \(\GCD{c}{b_m}\) cannot both be units in \(R\).
+(If \(\GCD{c}{a_n} = 1\), then by Euclid's lemma we have \(c | \GCD{c}{b_m}\).) So suppose WLOG that \(\GCD{c}{a_n} = d\) is not a unit.
 
-Now \(d|\CONTENT{ab}\) in \(R\), so that \(d|a(x)b(x)\) in \(R[x]\). Since \(d|a_n\), we also have \(d|a_nx^n\) in \(R[x]\). Thus \(d|b(x)(a(x) - a_nx^n)\) in \(R[x]\), and thus \[ d | \CONTENT{b(x)(a(x) - a_nx^n)} = \CONTENT{a(x) - a_nx^n}\CONTENT{b(x)p(x)}, \] where \(p(x) \in R[x]\) is primitive such that \(a(x) - a_nx^n = \CONTENT{a(x) - a_nx^n}p(x)\). In particular, note that \(p(x)\) and \(a(x) - a_nx^n\) have the same number of nonzero terms which is one fewer than the number of nonzero terms of \(a(x)\). Thus \(b\) and \(p\) have fewer than \(n\) nonzero terms. Since \(b\) and \(p\) are both primitive, by the inductive hypothesis, \(\CONTENT{bp} = 1\). Thus we have \(d|\CONTENT{a(x) - a_nx^n}\). Since \(d|\CONTENT{a_nx^n}\), by the lemma we have \(d|\CONTENT{a}\). But \(a\) is primitive, so that \(d\) is a unit, a contradiction. So \(a(x)b(x)\) must be primitive.
+Now \(d|\CONTENT{ab}\) in \(R\), so that \(d|a(x)b(x)\) in \(R[x]\).
+Since \(d|a_n\), we also have \(d|a_nx^n\) in \(R[x]\).
+Thus \(d|b(x)(a(x) - a_nx^n)\) in \(R[x]\), and thus \[ d | \CONTENT{b(x)(a(x) - a_nx^n)} = \CONTENT{a(x) - a_nx^n}\CONTENT{b(x)p(x)}, \] where \(p(x) \in R[x]\) is primitive such that \(a(x) - a_nx^n = \CONTENT{a(x) - a_nx^n}p(x)\).
+In particular, note that \(p(x)\) and \(a(x) - a_nx^n\) have the same number of nonzero terms which is one fewer than the number of nonzero terms of \(a(x)\).
+Thus \(b\) and \(p\) have fewer than \(n\) nonzero terms.
+Since \(b\) and \(p\) are both primitive, by the inductive hypothesis, \(\CONTENT{bp} = 1\).
+Thus we have \(d|\CONTENT{a(x) - a_nx^n}\).
+Since \(d|\CONTENT{a_nx^n}\), by the lemma we have \(d|\CONTENT{a}\).
+But \(a\) is primitive, so that \(d\) is a unit, a contradiction.
+So \(a(x)b(x)\) must be primitive.
 \end{proof}
 
 \begin{cor}
@@ -60,5 +90,6 @@ With \(a\), \(b\), and \(R\) as in \ref{prop:gauss-lemma-1} we have the followin
 %---------%
 
 \begin{exercise}
-Let \(R\) be a GCD domain. Show that if \(p(x) = a(x)b(x)\) and \(\CONTENT{p}\) is irreducible, then either \(a(x)\) or \(b(x)\) must be primitive.
+Let \(R\) be a GCD domain.
+Show that if \(p(x) = a(x)b(x)\) and \(\CONTENT{p}\) is irreducible, then either \(a(x)\) or \(b(x)\) must be primitive.
 \end{exercise}

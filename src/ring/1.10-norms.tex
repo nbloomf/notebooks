@@ -1,9 +1,14 @@
-In \(\ZZ\) there are lots of neat things we can do with irreducibles. Every integer is a product of irreducibles, \(\ZZ/(n)\) is a field precisely when \(n\) is irreducible, and algorithms for detecting irreducibles have practical applications. In a general ring we might hope that some of these neat things generalize. First, we need to be able to detect whether or not an element is irreducible. In \(\ZZ\) we have a brute-force algorithm for this thanks to induction, but most rings do not have an obvious analogue of this strategy.
+In \(\ZZ\) there are lots of neat things we can do with irreducibles.
+Every integer is a product of irreducibles, \(\ZZ/(n)\) is a field precisely when \(n\) is irreducible, and algorithms for detecting irreducibles have practical applications.
+In a general ring we might hope that some of these neat things generalize.
+First, we need to be able to detect whether or not an element is irreducible.
+In \(\ZZ\) we have a brute-force algorithm for this thanks to induction, but most rings do not have an obvious analogue of this strategy.
 
 In some rings (not all!) we can make progress on the problem of finding irreducibles by mapping the multiplicative structure of \(R\) to the \(\NN\) -- doing this we can take advantage of what we know about natural numbers and, sometimes, recover the benefits of induction.
 
 \begin{dfn}[Norm] \label{dfn:norm}
-Let \(R\) be a domain. A mapping \(N : R \rightarrow \NN\) is called a \emph{norm} \index{norm} if the following hold.
+Let \(R\) be a domain.
+A mapping \(N : R \rightarrow \NN\) is called a \emph{norm}\index{norm} if the following hold.
 \begin{itemize}
 \item[N1.] \(N(\alpha) = 0\) iff \(\alpha = 0\).
 \item[N2.] If \(\alpha,\beta \in R\) are nonzero then \(N(\alpha) \leq N(\alpha\beta)\).
@@ -18,18 +23,25 @@ We say \(N\) is \emph{multiplicative} if it satisfies the additional constraint 
 \item \(N : \ZZ \rightarrow \NN\) given by \(N(a) = |a|\) is a multiplicative norm.
 \item \(N : \ZZ[i] \rightarrow \NN\) given by \(N(a+bi) = a^2 + b^2\) is a multiplicative norm.
 \item More generally, \(N : \mathcal{O}(\sqrt{D}) \rightarrow \NN\) given by \(N(a+b\sqrt{D}) = |a^2 + Db^2|\) if \(D \equiv 2,3 \mod 4\) and \(N(a+b\frac{1+\sqrt{D}}{2}) = |a^2 + ab + b^2\frac{1-D}{4}|\) if \(D \equiv 1 \mod 4\) is a multiplicative norm.
-\item If \(R\) has a norm \(N\), then the quadratic extension of \(R\) by \(D\) has a norm \(M(a + b\sqrt{D}) = N(a^2 - Db^2)\). (@@@)
+\item If \(R\) has a norm \(N\), then the quadratic extension of \(R\) by \(D\) has a norm \(M(a + b\sqrt{D}) = N(a^2 - Db^2)\).
+(@@@)
 \end{examples}
 
 If a ring has a multiplicative norm, we can use it to detect (some) irreducible elements.
 
 \begin{prop}
-Let \(R\) be a domain and \(N : R \rightarrow \NN\) a multiplicative norm. If \(\alpha \in R\) such that \(N(\alpha)\) is prime in \(\NN\), then \(\alpha\) is irreducible in \(R\).
+Let \(R\) be a domain and \(N : R \rightarrow \NN\) a multiplicative norm.
+If \(\alpha \in R\) such that \(N(\alpha)\) is prime in \(\NN\), then \(\alpha\) is irreducible in \(R\).
 \end{prop}
 
-For example, consider \(\ZZ[i]\). Applying this result here, we see that \(a \pm bi\) is irreducible if \(a^2 + b^2\) is prime. In particular \(1 \pm i\), \(1 \pm 2i\), \(2 \pm 3i\), and many other Gaussian integers are irreducible (since \(1^2 + 1^2 = 2\), \(1^2 + 2^2 = 5\), and \(2^2 + 3^2 = 13\) are prime). This leads to a natural question about the natural numbers: for which primes \(p\) does the equation \(a^2 + b^2 = p\) have a solution?
+For example, consider \(\ZZ[i]\).
+Applying this result here, we see that \(a \pm bi\) is irreducible if \(a^2 + b^2\) is prime.
+In particular \(1 \pm i\), \(1 \pm 2i\), \(2 \pm 3i\), and many other Gaussian integers are irreducible (since \(1^2 + 1^2 = 2\), \(1^2 + 2^2 = 5\), and \(2^2 + 3^2 = 13\) are prime).
+This leads to a natural question about the natural numbers: for which primes \(p\) does the equation \(a^2 + b^2 = p\) have a solution?
 
-As this example shows, a good multiplicative norm can turn questions in \(R\) into number theory problems. This turns out to be a useful technique more generally: given a problem about some object, look for a way to map the relevant structure of that object to some other object which either is well-understood or with which we can compute things. A good strategy for solving algebraic problems is to try to reduce to number theory or to linear algebra.
+As this example shows, a good multiplicative norm can turn questions in \(R\) into number theory problems.
+This turns out to be a useful technique more generally: given a problem about some object, look for a way to map the relevant structure of that object to some other object which either is well-understood or with which we can compute things.
+A good strategy for solving algebraic problems is to try to reduce to number theory or to linear algebra.
 
 
 
@@ -38,7 +50,8 @@ As this example shows, a good multiplicative norm can turn questions in \(R\) in
 %---------%
 
 \begin{exercise}
-Let \(F\) be a field. Show that the map \(N : F \rightarrow \NN\) given by \[ N(x) = \left\{ \begin{array}{ll} 0 & \mathrm{if}\ x = 0_F \\ 1 & \mathrm{otherwise} \end{array} \right. \] is a multiplicative, unit-preserving norm.
+Let \(F\) be a field.
+Show that the map \(N : F \rightarrow \NN\) given by \[ N(x) = \left\{ \begin{array}{ll} 0 & \mathrm{if}\ x = 0_F \\ 1 & \mathrm{otherwise} \end{array} \right. \] is a multiplicative, unit-preserving norm.
 \end{exercise}
 
 \begin{exercise}
@@ -58,7 +71,8 @@ Let \(R\) be a domain and \(N\) a multiplicative norm on \(R\).
 \end{exercise}
 
 \begin{exercise}
-Draw the Hasse diagram of divisors of \(2\sqrt{-2}\) in zee adjoin sqrt minus 2. (@@@) make this one multipart
+Draw the Hasse diagram of divisors of \(2\sqrt{-2}\) in zee adjoin sqrt minus 2.
+(@@@) make this one multipart
 \end{exercise}
 
 \begin{dfn}

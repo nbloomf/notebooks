@@ -19,7 +19,11 @@ Then \(a(x) = q(x)b(x) + r(x)\) and we have \(\deg{b} \geq 1 > 0 = \deg{r}\).
 If \(\deg{a} < \deg{b}\), let \(q(x) = 0\) and \(r(x) = a(x)\).
 Now suppose instead that \(\deg{a} \geq \deg{b}\).
 Let \(m = \deg{b}\) and let \(a_n\) be the leading coefficient of \(a(x)\) and \(b_m\) the leading coefficient of \(b(x)\) (which is a unit).
-Define \(\overline{a}(x) = a(x) - a_nb_m^{-1}x^{n-m}b(x)\). Note that \(\deg{\overline{a}} < \deg{a}\). By the inductive hypothesis, we have \(\overline{q}(x), r(x) \in R[x]\) such that \(\overline{a}(x) = \overline{q}(x)b(x) + r(x)\) and either \(r(x) = 0\) or \(\deg{r} < \deg{b}\). Define \(q(x) = \overline{q}(x) + a_nb_m^{-1}x^{n-m}\). Now 
+Define \(\overline{a}(x) = a(x) - a_nb_m^{-1}x^{n-m}b(x)\).
+Note that \(\deg{\overline{a}} < \deg{a}\).
+By the inductive hypothesis, we have \(\overline{q}(x), r(x) \in R[x]\) such that \(\overline{a}(x) = \overline{q}(x)b(x) + r(x)\) and either \(r(x) = 0\) or \(\deg{r} < \deg{b}\).
+Define \(q(x) = \overline{q}(x) + a_nb_m^{-1}x^{n-m}\).
+Now 
 \begin{eqnarray*}
 a(x) - q(x)b(x) & = & a(x) - \overline{q}(x)b(x) - a_nb_m^{-1}x^{n-m}b(x) \\
  & = & \overline{a}(x) - \overline{q}(x)b(x) \\
@@ -30,27 +34,34 @@ as needed.
 By induction, the result holds for all \(n\).
 \end{proof}
 
-Note that this result is very general; the coefficient ring \(R\) is only required to be commutative and unital. In fact, with slight adjustments to the punchline, even the C and U conditions on \(R\) can be dropped (see the exercises). For us, for now, the most important situation will be when \(R\) is a field, because in this case \(R[x]\) is a Euclidean domain.
+Note that this result is very general; the coefficient ring \(R\) is only required to be commutative and unital.
+In fact, with slight adjustments to the punchline, even the C and U conditions on \(R\) can be dropped (see the exercises).
+For us, for now, the most important situation will be when \(R\) is a field, because in this case \(R[x]\) is a Euclidean domain.
 
 \begin{cor} \label{cor:polys-over-a-field}
 Suppose \(F\) is a field.
 \begin{proplist}
-\item \(F[x]\) is a Euclidean domain with norm \(N(a) = 2^{\deg{a}}\). In particular, \(F[x]\) is also a UFD and a GCD domain.
+\item \(F[x]\) is a Euclidean domain with norm \(N(a) = 2^{\deg{a}}\).
+In particular, \(F[x]\) is also a UFD and a GCD domain.
 \item \(p(x) \in F[x]\) is irreducible iff \(p(x)\) cannot be factored as a product of nonconstants.
 \item If \(p(x)\) has degree 1, then \(p(x)\) is irreducible in \(R[x]\).
 \end{proplist}
 \end{cor}
 
-In particular, if \(R\) is a domain, then \(R[x]\) is a subring of a Euclidean domain: namely, \(F[x]\), where \(F\) is the field of fractions of \(R\). This means that \(R[x]\) immediately has a much stronger structure than the average integral domain. For example: carrying out long division over \(F\) and then clearing denominators gives the following result.
+In particular, if \(R\) is a domain, then \(R[x]\) is a subring of a Euclidean domain: namely, \(F[x]\), where \(F\) is the field of fractions of \(R\).
+This means that \(R[x]\) immediately has a much stronger structure than the average integral domain.
+For example: carrying out long division over \(F\) and then clearing denominators gives the following result.
 
 \begin{cor} \label{cor:poly-long-div-over-domain}
 If \(R\) is a domain and \(a,b \in R[x]\) with \(b(x) \neq 0\), then there exist \(q,r \in R[x]\) and \(k \in R\) such that \(ka(x) = q(x)b(x) + r(x)\) and either \(r = 0\) or \(r \neq 0\) and \(\deg{r} < \deg{b}\).
 \end{cor}
 
-So far, we've been thinking of polynomials as objects in their own right. But we can also treat them like functions in the usual sense by ``plugging in'' ring elements for the variable. 
+So far, we've been thinking of polynomials as objects in their own right.
+But we can also treat them like functions in the usual sense by ``plugging in'' ring elements for the variable.
 
 \begin{dfn} \label{dfn:evaluation-map}
-Given a polynomial \(p(x) = \sum_{i=0}^n a_nx^n\) in \(R[x]\), \(R\) a commutative unital ring, we define the \emph{evaluation map} \(\POLYEVAL{p} : R \rightarrow R\) by \(\POLYEVAL{p}(r) = \sum_{i=0}^n a_i r^i\). \index{evaluation map} We say that an element \(r \in R\) is a \emph{root} of \(p(x)\) if \(\POLYEVAL{p}(r) = 0_R\). \index{root}
+Given a polynomial \(p(x) = \sum_{i=0}^n a_nx^n\) in \(R[x]\), \(R\) a commutative unital ring, we define the \emph{evaluation map}\index{evaluation map} \(\POLYEVAL{p} : R \rightarrow R\) by \(\POLYEVAL{p}(r) = \sum_{i=0}^n a_i r^i\).
+We say that an element \(r \in R\) is a \emph{root}\index{root} of \(p(x)\) if \(\POLYEVAL{p}(r) = 0_R\).
 \end{dfn}
 
 There is an important distinction between the polynomial \(p\) and its corresponding evaluation map \(\POLYEVAL{p}\), although in practice this distinction is easy to blur.
@@ -60,7 +71,7 @@ Let \(R\) be a commutative unital ring.
 Then \(\POLYEVAL{p+q}(r) = \POLYEVAL{p}(r) + \POLYEVAL{q}(r)\) and \(\POLYEVAL{pq}(r) = \POLYEVAL{p}(r) \POLYEVAL{q}(r)\).
 \end{prop}
 
-\begin{prop}[Factor Theorem] \label{prop:factor-theorem} \index{Factor Theorem}
+\begin{prop}[Factor Theorem]\label{prop:factor-theorem}\index{Factor Theorem}
 Let \(R\) be a commutative unital ring, with \(p(x) \in R[x]\) and \(a \in R\).
 Then \(a\) is a root of \(p(x)\) if and only if \(x-a\) divides \(p(x)\) in \(R[x]\).
 \end{prop}
@@ -96,17 +107,21 @@ Then \(p(x)\) cannot be written as a product of nonconstants in \(R[x]\) if and 
 \end{prop}
 
 \begin{proof}
-Note that if \(p(x) = a(x)b(x)\), then \(\deg{a} + \deg{b}\) is either 2 or 3. Thus \(p(x)\) is a product of nonconstants iff it has a factor of degree 1. But \(p(x)\) has a factor of degree 1 iff it has a root in \(R\).
+Note that if \(p(x) = a(x)b(x)\), then \(\deg{a} + \deg{b}\) is either 2 or 3.
+Thus \(p(x)\) is a product of nonconstants iff it has a factor of degree 1.
+But \(p(x)\) has a factor of degree 1 iff it has a root in \(R\).
 \end{proof}
 
 \begin{examples}
-\item The degree 2 polynomial \(p(x) = x^2 + 1\) is irreducible over \(\ZZ/(3)\) since it has no roots. 
+\item The degree 2 polynomial \(p(x) = x^2 + 1\) is irreducible over \(\ZZ/(3)\) since it has no roots.
 \end{examples}
 
 
 
 \begin{prop}
-Let \(R\) be a domain and \(q(x) = \sum_{i=0}^n \in R[x]\). Suppose \(p \in R\) is prime such that \(p \not| a_n\), \(p|a_i\) for each \(0 \leq i < n\), and \(p^2 \not| a_0\). Then \(q(x)\) cannot be factored as a product of nonconstants. 
+Let \(R\) be a domain and \(q(x) = \sum_{i=0}^n \in R[x]\).
+Suppose \(p \in R\) is prime such that \(p \not| a_n\), \(p|a_i\) for each \(0 \leq i < n\), and \(p^2 \not| a_0\).
+Then \(q(x)\) cannot be factored as a product of nonconstants.
 \end{prop}
 
 \begin{proof}

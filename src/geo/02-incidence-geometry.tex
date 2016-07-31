@@ -1,5 +1,5 @@
 Traditional plane geometry involves many different concepts, including \emph{lines}, \emph{angles}, \emph{congruent}, and many others.
-In order to manage the complexity this entails, we will build up our geometries one piece at a time starting here with the idea of \emph{collinearity}. 
+In order to manage the complexity this entails, we will build up our geometries one piece at a time starting here with the idea of \emph{collinearity}.
 
 \begin{dfn}[Incidence Geometry] \label{dfn:incidence-geometry}
 Let \(P\) be a set, whose elements we call \emph{points}.
@@ -49,7 +49,8 @@ Thinking at this level of abstraction may seem unnecessarily difficult at first,
 Here are some basic properties of lines which can be derived from the properties of collinearity alone.
 
 \begin{prop}
-Let \(P\) be an incidence geometry. Then the following hold for all distinct points \(a\) and \(b\) in \(P\).
+Let \(P\) be an incidence geometry.
+Then the following hold for all distinct points \(a\) and \(b\) in \(P\).
 \begin{proplist}
 \item \(a \in \LINE{a}{b}\) and \(b \in \LINE{a}{b}\).
 \item \(\LINE{a}{b} = \LINE{b}{a}\).
@@ -58,10 +59,13 @@ Let \(P\) be an incidence geometry. Then the following hold for all distinct poi
 \end{proplist}
 \end{prop}
 
-Though we have several examples of incidence geometry, it is crucial when proving theorems that we not rely on any specific model. This is the power of abstraction: any theorem which depends only on properties common to \emph{all} incidence geometries immediately holds in \emph{any} incidence geometry. For example, consider the following theorem.
+Though we have several examples of incidence geometry, it is crucial when proving theorems that we not rely on any specific model.
+This is the power of abstraction: any theorem which depends only on properties common to \emph{all} incidence geometries immediately holds in \emph{any} incidence geometry.
+For example, consider the following theorem.
 
 \begin{prop}[Line Intersection]
-Let \(P\) be an incidence geometry with lines \(\ell_1\) and \(\ell_2\). Then exactly one of the following holds.
+Let \(P\) be an incidence geometry with lines \(\ell_1\) and \(\ell_2\).
+Then exactly one of the following holds.
 \begin{proplist}
 \item \(\ell_1 = \ell_2\), and we say \(\ell_1\) and \(\ell_2\) are \emph{coincident}\index{coincident lines},
 \item \(\ell_1 \cap \ell_2 = \varnothing\), and we say \(\ell_1\) and \(\ell_2\) are \emph{disjoint}\index{disjoint lines}, or
@@ -71,10 +75,14 @@ In the first two cases (coincident or disjoint) we say that \(\ell_1\) and \(\el
 \end{prop}
 
 \begin{proof}
-Suppose \(\ell_1 \cap \ell_2\) contains at least two points, say \(x\) and \(y\). Then in fact \(\ell_1 = \LINE{x}{y} = \ell_2\). So if \(\ell_1 \neq \ell_2\) then \(\ell_1 \cap \ell_2\) contains either exactly one or zero points.
+Suppose \(\ell_1 \cap \ell_2\) contains at least two points, say \(x\) and \(y\).
+Then in fact \(\ell_1 = \LINE{x}{y} = \ell_2\).
+So if \(\ell_1 \neq \ell_2\) then \(\ell_1 \cap \ell_2\) contains either exactly one or zero points.
 \end{proof}
 
-This theorem holds in any model of incidence geometry. One problem: we don't have any models of incidence geometry yet! We'll fix this in the next section.
+This theorem holds in any model of incidence geometry.
+One problem: we don't have any models of incidence geometry yet!
+We'll fix this in the next section.
 
 
 
@@ -83,6 +91,7 @@ This theorem holds in any model of incidence geometry. One problem: we don't hav
 %---------%
 
 \begin{exercise}
-Let \(A = (a_x, a_y, a_z)\), \(B = (b_x, b_y, b_z)\), and \(C = (c_x, c_y, c_z)\) be in \(\RR^3\) such that \(A\) and \(B\) are nonzero and \(B\) is not a multiple of \(A\). Show that \[ \DET \begin{bmatrix} a_x & a_y & a_z \\ b_x & b_y & b_z \\ c_x & c_y & c_z \end{bmatrix} = 0 \] if and only if \(C = A + t(B - A)\) for some unique \(t \in \RR\).
+Let \(A = (a_x, a_y, a_z)\), \(B = (b_x, b_y, b_z)\), and \(C = (c_x, c_y, c_z)\) be in \(\RR^3\) such that \(A\) and \(B\) are nonzero and \(B\) is not a multiple of \(A\).
+Show that \[ \DET \begin{bmatrix} a_x & a_y & a_z \\ b_x & b_y & b_z \\ c_x & c_y & c_z \end{bmatrix} = 0 \] if and only if \(C = A + t(B - A)\) for some unique \(t \in \RR\).
 \end{exercise}
 

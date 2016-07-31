@@ -17,12 +17,16 @@ Here we \textbf{briefly} review some basic ideas from the naive theory of sets.
 
 \item If \(A\) and \(B\) are sets, there is a set \(A \times B\), called the \emph{cartesian product} of \(A\) and \(B\), such that \(x \in A \times B\) if and only if \(x = (a,b)\) for some \(a \in A\) and \(b \in B\).
 
-\item Let \(A\) and \(B\) be sets, with \(B \neq \varnothing\). A subset \(f \subseteq A \times B\) is called a \emph{function}\index{function} or \emph{mapping} if
+\item Let \(A\) and \(B\) be sets, with \(B \neq \varnothing\).
+A subset \(f \subseteq A \times B\) is called a \emph{function}\index{function} or \emph{mapping} if
 \begin{proplist}
 \item \(f\) is \emph{total}: for every \(a \in A\), there exists a \(b \in B\) such that \((a,b) \in f\)
 \item \(f\) is \emph{well-defined}: if \((a_1,b_1)\) and \((a_2,b_2)\) are in \(f\) such that \(a_1 = a_2\), then \(b_1 = b_2\).
 \end{proplist}
-In this case we say \(f\) is a function \emph{from} \(A\) \emph{to} \(B\), denoted \(f : A \rightarrow B\). We say that \(A\) is the \emph{domain} of \(f\) and that \(B\) is the \emph{codomain} of \(f\). Note that if \(f\) is a function from \(A\) to \(B\), then for every \(a \in A\) there exists a unique \(b \in B\) such that \((a,b) \in f\). We call this \(b\) the \emph{image} of \(a\) under \(f\), denoted \(f(a)\).
+In this case we say \(f\) is a function \emph{from} \(A\) \emph{to} \(B\), denoted \(f : A \rightarrow B\).
+We say that \(A\) is the \emph{domain} of \(f\) and that \(B\) is the \emph{codomain} of \(f\).
+Note that if \(f\) is a function from \(A\) to \(B\), then for every \(a \in A\) there exists a unique \(b \in B\) such that \((a,b) \in f\).
+We call this \(b\) the \emph{image} of \(a\) under \(f\), denoted \(f(a)\).
 
 \item Let \(f : A \rightarrow B\) be a function.
 \begin{proplist}
@@ -31,21 +35,25 @@ In this case we say \(f\) is a function \emph{from} \(A\) \emph{to} \(B\), denot
 \item We say \(f\) is \emph{bijective}\index{bijective} if it is both injective and surjective.
 \end{proplist}
 
-\item If \(A\) is a set, then subsets of \(A \times A\) are called \emph{binary relations} on \(A\). If \(\sigma\) is a binary relation on \(A\), we will typically write \(x \,\sigma\, y\) rather than \((x,y) \in \sigma\).
+\item If \(A\) is a set, then subsets of \(A \times A\) are called \emph{binary relations} on \(A\).
+If \(\sigma\) is a binary relation on \(A\), we will typically write \(x \,\sigma\, y\) rather than \((x,y) \in \sigma\).
 
-\item Let \(A\) be a set and \(\sigma\) a binary relation on \(A\). We say that \(\sigma\) is a \emph{partial order}\index{partial order} on \(A\) if
+\item Let \(A\) be a set and \(\sigma\) a binary relation on \(A\).
+We say that \(\sigma\) is a \emph{partial order}\index{partial order} on \(A\) if
 \begin{proplist}
 \item \(\sigma\) is \emph{reflexive}: \(a \,\sigma\, a\) for all \(a \in A\).
 \item \(\sigma\) is \emph{antisymmetric}: If \(a \,\sigma\, b\) and \(b \,\sigma\, a\), then \(a = b\).
 \item \(\sigma\) is \emph{transitive}: If \(a \,\sigma\, b\) and \(b \,\sigma\, c\), then \(a \,\sigma\, c\).
 \end{proplist}
 
-\item Let \(A\) be a set and \(\sigma\) a binary relation on \(A\). We say that \(\sigma\) is an \emph{equivalence}\index{equivalence} if
+\item Let \(A\) be a set and \(\sigma\) a binary relation on \(A\).
+We say that \(\sigma\) is an \emph{equivalence}\index{equivalence} if
 \begin{proplist}
 \item \(\sigma\) is \emph{reflexive}: \(a \,\sigma\, a\) for all \(a \in A\).
 \item \(\sigma\) is \emph{symmetric}: If \(a \,\sigma\, b\) then \(b \,\sigma\, a\).
 \item \(\sigma\) is \emph{transitive}: If \(a \,\sigma\, b\) and \(b \,\sigma\, c\), then \(a \,\sigma\, c\).
 \end{proplist}
 
-\item If \(A\) is a set, then the functions from \(A \times A\) to \(A\) are called \emph{binary operations} on \(A\). If \(f\) is a binary operation on \(A\), we will typically write \(x \,f\, y\) rather than \(f(x,y)\).
+\item If \(A\) is a set, then the functions from \(A \times A\) to \(A\) are called \emph{binary operations} on \(A\).
+If \(f\) is a binary operation on \(A\), we will typically write \(x \,f\, y\) rather than \(f(x,y)\).
 \end{proplist}

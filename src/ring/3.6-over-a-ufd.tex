@@ -1,7 +1,8 @@
 Over a GCD domain, we have unique factorization of \emph{primitive} polynomials.
 
 \begin{prop}
-Let \(R\) be a GCD domain and \(p(x) \in R[x]\) primitive. Then \(p(x)\) can be written as a product of irreducibles in \(R[x]\) in essentially one way (up to a rearrangement and multiplication by units).
+Let \(R\) be a GCD domain and \(p(x) \in R[x]\) primitive.
+Then \(p(x)\) can be written as a product of irreducibles in \(R[x]\) in essentially one way (up to a rearrangement and multiplication by units).
 \end{prop}
 
 \begin{proof}
@@ -24,11 +25,18 @@ If \(R\) is a UFD, then \(R[x]\) is a UFD.
 %---------%
 
 \begin{enumerate}
-\item \textbf{Factorization if \(R\) is finite.} Note that if \(R\) is a finite ring of order \(m\), then for any given degree \(d\) there are only finitely many polynomials in \(R[x]\) of degree \(d\); each such polynomial has \(d+1\) coefficients, which each take one of \(m\) values. So the number of degree \(d\) polynomials over \(R\) is \(m^{d+1}\).
+\item \textbf{Factorization if \(R\) is finite.} Note that if \(R\) is a finite ring of order \(m\), then for any given degree \(d\) there are only finitely many polynomials in \(R[x]\) of degree \(d\); each such polynomial has \(d+1\) coefficients, which each take one of \(m\) values.
+So the number of degree \(d\) polynomials over \(R\) is \(m^{d+1}\).
 
 \begin{prop}
-Let \(R\) be a domain. If \(p(x) \in R[x]\) is reducible of degree \(d\), then \(p\) has a divisor of degree \(1 \leq k \leq \lfloor d/2 \rfloor\).
+Let \(R\) be a domain.
+If \(p(x) \in R[x]\) is reducible of degree \(d\), then \(p\) has a divisor of degree \(1 \leq k \leq \lfloor d/2 \rfloor\).
 \end{prop}
 
-If \(R\) is a finite UFD (of which examples do exist, such as \(\ZZ/(p)\) with \(p\) a prime) we can use this fact to construct a naive factorization algorithm for \(R[x]\). Let \(p(x) \in R[x]\) have degree \(d\). Choose some \(1 \leq k < d\). There are \(m^{k+1}\) degree \(k\) polynomials over \(R\), which can easily be enumerated. (If \(R\) is a field, we can consider only the monic polynomials, of which there are \(m^k\).) Using polynomial long division we can determine whether any are divisors of \(p(x)\); if so, recurse on the two factors, and if not, \(p(x)\) has no factors of degree \(k\). Repeat for each \(k\) in \([1,\lfloor d/2 \rfloor]\); if no divisor of \(p\) is found, then \(p\) is irreducible. 
+If \(R\) is a finite UFD (of which examples do exist, such as \(\ZZ/(p)\) with \(p\) a prime) we can use this fact to construct a naive factorization algorithm for \(R[x]\).
+Let \(p(x) \in R[x]\) have degree \(d\).
+Choose some \(1 \leq k < d\).
+There are \(m^{k+1}\) degree \(k\) polynomials over \(R\), which can easily be enumerated.
+(If \(R\) is a field, we can consider only the monic polynomials, of which there are \(m^k\).) Using polynomial long division we can determine whether any are divisors of \(p(x)\); if so, recurse on the two factors, and if not, \(p(x)\) has no factors of degree \(k\).
+Repeat for each \(k\) in \([1,\lfloor d/2 \rfloor]\); if no divisor of \(p\) is found, then \(p\) is irreducible.
 \end{enumerate}

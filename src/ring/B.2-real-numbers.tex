@@ -65,12 +65,23 @@ In this case we have natural numbers \(W_1\) and \(W_2\) such that \(\alpha_i < 
 But if \(i \geq \max(W_1, W_2)\), then \(\alpha_i < \beta_i < \alpha_i\), a contradiction.
 So we have \([\alpha] = [\beta]\) as needed.
 \item If either \(\beta - \alpha\) or \(\gamma - \beta\) converge to zero, we have \([\alpha] = [\beta]\) or \([\beta] = [\gamma]\); in either case, \([\alpha] \leq [\gamma]\).
-Now suppose that neither \(\beta - \alpha\) nor \(\gamma - \beta\) converges to zero. Then there exist natural numbers \(W_1\) and \(W_2\) such that \(\alpha_i < \beta_i\) when \(i \geq W_1\) and \(\beta_i < \gamma_i\) when \(i \geq W_2\).
+Now suppose that neither \(\beta - \alpha\) nor \(\gamma - \beta\) converges to zero.
+Then there exist natural numbers \(W_1\) and \(W_2\) such that \(\alpha_i < \beta_i\) when \(i \geq W_1\) and \(\beta_i < \gamma_i\) when \(i \geq W_2\).
 Letting \(W = \max(W_1,W_2)\), whenever \(i \geq W\) we have \[ \gamma_i - \alpha_i = \gamma_i - \beta_i + \beta_i - \alpha_i > 0 \] so that \(\alpha_i < \gamma_i\).
 Thus \([\alpha] \leq [\gamma]\) as needed.
 \item Let \([\alpha]\) be a real number and suppose \([\alpha] \neq [\TILDE{0}]\).
 That is, \(\alpha\) does not converge to zero.
-By \ref{prop:cauchy-bound-away-from-zero}, there is a rational number \(\delta\) and a natural number \(T\) such that \(|\alpha_i| \geq \delta\) when \(i \geq T\). Also, since \(\alpha\) is cauchy, there exists a natural number \(M\) such that \(|\alpha_j - \alpha_i| < \delta\) when \(i,j \geq M\). Set \(W = \max(T,M)\). We will show that if \(i,j \geq W\), then \(\alpha_i\) and \(\alpha_j\) must have the same sign in \(\QQ\) (either both positive or both negative). To this end, suppose \(\alpha_j > 0\) and \(\alpha_i < 0\). On one hand we have \(|\alpha_j - \alpha_i| < \delta\). But on the other hand we have \(\alpha_j \geq \delta\) and \(-\alpha_i \geq \delta\). So \[ 2\delta \leq \alpha_j - \alpha_i \leq |\alpha_j - \alpha_i| < \delta, \] a contradiction. Likewise if \(\alpha_j < 0\) and \(\alpha_i > 0\) then \[ 2\delta \leq \alpha_i - \alpha_j \leq |\alpha_i - \alpha_j| < \delta. \] That is, for all \(i \geq W\), the \(\alpha_i\) have the same sign, either positive or negative. In the first case we have \([\TILDE{0}] \leq [\alpha]\), and in the second case \([\alpha] \leq [\TILDE{0}]\). But since \([\alpha] \neq [\TILDE{0}]\), in fact either \([\alpha] < [\TILDE{0}]\) or \([\alpha] > [\TILDE{0}]\).
+By \ref{prop:cauchy-bound-away-from-zero}, there is a rational number \(\delta\) and a natural number \(T\) such that \(|\alpha_i| \geq \delta\) when \(i \geq T\).
+Also, since \(\alpha\) is cauchy, there exists a natural number \(M\) such that \(|\alpha_j - \alpha_i| < \delta\) when \(i,j \geq M\).
+Set \(W = \max(T,M)\).
+We will show that if \(i,j \geq W\), then \(\alpha_i\) and \(\alpha_j\) must have the same sign in \(\QQ\) (either both positive or both negative).
+To this end, suppose \(\alpha_j > 0\) and \(\alpha_i < 0\).
+On one hand we have \(|\alpha_j - \alpha_i| < \delta\).
+But on the other hand we have \(\alpha_j \geq \delta\) and \(-\alpha_i \geq \delta\).
+So \[ 2\delta \leq \alpha_j - \alpha_i \leq |\alpha_j - \alpha_i| < \delta, \] a contradiction.
+Likewise if \(\alpha_j < 0\) and \(\alpha_i > 0\) then \[ 2\delta \leq \alpha_i - \alpha_j \leq |\alpha_i - \alpha_j| < \delta. \] That is, for all \(i \geq W\), the \(\alpha_i\) have the same sign, either positive or negative.
+In the first case we have \([\TILDE{0}] \leq [\alpha]\), and in the second case \([\alpha] \leq [\TILDE{0}]\).
+But since \([\alpha] \neq [\TILDE{0}]\), in fact either \([\alpha] < [\TILDE{0}]\) or \([\alpha] > [\TILDE{0}]\).
 \end{inlineproplist}
 \end{proof}
 
@@ -84,9 +95,16 @@ By \ref{prop:cauchy-bound-away-from-zero}, there is a rational number \(\delta\)
 
 \begin{proof}
 \begin{inlineproplist}
-\item If \(\beta - \alpha\) converges to 0, then \([\alpha] = [\beta]\) and the result holds. If \(\beta - \alpha\) does not converge to 0, then there is an index \(W\) such that \(\alpha_i < \beta_i\) for all \(i \geq W\). For all such \(i\), we have \(\alpha_i + \gamma_i < \beta_i + \gamma_i\), so that \([\alpha] + [\gamma] \leq [\beta] + [\gamma]\) as claimed.
-\item If either \([\alpha]\) or \([\beta]\) converge to zero, then \([\alpha][\beta] = [\TILDE{0}]\). Suppose instead that neither converges to zero. Then there exist natural numbers \(W_\alpha\) and \(W_\beta\) such that \(\alpha_i > 0\) when \(i \geq W_\alpha\) and \(\beta_i > 0\) when \(i \geq W_\beta\). Let \(W = \max(W_\alpha, W_\beta)\). Then for all \(i \geq W\), we have \(\alpha_i \beta_i > 0\), so that \([\TILDE{0}] \leq [\alpha][\beta]\) as claimed.
-\item Certainly \(0 < 1\), so that \([\TILDE{0}] \leq [\TILDE{1}]\). Since \(1 \neq 0\), \([\TILDE{0}] \neq [\TILDE{1}]\).
+\item If \(\beta - \alpha\) converges to 0, then \([\alpha] = [\beta]\) and the result holds.
+If \(\beta - \alpha\) does not converge to 0, then there is an index \(W\) such that \(\alpha_i < \beta_i\) for all \(i \geq W\).
+For all such \(i\), we have \(\alpha_i + \gamma_i < \beta_i + \gamma_i\), so that \([\alpha] + [\gamma] \leq [\beta] + [\gamma]\) as claimed.
+\item If either \([\alpha]\) or \([\beta]\) converge to zero, then \([\alpha][\beta] = [\TILDE{0}]\).
+Suppose instead that neither converges to zero.
+Then there exist natural numbers \(W_\alpha\) and \(W_\beta\) such that \(\alpha_i > 0\) when \(i \geq W_\alpha\) and \(\beta_i > 0\) when \(i \geq W_\beta\).
+Let \(W = \max(W_\alpha, W_\beta)\).
+Then for all \(i \geq W\), we have \(\alpha_i \beta_i > 0\), so that \([\TILDE{0}] \leq [\alpha][\beta]\) as claimed.
+\item Certainly \(0 < 1\), so that \([\TILDE{0}] \leq [\TILDE{1}]\).
+Since \(1 \neq 0\), \([\TILDE{0}] \neq [\TILDE{1}]\).
 \end{inlineproplist}
 \end{proof}
 
@@ -104,14 +122,25 @@ There is a field \(\RR\), whose elements are called \emph{real numbers}, which c
 \end{proplist}
 \end{prop}
 
-Working directly with equivalence classes of cauchy sequences - that is, real numbers - can get awkward very fast. Fortunately, there is a better way! It turns out that \ref{prop:rr-axioms} \emph{characterizes} the real numbers, in the sense that any other field \(F\) with a linear order relation \(\preceq\) that \emph{also} satisfies the properties in \ref{prop:rr-axioms} must be isomorphic to \(\RR\). This means that any theorem which can be proved about \(\RR\) can be proved using the properties of \ref{prop:rr-axioms}, together with the definition of field and linear order, as a list of ``axioms'', rather than the complicated construction using cauchy sequences. In fact this is the approach typically taken by high school textbooks, if you pay close attention. With this in mind, why should we bother explicitly constructing \(\RR\) in the first place? The (potential) problem is that we can make lists of axioms all day and derive theories based on them, but without a concrete \emph{model} of those axioms we cannot assume that the axioms are consistent with each other. This is a great example of the abstract and concrete points of view each bringing something useful to the table: the axioms are nice to work with, and the model tells us the axioms describe something interesting.
+Working directly with equivalence classes of cauchy sequences - that is, real numbers - can get awkward very fast.
+Fortunately, there is a better way! It turns out that \ref{prop:rr-axioms} \emph{characterizes} the real numbers, in the sense that any other field \(F\) with a linear order relation \(\preceq\) that \emph{also} satisfies the properties in \ref{prop:rr-axioms} must be isomorphic to \(\RR\).
+This means that any theorem which can be proved about \(\RR\) can be proved using the properties of \ref{prop:rr-axioms}, together with the definition of field and linear order, as a list of ``axioms'', rather than the complicated construction using cauchy sequences.
+In fact this is the approach typically taken by high school textbooks, if you pay close attention.
+With this in mind, why should we bother explicitly constructing \(\RR\) in the first place? The (potential) problem is that we can make lists of axioms all day and derive theories based on them, but without a concrete \emph{model} of those axioms we cannot assume that the axioms are consistent with each other.
+This is a great example of the abstract and concrete points of view each bringing something useful to the table: the axioms are nice to work with, and the model tells us the axioms describe something interesting.
 
 \begin{prop}[Bolzano's Theorem for Polynomials]
-Let \(p(x) \in \RR[x]\). If \(a\) and \(b\) are real numbers such that \(a < b\) and \(p(a)\) and \(p(b)\) have opposite signs, then there exists a real number \(c\) such that \(p(c) = 0\).
+Let \(p(x) \in \RR[x]\).
+If \(a\) and \(b\) are real numbers such that \(a < b\) and \(p(a)\) and \(p(b)\) have opposite signs, then there exists a real number \(c\) such that \(p(c) = 0\).
 \end{prop}
 
 \begin{proof}
-Suppose, without loss of generality, that \(f(a) < 0\) and \(f(b) > 0\). Now define the set \(S = \{ x \in [a,b] \mid f(x) \leq 0 \}\). Certainly \(S\) is not empty, since \(f(a) < 0\). Moreover, \(S\) has an upper bound, since \(x < b\) for all \(x \in S\). Thus \(S\) has a least upper bound, say \(c \in S\). (@@@)
+Suppose, without loss of generality, that \(f(a) < 0\) and \(f(b) > 0\).
+Now define the set \(S = \{ x \in [a,b] \mid f(x) \leq 0 \}\).
+Certainly \(S\) is not empty, since \(f(a) < 0\).
+Moreover, \(S\) has an upper bound, since \(x < b\) for all \(x \in S\).
+Thus \(S\) has a least upper bound, say \(c \in S\).
+(@@@)
 \end{proof}
 
 \begin{cor} \mbox{}
