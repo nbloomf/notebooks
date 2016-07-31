@@ -1,10 +1,13 @@
 We are now prepared to define the set of real numbers; (most of) the heavy lifting is already done.
 
 \begin{dfn}[Real Numbers] \label{dfn:real-numbers}
-The usual absolute value \(|\cdot|\) on the set \(\QQ\) of rational numbers is an absolute value in the sense of \ref{dfn:abs-val}, and so the constructions of \autoref{sec:ring-with-abs-val} are immediately available. We define the set of \DefTerm{real numbers} \(\RR\) to be the cauchy completion \(\VALCOMP{\QQ}{|\cdot|}\) of \(\QQ\) with respect to \(|\cdot|\). Since \(\QQ\) is a field, \(\RR\) is also a field.
+The usual absolute value \(|\cdot|\) on the set \(\QQ\) of rational numbers is an absolute value in the sense of \ref{dfn:abs-val}, and so the constructions of \autoref{sec:ring-with-abs-val} are immediately available.
+We define the set of \emph{real numbers}\index{real numbers} \(\RR\) to be the cauchy completion \(\VALCOMP{\QQ}{|\cdot|}\) of \(\QQ\) with respect to \(|\cdot|\).
+Since \(\QQ\) is a field, \(\RR\) is also a field.
 \end{dfn}
 
-Doing arithmetic in \(\RR\) is a bit awkward because elements of \(\RR\) are equivalence classes of cauchy sequences. Even detecting whether two specific real numbers are equal to each other is difficult.
+Doing arithmetic in \(\RR\) is a bit awkward because elements of \(\RR\) are equivalence classes of cauchy sequences.
+Even detecting whether two specific real numbers are equal to each other is difficult.
 
 \begin{dfn}
 Given two cauchy sequences of rational numbers, \(\alpha\) and \(\beta\), we say that \(\alpha \leq \beta\) if either \(\beta - \alpha\) converges to 0 or there exists a natural number \(W\) such that \(\alpha_i < \beta_i\) for all \(i \geq W\).
@@ -15,9 +18,16 @@ If \(\alpha\), \(\overline{\alpha}\), \(\beta\), and \(\overline{\beta}\) are ca
 \end{prop}
 
 \begin{proof}
-If \(\beta - \alpha\) converges to zero, then we have \[ 0 = \LIM{\beta - \alpha} - \LIM{\beta - \overline{\beta}} + \LIM{\alpha - \overline{\alpha}} = \LIM{\beta - \alpha - \beta + \overline{\beta} + \alpha - \overline{\alpha}} = \LIM{\overline{\beta} - \overline{\alpha}}, \] so that \(\overline{\alpha} \leq \overline{\beta}\). Suppose instead that \(\beta - \alpha\) does not converge to zero. Since \(\alpha \leq \beta\), there is a natural number \(W\) such that \(\alpha_i < \beta_i\) whenever \(i \geq W\). Also, by \ref{prop:cauchy-bound-away-from-zero}, there is a rational number \(\delta\) and a natural number \(T\) such that \(|\beta_i - \alpha_i| \geq \delta\) whenever \(i \geq T\). Since \(\delta/2 > 0\) and \(\alpha - \overline{\alpha}\) converges to 0, there is a natural number \(N_\alpha\) such that \(|\alpha_i - \overline{\alpha}_i| < \delta/2\) when \(i \geq N_\alpha\). Similarly there is an \(N_\beta\) such that \(|\beta_i - \overline{\beta}_i| < \delta/2\) when \(i \geq N_\beta\).
+If \(\beta - \alpha\) converges to zero, then we have \[ 0 = \LIM{\beta - \alpha} - \LIM{\beta - \overline{\beta}} + \LIM{\alpha - \overline{\alpha}} = \LIM{\beta - \alpha - \beta + \overline{\beta} + \alpha - \overline{\alpha}} = \LIM{\overline{\beta} - \overline{\alpha}}, \] so that \(\overline{\alpha} \leq \overline{\beta}\).
+Suppose instead that \(\beta - \alpha\) does not converge to zero.
+Since \(\alpha \leq \beta\), there is a natural number \(W\) such that \(\alpha_i < \beta_i\) whenever \(i \geq W\).
+Also, by \ref{prop:cauchy-bound-away-from-zero}, there is a rational number \(\delta\) and a natural number \(T\) such that \(|\beta_i - \alpha_i| \geq \delta\) whenever \(i \geq T\).
+Since \(\delta/2 > 0\) and \(\alpha - \overline{\alpha}\) converges to 0, there is a natural number \(N_\alpha\) such that \(|\alpha_i - \overline{\alpha}_i| < \delta/2\) when \(i \geq N_\alpha\).
+Similarly there is an \(N_\beta\) such that \(|\beta_i - \overline{\beta}_i| < \delta/2\) when \(i \geq N_\beta\).
 
-Let \(W_1 = \max(W, T, N_\alpha, N_\beta)\). Then for all \(i \geq W_1\), we have \(\alpha_i < \beta_i\), and thus \(\beta_i - \alpha_i = |\beta_i - \alpha_i| \geq \delta\). Now we have
+Let \(W_1 = \max(W, T, N_\alpha, N_\beta)\).
+Then for all \(i \geq W_1\), we have \(\alpha_i < \beta_i\), and thus \(\beta_i - \alpha_i = |\beta_i - \alpha_i| \geq \delta\).
+Now we have the following.
 \begin{eqnarray*}
 \delta - (\overline{\beta}_i - \overline{\alpha}_i)
  & \leq & (\beta_i - \alpha_i) - (\overline{\beta}_i - \overline{\alpha}_i) \\
@@ -26,11 +36,13 @@ Let \(W_1 = \max(W, T, N_\alpha, N_\beta)\). Then for all \(i \geq W_1\), we hav
  & < & \delta/2 + \delta/2 \\
  & = & \delta.
 \end{eqnarray*}
-So we have \(0 < \overline{\beta}_i - \overline{\alpha}_i\), and thus \(\overline{\alpha}_i < \overline{\beta}_i\) for all \(i \geq W_1\). Thus \(\overline{\alpha} \leq \overline{\beta}\).
+So we have \(0 < \overline{\beta}_i - \overline{\alpha}_i\), and thus \(\overline{\alpha}_i < \overline{\beta}_i\) for all \(i \geq W_1\).
+Thus \(\overline{\alpha} \leq \overline{\beta}\).
 \end{proof}
 
 \begin{cor}
-We have a well-defined relation \(\leq\) on \(\RR\) defined as follows: given \([\alpha]\) and \([\beta]\) in \(\RR\), we say that \([\alpha] \leq [\beta]\) if either \(\beta - \alpha\) converges to 0 or there is a natural number \(W\) such that \(\alpha_i < \beta_i\) whenever \(i \geq W\). We say \([\alpha] < [\beta]\) if \([\alpha] \leq [\beta]\) and \([\alpha] \neq [\beta]\).
+We have a relation \(\leq\) on \(\RR\) defined as follows: given \([\alpha]\) and \([\beta]\) in \(\RR\), we say that \([\alpha] \leq [\beta]\) if either \(\beta - \alpha\) converges to 0 or there is a natural number \(W\) such that \(\alpha_i < \beta_i\) whenever \(i \geq W\).
+We say \([\alpha] < [\beta]\) if \([\alpha] \leq [\beta]\) and \([\alpha] \neq [\beta]\).
 \end{cor}
 
 \begin{prop}
@@ -46,9 +58,19 @@ The relation \(\leq\) on \(\RR\) has the following properties.
 \begin{proof}
 \begin{inlineproplist}
 \item Since \(\alpha - \alpha\) converges to 0, we have \([\alpha] \leq [\alpha]\).
-\item Suppose \([\alpha] \leq [\beta]\) and \([\beta] \leq [\alpha]\). Now if either \(\beta - \alpha\) or \(\alpha - \beta\) converge to zero, we have \([\alpha] = [\beta]\). So we assume that this does not happen. In this case we have natural numbers \(W_1\) and \(W_2\) such that \(\alpha_i < \beta_i\) whenever \(i \geq W_1\) and \(\beta_i < \alpha_i\) whenever \(i \geq W_2\). But if \(i \geq \max(W_1, W_2)\), then \(\alpha_i < \beta_i < \alpha_i\), a contradiction. So we have \([\alpha] = [\beta]\) as needed.
-\item If either \(\beta - \alpha\) or \(\gamma - \beta\) converge to zero, we have \([\alpha] = [\beta]\) or \([\beta] = [\gamma]\); in either case, \([\alpha] \leq [\gamma]\). Now suppose that neither \(\beta - \alpha\) nor \(\gamma - \beta\) converges to zero. Then there exist natural numbers \(W_1\) and \(W_2\) such that \(\alpha_i < \beta_i\) when \(i \geq W_1\) and \(\beta_i < \gamma_i\) when \(i \geq W_2\). Letting \(W = \max(W_1,W_2)\), whenever \(i \geq W\) we have \[ \gamma_i - \alpha_i = \gamma_i - \beta_i + \beta_i - \alpha_i > 0 \] so that \(\alpha_i < \gamma_i\). Thus \([\alpha] \leq [\gamma]\) as needed.
-\item Let \([\alpha]\) be a real number and suppose \([\alpha] \neq [\TILDE{0}]\). That is, \(\alpha\) does not converge to zero. By \ref{prop:cauchy-bound-away-from-zero}, there is a rational number \(\delta\) and a natural number \(T\) such that \(|\alpha_i| \geq \delta\) when \(i \geq T\). Also, since \(\alpha\) is cauchy, there exists a natural number \(M\) such that \(|\alpha_j - \alpha_i| < \delta\) when \(i,j \geq M\). Set \(W = \max(T,M)\). We will show that if \(i,j \geq W\), then \(\alpha_i\) and \(\alpha_j\) must have the same sign in \(\QQ\) (either both positive or both negative). To this end, suppose \(\alpha_j > 0\) and \(\alpha_i < 0\). On one hand we have \(|\alpha_j - \alpha_i| < \delta\). But on the other hand we have \(\alpha_j \geq \delta\) and \(-\alpha_i \geq \delta\). So \[ 2\delta \leq \alpha_j - \alpha_i \leq |\alpha_j - \alpha_i| < \delta, \] a contradiction. Likewise if \(\alpha_j < 0\) and \(\alpha_i > 0\) then \[ 2\delta \leq \alpha_i - \alpha_j \leq |\alpha_i - \alpha_j| < \delta. \] That is, for all \(i \geq W\), the \(\alpha_i\) have the same sign, either positive or negative. In the first case we have \([\TILDE{0}] \leq [\alpha]\), and in the second case \([\alpha] \leq [\TILDE{0}]\). But since \([\alpha] \neq [\TILDE{0}]\), in fact either \([\alpha] < [\TILDE{0}]\) or \([\alpha] > [\TILDE{0}]\).
+\item Suppose \([\alpha] \leq [\beta]\) and \([\beta] \leq [\alpha]\).
+Now if either \(\beta - \alpha\) or \(\alpha - \beta\) converge to zero, we have \([\alpha] = [\beta]\).
+So we assume that this does not happen.
+In this case we have natural numbers \(W_1\) and \(W_2\) such that \(\alpha_i < \beta_i\) whenever \(i \geq W_1\) and \(\beta_i < \alpha_i\) whenever \(i \geq W_2\).
+But if \(i \geq \max(W_1, W_2)\), then \(\alpha_i < \beta_i < \alpha_i\), a contradiction.
+So we have \([\alpha] = [\beta]\) as needed.
+\item If either \(\beta - \alpha\) or \(\gamma - \beta\) converge to zero, we have \([\alpha] = [\beta]\) or \([\beta] = [\gamma]\); in either case, \([\alpha] \leq [\gamma]\).
+Now suppose that neither \(\beta - \alpha\) nor \(\gamma - \beta\) converges to zero. Then there exist natural numbers \(W_1\) and \(W_2\) such that \(\alpha_i < \beta_i\) when \(i \geq W_1\) and \(\beta_i < \gamma_i\) when \(i \geq W_2\).
+Letting \(W = \max(W_1,W_2)\), whenever \(i \geq W\) we have \[ \gamma_i - \alpha_i = \gamma_i - \beta_i + \beta_i - \alpha_i > 0 \] so that \(\alpha_i < \gamma_i\).
+Thus \([\alpha] \leq [\gamma]\) as needed.
+\item Let \([\alpha]\) be a real number and suppose \([\alpha] \neq [\TILDE{0}]\).
+That is, \(\alpha\) does not converge to zero.
+By \ref{prop:cauchy-bound-away-from-zero}, there is a rational number \(\delta\) and a natural number \(T\) such that \(|\alpha_i| \geq \delta\) when \(i \geq T\). Also, since \(\alpha\) is cauchy, there exists a natural number \(M\) such that \(|\alpha_j - \alpha_i| < \delta\) when \(i,j \geq M\). Set \(W = \max(T,M)\). We will show that if \(i,j \geq W\), then \(\alpha_i\) and \(\alpha_j\) must have the same sign in \(\QQ\) (either both positive or both negative). To this end, suppose \(\alpha_j > 0\) and \(\alpha_i < 0\). On one hand we have \(|\alpha_j - \alpha_i| < \delta\). But on the other hand we have \(\alpha_j \geq \delta\) and \(-\alpha_i \geq \delta\). So \[ 2\delta \leq \alpha_j - \alpha_i \leq |\alpha_j - \alpha_i| < \delta, \] a contradiction. Likewise if \(\alpha_j < 0\) and \(\alpha_i > 0\) then \[ 2\delta \leq \alpha_i - \alpha_j \leq |\alpha_i - \alpha_j| < \delta. \] That is, for all \(i \geq W\), the \(\alpha_i\) have the same sign, either positive or negative. In the first case we have \([\TILDE{0}] \leq [\alpha]\), and in the second case \([\alpha] \leq [\TILDE{0}]\). But since \([\alpha] \neq [\TILDE{0}]\), in fact either \([\alpha] < [\TILDE{0}]\) or \([\alpha] > [\TILDE{0}]\).
 \end{inlineproplist}
 \end{proof}
 

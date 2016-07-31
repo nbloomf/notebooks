@@ -1,34 +1,25 @@
-\documentclass{article}
-\usepackage{neb-macros}
-\usepackage{tikz}
-  \usetikzlibrary{calc,intersections}
-
-\begin{document}
-
-\CheapTitle{Quadrilaterals}
-
 \begin{dfn}[Quadrilateral]
-Let $A$, $B$, $C$, and $D$ be points in a plane geometry. Then the set \[ \Quadrilateral{A}{B}{C}{D} = \Segment{A}{B} \cup \Segment{B}{C} \cup \Segment{C}{D} \cup \Segment{D}{A} \] is called the \emph{quadrilateral} with \emph{vertices} $A$, $B$, $C$, and $D$ (in that order).
+Let \(A\), \(B\), \(C\), and \(D\) be points in a plane geometry. Then the set \[ \QUADRILATERAL{A}{B}{C}{D} = \SEGMENT{A}{B} \cup \SEGMENT{B}{C} \cup \SEGMENT{C}{D} \cup \SEGMENT{D}{A} \] is called the \emph{quadrilateral} with \emph{vertices} \(A\), \(B\), \(C\), and \(D\) (in that order).
 \begin{itemize}
-\item $\Segment{A}{B}$, $\Segment{B}{C}$, $\Segment{C}{D}$, and $\Segment{D}{A}$ are called the \emph{sides} of the quadrilateral.
-\item $\Segment{A}{C}$ and $\Segment{B}{D}$ are called the \emph{diagonals}.
-\item $\Angle{A}{B}{C}$, $\Angle{B}{C}{D}$, $\Angle{C}{D}{A}$, and $\Angle{D}{A}{B}$ are the \emph{interior angles}
-\item Sides $\Segment{A}{B}$ and $\Segment{C}{D}$ are said to be \emph{opposite}, as are $\Segment{B}{C}$ and $\Segment{D}{A}$.
+\item \(\SEGMENT{A}{B}\), \(\SEGMENT{B}{C}\), \(\SEGMENT{C}{D}\), and \(\SEGMENT{D}{A}\) are called the \emph{sides} of the quadrilateral.
+\item \(\SEGMENT{A}{C}\) and \(\SEGMENT{B}{D}\) are called the \emph{diagonals}.
+\item \(\ANGLE{A}{B}{C}\), \(\ANGLE{B}{C}{D}\), \(\ANGLE{C}{D}{A}\), and \(\ANGLE{D}{A}{B}\) are the \emph{interior angles}
+\item Sides \(\SEGMENT{A}{B}\) and \(\SEGMENT{C}{D}\) are said to be \emph{opposite}, as are \(\SEGMENT{B}{C}\) and \(\SEGMENT{D}{A}\).
 \end{itemize}
 \end{dfn}
 
 \begin{dfn}
-Let $A$, $B$, $C$, and $D$ be points.
+Let \(A\), \(B\), \(C\), and \(D\) be points.
 \begin{itemize}
-\item If any two of $A$, $B$, $C$, and $D$ are equal, then $\Quadrilateral{A}{B}{C}{D}$ is said to be \emph{backtracking}.
-\item $\Quadrilateral{A}{B}{C}{D}$ is called \emph{self-intersecting} if any point other than the vertices is on more than one side.
-\item $\Quadrilateral{A}{B}{C}{D}$ is called \emph{degenerate} if any three of its vertices are collinear.
+\item If any two of \(A\), \(B\), \(C\), and \(D\) are equal, then \(\QUADRILATERAL{A}{B}{C}{D}\) is said to be \emph{backtracking}.
+\item \(\QUADRILATERAL{A}{B}{C}{D}\) is called \emph{self-intersecting} if any point other than the vertices is on more than one side.
+\item \(\QUADRILATERAL{A}{B}{C}{D}\) is called \emph{degenerate} if any three of its vertices are collinear.
 \item A quadrilateral which is not backtracking, self-intersecting, or degenerate is called \emph{simple}.
 \end{itemize}
 \end{dfn}
 
 \begin{dfn}
-We say that $\Quadrilateral{A}{B}{C}{D} \equiv \Quadrilateral{X}{Y}{Z}{W}$ if $\Segment{A}{B} \equiv \Segment{X}{Y}$, $\Segment{B}{C} \equiv \Segment{Y}{Z}$, $\Segment{C}{D} \equiv \Segment{Z}{W}$, $\Segment{D}{A} \equiv \Segment{W}{X}$, $\Angle{A}{B}{C} \equiv \Angle{X}{Y}{Z}$, $\Angle{B}{C}{D} \equiv \Angle{Y}{Z}{W}$, $\Angle{C}{D}{A} \equiv \Angle{Z}{W}{X}$, and $\Angle{D}{A}{B} \equiv \Angle{W}{X}{Y}$.
+We say that \(\QUADRILATERAL{A}{B}{C}{D} \equiv \QUADRILATERAL{X}{Y}{Z}{W}\) if \(\SEGMENT{A}{B} \equiv \SEGMENT{X}{Y}\), \(\SEGMENT{B}{C} \equiv \SEGMENT{Y}{Z}\), \(\SEGMENT{C}{D} \equiv \SEGMENT{Z}{W}\), \(\SEGMENT{D}{A} \equiv \SEGMENT{W}{X}\), \(\ANGLE{A}{B}{C} \equiv \ANGLE{X}{Y}{Z}\), \(\ANGLE{B}{C}{D} \equiv \ANGLE{Y}{Z}{W}\), \(\ANGLE{C}{D}{A} \equiv \ANGLE{Z}{W}{X}\), and \(\ANGLE{D}{A}{B} \equiv \ANGLE{W}{X}{Y}\).
 \end{dfn}
 
 \begin{prop}
@@ -38,7 +29,7 @@ Quadrilateral congruence is an equivalence relation.
 \subsection*{Types of Quadrilaterals}
 
 \begin{dfn}
-A quadrilateral $\Quadrilateral{A}{B}{C}{D}$ is called
+A quadrilateral \(\QUADRILATERAL{A}{B}{C}{D}\) is called
 \begin{itemize}
 \item \emph{equiangular} if all its interior angles are congruent;
 \item a \emph{rectangle} if all its interior angles are right;
@@ -54,4 +45,3 @@ A quadrilateral $\Quadrilateral{A}{B}{C}{D}$ is called
 
 Note: not all of these types of quadrilaterals are guaranteed to exist!
 
-\end{document}

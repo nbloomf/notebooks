@@ -1,12 +1,14 @@
 \begin{dfn}[Divides]
-Given integers \(a\) and \(b\), we say that \(a\) \emph{divides} \(b\), written \(a|b\), if there is an integer \(c\) such that \(ac = b\). In this case we say that \(a\) is a \emph{divisor} of \(b\).
+Given integers \(a\) and \(b\), we say that \(a\) \emph{divides} \(b\), written \(a|b\), if there is an integer \(c\) such that \(ac = b\).
+In this case we say that \(a\) is a \emph{divisor} of \(b\).
 \end{dfn}
 
-\begin{prop} \mbox{}
+\begin{prop}
+The following hold for all integers \(a\) and \(b\).
 \begin{itemize}
-\item \(a|0\) for all integers \(a\).
-\item \(1|a\) for all integers \(a\).
-\item \(a|a\) for all integers \(a\).
+\item \(a|0\).
+\item \(1|a\).
+\item \(a|a\).
 \item If \(a|b\), then \((-a)|b\) and \(a|(-b)\).
 \item If \(a|b\) and \(b \neq 0\), then \(0 < |a| \leq |b|\).
 \end{itemize}
@@ -73,7 +75,10 @@ That is, the result holds with \(u = v'\) and \(v = u' - qv'\).
 \end{itemize}
 By Strong Induction, for all \(b \geq 0\) and all integers \(a\) there exist integers \(u\) and \(v\) such that \(\GCD{a}{b} = au + bv\).
 
-Now suppose \(b < 0\), so that \(-b > 0\). By the previous discussion, there exist integers \(u'\) and \(v'\) such that \(\GCD{a}{-b} = au' + (-b)v'\). Now \[ \GCD{a}{b} = \GCD{a}{-b} = au' + (-b)v' = au' + b(-v'). \] That is, the result holds with \(u = u'\) and \(v = -v'\).  
+Now suppose \(b < 0\), so that \(-b > 0\).
+By the previous discussion, there exist integers \(u'\) and \(v'\) such that \(\GCD{a}{-b} = au' + (-b)v'\).
+Now \[ \GCD{a}{b} = \GCD{a}{-b} = au' + (-b)v' = au' + b(-v'). \]
+That is, the result holds with \(u = u'\) and \(v = -v'\).  
 \end{proof}
 
 Similar to the Euclidean Algorithm, this proof of Bezout's Identity provides us with a strategy for actually finding the coefficients \(u\) and \(v\) recursively.
@@ -87,6 +92,8 @@ If \(a\) and \(b\) are relatively prime integers and \(c\) an integer such that 
 \end{thm}
 
 \begin{proof}
-By Bezout's Identity, we have \(1 = au + bv\) for some integers \(u\) and \(v\); so \(c = auc + bvc\). Since \(a|bc\), we have \(bc = at\) for some integer \(t\). Thus \[ c = auc + bvc = auc + atv = a(uc + tv), \] and so \(a|c\) as claimed.
+By Bezout's Identity, we have \(1 = au + bv\) for some integers \(u\) and \(v\); so \(c = auc + bvc\).
+Since \(a|bc\), we have \(bc = at\) for some integer \(t\).
+Thus \[ c = auc + bvc = auc + atv = a(uc + tv), \] and so \(a|c\) as claimed.
 \end{proof}
 

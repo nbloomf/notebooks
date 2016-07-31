@@ -114,11 +114,16 @@ Since \(y \in \RAY{x}{z}\), we have four possibilities: \(y = x\), \(\BETWEEN{x}
 \end{proof}
 
 \begin{construct}[copy a segment onto a ray]
-Let \(a\) and \(b\) be distinct points, and let \(o\) and \(t\) be distinct points. There exists a point \(x\) on \(\RAY{o}{t}\) such that \(\SEGMENT{o}{x} \equiv \SEGMENT{a}{b}\).
+Let \(a\) and \(b\) be distinct points, and let \(o\) and \(t\) be distinct points.
+There exists a point \(x\) on \(\RAY{o}{t}\) such that \(\SEGMENT{o}{x} \equiv \SEGMENT{a}{b}\).
 \end{construct}
 
 \begin{proof}
-First we construct a point \(z\) such that \(\TRIANGLE{a}{o}{z}\) is equilateral; now \(\SEGMENT{z}{a} \equiv \SEGMENT{z}{o}\). Using the Interpolation property, construct a point \(h\) such that \(\BETWEEN{z}{a}{h}\), and using the Circle Separation property, construct a point \(u\) on \(\RAY{a}{h}\) such that \(\SEGMENT{a}{u} \equiv \SEGMENT{a}{b}\). Again using Circle Separation, construct a point \(v\) on \(\RAY{z}{o}\) such that \(\SEGMENT{z}{v} \equiv \SEGMENT{z}{u}\). By the previous proposition, \(\BETWEEN{z}{o}{v}\). Now \(\SEGMENT{z}{a} \equiv \SEGMENT{z}{o}\) and \(\SEGMENT{z}{u} \equiv \SEGMENT{z}{v}\), thus \(\SEGMENT{a}{u} \equiv \SEGMENT{o}{v}\). Again using Circle Separation, construct a point \(x\) on \(\RAY{o}{t}\) such that \(\SEGMENT{o}{x} \equiv \SEGMENT{o}{v}\). Then we have \(\SEGMENT{o}{x} \equiv \SEGMENT{o}{v} \equiv \SEGMENT{a}{u} \equiv \SEGMENT{a}{b}\) as needed.
+First we construct a point \(z\) such that \(\TRIANGLE{a}{o}{z}\) is equilateral; now \(\SEGMENT{z}{a} \equiv \SEGMENT{z}{o}\).
+Using the Interpolation property, construct a point \(h\) such that \(\BETWEEN{z}{a}{h}\), and using the Circle Separation property, construct a point \(u\) on \(\RAY{a}{h}\) such that \(\SEGMENT{a}{u} \equiv \SEGMENT{a}{b}\).
+Again using Circle Separation, construct a point \(v\) on \(\RAY{z}{o}\) such that \(\SEGMENT{z}{v} \equiv \SEGMENT{z}{u}\).
+By the previous proposition, \(\BETWEEN{z}{o}{v}\).
+Now \(\SEGMENT{z}{a} \equiv \SEGMENT{z}{o}\) and \(\SEGMENT{z}{u} \equiv \SEGMENT{z}{v}\), thus \(\SEGMENT{a}{u} \equiv \SEGMENT{o}{v}\). Again using Circle Separation, construct a point \(x\) on \(\RAY{o}{t}\) such that \(\SEGMENT{o}{x} \equiv \SEGMENT{o}{v}\). Then we have \(\SEGMENT{o}{x} \equiv \SEGMENT{o}{v} \equiv \SEGMENT{a}{u} \equiv \SEGMENT{a}{b}\) as needed.
 \end{proof}
 
 \begin{construct}[copy an angle onto a ray]
@@ -134,11 +139,17 @@ Let \(a\), \(b\), \(c\) be distinct noncollinear points, and let \(x\), \(y\), \
 \end{prop}
 
 \begin{proof}
-Copy \(\SEGMENT{y}{x}\) onto \(\RAY{b}{a}\) at \(d\). Note that \(d\) and \(a\) are on the same side of \(\LINE{b}{c}\). Moreover, we have \(\TRIANGLE{d}{b}{c} \equiv \TRIANGLE{x}{y}{z}\) by the SAS Theorem, and so \(\ANGLE{b}{c}{d} \equiv \ANGLE{y}{z}{x} \equiv \ANGLE{b}{c}{a}\). By AC7, we have \(d \in \RAY{c}{a}\). Now \(d\) is on both \(\LINE{b}{a}\) and \(\LINE{c}{a}\), and since \(a\), \(b\), and \(c\) are not collinear, we must have \(d = a\). So \(\TRIANGLE{a}{b}{c} \equiv \TRIANGLE{x}{y}{z}\) as claimed.
+Copy \(\SEGMENT{y}{x}\) onto \(\RAY{b}{a}\) at \(d\).
+Note that \(d\) and \(a\) are on the same side of \(\LINE{b}{c}\).
+Moreover, we have \(\TRIANGLE{d}{b}{c} \equiv \TRIANGLE{x}{y}{z}\) by the SAS Theorem, and so \(\ANGLE{b}{c}{d} \equiv \ANGLE{y}{z}{x} \equiv \ANGLE{b}{c}{a}\).
+By AC7, we have \(d \in \RAY{c}{a}\).
+Now \(d\) is on both \(\LINE{b}{a}\) and \(\LINE{c}{a}\), and since \(a\), \(b\), and \(c\) are not collinear, we must have \(d = a\).
+So \(\TRIANGLE{a}{b}{c} \equiv \TRIANGLE{x}{y}{z}\) as claimed.
 \end{proof}
 
 \begin{prop}[Angle Addition Theorem]
-Suppose \(B \in \INTANGLE{A}{O}{C}\) and \(Y \in \INTANGLE{X}{P}{Z}\). If any two of \(\ANGLE{A}{O}{C} \equiv \ANGLE{X}{P}{Z}\), \(\ANGLE{A}{O}{B} \equiv \ANGLE{X}{P}{Y}\), and \(\ANGLE{B}{O}{C} \equiv \ANGLE{Y}{P}{Z}\) holds, then so does the third.
+Suppose \(B \in \INTANGLE{A}{O}{C}\) and \(Y \in \INTANGLE{X}{P}{Z}\).
+If any two of \(\ANGLE{A}{O}{C} \equiv \ANGLE{X}{P}{Z}\), \(\ANGLE{A}{O}{B} \equiv \ANGLE{X}{P}{Y}\), and \(\ANGLE{B}{O}{C} \equiv \ANGLE{Y}{P}{Z}\) holds, then so does the third.
 \end{prop}
 
 \begin{proof}

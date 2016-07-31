@@ -1,14 +1,25 @@
-As we will see, there are some fundamental similarities between polynomials and integers. The first important result in this direction is the division algorithm for polynomials.
+As we will see, there are some fundamental similarities between polynomials and integers.
+The first important result in this direction is the division algorithm for polynomials.
 
 \begin{prop} \label{prop:poly-long-div}
-Let \(R\) be a commutative unital ring, and let \(a(x), b(x) \in R[x]\) be polynomials such that \(b(x) \neq 0\) and the leading coefficient of \(b\) is a unit in \(R\). Then there exist polynomials \(q(x), r(x) \in R[x]\) such that \(a(x) = q(x)b(x) + r(x)\) and either \(r(x) = 0\) or \(\deg{r} < \deg{b}\).
+Let \(R\) be a commutative unital ring, and let \(a(x), b(x) \in R[x]\) be polynomials such that \(b(x) \neq 0\) and the leading coefficient of \(b\) is a unit in \(R\).
+Then there exist polynomials \(q(x), r(x) \in R[x]\) such that \(a(x) = q(x)b(x) + r(x)\) and either \(r(x) = 0\) or \(\deg{r} < \deg{b}\).
 \end{prop}
 
 \begin{proof}
-If \(a(x) = 0\), set \(q(x) = r(x) = 0\). Suppose now that \(a(x) \neq 0\); we proceed by strong induction on \(\deg{a}\).
+If \(a(x) = 0\), set \(q(x) = r(x) = 0\).
+Suppose now that \(a(x) \neq 0\); we proceed by strong induction on \(\deg{a}\).
 \begin{itemize}
-\item \textbf{Base case.} If \(\deg{a} = 0\), then \(a(x) = a_0\) is a constant. If \(\deg{b} = 0\), then \(b(x) = b_0\) is also a constant, and in this case \(b_0\) is the leading coefficient of \(b\), hence a unit. Let \(q(x) = a_0b_0^{-1}\) and \(r(x) = 0\). If \(\deg{b} > 0\), let \(q(x) = 0\) and \(r(x) = a_0\). Then \(a(x) = q(x)b(x) + r(x)\) and we have \(\deg{b} \geq 1 > 0 = \deg{r}\).
-\item \textbf{Inductive Step.} Suppose the result holds for all polynomials \(\overline{a}(x)\) of degree strictly less than \(n\), where \(n > 0\), and suppose that \(a(x)\) has degree \(n\). If \(\deg{a} < \deg{b}\), let \(q(x) = 0\) and \(r(x) = a(x)\). Now suppose instead that \(\deg{a} \geq \deg{b}\). Let \(m = \deg{b}\) and let \(a_n\) be the leading coefficient of \(a(x)\) and \(b_m\) the leading coefficient of \(b(x)\) (which is a unit). Define \(\overline{a}(x) = a(x) - a_nb_m^{-1}x^{n-m}b(x)\). Note that \(\deg{\overline{a}} < \deg{a}\). By the inductive hypothesis, we have \(\overline{q}(x), r(x) \in R[x]\) such that \(\overline{a}(x) = \overline{q}(x)b(x) + r(x)\) and either \(r(x) = 0\) or \(\deg{r} < \deg{b}\). Define \(q(x) = \overline{q}(x) + a_nb_m^{-1}x^{n-m}\). Now 
+\item \textbf{Base case.} If \(\deg{a} = 0\), then \(a(x) = a_0\) is a constant.
+If \(\deg{b} = 0\), then \(b(x) = b_0\) is also a constant, and in this case \(b_0\) is the leading coefficient of \(b\), hence a unit.
+Let \(q(x) = a_0b_0^{-1}\) and \(r(x) = 0\).
+If \(\deg{b} > 0\), let \(q(x) = 0\) and \(r(x) = a_0\).
+Then \(a(x) = q(x)b(x) + r(x)\) and we have \(\deg{b} \geq 1 > 0 = \deg{r}\).
+\item \textbf{Inductive Step.} Suppose the result holds for all polynomials \(\overline{a}(x)\) of degree strictly less than \(n\), where \(n > 0\), and suppose that \(a(x)\) has degree \(n\).
+If \(\deg{a} < \deg{b}\), let \(q(x) = 0\) and \(r(x) = a(x)\).
+Now suppose instead that \(\deg{a} \geq \deg{b}\).
+Let \(m = \deg{b}\) and let \(a_n\) be the leading coefficient of \(a(x)\) and \(b_m\) the leading coefficient of \(b(x)\) (which is a unit).
+Define \(\overline{a}(x) = a(x) - a_nb_m^{-1}x^{n-m}b(x)\). Note that \(\deg{\overline{a}} < \deg{a}\). By the inductive hypothesis, we have \(\overline{q}(x), r(x) \in R[x]\) such that \(\overline{a}(x) = \overline{q}(x)b(x) + r(x)\) and either \(r(x) = 0\) or \(\deg{r} < \deg{b}\). Define \(q(x) = \overline{q}(x) + a_nb_m^{-1}x^{n-m}\). Now 
 \begin{eqnarray*}
 a(x) - q(x)b(x) & = & a(x) - \overline{q}(x)b(x) - a_nb_m^{-1}x^{n-m}b(x) \\
  & = & \overline{a}(x) - \overline{q}(x)b(x) \\
@@ -45,31 +56,43 @@ Given a polynomial \(p(x) = \sum_{i=0}^n a_nx^n\) in \(R[x]\), \(R\) a commutati
 There is an important distinction between the polynomial \(p\) and its corresponding evaluation map \(\POLYEVAL{p}\), although in practice this distinction is easy to blur.
 
 \begin{prop}
-Let \(R\) be a commutative unital ring. Then \(\POLYEVAL{p+q}(r) = \POLYEVAL{p}(r) + \POLYEVAL{q}(r)\) and \(\POLYEVAL{pq}(r) = \POLYEVAL{p}(r) \POLYEVAL{q}(r)\).
+Let \(R\) be a commutative unital ring.
+Then \(\POLYEVAL{p+q}(r) = \POLYEVAL{p}(r) + \POLYEVAL{q}(r)\) and \(\POLYEVAL{pq}(r) = \POLYEVAL{p}(r) \POLYEVAL{q}(r)\).
 \end{prop}
 
-\begin{prop}[Factor Theorem] \label{prop:factor-theorem}
-Let \(R\) be a commutative unital ring, with \(p(x) \in R[x]\) and \(a \in R\). Then \(a\) is a root of \(p(x)\) if and only if \(x-a\) divides \(p(x)\) in \(R[x]\). \index{Factor Theorem}
+\begin{prop}[Factor Theorem] \label{prop:factor-theorem} \index{Factor Theorem}
+Let \(R\) be a commutative unital ring, with \(p(x) \in R[x]\) and \(a \in R\).
+Then \(a\) is a root of \(p(x)\) if and only if \(x-a\) divides \(p(x)\) in \(R[x]\).
 \end{prop}
 
 \begin{proof}
-Certainly if \(x-a\) divides \(p(x)\) then \(a\) is a root of \(p\). Conversely, suppose \(a\) is a root of \(p(x)\). Now \(b(x) = x - a\) is monic, so by the polynomial long division algorithm we have \(q(x), r(x) \in R[x]\) such that \(p(x) = q(x)(x-a) + r(x)\) and either \(r(x) = 0\) or \(\deg{r} < 1\). If \(r(x) \neq 0\), then \(r(x) = r_0\) is a constant. Evaluating at \(a\) we have \(p(a) = r_0\), a contradiction. So \(r(x) = 0\) and \(x-a\) divides \(p(x)\).
+Certainly if \(x-a\) divides \(p(x)\) then \(a\) is a root of \(p\).
+Conversely, suppose \(a\) is a root of \(p(x)\).
+Now \(b(x) = x - a\) is monic, so by the polynomial long division algorithm we have \(q(x), r(x) \in R[x]\) such that \(p(x) = q(x)(x-a) + r(x)\) and either \(r(x) = 0\) or \(\deg{r} < 1\).
+If \(r(x) \neq 0\), then \(r(x) = r_0\) is a constant.
+Evaluating at \(a\) we have \(p(a) = r_0\), a contradiction.
+So \(r(x) = 0\) and \(x-a\) divides \(p(x)\).
 \end{proof}
 
 \begin{cor}
-Let \(R\) be a domain with \(p(x) \in R[x]\) a nonzero polynomial of degree \(d\). Then \(p(x)\) has at most \(d\) roots in \(R\), counting multiplicity.
+Let \(R\) be a domain with \(p(x) \in R[x]\) a nonzero polynomial of degree \(d\).
+Then \(p(x)\) has at most \(d\) roots in \(R\), counting multiplicity.
 \end{cor}
 
 \begin{cor}
-Let \(R\) be a domain with \(p(x), q(x) \in R[x]\) polynomials of degree at most \(d\). If there exist \(d+1\) distinct elements \(a_i \in R\) such that \(p(a_i) = q(a_i)\), then \(p(x) = q(x)\).
+Let \(R\) be a domain with \(p(x), q(x) \in R[x]\) polynomials of degree at most \(d\).
+If there exist \(d+1\) distinct elements \(a_i \in R\) such that \(p(a_i) = q(a_i)\), then \(p(x) = q(x)\).
 \end{cor}
 
 \begin{proof}
-Let \(s(x) = p(x) - q(x)\); note that \(s\) has degree at most \(d\). Now the \(a_i\) are \(d+1\) distinct roots of \(s\). If \(s(x) \neq 0\), this contradicts the previous corollary.
+Let \(s(x) = p(x) - q(x)\); note that \(s\) has degree at most \(d\).
+Now the \(a_i\) are \(d+1\) distinct roots of \(s\).
+If \(s(x) \neq 0\), this contradicts the previous corollary.
 \end{proof}
 
 \begin{prop}
-Let \(R\) be a domain and \(p(x) \in R[x]\) a polynomial of degree 2 or 3. Then \(p(x)\) cannot be written as a product of nonconstants in \(R[x]\) if and only if \(p(x)\) does not have a root in \(R\).
+Let \(R\) be a domain and \(p(x) \in R[x]\) a polynomial of degree 2 or 3.
+Then \(p(x)\) cannot be written as a product of nonconstants in \(R[x]\) if and only if \(p(x)\) does not have a root in \(R\).
 \end{prop}
 
 \begin{proof}
@@ -87,10 +110,21 @@ Let \(R\) be a domain and \(q(x) = \sum_{i=0}^n \in R[x]\). Suppose \(p \in R\) 
 \end{prop}
 
 \begin{proof}
-Suppose we have \[ q(x) = b(x)c(x) = \left(\sum_{i}b_ix^i\right)\left(\sum_{j}c_jx^j\right) = \sum_{k}\left( \sum_{i+j = k}b_ic_j \right)x^k. \] Note that \(q_0 = b_0c_0\). Since \(p | b_0c_0\) and \(p^2 \not| b_0c_0\), \(p\) divides exactly one of \(b_0\) and \(c_0\); suppose WLOG that \(p|b_0\), so \(p \not| c_0\). Letting \(n = \deg{q}\), \(h = \deg{b}\), and \(k = \deg{c}\), we have \(q_n = b_hc_k\), and since \(p \not| q_n\), \(p \not| b_h\). Let \(i\) be minimal such that \(p\not|b_i\). (Note that \(0 < i \leq \deg{b} \leq n\).)
+Suppose we have \[ q(x) = b(x)c(x) = \left(\sum_{i}b_ix^i\right)\left(\sum_{j}c_jx^j\right) = \sum_{k}\left( \sum_{i+j = k}b_ic_j \right)x^k. \]
+Note that \(q_0 = b_0c_0\).
+Since \(p | b_0c_0\) and \(p^2 \not| b_0c_0\), \(p\) divides exactly one of \(b_0\) and \(c_0\); suppose WLOG that \(p|b_0\), so \(p \not| c_0\).
+Letting \(n = \deg{q}\), \(h = \deg{b}\), and \(k = \deg{c}\), we have \(q_n = b_hc_k\), and since \(p \not| q_n\), \(p \not| b_h\).
+Let \(i\) be minimal such that \(p\not|b_i\).
+(Note that \(0 < i \leq \deg{b} \leq n\).)
 
-We now have \[ q_i = b_ic_0 + b_{i-1}c_1 + \cdots + b_{i-t}c_t \] for some \(t\). If \(i < n\), then \(p|q_i\), and by construction, \(p|b_j\) for \(j < i\). Thus \(p|b_ic_0\), and since \(p \not| c_0\) we have \(p|b_i\) -- a contradiction. So \(i = n\) and thus \(\deg{b} = n = \deg{q}\). But \(\deg{q} = \deg{b} + \deg{c}\), so that \(\deg{c} = 0\); hence \(c\) is a constant.
+We now have \[ q_i = b_ic_0 + b_{i-1}c_1 + \cdots + b_{i-t}c_t \] for some \(t\).
+If \(i < n\), then \(p|q_i\), and by construction, \(p|b_j\) for \(j < i\).
+Thus \(p|b_ic_0\), and since \(p \not| c_0\) we have \(p|b_i\) -- a contradiction.
+So \(i = n\) and thus \(\deg{b} = n = \deg{q}\).
+But \(\deg{q} = \deg{b} + \deg{c}\), so that \(\deg{c} = 0\); hence \(c\) is a constant.
 \end{proof}
+
+
 
 %---------%
 \Exercises%

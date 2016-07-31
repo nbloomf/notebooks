@@ -9,8 +9,6 @@ rings:
 	@grep "LaTeX Warning" rings.log | sponge zz-rings-warnings.txt
 	@rm rings.aux rings.log rings.toc rings.out
 	@rm rings.idx rings.ilg rings.ind
-	@find src/ring -name '*.tex' -exec cat {} \; | \
-          tex-words.sh | linda.sh | sponge zz-rings-nonwords.txt
 
 geo:
 	@echo "Making geo.pdf" | doppler lightgreen
@@ -21,8 +19,6 @@ geo:
 	@grep 'LaTeX Warning' geo.log | sponge zz-geo-warnings.txt
 	@rm geo.aux geo.log geo.toc geo.out
 	@rm geo.idx geo.ilg geo.ind
-	@find src/geo -name '*.tex' -exec cat {} \; | \
-          tex-words.sh | linda.sh | sponge zz-geo-nonwords.txt
 
 count:
 	@find src/ -name '*.tex' -exec cat {} \; | \
@@ -32,6 +28,10 @@ count:
 
 badness:
 	@echo "Finding Badness" | doppler lightgreen
+	-@find src/ring -name '*.tex' -exec cat {} \; | \
+	  tex-words.sh | linda.sh | sponge zz-rings-nonwords.txt
+	-@find src/geo -name '*.tex' -exec cat {} \; | \
+	  tex-words.sh | linda.sh | sponge zz-geo-nonwords.txt
 	-@find src/ -name '*.tex' | \
 	  xargs grep '\. [[:upper:]]' | sponge zz-sentence-ends.txt
 	-@find src/ -name '*.tex' | \

@@ -3,16 +3,16 @@ To show that a given incidence geometry is an ordered geometry, we need to (1) s
 \subsection{Betweenness in \(\RR^2\)}
 
 \begin{prop}
-The cartesian plane is an ordered geometry with 
+The cartesian plane is an ordered geometry with betweenness and half-planes defined as follows.
 \begin{proplist}
-\item Given points \(A\), \(B\), and \(C\) in \(\RR^2\), we say \(\BETWEEN{A}{C}{B}\) if the equation \(C = A + t(B-A)\) has a solution \(t \in [0,1]\). This is a betweenness relation.
+\item Given points \(A\), \(B\), and \(C\) in \(\RR^2\), we say \(\BETWEEN{A}{C}{B}\) if the equation \(C = A + t(B-A)\) has a solution \(t \in [0,1]\).
 \item Given a line \(\ell = \LINE{A}{B}\), we define two half-planes as follows: \[ H_1 = \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} > 0 \right\} \] and \[ H_2 = \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} < 0 \right\}. \]
 \end{proplist}
 \end{prop}
 
-
 \begin{itemize}
-\item[B1.] Suppose \(\BETWEEN{A}{B}{A}\). Now \(B = A + t(A - A) = A\) as needed.
+\item[B1.] Suppose \(\BETWEEN{A}{B}{A}\).
+Now \(B = A + t(A - A) = A\) as needed.
 \item[B2.] Suppose \(A\), \(B\), and \(C\) are distinct points such that \(\BETWEEN{A}{C}{B}\). By definition, we have \(C = A + t(B-A)\) for some real number \(t \in [0,1]\). Certainly \(C \in \LINE{A}{B}\). Moreover, note that
 \begin{eqnarray*}
 B + (1-t)(A-B) & = & B + A - B - t(A-B) \\
