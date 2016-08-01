@@ -5,21 +5,21 @@ In this case we say that \(a\) is a \emph{divisor} of \(b\).
 
 \begin{prop}
 The following hold for all integers \(a\) and \(b\).
-\begin{itemize}
+\begin{proplist}
 \item \(a|0\).
 \item \(1|a\).
 \item \(a|a\).
 \item If \(a|b\), then \((-a)|b\) and \(a|(-b)\).
 \item If \(a|b\) and \(b \neq 0\), then \(0 < |a| \leq |b|\).
-\end{itemize}
+\end{proplist}
 \end{prop}
 
 \begin{dfn}
 Let \(a\) and \(b\) be integers.
-\begin{itemize}
+\begin{proplist}
 \item We say that an integer \(c\) is a \emph{common divisor} of \(a\) and \(b\) if \(c|a\) and \(c|b\).
 \item We say that an integer \(d\) is a \emph{greatest common divisor} of \(a\) and \(b\) if \(d\) is a common divisor, and if \(c\) is another common divisor, then \(c \leq d\).
-\end{itemize}
+\end{proplist}
 \end{dfn}
 
 \begin{prop}
@@ -28,13 +28,13 @@ We also define \(\GCD{0}{0} = 0\) as a special case.
 \end{prop}
 
 \begin{prop} \mbox{}
-\begin{itemize}
+\begin{proplist}
 \item \(\GCD{a}{b} = \GCD{b}{a}\) for all integers \(a\) and \(b\).
 \item \(\GCD{a}{a} = |a|\) for all integers \(a\).
 \item If \(a\) and \(b\) are integers with \(b|a\), then \(\GCD{a}{b} = |b|\).
 \item \(\GCD{a}{1} = 1\) for all integers \(a\).
 \item \(\GCD{a}{0} = |a|\) for all integers \(a\).
-\end{itemize}
+\end{proplist}
 \end{prop}
 
 \begin{prop}[Euclidean Algorithm for \(\ZZ\)]
@@ -44,12 +44,12 @@ If \(a\) and \(b\) are integers with \(b > 0\), and if \(a = qb + r\) where \(0 
 \begin{proof}
 Let \(d = \GCD{a}{b}\) and \(e = \GCD{b}{r}\).
 We need to show that \(d = e\); to do this, we will show that \(d \leq e\) and \(e \leq d\).
-\begin{itemize}
+\begin{proplist}
 \item By definition we have \(d|a\) and \(d|b\); that is, \(a = da'\) and \(b = db'\) for some integers \(a'\) and \(b'\).
 Now \[ r = a - qb = da' - qdb' = d(a' - qb'), \] so that \(d|r\).
 In particular, \(d\) is a common divisor of \(b\) and \(r\), and so \(d \leq e\).
 \item Similarly, we have \(e|b\) and \(e|r\), so that \(e|a\), and thus \(e \leq d\).
-\end{itemize}
+\end{proplist}
 \end{proof}
 
 The Euclidean Algorithm gives us a way to explicitly compute the GCD of two integers \emph{as long as} we can compute quotients and remainders as in the Division Algorithm; in fact, it is quite fast.

@@ -1,2 +1,7 @@
 *.pdf
 zz-*.txt
+*.aux
+*.log
+*.out
+*.toc
+*.ilg

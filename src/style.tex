@@ -5,8 +5,10 @@
 % #Counters %
 %-----------%
 
-% Number chapters as I, II, III, etc.
-\renewcommand{\thechapter}{\Roman{chapter}}
+% Number chapters as 0, I, II, III, etc.
+\renewcommand{\thechapter}{%
+  \ifcase\value{chapter}\relax 0\else \Roman{chapter}\fi%
+}%
 
 % Number sections sequentially (not within chapters)
 \counterwithout{section}{chapter}

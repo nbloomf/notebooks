@@ -11,21 +11,55 @@
 \frontmatter%
   \input{src/ring/0.0.0-title.tex}
 
-  \tableofcontents%
+  \input{src/ring/0.0.1-license.tex}
+    \newpage
 
+  \tableofcontents%
   \chapter{Preface}
-    \input{src/ring/0.0.1-preface.tex}
+    \input{src/ring/0.0.2-preface.tex}
 
   \chapter{Introduction}
-    \input{src/ring/0.0.2-introduction.tex}
+    \input{src/ring/0.0.3-introduction.tex}
 
   % Introductory chapters
   \chapter{Preliminaries}
     \section{Sets}
-      \input{src/ring/0.1-sets-prelim.tex}
+      \input{src/ring/0.0.4-sets-prelim.tex}
 
 
 \mainmatter
+  \setcounter{chapter}{-1}
+
+  \chapter{Review of Arithmetic}
+    \label{chap:arithmetic}
+    \input{src/ring/0.0-arithmetic.tex}
+    \newpage
+
+    \section{The Integers}
+      \label{sec:the-integers}
+      \input{src/ring/0.1-integers.tex}
+      \newpage
+
+    \section{The Division Algorithm}
+      \label{sec:div-alg}
+      \input{src/ring/0.2-division-algorithm.tex}
+      \newpage
+
+    \section{Divisors}
+      \label{sec:int-div}
+      \input{src/ring/0.3-integer-divisibility.tex}
+      \newpage
+
+    \section{Factorization}
+      \label{sec:int-factor}
+      \input{src/ring/0.4-integer-factorization.tex}
+      \newpage
+
+    \section{Modular Arithmetic}
+      \label{sec:int-mod-n}
+      \input{src/ring/0.5-modular-arithmetic.tex}
+
+
   \chapter{Rings: The Basics}
     \label{chap:rings}
     \input{src/ring/1.0-rings-the-basics.tex}
@@ -224,48 +258,19 @@
 \appendix
 \setcounter{section}{\value{dummycounter}}%&%
 
-  \chapter{Review of Arithmetic}
-    \label{chap:arithmetic}
-    \input{src/ring/A.0-arithmetic.tex}
-    \newpage
-
-    \section{The Integers}
-      \label{sec:the-integers}
-      \input{src/ring/A.1-integers.tex}
-      \newpage
-
-    \section{The Division Algorithm}
-      \label{sec:div-alg}
-      \input{src/ring/A.2-division-algorithm.tex}
-      \newpage
-
-    \section{Divisors}
-      \label{sec:int-div}
-      \input{src/ring/A.3-integer-divisibility.tex}
-      \newpage
-
-    \section{Factorization}
-      \label{sec:int-factor}
-      \input{src/ring/A.4-integer-factorization.tex}
-      \newpage
-
-    \section{Modular Arithmetic}
-      \label{sec:int-mod-n}
-      \input{src/ring/A.5-modular-arithmetic.tex}
-
   \chapter{Rings with Absolute Value}
     \label{chap:abs-val}
-    \input{src/ring/B.0-rings-with-absolute-value.tex}
+    \input{src/ring/A.0-rings-with-absolute-value.tex}
     \newpage
 
     \section{Just Enough Metric Topology}
       \label{sec:ring-with-abs-val}
-      \input{src/ring/B.1-just-enough-metric-topology.tex}
+      \input{src/ring/A.1-just-enough-metric-topology.tex}
       \newpage
 
     \section{The Real Numbers}
       \label{sec:reals}
-      \input{src/ring/B.2-real-numbers.tex}
+      \input{src/ring/A.2-real-numbers.tex}
       \newpage
 
     \section{The \emph{p}-adic Numbers}
