@@ -33,22 +33,22 @@ Thus we have ``found'' integers \(q\) and \(r\) such that \(a = qb + r\) and \(0
 \begin{inlineproplist}
 \item Let \(B\) be the set \[ B = \{ a \in \NN \mid a = qb + r\ \mathrm{for\ some}\ q,r \in \NN\ \mathrm{with}\ 0 \leq r < b \}. \]
 We will show that \(B = \NN\) using induction.
-\begin{inductionproof}
-\basecase{$(a = 0)$.} Note that \(0 = 0 \cdot b + 0\).
+\begin{itemize}
+\item Base case: \(a = 0\). Note that \(0 = 0 \cdot b + 0\).
 Letting \(q = r = 0\) we have \(0 \in B\).
-\inductivestep Suppose that \(a-1 \in B\).
+\item Suppose that \(a-1 \in B\).
 That is, for any integer \(b\), there exist integers \(q'\) and \(r'\) such that \(a-1 = q'b + r'\) and \(0 \leq r' < b\).
 If \(a = b\), then letting \(q = 1\) and \(r = 0\) we have \(a \in B\).
 If \(a < b\), then letting \(q = 0\) and \(r = a\) we have \(a \in B\).
 Otherwise, there are two possibilities: either \(r'+1 < b\) or \(r'+1 \geq b\).
 \begin{inlinecaselist}
-\caseitem{\(r'+1 < b\).} In this case we have \(a = q'b + r'+1\) and \(0 \leq r'+1 < b\).
+\item Suppose \(r'+1 < b\). In this case we have \(a = q'b + r'+1\) and \(0 \leq r'+1 < b\).
 Letting \(q = q'\) and \(r = r'+1\) we have \(a \in B\).
-\caseitem{\(r'+1 \geq b\).} Then in fact we must have \(r'+1 = b\).
+\item Suppose \(r'+1 \geq b\). Then in fact we must have \(r'+1 = b\).
 Now \(a = q'b + r'+1 = q'b + b = (q'+1)b\).
 Letting \(q = q'+1\) and \(r = 0\) we have \(a \in B\).
 \end{inlinecaselist}%
-\end{inductionproof}%
+\end{itemize}%
 By PMI, \(B = \NN\).
 That is, if \(a \geq 0\) then there exist integers \(q\) and \(r\) such that \(a = qb + r\) and \(0 \leq r < b\).
 
@@ -56,10 +56,10 @@ That is, if \(a \geq 0\) then there exist integers \(q\) and \(r\) such that \(a
 By the previous discussion, there exist integers \(q'\) and \(r'\) such that \(-a = q'b + r'\) and \(0 \leq r' < b\).
 There are two possibilities: either \(r' = 0\) or \(r' > 0\).
 \begin{inlinecaselist}
-\caseitem{\(r' = 0\).}
+\item  Suppose \(r' = 0\).
 Now \(a = -q'b\).
 Letting \(q = -q'\) and \(r = 0\) we have \(a = qb+r\) with \(0 \leq r < b\).
-\caseitem{\(r' > 0\).}
+\item  Suppose \(r' > 0\).
 Now \[ a = -q'b - r' = -q'b - b + b - r' = (-q'-1)b + b-r'. \]
 Moreover, note that \(0 \leq b-r' < b\); the left inequality because \(r' < b\), and the right because \(r' > 0\).
 Letting \(q = -q'-1\) and \(r = b-r'\) we have \(q\) and \(r\) so that \(a = qb+r\) and \(0 \leq r < b\).

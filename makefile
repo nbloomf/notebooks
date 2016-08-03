@@ -32,6 +32,14 @@ count:
           tr -s '[[:space:]]' '\n' | \
           wc --lines
 
+words:
+	-@find src/ring -name '*.tex' -exec cat {} \; | \
+	  tex-words.sh | sponge zz-rings-nonwords.txt
+	@[ -s zz-rings-nonwords.txt ] || rm zz-rings-nonwords.txt
+	-@find src/geo -name '*.tex' -exec cat {} \; | \
+	  tex-words.sh | sponge zz-geo-nonwords.txt
+	@[ -s zz-geo-nonwords.txt ] || rm zz-geo-nonwords.txt
+
 badness:
 	@echo "Finding Badness" | doppler lightgreen
 	@ #
