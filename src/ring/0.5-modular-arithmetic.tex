@@ -1,13 +1,13 @@
 \begin{dfn}[Congruence Modulo \(n\)]
 Let \(n\) be a positive integer.
-We say that integers \(a\) and \(b\) are \emph{congruent modulo \(n\)}, denoted \(a \equiv b \mod n\) or \(a \equiv_n b\), if \(n|(b-a)\).
+If \(a\) and \(b\) are integers such that \(n|(b-a)\), then we say \(a\) and \(b\) are \emph{congruent modulo \(n\)}\index{modular arithmetic}, denoted \(a \equiv b \mod n\) or \(a \equiv_n b\).
 \end{dfn}
 
 \begin{prop}
 If \(n\) is a fixed positive integer then congruence modulo \(n\) is an equivalence relation. 
 \end{prop}
 
-Since \(\equiv_n\) is an equivalence, it induces a partition on the set \(\ZZ\) of integers, \(\ZZ/\equiv_n\).
+Since \(\equiv_n\) is an equivalence, it induces a partition on the set \(\ZZ\) of integers, \(\ZZ/\!\equiv_n\).
 We will denote this partition using \(\ZZ/(n)\) and refer to this set as the set of \emph{modular integers}.
 
 \begin{prop}
@@ -27,7 +27,7 @@ To this end, suppose we have \([r_1] = [r_2]\), where \(0 \leq r_1, r_2 < n\).
 By definition, we have that \(n\) divides \(r_2 - r_1\); say \(r_2 - r_1 = qn\).
 In particular, \(r_2 = qn + r_1\).
 Note also that \(r_2 = 0 \cdot n + r_2\).
-By the uniqueness of positive remainders given by the Division Algorithm, we have \(r_1 = r_2\).
+By the uniqueness of positive remainders given by the Division Algorithm in \ref{cor:div-alg-unique}, we have \(r_1 = r_2\).
 \end{proof}
 
 

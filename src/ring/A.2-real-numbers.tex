@@ -18,7 +18,13 @@ If \(\alpha\), \(\overline{\alpha}\), \(\beta\), and \(\overline{\beta}\) are ca
 \end{prop}
 
 \begin{proof}
-If \(\beta - \alpha\) converges to zero, then we have \[ 0 = \LIM{\beta - \alpha} - \LIM{\beta - \overline{\beta}} + \LIM{\alpha - \overline{\alpha}} = \LIM{\beta - \alpha - \beta + \overline{\beta} + \alpha - \overline{\alpha}} = \LIM{\overline{\beta} - \overline{\alpha}}, \] so that \(\overline{\alpha} \leq \overline{\beta}\).
+If \(\beta - \alpha\) converges to zero, we have the following.
+\begin{eqnarray*}
+0 & = & \LIM{\beta - \alpha} - \LIM{\beta - \overline{\beta}} + \LIM{\alpha - \overline{\alpha}} \\
+ & = & \LIM{\beta - \alpha - \beta + \overline{\beta} + \alpha - \overline{\alpha}} \\
+ & = & \LIM{\overline{\beta} - \overline{\alpha}}.
+\end{eqnarray*}
+Thus \(\overline{\alpha} \leq \overline{\beta}\).
 Suppose instead that \(\beta - \alpha\) does not converge to zero.
 Since \(\alpha \leq \beta\), there is a natural number \(W\) such that \(\alpha_i < \beta_i\) whenever \(i \geq W\).
 Also, by \ref{prop:cauchy-bound-away-from-zero}, there is a rational number \(\delta\) and a natural number \(T\) such that \(|\beta_i - \alpha_i| \geq \delta\) whenever \(i \geq T\).
@@ -55,8 +61,8 @@ The relation \(\leq\) on \(\RR\) has the following properties.
 \end{proplist}
 \end{prop}
 
-\begin{proof}
-\begin{inlineproplist}
+\begin{proof} \mbox{}
+\begin{proplist}
 \item Since \(\alpha - \alpha\) converges to 0, we have \([\alpha] \leq [\alpha]\).
 \item Suppose \([\alpha] \leq [\beta]\) and \([\beta] \leq [\alpha]\).
 Now if either \(\beta - \alpha\) or \(\alpha - \beta\) converge to zero, we have \([\alpha] = [\beta]\).
@@ -82,10 +88,12 @@ So \[ 2\delta \leq \alpha_j - \alpha_i \leq |\alpha_j - \alpha_i| < \delta, \] a
 Likewise if \(\alpha_j < 0\) and \(\alpha_i > 0\) then \[ 2\delta \leq \alpha_i - \alpha_j \leq |\alpha_i - \alpha_j| < \delta. \] That is, for all \(i \geq W\), the \(\alpha_i\) have the same sign, either positive or negative.
 In the first case we have \([\TILDE{0}] \leq [\alpha]\), and in the second case \([\alpha] \leq [\TILDE{0}]\).
 But since \([\alpha] \neq [\TILDE{0}]\), in fact either \([\alpha] < [\TILDE{0}]\) or \([\alpha] > [\TILDE{0}]\).
-\end{inlineproplist}
+\qedhere
+\end{proplist}
 \end{proof}
 
 \begin{prop}
+The following properties hold.
 \begin{proplist}
 \item If \([\alpha] \leq [\beta]\) then \([\alpha] + [\gamma] \leq [\beta] + [\gamma]\).
 \item If \([\TILDE{0}] \leq [\alpha]\) and \([\TILDE{0}] \leq [\beta]\) then \([\TILDE{0}] \leq [\alpha][\beta]\).
@@ -93,8 +101,8 @@ But since \([\alpha] \neq [\TILDE{0}]\), in fact either \([\alpha] < [\TILDE{0}]
 \end{proplist}
 \end{prop}
 
-\begin{proof}
-\begin{inlineproplist}
+\begin{proof} \mbox{}
+\begin{proplist}
 \item If \(\beta - \alpha\) converges to 0, then \([\alpha] = [\beta]\) and the result holds.
 If \(\beta - \alpha\) does not converge to 0, then there is an index \(W\) such that \(\alpha_i < \beta_i\) for all \(i \geq W\).
 For all such \(i\), we have \(\alpha_i + \gamma_i < \beta_i + \gamma_i\), so that \([\alpha] + [\gamma] \leq [\beta] + [\gamma]\) as claimed.
@@ -105,12 +113,14 @@ Let \(W = \max(W_\alpha, W_\beta)\).
 Then for all \(i \geq W\), we have \(\alpha_i \beta_i > 0\), so that \([\TILDE{0}] \leq [\alpha][\beta]\) as claimed.
 \item Certainly \(0 < 1\), so that \([\TILDE{0}] \leq [\TILDE{1}]\).
 Since \(1 \neq 0\), \([\TILDE{0}] \neq [\TILDE{1}]\).
-\end{inlineproplist}
+\end{proplist}
 \end{proof}
 
 \begin{prop}
 (@@@) every nonempty set with an upper bound has a least upper bound.
 \end{prop}
+
+We can summarize (@@@) in the following proposition.
 
 \begin{prop} \label{prop:rr-axioms}
 There is a field \(\RR\), whose elements are called \emph{real numbers}, which comes with a linear order relation \(\leq\) having the following properties.
@@ -153,3 +163,17 @@ Thus \(S\) has a least upper bound, say \(c \in S\).
 \begin{proof}
 (@@@)
 \end{proof}
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}
+(@@@) Let \(F\) be an ordered field with the least upper bound property.
+\begin{proplist}
+\item Note that \(\QQ\) embeds uniquely into \(F\) and \(\RR\).
+\item (@@@) map LUBs to LUBs yadda yadda
+\item Show that this map is an isomorphism of ordered fields.
+\end{proplist}
+\end{exercise}

@@ -1,6 +1,3 @@
-% #Counters
-%
-
 %-----------%
 % #Counters %
 %-----------%
@@ -9,6 +6,9 @@
 \renewcommand{\thechapter}{%
   \ifcase\value{chapter}\relax 0\else \Roman{chapter}\fi%
 }%
+
+% Keep chapter numbers and titles from overlapping in TOC
+\renewcommand{\chapternumberlinebox}[2]{\makebox[1cm][l]{#2}}
 
 % Number sections sequentially (not within chapters)
 \counterwithout{section}{chapter}
@@ -26,30 +26,56 @@
 
 
 
-%%%
+%--------------------------%
+% Custom list environments %
+%--------------------------%
+
+% See documentation for package enumitem
+
+% Roman-enumerated lists for propositions
+\newlist{proplist}{enumerate}{2}
+\setlist[proplist]{label=(\roman*)}
+
+% proplist with less vertical space
+\newlist{proplist*}{enumerate}{2}
+\setlist[proplist*]{label=(\roman*),itemsep=2pt}
+
+% Inline version of proplist
+\newlist{inlineproplist}{enumerate}{2}
+\setlist[inlineproplist]{label=(\roman*)}
 
 
-% Keep chapter numbers and titles from overlapping in TOC
-\renewcommand{\chapternumberlinebox}[2]{\makebox[1cm][l]{#2}}
+% Arabic-enumerated lists for case analysis
+\newlist{caselist}{enumerate}{2}
+\setlist[caselist]{align=left,label=\textbf{Case \arabic*:}}
+\newcommand{\caseitem}[1]{\item #1}
 
-% Roman-enumerated lists for propositions and proofs
-\newenvironment{proplist}[0] %&%
-  {\begin{enumerate}[(i)]}   %&%
-  {\end{enumerate}}          %&%
+% Inline version of caselist
+\newlist{inlinecaselist}{enumerate}{2}
+\setlist[inlinecaselist]{align=left,label=\textbf{Case \arabic*:}}
 
-\newenvironment{proplist*}[0]                        %&%
-  {\begin{enumerate}[(i)] \setlength{\itemsep}{0pt}} %&%
-  {\end{enumerate}}                                  %&%
 
-\newenvironment{inlineproplist}[0] %&%
-  {\begin{inparaenum}[(i)]}        %&%
-  {\end{inparaenum}}               %&%
+% Listlike environment for induction proofs
+\newlist{inductionproof}{itemize}{2}
+\setlist[inductionproof]{align=left,label=(\roman*)}
+\newcommand{\basecase}[1]{\item[\textbf{Base Case:}] #1}
+\newcommand{\inductivestep}[0]{\item[\textbf{Inductive Step.}]}
+
+
+
+%------------%
+% References %
+%------------%
 
 % Subreferences
 \newcommand{\sref}[2]{\ref{#1}(\ref{#1:#2})}
 \newcommand{\paref}[1]{(\ref{#1})}
 \newcommand{\eref}[1]{\hyperref[#1]{Exercise \ref*{#1}}}
 \newcommand{\propref}[1]{\hyperref[#1]{Proposition \ref*{#1}}}
+
+\def\chapterautorefname{Chapter} %&%
+\def\sectionautorefname{Section} %&%
+\def\figureautorefname{Figure}   %&%
 
 
 % Page style
@@ -72,7 +98,11 @@
 \pagestyle{standard} %&%
 \chapterstyle{dash}  %&%
 
-% Theorem styles
+
+%----------------%
+% Theorem styles %
+%----------------%
+
 \theoremstyle{definition}                 %&%
 \newtheorem{dfn}{Def'n}[section]          %&%
 \newtheorem{thm}[dfn]{Theorem}            %&%
@@ -122,9 +152,6 @@
 \surroundwithmdframed[style=mystyle]{cor}   %&%
 \surroundwithmdframed[style=mystyle]{axiom} %&%
 
-\def\chapterautorefname{Chapter} %&%
-\def\sectionautorefname{Section} %&%
-\def\figureautorefname{Figure}   %&%
 
 
 % For nebulous "problem" statements

@@ -1,13 +1,3 @@
-\documentclass{article}
-\usepackage{neb-macros}
-
-\begin{document}
-
-\CheapTitle{The Euler Totient}
-
-\begin{dfn}#[Euler Totient#]
-Let $n$ be a positive integer. We define the \emph{totient} of $n$, to be the cardinality of the set \#[ \mathcal{U}_n = \{ a \mid 0 \leq a < n, \GCD{a}{n} = 1 \}. \#] We denote this number by $\TOT{n}$.
-\end{dfn}
 
 \begin{thm} \mbox{}
 \begin{enumerate}

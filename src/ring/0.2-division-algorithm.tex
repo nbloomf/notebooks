@@ -6,14 +6,14 @@ The \(q\) and \(r\) given by the Division Algorithm are called the \emph{quotien
 We will give two proofs of this result, one constructive and one nonconstructive, and compare them.
 
 \begin{proof}
-\textbf{Nonconstructive.} Our strategy is to use the Well-Ordering Property.
+\textbf{Nonconstructive.}
+Our strategy is to use the Well-Ordering Property.
 To this end, define a set \(S\) of integers as follows.
 \[ S = \{ a - qb \mid q \in \ZZ \} \cap \NN. \]
 First, note that \(S \subseteq \NN\) by definition.
 Next, we claim that \(S\) is not empty.
 To see this, note that \(-a \leq |a| \leq |a|b\), since \(1 \leq b\).
 Rearranging, we have \[ 0 \leq a + |a|b = a - (-|a|)b, \] so that in particular \(a - (-|a|)b \in S\).
-
 So \(S\) is a nonempty subset of \(\NN\).
 By WOP, \(S\) has a \(\leq\)-smallest element; say \(r\).
 Now \(0 \leq r\) and \(r = a - qb\) for some integer \(q\), so that \(a = qb + r\).
@@ -24,51 +24,47 @@ Now \(r-b \geq 0\), and moreover \[ r-b = a - qb - b = a - (q+1)b. \]
 Thus we have \(r-b \in S\).
 However we also have \(r > r-b\) (strict) since \(b \geq 1\); this contradicts the minimalness of \(r\) in \(S\).
 So our assumption that \(r \geq b\) was false, and in fact \(r < b\).
-
 Thus we have ``found'' integers \(q\) and \(r\) such that \(a = qb + r\) and \(0 \leq r < b\).
 \end{proof}
 
 \begin{proof}
 \textbf{Constructive.} We will consider two cases separately; first with \(a \geq 0\) and second with \(a < 0\).
 
-\begin{itemize}
-\item Let \(b\) be the set \[ B = \{ a \in \NN \mid a = qb + r\ \mathrm{for\ some}\ q,r \in \NN\ \mathrm{with}\ 0 \leq r < b \}. \]
-We claim that \(B = \NN\).
-Our strategy is to use the Principle of Mathematical Induction.
-\begin{itemize}
-\item \textbf{Base Case.} Note that \(0 = 0 \cdot b + 0\).
-Letting \(q = r = 0\), we have \(0 \in B\).
-\item \textbf{Inductive Step.} Suppose that \(a-1 \in B\).
+\begin{inlineproplist}
+\item Let \(B\) be the set \[ B = \{ a \in \NN \mid a = qb + r\ \mathrm{for\ some}\ q,r \in \NN\ \mathrm{with}\ 0 \leq r < b \}. \]
+We will show that \(B = \NN\) using induction.
+\begin{inductionproof}
+\basecase{$(a = 0)$.} Note that \(0 = 0 \cdot b + 0\).
+Letting \(q = r = 0\) we have \(0 \in B\).
+\inductivestep Suppose that \(a-1 \in B\).
 That is, for any integer \(b\), there exist integers \(q'\) and \(r'\) such that \(a-1 = q'b + r'\) and \(0 \leq r' < b\).
 If \(a = b\), then letting \(q = 1\) and \(r = 0\) we have \(a \in B\).
 If \(a < b\), then letting \(q = 0\) and \(r = a\) we have \(a \in B\).
 Otherwise, there are two possibilities: either \(r'+1 < b\) or \(r'+1 \geq b\).
-\begin{inparaenum}
-\item Suppose \(r'+1 < b\).
-Then \(a = q'b + r'+1\) and \(0 \leq r'+1 < b\).
-Letting \(q = q'\) and \(r = r'+1\), we have \(a \in B\).
-\item Suppose \(r'+1 \geq b\).
-Then in fact we must have \(r'+1 = b\).
+\begin{inlinecaselist}
+\caseitem{\(r'+1 < b\).} In this case we have \(a = q'b + r'+1\) and \(0 \leq r'+1 < b\).
+Letting \(q = q'\) and \(r = r'+1\) we have \(a \in B\).
+\caseitem{\(r'+1 \geq b\).} Then in fact we must have \(r'+1 = b\).
 Now \(a = q'b + r'+1 = q'b + b = (q'+1)b\).
-Letting \(q = q'+1\) and \(r = 0\), we have \(a \in B\).
-\end{inparaenum}
-\end{itemize}
+Letting \(q = q'+1\) and \(r = 0\) we have \(a \in B\).
+\end{inlinecaselist}%
+\end{inductionproof}%
 By PMI, \(B = \NN\).
 That is, if \(a \geq 0\) then there exist integers \(q\) and \(r\) such that \(a = qb + r\) and \(0 \leq r < b\).
 
 \item Now suppose \(a < 0\), so that \(-a > 0\).
 By the previous discussion, there exist integers \(q'\) and \(r'\) such that \(-a = q'b + r'\) and \(0 \leq r' < b\).
 There are two possibilities: either \(r' = 0\) or \(r' > 0\).
-\begin{inparaenum}
-\item Suppose \(r' = 0\).
+\begin{inlinecaselist}
+\caseitem{\(r' = 0\).}
 Now \(a = -q'b\).
 Letting \(q = -q'\) and \(r = 0\) we have \(a = qb+r\) with \(0 \leq r < b\).
-\item Suppose \(r' > 0\).
-Now \[ a = -q'b - r'= -q'b - b + b - r' = (-q'-1)b + b-r'. \]
+\caseitem{\(r' > 0\).}
+Now \[ a = -q'b - r' = -q'b - b + b - r' = (-q'-1)b + b-r'. \]
 Moreover, note that \(0 \leq b-r' < b\); the left inequality because \(r' < b\), and the right because \(r' > 0\).
 Letting \(q = -q'-1\) and \(r = b-r'\) we have \(q\) and \(r\) so that \(a = qb+r\) and \(0 \leq r < b\).
-\end{inparaenum}
-\end{itemize}
+\end{inlinecaselist}
+\end{inlineproplist}
 \end{proof}
 
 Different proofs of the same result using different strategies, as we have here, can frequently offer different insights into why the result is true.
@@ -98,7 +94,7 @@ Using the Division Algorithm find \(q'\) and \(r'\) such that \(a = q'(-b) + r'\
 Let \(q = -q'\) and \(r = r'\).
 \end{proof}
 
-\begin{cor}
+\begin{cor}\label{cor:div-alg-unique}
 The \(q\) and \(r\) given by the Division Algorithm are unique in the following sense; if \(a = qb + r\) and \(a = q'b + r'\) and \(0 \leq r,r' < |b|\), then \(q = q'\) and \(r = r'\).
 \end{cor}
 
@@ -118,5 +114,13 @@ Now \(r = a - qb = a - q'b = r'\).
 %---------%
 
 \begin{exercise}
-Write a computer program that (@@@).
+Write a computer program that takes two integers \(a\) and \(b\) such that \(b \neq 0\) and returns integers \(q\) and \(r\) such that \(0 \leq r < |b|\) and \(a = qb + r\).
+Test your program on the following inputs.
+\begin{proplist*}
+\item \(a = 5 \) and \(b = 2 \)
+\item \(a = 0 \) and \(b = 11 \)
+\item \(a = -10 \) and \(b = 3 \)
+\item \(a = -10 \) and \(b = -3 \)
+\item \(a = 3^{700} \) and \(b = 2^{100} \)
+\end{proplist*}
 \end{exercise}
