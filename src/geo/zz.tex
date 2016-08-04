@@ -1,24 +1,15 @@
-\documentclass{article}
-\usepackage{neb-macros}
-
-\begin{document}
-
-\CheapTitle{Circles}
-
 \begin{dfn}[Circle]
-Let $o$ and $x$ be points in an ordered geometry with a segment congruence.
+Let \(o\) and \(x\) be points in an ordered geometry with a segment congruence.
 \begin{enumerate}
-\item The \emph{circle} with \emph{center} at $o$ and passing through $x$ is the set \[ \Circle{o}{x} = \{ y \mid \Segment{o}{y} \cong \Segment{o}{x} \}. \]
-\item We say that a point $z$ is \emph{interior to} the circle $\Circle{o}{x}$ if either $z = o$ or there is a point $y \in \Circle{o}{x}$ such that $\Between{o}{z}{y}$, and define the \emph{interior} of $\Circle{o}{x}$ to be the set \[ \IntCircle{o}{x} = \{ z \mid z = o\ \mathrm{or}\ \Between{o}{z}{y}\ \mathrm{for\ some}\ y \in \Circle{o}{x} \}. \]
-\item We say that a point $z$ is \emph{exterior to} the circle $\Circle{o}{x}$ if there is a point $y \in \Circle{o}{x}$ such that $\Between{o}{y}{z}$, and define the \emph{exterior} of $\Circle{o}{x}$ to be the set \[ \ExtCircle{o}{x} = \{ z \mid \Between{o}{y}{z}\ \mathrm{for\ some}\ y \in \Circle{o}{x} \}. \]
+\item The \emph{circle} with \emph{center} at \(o\) and passing through \(x\) is the set \[ \Circle{o}{x} = \{ y \mid \Segment{o}{y} \cong \Segment{o}{x} \}. \]
+\item We say that a point \(z\) is \emph{interior to} the circle \(\Circle{o}{x}\) if either \(z = o\) or there is a point \(y \in \Circle{o}{x}\) such that \(\Between{o}{z}{y}\), and define the \emph{interior} of \(\Circle{o}{x}\) to be the set \[ \IntCircle{o}{x} = \{ z \mid z = o\ \mathrm{or}\ \Between{o}{z}{y}\ \mathrm{for\ some}\ y \in \Circle{o}{x} \}. \]
+\item We say that a point \(z\) is \emph{exterior to} the circle \(\Circle{o}{x}\) if there is a point \(y \in \Circle{o}{x}\) such that \(\Between{o}{y}{z}\), and define the \emph{exterior} of \(\Circle{o}{x}\) to be the set \[ \ExtCircle{o}{x} = \{ z \mid \Between{o}{y}{z}\ \mathrm{for\ some}\ y \in \Circle{o}{x} \}. \]
 \end{enumerate}
 \end{dfn}
 
 \subsection*{Examples}
 
 \begin{enumerate}
-\item[$\Reals^2$] Let $O = (o_1, o_2)$ and $A = (a_1, a_2)$ be points in the Cartesian plane.
-Then $\Circle{O}{A}$ consists of all points $X = (x_1, x_2)$ which satisfy the equation \[ (x_1 - o_1)^2 + (x_2 - o_2)^2 = (a_1 - o_1)^2 + (a_2 - o_2)^2. \]
+\item[\(\Reals^2\)] Let \(O = (o_1, o_2)\) and \(A = (a_1, a_2)\) be points in the Cartesian plane.
+Then \(\Circle{O}{A}\) consists of all points \(X = (x_1, x_2)\) which satisfy the equation \[ (x_1 - o_1)^2 + (x_2 - o_2)^2 = (a_1 - o_1)^2 + (a_2 - o_2)^2. \]
 \end{enumerate}
-
-\end{document}
