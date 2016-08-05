@@ -10,21 +10,23 @@
 
 \frontmatter%
   \input{src/ring/0.0.0-title.tex}
+    \clearpage
 
   \input{src/ring/0.0.1-license.tex}
     \newpage
 
-  \tableofcontents%
+  \cleardoublepage
+  \setcounter{page}{1}
+
+  \begin{KeepFromToc}
+    \tableofcontents%
+  \end{KeepFromToc}
+
   \chapter{Preface}
     \input{src/ring/0.0.2-preface.tex}
 
   \chapter{Introduction}
     \input{src/ring/0.0.3-introduction.tex}
-
-  % Introductory chapters
-  \chapter{Preliminaries}
-    \section{Sets}
-      \input{src/ring/0.0.4-sets-prelim.tex}
 
 
 \mainmatter
@@ -58,6 +60,12 @@
     \section{Modular Arithmetic}
       \label{sec:int-mod-n}
       \input{src/ring/0.5-modular-arithmetic.tex}
+      \newpage
+
+    \phantomsection
+    \section*{Summary of \autoref{chap:arithmetic}}
+      \addcontentsline{toc}{section}{Summary}%&%
+      \input{src/ring/0.X-summary.tex}
 
 
   \chapter{Rings: The Basics}

@@ -15,8 +15,8 @@ There is a set \(\ZZ\), whose elements are called \emph{integers}\index{integer}
 \item[P2.] If \(a \leq b\) and \(b \leq c\), then \(a \leq c\), for all \(a,b,c \in \ZZ\).
 \item[P3.] If \(a \leq b\) and \(b \leq a\), then \(a = b\) for all \(a,b \in \ZZ\).
 \item[T.] If \(a,b \in \ZZ\), then either \(a \leq b\) or \(b \leq a\).
-\item[O1.] \label{ax:o1} If \(a \leq b\) then \(a+c \leq b+c\) for all \(a,b,c \in \ZZ\).
-\item[O2.] \label{ax:o2} If \(0 \leq a\) and \(0 \leq b\) then \(0 \leq ab\).
+\item[O1.]\label{ax:o1} If \(a \leq b\) then \(a+c \leq b+c\) for all \(a,b,c \in \ZZ\).
+\item[O2.]\label{ax:o2} If \(0 \leq a\) and \(0 \leq b\) then \(0 \leq ab\).
 \item[O3.] \(0 \leq 1\).
 \item[WOP.] Suppose \(S\) is a nonempty subset of \(\ZZ\) which is bounded below; say \(b \in \ZZ\) has the property that \(b \leq s\) for all \(s \in S\).
 Then there is an integer \(m \in S\) such that \(m \leq s\) for all \(s \in S\).
@@ -140,11 +140,10 @@ Show that the following hold for all integers \(a\) and \(b\).
 \end{exercise}
 
 \begin{exercise}[Strong Induction.]
-Let \(B \subseteq \NN\).
-Show that if \(B\) satisfies the following two properties:
+Let \(B \subseteq \NN\) and suppose \(B\) satisfies the following two properties.
 \begin{proplist}
 \item \(0 \in B\), and
 \item If \(n \in \NN\) such that \(a \in B\) for all \(0 \leq a \leq n\), then \(n+1 \in B\);
 \end{proplist}
-then \(B = \NN\).
+Show that \(B = \NN\).
 \end{exercise}
