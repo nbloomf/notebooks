@@ -107,8 +107,21 @@ This is a powerful idea with implications far beyond numbers.
 \Exercises%
 %---------%
 
-\begin{exercise}[Trichotomy.]
+\begin{exercise}[Trichotomy.]\label{exerc:trichotomy}
 Show that if \(a \in \ZZ\), then exactly one of \(a < 0\), \(a = 0\), or \(a > 0\) is true.
+\end{exercise}
+
+\begin{exercise}
+Show that the following hold for all \(a,b \in \ZZ\).
+\begin{proplist*}
+\item If \(a \geq 0\) and \(b \leq 0\) then \(ab \leq 0\).
+\item If \(a \leq 0\) and \(b \leq 0\) then \(ab \geq 0\).
+\end{proplist*}
+\end{exercise}
+
+\begin{exercise}
+Show that if \(a\) and \(b\) are integers and \(ab = 1\), then either \(a = b = 1\) or \(a = b = -1\).
+(Hint: Apply \eref{exerc:trichotomy} to \(a\).)
 \end{exercise}
 
 \begin{exercise}
@@ -132,6 +145,10 @@ Given \(n \in \ZZ\), the \emph{absolute value} of \(n\), denoted \(|n|\), is \(n
 \end{dfn}
 
 \begin{exercise}
+Show that for any integer \(a\) we have \[ -|a| \leq a \leq |a|. \]
+\end{exercise}
+
+\begin{exercise}
 Show that the following hold for all integers \(a\) and \(b\).
 \begin{proplist}
 \item \(|ab| = |a| \cdot |b|\)
@@ -146,4 +163,18 @@ Let \(B \subseteq \NN\) and suppose \(B\) satisfies the following two properties
 \item If \(n \in \NN\) such that \(a \in B\) for all \(0 \leq a \leq n\), then \(n+1 \in B\);
 \end{proplist}
 Show that \(B = \NN\).
+\end{exercise}
+
+\begin{dfn}[Integer Interval]
+Let \(a\) and \(b\) be integers.
+The set \[ \ZZINT{a}{b} = \{ x \in \ZZ \mid a \leq x \leq b \} \] is called an \emph{interval}.
+\end{dfn}
+
+\begin{dfn}[Finite]
+We say that a set \(S\) is \emph{finite}\index{finite set} if there is a natural number \(n\) and a bijection \(\varphi : \ZZINT{1}{n} \rightarrow S\).
+\end{dfn}
+
+\begin{exercise}
+Let \(a\) and \(b\) be integers.
+Show that \(\ZZINT{a}{b}\) is finite.
 \end{exercise}

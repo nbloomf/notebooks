@@ -1,41 +1,80 @@
+The integers have the nice property that, for any constants \(a\) and \(b\), the equation \[ a + x = b \] always has a solution in \(\ZZ\) -- namely, \(b - a\).
+This is no longer true if we replace the plus by times; the equation \(ax = b\) may or may not have any solutions in \(\ZZ\).
+If so, \(a\) and \(b\) enjoy a special relationship.
+
 \begin{dfn}[Divides]
 Given integers \(a\) and \(b\), we say that \(a\) \emph{divides} \(b\), written \(a|b\), if there is an integer \(c\) such that \(ac = b\).
 In this case we say that \(a\) is a \emph{divisor} of \(b\).
 \end{dfn}
 
-\begin{prop}
-The following hold for all integers \(a\) and \(b\).
+Divisibility satisfies several basic properties.
+
+\begin{prop}\label{prop:int-div}
+The following hold for all integers \(a\), \(b\), and \(c\).
 \begin{proplist*}
-\item \(a|0\).
-\item \(1|a\).
-\item \(a|a\).
-\item If \(a|b\), then \((-a)|b\) and \(a|(-b)\).
-\item If \(a|b\) and \(b \neq 0\), then \(0 < |a| \leq |b|\).
+\item \label{prop:int-div:zero} \(a|0\).
+\item \label{prop:int-div:one} \(1|a\).
+\item \label{prop:int-div:self} \(a|a\).
+\item If \(a|b\) and \(b|c\) then \(a|c\).
+\item \label{prop:int-div:bound} If \(a|b\) and \(b \neq 0\) then \(|a| < |b|\).
 \end{proplist*}
 \end{prop}
 
+Note that \sref{prop:int-div}{one} and \sref{prop:int-div}{self} say that every integer has at least two divisors, though typical integers have many more.
+Likewise \sref{prop:int-div}{zero} says that every integer is a divisor of at least one other.
+If one integer is simultaneously a divisor of two others, we say it is a \emph{common divisor}, and this is very special.
+
 \begin{dfn}
-Let \(a\) and \(b\) be integers.
+Let \(a\), \(b\), \(c\), and \(d\) be integers.
 \begin{proplist}
-\item We say that an integer \(c\) is a \emph{common divisor} of \(a\) and \(b\) if \(c|a\) and \(c|b\).
-\item We say that an integer \(d\) is a \emph{greatest common divisor} of \(a\) and \(b\) if \(d\) is a common divisor, and if \(c\) is another common divisor, then \(c \leq d\).
+\item We say that \(c\) is a \emph{common divisor} of \(a\) and \(b\) if \(c|a\) and \(c|b\).
+\item We say that \(d\) is a \emph{greatest common divisor} of \(a\) and \(b\) if \(d\) is a common divisor, and if \(c\) is another common divisor, then \(c \leq d\).
 \end{proplist}
 \end{dfn}
 
-\begin{prop}
+In fact any two integers (not both zero) \emph{have} a greatest common divisor, which is unique.
+
+\begin{prop}\label{prop:zz-gcds-exist}
 Any two integers (not both zero) have a unique greatest common divisor, which we denote \(\GCD{a}{b}\).
 We also define \(\GCD{0}{0} = 0\) as a special case.
 \end{prop}
 
-\begin{prop} \mbox{}
+\begin{proof}
+First we show existence.
+Let \(M = \max(|a|,|b|)\) and let \[ S = \{ M - c \mid c\ \mathrm{is\ a\ common\ divisor\ of}\ a\ \mathrm{and}\ b \}. \]
+Now \(S\) is not empty since \(M - 1 \in S\), and in fact \(S \subseteq \NN\) since \(c \leq M\) for all common divisors \(c\) of \(a\) and \(b\).
+By WOP, then, \(S\) has a least element; say \(t = M - d\).
+Now \(d\) is a common divisor of \(a\) and \(b\) by definition.
+If \(c\) is a common divisor of \(a\) and \(b\), then \(M - d \leq M - c\), which rearranges as \(c \leq d\).
+So \(d\) is a greatest common divisor of \(a\) and \(b\).
+To see uniqueness, note that if \(d_1\) and \(d_2\) are both greatest common divisors of \(a\) and \(b\) then we have \(d_1 \leq d_2\) and \(d_2 \leq d_1\) so that \(d_1 = d_2\).
+\end{proof}
+
+Because it is unique, we can think of the greatest common divisor as a function of two integers.
+
+\begin{prop}
+The following hold for all integers \(a\) and \(b\).
 \begin{proplist*}
-\item \(\GCD{a}{b} = \GCD{b}{a}\) for all integers \(a\) and \(b\).
-\item \(\GCD{a}{a} = |a|\) for all integers \(a\).
-\item If \(a\) and \(b\) are integers with \(b|a\), then \(\GCD{a}{b} = |b|\).
-\item \(\GCD{a}{1} = 1\) for all integers \(a\).
-\item \(\GCD{a}{0} = |a|\) for all integers \(a\).
+\item \(\GCD{a}{b} = \GCD{b}{a}\).
+\item \(\GCD{a}{a} = |a|\).
+\item If \(b|a\), then \(\GCD{a}{b} = |b|\).
+\item \(\GCD{a}{1} = 1\).
+\item \(\GCD{a}{0} = |a|\).
 \end{proplist*}
 \end{prop}
+
+Our proof that GCDs always exist is not constructive since it depends on the Well-Ordering Property.
+We know that GCDs exist, but actually finding them is difficult!
+For example, suppose we want to find the greatest common divisor of \(2\) and \(3\).
+From the definition, we can restrict our search to the common divisors of \(2\) and \(3\).
+Using \sref{prop:int-div}{bound}, we can show that the divisors of \(2\) are \(\pm 1\) and \(\pm 2\) and the divisors of \(3\) are \(\pm 1\) and \(\pm 3\).
+The largest number which appears in both lists is 1, so that \(\GCD{2}{3} = 1\).
+This works well enough, but what if we want to find \(\GCD{1337}{1007}\)?
+The same brute force strategy works in principle, but would take a long time.
+
+It is possible to give a constructive, induction based proof of \propref{prop:zz-gcds-exist} (try it!) but we will avoid doing so here.
+Such a proof will be longer and more tedious while providing no more insight than this one does -- giving more heat than light, so to speak -- and the resulting algorithm slow.
+Instead we give the following result which connects greatest common divisors to the division algorithm.
 
 \begin{prop}[Euclidean Algorithm for \(\ZZ\)]
 If \(a\) and \(b\) are integers with \(b > 0\), and if \(a = qb + r\) where \(0 \leq r < b\), then \(\GCD{a}{b} = \GCD{b}{r}\).
@@ -49,12 +88,14 @@ We need to show that \(d = e\); to do this, we will show that \(d \leq e\) and \
 Now \[ r = a - qb = da' - qdb' = d(a' - qb'), \] so that \(d|r\).
 In particular, \(d\) is a common divisor of \(b\) and \(r\), and so \(d \leq e\).
 \item Similarly, we have \(e|b\) and \(e|r\), so that \(e|a\), and thus \(e \leq d\).
+\qedhere
 \end{proplist}
 \end{proof}
 
 The Euclidean Algorithm gives us a way to explicitly compute the GCD of two integers \emph{as long as} we can compute quotients and remainders as in the Division Algorithm; in fact, it is quite fast.
 Note that since \(r\) is strictly less than \(b\), this recursion must eventually terminate with a statement of the form \(\GCD{a}{0}\).
-
+This result is named after \emph{the} Euclid, because as far as we know he was the first to write it down -- in his book \emph{The Elements of Geometry}.
+Euclid himself thought of the algorithm in geometric terms, where \(a\) and \(b\) represent the lengths of line segments and \(\GCD{a}{b}\) the length of the largest line segment that can ``tile'' both simultaneously.
 
 \begin{thm}[Bezout's Identity]
 If \(a\) and \(b\) are integers, then there exist integers \(u\) and \(v\) such that \(\GCD{a}{b} = ua + vb\).
@@ -111,3 +152,32 @@ Since \(a|bc\), we have \(bc = at\) for some integer \(t\).
 Thus \[ c = auc + bvc = auc + atv = a(uc + tv), \] and so \(a|c\) as claimed.
 \end{proof}
 
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}
+Let \(a\) and \(b\) be integers.
+Show that if \(ac = b\) and \(ad = b\) then \(c = d\).
+\end{exercise}
+
+\begin{exercise}
+Suppose \(a\) and \(b\) are integers such that \(a|b\) and \(b|a\). Show that \(b = \pm a\).
+\end{exercise}
+
+\begin{exercise}
+Suppose \(a\) and \(b\) are integers such that \(a|b\).
+Show that \((-a)|b\), \(a|(-b)\), and \((-a)|(-b)\).
+\end{exercise}
+
+\begin{exercise}
+Use the Euclidean Algorithm to compute the following.
+\begin{proplist*}
+\item \(\GCD{12}{5}\)
+\item \(\GCD{57}{17}\)
+\item \(\GCD{210}{115}\)
+\item \(\GCD{1337}{1007}\)
+\end{proplist*}
+\end{exercise}

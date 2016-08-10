@@ -1,16 +1,29 @@
+Recall that every integer except 1 and -1 has at least two divisors (four if we count negatives): itself and 1.
+The integers which have \emph{only} these divisors are somehow simpler than the rest, so we give them a name.
+
 \begin{dfn}[Prime] \label{dfn:zz-prime}
-We say an integer \(p \notin \{1,0,-1\}\) is \emph{prime} if whenever \(p = ab\), either \(a = \pm p\) or \(b = \pm p\).
-Equivalently, \(p\) is prime if it is not 0, 1, or -1, and the only divisors of \(p\) are \(\pm 1\) and \(\pm p\).
+We say an integer \(p \notin \{1,0,-1\}\) is \emph{prime} if whenever \(p = ab\), either \(a = \pm 1\) or \(b = \pm 1\).
 \end{dfn}
 
-\begin{prop} \mbox{}
-\begin{enumerate}
+Equivalently, \(p\) is prime if it is not 0, 1, or -1, and the only divisors of \(p\) are \(\pm 1\) and \(\pm p\).
+You might wonder why we have excluded 0, 1, and -1 from our definition of ``prime''.
+After all, 1 has no positive integer divisors other than itself and 1, right?
+This is true, but it turns out that 1 and -1 are special for another reason: we can ``divide'' by them in the integers in the sense that \(1 \cdot x = a\) and \(-1 \cdot x = a\) have solutions in \(\ZZ\) for all integers \(a\).
+For reasons we'll explain in a bit, this makes it inconvenient to think of 1 and -1 as prime.
+On the other hand there is a very good argument to be made that we should think of 0 as prime, even though it is divisible by every integer!
+The point (for now) is that the whole business of prime numbers becomes much simpler if we just exclude 1, 0, and -1 from consideration, and so we do.
+
+\begin{prop}\label{prop:zz-prime}
+Let \(p\) and \(a\) be integers.
+\begin{proplist}
 \item 2 and 3 are prime.
 \item If \(p\) is prime, then \(-p\) is prime.
 \item If \(p\) and \(q\) are prime such that \(p|q\), then \(q = \pm p\).
-\item If \(p\) is a prime integer, then for all integers \(a\), \(\GCD{a}{p}\) is \(|p|\) if \(p|a\) and \(1\) otherwise.
-\end{enumerate}
+\item \label{prop:zz-prime:gcd} If \(p\) is prime then \(\GCD{a}{p}\) is \(|p|\) if \(p|a\) and \(1\) otherwise.
+\end{proplist}
 \end{prop}
+
+The following result is an alternative way to characterize the prime integers which will turn out to be interesting.
 
 \begin{prop} \label{prop:zz-prime-2}
 An integer \(p\) is prime if and only if whenever \(p|ab\), either \(p|a\) or \(p|b\).
@@ -18,14 +31,14 @@ An integer \(p\) is prime if and only if whenever \(p|ab\), either \(p|a\) or \(
 
 \begin{proof}
 This is an ``if and only if'' statement; we proceed by proving the ``only if'' part and then the ``if'' part.
-\begin{inlineproplist}
+\begin{proplist}
 \item[\((\Rightarrow)\)] Suppose \(p\) is prime and that \(p|ab\).
 Consider \(\GCD{a}{p}\).
-Since \(p\) is prime, there are two possibilities.
-\begin{inlineproplist}
+Since \(p\) is prime, by \sref{prop:zz-prime}{gcd} there are two possibilities.
+\begin{proplist}
 \item If \(\GCD{a}{p} = |p|\), then \(|p|\) divides \(a\), so that \(p|a\).
 \item If \(\GCD{a}{p} = 1\), then by Euclid's Lemma, \(p|b\).
-\end{inlineproplist}
+\end{proplist}
 
 \item[\((\Leftarrow)\)] Suppose \(p\) has the property that if \(p|ab\) then either \(p|a\) or \(p|b\).
 Suppose further that \(p = ab\).
@@ -33,16 +46,21 @@ In particular \(p|ab\) (since \(1 \cdot p = ab\)) and so, without loss of genera
 Say \(a = pa'\).
 Now \(p = ab = pa'b\), and thus \(1 = a'b\).
 Now \(|b| = 1\), and thus \(|p| = |a|\), so that \(p = \pm a\) as needed.
-\end{inlineproplist}
+\qedhere
+\end{proplist}
 \end{proof}
 
+(By the way, this is where the argument that 0 should be prime comes in: it satisfies \propref{prop:zz-prime-2}.)
+
 \begin{cor}
-If \(p\) is a prime and \(a_i\) integers such that \(p|a_1a_2 \cdots p_n\), then \(p|a_i\) for some \(i\).
+If \(p\) is a prime and \(a_i\) integers such that \(p|a_1a_2 \cdots p_n\), then \(p|a_k\) for some \(k\).
 \end{cor}
 
+The next two results are the reason why primes are interesting, and ultimately the reason why we don't consider 1 and -1 to be primes.
+The primes are the building blocks of all other integers in a very precise sense: every integer can be written as a product of primes in essentially one way.
+This 
 
-
-\begin{thm}[Fundamental Theorem of Arithmetic: Part 1]
+\begin{thm}[Fundamental Theorem of Arithmetic: Existence]
 Every integer other than \(0\), \(1\), and \(-1\) can be written as a product of primes.
 That is, every such \(n\) can be expressed as \(n = p_1p_2 \cdots p_k\), where the \(p_i\) are prime.
 This is called a \emph{prime factorization} of \(n\).
@@ -66,7 +84,7 @@ Thus by strong induction every integer \(n \geq 2\) has a prime factorization.
 If \(n < 0\), then \(-n > 0\), so that \(-n = p_1p_2 \cdots p_k\) has a prime factorization; then \(n = (-p_1)p_2 \cdots p_k\) also has a prime factorization.
 \end{proof}
 
-\begin{thm}[Fundamental Theorem of Arithmetic: Part 2]
+\begin{thm}[Fundamental Theorem of Arithmetic: Uniqueness]
 The prime factorization of an integer is unique in the following sense.
 If \(n\) has two prime factorizations \[ n = p_1p_2 \cdots p_k = q_1q_2 \cdots q_\ell, \] then \(k = \ell\) and, after relabeling the \(q_i\), we have \(p_i = \pm q_i\) for each \(1 \leq i \leq k\).
 \end{thm}
@@ -74,7 +92,7 @@ If \(n\) has two prime factorizations \[ n = p_1p_2 \cdots p_k = q_1q_2 \cdots q
 \begin{proof}
 We saw in FTA Part 1 that every such \(n\) has at least one prime factorization, which consists of at least one prime factor.
 To show uniqueness we will proceed by strong induction on the \emph{length} of the shortest prime factorization of \(n\).
-\begin{inlineproplist}
+\begin{proplist}
 \item \textbf{Base Case:} Suppose \(n = p\) has a prime factorization of length 1; that is, \(n\) itself is prime.
 Suppose \(p = q_1q_2 \ldots q_\ell\) is another prime factorization of \(n\).
 Since \(p\) is prime, we have (rearranging the \(q_i\) if necessary) \(p|q_1\).
@@ -88,7 +106,8 @@ Now \(q_1 = \pm p\), and we have \[p_2 \cdots p_{k+1} = q_2 \cdots q_\ell. \]
 Note that these are two prime factorizations of an integer having a shortest prime factorization of length at most \(k\).
 By the Inductive Hypothesis, we have \(\ell = k+1\) and, relabeling the \(q_i\) if necessary, \(q_i = \pm p_i\) for each \(2 \leq i \leq k+1\).
 So the prime factorization of \(n\) is unique.
-\end{inlineproplist}
+\qedhere
+\end{proplist}
 \end{proof}
 
 We've established that every integer has an essentially unique prime factorization.
@@ -121,17 +140,17 @@ So \textbf{5 is prime}.
 
 This result gives us a strategy for finding prime numbers, but it only works if we have a complete list of primes up to \(\sqrt{n}\) to begin with.
 In other words, we can find a prime if we start with a list of primes.
-This can be made into a reasonably efficient algorithm for finding all the primes up to some bound, called the \emph{Sieve of Eratosthenes}.
+This can be made into a reasonably efficient algorithm for finding all the primes up to some bound, which we will explore in the exercises.
 There are some interesting questions left unanswered, though.
-Given an integer \(n\),
+Suppose we have an integer \(n\).
 \begin{itemize}
-\item ...is \(n\) prime?
-\item ...what is the prime factorization of \(n\)?
-\item ...how many prime factors does \(n\) have?
-\item ...how many \emph{distinct} prime factors does \(n\) have?
-\item ...what is the smallest prime factor of \(n\)?
-\item ...how difficult is it to answer these questions?
-\item ...how difficult is it to \emph{verify} the answers to these questions?
+\item Is \(n\) prime?
+\item What is the smallest prime factor of \(n\)?
+\item What is the prime factorization of \(n\)?
+\item How many prime factors does \(n\) have?
+\item How many \emph{distinct} prime factors does \(n\) have?
+\item How difficult is it to answer these questions?
+\item How difficult is it to \emph{verify} the answers to these questions?
 \end{itemize}
 
 
@@ -145,3 +164,7 @@ Let \(n\) be a positive integer.
 We define the \emph{totient}\index{totient} of \(n\) to be the cardinality of the set \[ \{ a \mid 0 \leq a < n, \GCD{a}{n} = 1 \}. \]
 We denote this number by \(\TOT{n}\).
 \end{dfn}
+
+\begin{exercise}[Sieve of Eratosthenes.]
+(@@@)
+\end{exercise}
