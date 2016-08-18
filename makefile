@@ -13,18 +13,22 @@ rings:
 	@rm rings.aux rings.log rings.toc rings.out
 	@rm rings.idx rings.ilg rings.ind
 
-geo:
-	@echo "Making geo.pdf" | doppler lightgreen
+geo: src/geo/gfx/cover/cover.eps
+	@echo 'Making geo.pdf' | doppler lightgreen
 	@pdflatex -file-line-error -interaction=batchmode src/geo/geo.tex > /dev/null
 	@pdflatex -file-line-error -interaction=batchmode src/geo/geo.tex > /dev/null
 	@makeindex -q geo
 	@pdflatex -file-line-error -interaction=batchmode src/geo/geo.tex > /dev/null
-	@echo "  Saving warnings" | doppler lightblue
+	@echo '  Saving warnings' | doppler lightblue
 	@grep 'LaTeX Warning' geo.log | sponge zz-geo-warnings.txt
 	@[ -s zz-geo-warnings.txt ] || rm zz-geo-warnings.txt
-	@echo "  Cleaning up" | doppler lightblue
+	@echo '  Cleaning up' | doppler lightblue
 	@rm geo.aux geo.log geo.toc geo.out
 	@rm geo.idx geo.ilg geo.ind
+
+src/geo/gfx/cover/cover.eps: src/geo/gfx/cover/cover.hs
+	@echo '  Making cover' | doppler lightblue
+	@cd src/geo/gfx/cover; ./cover.hs > /dev/null
 
 count:
 	@find src/ -name '*.tex' -exec cat {} \; | \
