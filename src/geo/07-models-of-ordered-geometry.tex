@@ -1,18 +1,42 @@
-To show that a given incidence geometry is an ordered geometry, we need to (1) specify how to detect when one point is between to others and (2) specify how to determine when two points are on the same side of a line.
+In this section we will establish some models of ordered geometry.
+Remember that to show a given incidence geometry is also an ordered geometry, we need to specify (1) how to detect when one point is between two others and (2) how to determine when two points are on the same side of a line.
 
 \subsection{Betweenness in \(\RR^2\)}
 
 \begin{prop}
 The cartesian plane is an ordered geometry with betweenness and half-planes defined as follows.
 \begin{proplist}
-\item Given points \(A\), \(B\), and \(C\) in \(\RR^2\), we say \(\BETWEEN{A}{C}{B}\) if the equation \(C = A + t(B-A)\) has a solution \(t \in [0,1]\).
+\item Given points \(A\), \(B\), and \(C\) in \(\RR^2\), we say \(\BETWEEN{A}{C}{B}\) if \(A \neq B\) and the equation \(C = A + t(B-A)\) has a solution \(t \in (0,1)\).
 \item Given a line \(\ell = \LINE{A}{B}\), we define two half-planes as follows: \[ H_1 = \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} > 0 \right\} \] and \[ H_2 = \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} < 0 \right\}. \]
 \end{proplist}
 \end{prop}
 
+\begin{proof}\mbox{}
 \begin{itemize}
-\item[B1.] Suppose \(\BETWEEN{A}{B}{A}\).
-Now \(B = A + t(A - A) = A\) as needed.
+\item[B1.] Suppose \(\BETWEEN{A}{C}{B}\).
+Now \(A \neq B\) by definition, and we have \(C = A + t(B-A)\) for some \(t \in (0,1)\).
+If \(C = A\), then we have \((0,0) = t(B-A)\), so that \(B = A\) -- a contradiction.
+So \(C \neq A\).
+Similarly, if \(C = B\), then \((0,0) = (t-1)(B-A)\), so that \(B = A\) -- a contradiction.
+So \(C \neq B\).
+Finally we claim that \(A\), \(B\), and \(C\) are collinear.
+To this end, note that \[ \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ c_x & c_y & 1 \end{bmatrix} = \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ a_x + t(b_x-a_x) & a_y + t(b_x-a_x) & 1 \end{bmatrix} = 0. \]
+
+\item[B2.] If \(C = A + t(B-A)\) where \(t \in (0,1)\), then (rearranging) we also have \(C = B + (1-t)(A-B)\) with \(1-t \in (0,1)\) as needed.
+
+\item[B3.] (@@@)
+
+\item[B4.] (@@@)
+
+\item[B5.] (@@@)
+
+\item[B6.] (@@@)
+
+\item[LS.] (@@@)
+\end{itemize}
+\end{proof}
+
+\begin{itemize}
 \item[B2.] Suppose \(A\), \(B\), and \(C\) are distinct points such that \(\BETWEEN{A}{C}{B}\).
 By definition, we have \(C = A + t(B-A)\) for some real number \(t \in [0,1]\).
 Certainly \(C \in \LINE{A}{B}\).
