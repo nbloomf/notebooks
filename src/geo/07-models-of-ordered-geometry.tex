@@ -4,11 +4,8 @@ Remember that to show a given incidence geometry is also an ordered geometry, we
 \subsection{Betweenness in \(\RR^2\)}
 
 \begin{prop}
-The cartesian plane is an ordered geometry with betweenness and half-planes defined as follows.
-\begin{proplist}
-\item Given points \(A\), \(B\), and \(C\) in \(\RR^2\), we say \(\BETWEEN{A}{C}{B}\) if \(A \neq B\) and the equation \(C = A + t(B-A)\) has a solution \(t \in (0,1)\).
-\item Given a line \(\ell = \LINE{A}{B}\), we define two half-planes as follows: \[ H_1 = \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} > 0 \right\} \] and \[ H_2 = \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} < 0 \right\}. \]
-\end{proplist}
+Given points \(A\), \(B\), and \(C\) in \(\RR^2\), we say \(\BETWEEN{A}{C}{B}\) if \(A \neq B\) and the equation \(C = A + t(B-A)\) has a solution \(t \in (0,1)\).
+Then this \(\BETWEEN{\ast}{\ast}{\ast}\) is a betweenness relation on \(\RR^2\).
 \end{prop}
 
 \begin{proof}\mbox{}
@@ -24,63 +21,64 @@ To this end, note that \[ \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\
 
 \item[B2.] If \(C = A + t(B-A)\) where \(t \in (0,1)\), then (rearranging) we also have \(C = B + (1-t)(A-B)\) with \(1-t \in (0,1)\) as needed.
 
-\item[B3.] (@@@)
+\item[B3.] Suppose \(A\), \(B\), and \(C\) are distinct such that \(\COLLINEAR{A}{B}{C}\).
+Using Exercise \ref{exerc:rr2-collinear-comb}, we have \(C = A + t(B-A)\) for some real number \(t\).
+Note that \(t \neq 0\) and \(t \neq 1\) since in the first case we would have \(C = A\) and in the second, \(C = B\).
+There are then three possibilities for \(t\).
+If \(t \in (0,1)\), then \(\BETWEEN{A}{C}{B}\) by definition.
+If \(t > 1\), then ``solving for \(B\)'' we have \(B = A + \frac{1}{t}(C-A)\), and since \(1/t \in (0,1)\), we have \(\BETWEEN{A}{B}{C}\).
+If \(t < 0\), then we have \(A = C + \frac{-t}{1-t}(B-C)\), and since \(\frac{-t}{1-t} \in (0,1)\), we have \(\BETWEEN{C}{A}{B}\).
 
-\item[B4.] (@@@)
+\item[B4.] Suppose \(\BETWEEN{A}{B}{C}\) and \(\BETWEEN{A}{C}{D}\); say we have \(B = A + t(C-A)\) and \(C = A + s(D-A)\) where \(s,t \in (0,1)\).
+Now \(B = A + ts(D-A)\), and since \(st \in (0,1)\), we have \(\BETWEEN{A}{B}{D}\).
+Similarly, we have \(C = B + \frac{s-ts}{1-ts}(D-B)\), and since \(\frac{s-ts}{1-ts} \in (0,1)\), we have \(\BETWEEN{B}{C}{D}\) as needed.
 
-\item[B5.] (@@@)
+\item[B5.] Suppose \(\BETWEEN{A}{B}{C}\) and \(\BETWEEN{B}{C}{D}\); say we have \(B = t(C-A)\) and \(C = B + s(D-B)\) where \(s,t \in (0,1)\).
+Now \(C = A + \frac{s}{1-t+st}(D-A)\), and we also have \(\frac{s}{1-t+st} \in (0,1)\).
+(To see this, note that \(0 < (1-s)(1-t)\) and rearrange to get \(s < 1-t+st\).)
+Thus \(\BETWEEN{B}{C}{D}\).
+Next note that \(B = A + \frac{ts}{1-t+ts}(D-A)\), and since \(\frac{ts}{1-t+ts} \in (0,1)\), we have \(\BETWEEN{A}{B}{D}\) as needed.
 
-\item[B6.] (@@@)
-
-\item[LS.] (@@@)
+\item[B6.] Let \(A\) and \(B\) be distinct points.
+Given a real number \(t\), let \(C = A + t(B-A)\).
+If \(t \in (0,1)\), then \(\BETWEEN{A}{C}{B}\) by definition.
+If \(t > 1\), then \(B = A + \frac{1}{t}(C-A)\) with \(\frac{1}{t} \in (0,1)\) and we have \(\BETWEEN{A}{B}{C}\).
+If \(t < 0\), then \(A = C + \frac{-t}{1-t}(B-C)\) with \(\frac{-t}{1-t} \in (0,1)\) and we have \(\BETWEEN{C}{A}{B}\).
+\qedhere
 \end{itemize}
 \end{proof}
 
-\begin{itemize}
-\item[B2.] Suppose \(A\), \(B\), and \(C\) are distinct points such that \(\BETWEEN{A}{C}{B}\).
-By definition, we have \(C = A + t(B-A)\) for some real number \(t \in [0,1]\).
-Certainly \(C \in \LINE{A}{B}\).
-Moreover, note that
-\begin{eqnarray*}
-B + (1-t)(A-B) & = & B + A - B - t(A-B) \\
- & = & A + t(B-A) \\
- & = & C,
-\end{eqnarray*}
-so that \(\BETWEEN{B}{C}{A}\).
-\item[B3.] Suppose we have distinct points \(A\), \(B\), and \(C\) such that \(\BETWEEN{A}{B}{C}\) and \(\BETWEEN{B}{C}{A}\).
-Now \(B = A + t(C-A)\) and \(C = B + u(A-B)\) for some real numbers \(u,t \in [0,1]\) by definition.
-Substituting the second equation into the first, we see that \(B = A + t(1-u)(B - A)\), so that \(0 = (t(1-u) - 1)(B - A)\).
-Since \(A\) and \(B\) are distinct, we must have \(t(1-u) = 1\).
-Similarly, substituting the first equation into the second, we have \(u(1-t) = 1\).
-Then \(t\) must be a root of the quadratic \(t^2 - t + 1\), which has no real solutions.
-\end{itemize}
+Next, we'd like to show that \(\RR^2\) is an ordered geometry by showing that it has the Line Separation property.
+First, we need the following technical lemma about the intersection of a segment and a line in \(\RR^2\).
 
-We can say something a little stronger about the intersection of a segment and a line in \(\RR^2\); this next fact will become useful later, so we state and prove it now.
-
-The Cartesian Plane has the Trichotomy Property, as we show.
-Let \(A\), \(B\), and \(C\) be distinct collinear points.
-Now \(C \in \LINE{A}{B}\), so that \(C = A + t(B-A)\) for some real number \(t\).
-If \(t \in [0,1]\), then \(\BETWEEN{A}{C}{B}\).
-If \(t > 1\), then \(\frac{1}{t} \in (0,1)\), and we have \(B = A + \frac{1}{t}(C-A)\) so that \(\BETWEEN{A}{B}{C}\).
-If \(t < 0\), then \(\frac{-t}{1-t} \in (0,1]\) and we have \(A = C + \frac{-t}{1-t}(B-C)\), so that \(\BETWEEN{C}{A}{B}\).
-
-\begin{prop}
+\begin{lem}
 Let \(A,B \in \RR^2\) be distinct points and let \(X = (x_1, x_2), Y = (y_1, y_2) \in \RR^2\) be distinct points not in \(\ell_{A,B}\).
 Then \(\SEGMENT{X}{Y} \cap \LINE{A}{B}\) consists of a single point if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ x_1 & x_2 & 1 \end{bmatrix} \quad \mathrm{and} \quad \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ y_1 & y_2 & 1 \end{bmatrix} \] have opposite signs.
-\end{prop}
+\end{lem}
 
 \begin{proof}
 Note that \(\LINE{X}{Y} \cap \LINE{A}{B}\) contains exactly one point if and only if the equation \(X + t(Y-X) = A + u(B-A)\) has a unique solution \((t,u)\).
-In fact we have \[ \begin{bmatrix} t \\ -u \end{bmatrix} = \begin{bmatrix} y_1 - x_1 & b_1 - a_1 \\ y_2 - x_2 & b_2 - a_2 \end{bmatrix}^{-1} \begin{bmatrix} a_1 - x_1 \\ a_2 - x_2 \end{bmatrix}. \]
-Comparing entries of this matrix, we see that \[ t = \frac{(b_2-a_2)(a_1-x_1) + (a_1-b_1)(a_2-x_2)}{(y_1-x_1)(b_2-a_2) - (y_2-x_2)(b_1-a_1)}. \]
-Note that the unique point in \(\LINE{X}{Y} \cap \LINE{A}{B}\) is in fact in the segment \(\SEGMENT{X}{Y}\) if and only if \(t \in [0,1]\).
+In fact, by comparing coordinates we can rewrite this equation in matrix form as \[ \begin{bmatrix} t \\ -u \end{bmatrix} = \begin{bmatrix} y_1 - x_1 & b_1 - a_1 \\ y_2 - x_2 & b_2 - a_2 \end{bmatrix}^{-1} \begin{bmatrix} a_1 - x_1 \\ a_2 - x_2 \end{bmatrix}. \]
+Comparing entries of this matrix, we see that \[ t = \frac{(b_2-a_2)(a_1-x_1) + (a_1-b_1)(a_2-x_2)}{(y_1-x_1)(b_2-a_2) - (y_2-x_2)(b_1-a_1)}; \] note that the denominator of this expression is not zero by Exercise \ref{exerc:parallels-in-rr2}.
+Now by definition the unique point in \(\LINE{X}{Y} \cap \LINE{A}{B}\) is more specifically in the segment \(\SEGMENT{X}{Y}\) if and only if \(t \in (0,1)\).
 
 There are now two possibilities, depending on whether the denominator of \(t\) is positive or negative.
-If the denominator of \(t\) is positive, we can see that \(t \in (0,1)\) if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ x_1 & x_2 & 1 \end{bmatrix} > 0 > \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ y_1 & y_2 & 1 \end{bmatrix}. \]
-If the denominator of \(t\) is negative, then \(t \in (0,1)\) if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ x_1 & x_2 & 1 \end{bmatrix} < 0 < \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ y_1 & y_2 & 1 \end{bmatrix}. \]
+If the denominator of \(t\) is positive, we can see that \(t \in (0,1)\) if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ x_1 & x_2 & 1 \end{bmatrix} > 0 > \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ y_1 & y_2 & 1 \end{bmatrix}. \]
+If the denominator of \(t\) is negative, then \(t \in (0,1)\) if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ x_1 & x_2 & 1 \end{bmatrix} < 0 < \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ y_1 & y_2 & 1 \end{bmatrix}. \]
+\qedhere
 \end{proof}
 
+We are now prepared to show the following.
+
+\begin{prop}
+Given a line \(\ell = \LINE{A}{B}\) in \(\RR^2\), we define two half-planes as follows: \[ H_1 = \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} > 0 \right\} \] and \[ H_2 = \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} < 0 \right\}. \]
+With half planes defined in this way for all lines, \(\RR^2\) is an ordered geometry.
+\end{prop}
+
+\begin{proof}
+It suffices to show that the Line Separation property is satisfied.
 Certainly both \(H_1\) and \(H_2\) are not empty, and they are disjoint by construction.
+By the previous lemma, if \(X \in H_1\) and \(Y \in H_2\), then \(\SEGMENT{X}{Y} \cap \LINE{A}{B}\) consists of a unique point. So it suffices to show that \(H_1\) and \(H_2\) are convex.
 
 To see that \(H_1\) is convex, suppose BWOC that we have points \(X,Y \in H_1\) and a point \(Z = (z_1, z_2)\) such that \(\BETWEEN{X}{Z}{Y}\) and \(Z \notin H_1\).
 Now \[ m = \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ z_1 & z_2 & 1 \end{bmatrix} \] is either 0 or negative.
@@ -94,6 +92,4 @@ If \(W\) and \(V\) are distinct points, then in fact \(X, Y \in \LINE{W}{V} = \L
 If \(W = V\), then we have \(\BETWEEN{X}{W}{Z}\) and \(\BETWEEN{Y}{W}{Z}\), so by the 4-point axiom, \(\BETWEEN{W}{Z}{Y}\), a contradiction.
 So we must have \(Z \in H_1\), and thus \(H_1\) is convex.
 A similar argument shows that \(H_2\) is convex.
-
-Finally, we need to show that if \(X \in H_1\) and \(Y \in H_2\), then \(\SEGMENT{X}{Y} \cap \LINE{A}{B}\) consists of a unique point.
-We showed precisely this previously.
+\end{proof}
