@@ -1,11 +1,30 @@
+The existence of a betweenness relation on an incidence geometry says something very strong.
+Combined with an additional property -- the Line Separation property -- such geometries are called \emph{ordered}.
+
 \begin{dfn}[Ordered Geometry]
 Let \(P\) be an incidence geometry with a betweenness relation \(\BETWEEN{\ast}{\ast}{\ast}\).
 We say that \(P\) is an \emph{ordered geometry} if it satisfies the following additional \emph{Line Separation Property}.
 \begin{proplist}
 \item[LS.] Every line \(\ell\) partitions the set of points not on \(\ell\) into two nonempty, disjoint, convex sets, \(H_1\) and \(H_2\), with the property that if \(x \in H_1\) and \(y \in H_2\) then \(\SEGMENT{x}{y} \cap \ell = \{p\}\) for some point \(p\).
-The sets \(H_1\) and \(H_2\) are called \emph{half-planes}.
+The sets \(H_1\) and \(H_2\) are called the \emph{half-planes} cut by \(\ell\).
 \end{proplist}
 \end{dfn}
+
+The Line Separation property essentially states that every line divides the plane into two ``separate'' pieces -- we might call these pieces the \emph{sides} of the line.
+Given a line \(\ell\) and points \(x,y \notin \ell\), we say that \(x\) and \(y\) are on the \emph{same side} of \(\ell\) if they are both in the same half-plane bounded by \(\ell\), and otherwise they are on \emph{opposite sides}.
+See \autoref{fig:line-sep} for a picture, but remember that a given ordered geometry might look very different.
+
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}
+  \draw [<->] (0,0) -- (2,4);
+  \coordinate [label=below right:\(\ell\)] (x) at (1,2);
+  \node at (-1,2) {\(H_1\)};
+  \node at (2.5,2) {\(H_2\)};
+\end{tikzpicture}
+\caption{\label{fig:line-sep}The half planes bounded by a line.}
+\end{center}
+\end{figure}
 
 \begin{dfn}[Triangle]
 Let \(P\) be an incidence geometry, and let \(x\), \(y\), and \(z\) be distinct points.
@@ -38,7 +57,21 @@ In other words, Pasch's Axiom states that if a line enters a triangle then it mu
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[scale=0.5]{src/geo/gfx/fig/pasch.eps}
+\begin{tikzpicture}[scale=1.1]
+  \coordinate [label=below:\(x\)] (X) at (0,0);
+  \coordinate [label=above left:\(y\)] (Y) at (-1,2);
+  \coordinate [label=right:\(z\)] (Z) at (4,1);
+  \coordinate (H) at (0,1);
+  \coordinate (K) at (-2,2);
+  \draw (X) -- (Y) -- (Z) -- cycle;
+  \draw [->] (H) -- (K);
+  \coordinate [label=below left:\(w\)] (W) at (intersection of X--Y and H--K);
+  \draw [->,dashed] (H) -- (1,0.5);
+  \draw [fill] (X) circle [radius=0.7pt];
+  \draw [fill] (Y) circle [radius=0.7pt];
+  \draw [fill] (Z) circle [radius=0.7pt];
+  \draw [fill] (W) circle [radius=0.7pt];
+\end{tikzpicture}
 \caption{\label{fig:pasch}Pasch's Axiom}
 \end{center}
 \end{figure}
@@ -51,8 +84,9 @@ Then \(A\) and \(B\) are on the same side of \(\ell\).
 
 \begin{proof}
 Suppose otherwise that \(A\) and \(B\) are on opposite sides of \(\ell\).
-By the Plane Separation property, and because \(A\) and \(B\) are not on \(\ell\), the segment \(\SEGMENT{A}{B}\) cuts \(\ell\) at a unique point \(D\).
+By the Line Separation property, and because \(A\) and \(B\) are not on \(\ell\), the segment \(\SEGMENT{A}{B}\) cuts \(\ell\) at a unique point \(D\).
 That is, \(D \in \ell\) and \(\BETWEEN{A}{D}{B}\).
+In particular, \(D\) and \(C\) must be distinct since we have \(\BETWEEN{D}{B}{C}\).
 But note that \(C, D \in \ell\), so \(\LINE{C}{D} = \ell\), and also \(C, D \in \LINE{A}{B}\), so that \(\LINE{C}{D} = \LINE{A}{B}\).
 But then \(\LINE{A}{B} = \ell\), a contradiction.
 Thus \(A\) and \(B\) must be on the same side of \(\ell\).

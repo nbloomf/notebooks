@@ -88,8 +88,10 @@ Suppose \(x\), \(y\), \(z\), \(w\), and \(o\) are distinct points in an ordered 
 \begin{thm}[Crossbar Theorem]
 Suppose \(O\), \(A\), and \(B\) are noncollinear points in an ordered geometry, and that \(C \in \INTANGLE{A}{O}{B}\).
 Then \(\RAY{O}{C}\) cuts \(\SEGMENT{A}{B}\) at a unique point \(D\).
+(See \autoref{fig:crossbar-thm}.)
 \end{thm}
 
+\begin{figure}[h]
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
   \coordinate [label=below left:\(O\)] (O) at (0  : 0);
@@ -120,7 +122,9 @@ Then \(\RAY{O}{C}\) cuts \(\SEGMENT{A}{B}\) at a unique point \(D\).
 
   \draw [fill] (D) circle [radius=0.5pt];
 \end{tikzpicture}
+\caption{\label{fig:crossbar-thm}The Crossbar Theorem}
 \end{center}
+\end{figure}
 
 \begin{proof}
 By the Interpolation property, there is a point \(P\) on \(\LINE{O}{A}\) such that \(\BETWEEN{P}{O}{A}\).
