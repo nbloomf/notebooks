@@ -77,7 +77,8 @@ With half planes defined in this way for all lines, \(\RR^2\) is an ordered geom
 \begin{proof}
 It suffices to show that the Line Separation property is satisfied.
 Certainly both \(H_1\) and \(H_2\) are not empty, and they are disjoint by construction.
-By the previous lemma, if \(X \in H_1\) and \(Y \in H_2\), then \(\SEGMENT{X}{Y} \cap \LINE{A}{B}\) consists of a unique point. So it suffices to show that \(H_1\) and \(H_2\) are convex.
+By the previous lemma, if \(X \in H_1\) and \(Y \in H_2\), then \(\SEGMENT{X}{Y} \cap \LINE{A}{B}\) consists of a unique point.
+So it suffices to show that \(H_1\) and \(H_2\) are convex.
 
 To see that \(H_1\) is convex, suppose BWOC that we have points \(X,Y \in H_1\) and a point \(Z = (z_1, z_2)\) such that \(\BETWEEN{X}{Z}{Y}\) and \(Z \notin H_1\).
 Now \[ m = \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ z_1 & z_2 & 1 \end{bmatrix} \] is either 0 or negative.
