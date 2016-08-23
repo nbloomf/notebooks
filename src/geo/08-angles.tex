@@ -1,24 +1,89 @@
 \begin{dfn}[Angle]
-Let \(P\) be an ordered geometry and \(x\), \(o\), and \(y\) distinct points.
-Then the set \[ \ANGLE{x}{o}{y} = \RAY{o}{x} \cup \RAY{o}{y} \] is called the \emph{angle}\index{angle} with \emph{vertex} \(o\) and \emph{sides} \(\RAY{o}{x}\) and \(\RAY{o}{y}\).
+Let \(P\) be an ordered geometry and \(x\), \(o\), and \(y\) distinct points in \(P\).
+Then the set \[ \ANGLE{x}{o}{y} = \RAY{o}{x} \cup \RAY{o}{y} \] is called the \emph{angle}\index{angle} with \emph{vertex}\index{vertex!of an angle} \(o\) and \emph{sides}\index{side!of an angle} \(\RAY{o}{x}\) and \(\RAY{o}{y}\).
 If \(\BETWEEN{x}{o}{y}\), then we say the angle is \emph{straight}\index{angle!straight}, and if \(\BETWEEN{o}{x}{y}\) or \(\BETWEEN{o}{y}{x}\), then we say the angle is \emph{flat}\index{angle!flat}.
-\begin{itemize}
-\item Suppose \(x\), \(o\), and \(y\) are not collinear.
-In this case, since \(P\) is an ordered geometry, the lines \(\LINE{o}{x}\) and \(\LINE{o}{y}\) divide \(P\) into half-planes.
-Let \(H_1\) be the \(y\) half-plane of \(\LINE{o}{x}\), and let \(K_1\) be the \(x\) half-plane of \(\LINE{o}{y}\).
-We define the \emph{interior} of \(\ANGLE{x}{o}{y}\) to be the set \[ \INTANGLE{x}{o}{y} = H_1 \cap K_1. \]
-If \(x\), \(y\), and \(o\) are collinear, then the interior of \(\ANGLE{x}{o}{y}\) is not defined.
-\end{itemize}
 \end{dfn}
 
 \begin{dfn}[Angle Pairs]
 Suppose \(x\), \(y\), \(z\), \(w\), and \(o\) are distinct points in an ordered geometry.
-\begin{itemize}
+\begin{proplist}
 \item \(\ANGLE{x}{o}{y}\) and \(\ANGLE{y}{o}{z}\) are called an \emph{adjacent pair}\index{angle!adjacent pair}.
 \item \(\ANGLE{x}{o}{y}\) and \(\ANGLE{y}{o}{z}\) are called a \emph{linear pair}\index{angle!linear pair} if \(\BETWEEN{x}{o}{z}\).
 \item \(\ANGLE{x}{o}{y}\) and \(\ANGLE{z}{o}{w}\) are called a \emph{vertical pair}\index{angle!vertical pair} if \(\BETWEEN{x}{o}{z}\) and \(\BETWEEN{y}{o}{w}\).
-\end{itemize}
+\end{proplist}
 \end{dfn}
+
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}[scale=2]
+  \coordinate [label=below:\(o\)] (O) at (0:0);
+  \coordinate [label=left:\(x\)] (X) at (95:1);
+  \coordinate (X') at (95:1.1);
+  \coordinate [label=below right:\(y\)] (Y) at (70:1);
+  \coordinate (Y') at (70:1.1);
+  \coordinate [label=below right:\(z\)] (Z) at (30:1);
+  \coordinate (Z') at (30:1.1);
+
+  \draw [fill] (O) circle [radius=0.5pt];
+  \draw [fill] (X) circle [radius=0.5pt];
+  \draw [fill] (Y) circle [radius=0.5pt];
+  \draw [fill] (Z) circle [radius=0.5pt];
+
+  \draw [->] (O) -- (X');
+  \draw [->] (O) -- (Y');
+  \draw [->] (O) -- (Z');
+
+  \node at (0.4,-0.5) {Adjacent};
+\end{tikzpicture}
+\quad\quad
+\begin{tikzpicture}[scale=2]
+  \coordinate [label=below left:\(o\)] (O) at (0:0);
+  \coordinate [label=below left:\(x\)] (X) at (170:0.7);
+  \coordinate (X') at (170:0.8);
+  \coordinate [label=below right:\(y\)] (Y) at (70:0.7);
+  \coordinate (Y') at (70:0.8);
+  \coordinate [label=below left:\(z\)] (Z) at (-10:0.7);
+  \coordinate (Z') at (-10:0.8);
+
+  \draw [fill] (O) circle [radius=0.5pt];
+  \draw [fill] (X) circle [radius=0.5pt];
+  \draw [fill] (Y) circle [radius=0.5pt];
+  \draw [fill] (Z) circle [radius=0.5pt];
+
+  \draw [->] (O) -- (X');
+  \draw [->] (O) -- (Y');
+  \draw [->] (O) -- (Z');
+
+  \node at (0,-0.8) {Linear};
+\end{tikzpicture}
+\quad\quad
+\begin{tikzpicture}[scale=2]
+  \coordinate [label=below:\(o\)] (O) at (0:0);
+  \coordinate [label=above right:\(x\)] (X) at (160:0.7);
+  \coordinate (X') at (160:0.8);
+  \coordinate [label=above left:\(y\)] (Y) at (30:0.7);
+  \coordinate (Y') at (30:0.8);
+  \coordinate [label=below left:\(z\)] (Z) at (-20:0.7);
+  \coordinate (Z') at (-20:0.8);
+  \coordinate [label=below right:\(w\)] (W) at (210:0.7);
+  \coordinate (W') at (210:0.8);
+
+  \draw [fill] (O) circle [radius=0.5pt];
+  \draw [fill] (X) circle [radius=0.5pt];
+  \draw [fill] (Y) circle [radius=0.5pt];
+  \draw [fill] (Z) circle [radius=0.5pt];
+  \draw [fill] (W) circle [radius=0.5pt];
+
+  \draw [->] (O) -- (X');
+  \draw [->] (O) -- (Y');
+  \draw [->] (O) -- (Z');
+  \draw [->] (O) -- (W');
+
+  \node at (0,-0.9) {Vertical};
+\end{tikzpicture}
+\caption{\label{fig:angle-pairs}Some types of angle pairs.}
+\end{center}
+\end{figure}
 
 \begin{thm}[Crossbar Theorem]
 Suppose \(O\), \(A\), and \(B\) are noncollinear points in an ordered geometry, and that \(C \in \INTANGLE{A}{O}{B}\).
@@ -27,16 +92,16 @@ Then \(\RAY{O}{C}\) cuts \(\SEGMENT{A}{B}\) at a unique point \(D\).
 
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
-  \coordinate [label=below left:\(O\)] (O)   at (0  : 0);
-  \coordinate [label=above left:\(A\)] (A)   at (65 : 2);
+  \coordinate [label=below left:\(O\)] (O) at (0  : 0);
+  \coordinate [label=above left:\(A\)] (A) at (65 : 2);
   \coordinate (A')  at (65 : 2.5);
-  \coordinate [label=below:\(B\)]      (B)   at (0  : 2.5);
+  \coordinate [label=below:\(B\)]      (B) at (0  : 2.5);
   \coordinate (B')  at (0  : 3);
   \coordinate (C)   at (30 : 1);
   \coordinate (C')  at (30 : 1.5);
   \coordinate (C'') at (30 : 2.5);
 
-  \coordinate [label=above:\(D\)]      (D)   at (intersection of A--B and O--C'');
+  \coordinate [label=above:\(D\)] (D) at (intersection of A--B and O--C'');
 
   \draw [->] (O) -- (A');
   \draw [->] (O) -- (B');
@@ -77,3 +142,10 @@ Now \(D\) and \(A\) are on the same side of \(\LINE{O}{B}\), and so \(C\) and \(
 So in fact \(\RAY{O}{C}\) cuts \(\SEGMENT{A}{B}\) at a unique point.
 \end{proof}
 
+\begin{dfn}[Angle Interior]
+Suppose \(x\), \(o\), and \(y\) are noncollinear points in an ordered geometry.
+Note that the lines \(\LINE{o}{x}\) and \(\LINE{o}{y}\) each divide \(P\) into half-planes.
+Let \(H_1\) be the \(y\) half-plane of \(\LINE{o}{x}\), and let \(K_1\) be the \(x\) half-plane of \(\LINE{o}{y}\).
+We define the \emph{interior}\index{interior!of an angle} of \(\ANGLE{x}{o}{y}\) to be the set \[ \INTANGLE{x}{o}{y} = H_1 \cap K_1. \]
+If \(x\), \(y\), and \(o\) are collinear, then the interior of \(\ANGLE{x}{o}{y}\) is not defined.
+\end{dfn}
