@@ -70,13 +70,13 @@ From the definition, we can restrict our search to the common divisors of \(2\) 
 Using \sref{prop:int-div}{bound}, we can show that the divisors of \(2\) are \(\pm 1\) and \(\pm 2\) and the divisors of \(3\) are \(\pm 1\) and \(\pm 3\).
 The largest number which appears in both lists is 1, so that \(\GCD{2}{3} = 1\).
 This works well enough, but what if we want to find \(\GCD{1337}{1007}\)?
-The same brute force strategy works in principle, but would take a long time.
+The same brute force strategy works in principle, but would take a long time in practice.
 
 It is possible to give a constructive, induction based proof of \propref{prop:zz-gcds-exist} (try it!) but we will avoid doing so here.
 Such a proof will be longer and more tedious while providing no more insight than this one does -- giving more heat than light, so to speak -- and the resulting algorithm slow.
 Instead we give the following result which connects greatest common divisors to the division algorithm.
 
-\begin{prop}[Euclidean Algorithm for \(\ZZ\)]
+\begin{prop}[Euclidean Algorithm for \(\ZZ\)]\label{prop:euclid-alg-zz}
 If \(a\) and \(b\) are integers with \(b > 0\), and if \(a = qb + r\) where \(0 \leq r < b\), then \(\GCD{a}{b} = \GCD{b}{r}\).
 \end{prop}
 
@@ -94,12 +94,29 @@ In particular, \(d\) is a common divisor of \(b\) and \(r\), and so \(d \leq e\)
 
 The Euclidean Algorithm gives us a way to explicitly compute the GCD of two integers \emph{as long as} we can compute quotients and remainders as in the Division Algorithm; in fact, it is quite fast.
 Note that since \(r\) is strictly less than \(b\), this recursion must eventually terminate with a statement of the form \(\GCD{a}{0}\).
-This result is named after \emph{the} Euclid, because as far as we know he was the first to write it down -- in his book \emph{The Elements of Geometry}.
+
+\begin{figure}[h]
+\begin{eqnarray*}
+\GCD{1337}{1007} & = & \GCD{1007}{330}\ \mathrm{since}\ 1337 = 1 \cdot 1007 + 330 \\
+ & = & \GCD{330}{17}\ \mathrm{since}\ 1007 = 3 \cdot 330 + 17 \\
+ & = & \GCD{17}{7}\ \mathrm{since}\ 330 = 19 \cdot 17 + 7 \\
+ & = & \GCD{7}{3}\ \mathrm{since}\ 17 = 2 \cdot 7 + 3 \\
+ & = & \GCD{3}{1}\ \mathrm{since}\ 7 = 2 \cdot 3 + 1 \\
+ & = & \GCD{1}{0}\ \mathrm{since}\ 3 = 3 \cdot 1 + 0 \\
+ & = & 1
+\end{eqnarray*}
+\caption{\label{fig:euclid-alg-example}}
+\end{figure}
+
+\propref{prop:euclid-alg-zz} is named after \emph{the} Euclid, because as far as we know he was the first to write it down -- in his book \emph{The Elements of Geometry}.
 Euclid himself thought of the algorithm in geometric terms, where \(a\) and \(b\) represent the lengths of line segments and \(\GCD{a}{b}\) the length of the largest line segment that can ``tile'' both simultaneously.
 
-\begin{thm}[Bezout's Identity]
+The next result is a slight refinement of the Euclidean Algorithm.
+It essentially states that the GCD of two integers can always be expressed as a \emph{linear combinaton} of those integers.
+
+\begin{prop}[Bezout's Identity]
 If \(a\) and \(b\) are integers, then there exist integers \(u\) and \(v\) such that \(\GCD{a}{b} = ua + vb\).
-\end{thm}
+\end{prop}
 
 \begin{proof}
 We start with the case \(b \geq 0\), proceeding by strong induction.
