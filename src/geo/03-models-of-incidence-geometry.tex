@@ -3,6 +3,7 @@ So before we develop our theory of geometry further let's take a moment to const
 Remember that the words ``point'', ``collinear'', and ``line'' are context-dependent -- what they mean depends on the model -- and so we may end up using these words in unintuitive ways.
 
 
+
 \subsection{Cartesian Plane and Friends}
 
 We'll start with a model of incidence geometry with which you are probably already familiar: the cartesian plane.
@@ -48,6 +49,7 @@ Note that lines in \(\QQ^2\) look much like lines in \(\RR^2\) except that they 
 Lines in \(\CC^2\) are stranger still.
 
 
+
 \subsection{Unit Disc}
 
 Once we have an incidence geometry \(P\) lying around, one way to try to build new ones is by restricting the collinearity on \(P\) to subsets of \(P\).
@@ -60,6 +62,7 @@ This relation makes \(\mathbb{D}\) an incidence geometry which we call the \emph
 
 Lines in the unit disc are chords of the unit circle (not including their endpoints).
 Already the word ``line'' is being twisted.
+
 
 
 \subsection{The Fano Plane}
@@ -83,6 +86,25 @@ Let \(S = \{ (x,y,z) \in \RR^3 \mid x^2 + y^2 + z^2 = 1 \}\), and consider the e
 We define the set \(\mathbb{A} = S/\sigma\), and call the elements of \(\mathbb{A}\) \emph{antipodal pairs}.
 We define a ternary relation on \(\mathbb{A}\) by \(\COLLINEAR{A}{B}{C}\) if and only if \[ \DET \begin{bmatrix} a_x & a_y & a_z \\ b_x & b_y & b_z \\ c_x & c_y & c_z \end{bmatrix} = 0. \] This relation makes \(\mathbb{A}\) an incidence geometry, which we call the \emph{antipodal sphere}.
 \end{dfn}
+
+
+
+\subsection{The Hyperbolic Half-Plane}
+
+We will now construct a strange model of incidence geometry.
+For this example, our set of points is \(\mathbb{H} = \{ (x,y) | x,y \in \RR\ \mathrm{and}\ y > 0 \}\).
+Suppose we have two points \(A = (a_x, a_y)\) and \(B = (b_x, b_y)\). If \(a_x \neq b_x\), then the \emph{ideal point} of \(A\) and \(B\) is \[ I_{A,B} = \frac{b_x^2 + b_y^2 - a_x^2 - a_y^2}{2(b_x - a_x)}. \]
+
+\begin{dfn}
+Define a ternary relation \(\COLLIENAR{\ast}{\ast}{\ast}\) on \(\mathbb{H}\) as follows.
+Given points \(A = (a_x, a_y)\), \(B = (b_x, b_y)\), and \(C = (c_x, c_y)\) in \(\mathbb{H}\), we say that \(\COLLINEAR{A}{B}{C}\) if the following holds.
+\begin{proplist}
+\item If \(a_x = b_x\), then \(c_x = a_x\).
+\item If \(a_x \neq b_x\), then \[ (c_x - I_{A,B})^2 + c_y^2 = (a_x - I_{A,B})^2 + a_y^2. \]
+\end{proplist}
+
+\end{dfn}
+
 
 
 
