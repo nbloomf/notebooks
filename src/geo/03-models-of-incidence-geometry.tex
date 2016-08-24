@@ -92,19 +92,60 @@ We define a ternary relation on \(\mathbb{A}\) by \(\COLLINEAR{A}{B}{C}\) if and
 \subsection{The Hyperbolic Half-Plane}
 
 We will now construct a strange model of incidence geometry.
-For this example, our set of points is \(\mathbb{H} = \{ (x,y) | x,y \in \RR\ \mathrm{and}\ y > 0 \}\).
-Suppose we have two points \(A = (a_x, a_y)\) and \(B = (b_x, b_y)\). If \(a_x \neq b_x\), then the \emph{ideal point} of \(A\) and \(B\) is \[ I_{A,B} = \frac{b_x^2 + b_y^2 - a_x^2 - a_y^2}{2(b_x - a_x)}. \]
+For this example, our set of points is \(\mathbb{H} = \{ (x,y) \mid x,y \in \RR\ \mathrm{and}\ y > 0 \}\).
+Suppose we have two points \(A = (a_x, a_y)\) and \(B = (b_x, b_y)\).
+If \(a_x \neq b_x\), then the \emph{ideal point} of \(A\) and \(B\) is the number \[ I_{A,B} = \frac{b_x^2 + b_y^2 - a_x^2 - a_y^2}{2(b_x - a_x)}. \]
+Intuitively, the ideal point is the \(x\)-coordinate of the point on the cartesian \(x\)-axis which is ``equidistant'' from \(A\) and \(B\).
+More important for us is the following property of the ideal point.
 
-\begin{dfn}
-Define a ternary relation \(\COLLIENAR{\ast}{\ast}{\ast}\) on \(\mathbb{H}\) as follows.
-Given points \(A = (a_x, a_y)\), \(B = (b_x, b_y)\), and \(C = (c_x, c_y)\) in \(\mathbb{H}\), we say that \(\COLLINEAR{A}{B}{C}\) if the following holds.
+\begin{lem}
+Let \(A = (a_x, a_y)\) and \(B = (b_x, b_y)\) be points in \(\mathbb{H}\) such that \(a_x \neq b_x\).
+Then the ideal point \(I_{A,B}\) of \(A\) and \(B\) is the unique solution \(X\) of the following equation.
+\[ (a_x - X)^2 + a_y^2 = (b_x - X)^2 + b_y^2. \]
+\end{lem}
+
+We use the ideal point to define a collinearity relation on \(\mathbb{H}\) as follows.
+
+\begin{prop}\label{prop:hyp-half-plane}
+Define a ternary relation \(\COLLINEAR{\ast}{\ast}{\ast}\) on \(\mathbb{H}\) as follows.
+Given points \(A = (a_x, a_y)\), \(B = (b_x, b_y)\), and \(C = (c_x, c_y)\) in \(\mathbb{H}\), we say that \(\COLLINEAR{A}{B}{C}\) if \(A\), \(B\), and \(C\) are not all equal and one of the following holds.
 \begin{proplist}
-\item If \(a_x = b_x\), then \(c_x = a_x\).
-\item If \(a_x \neq b_x\), then \[ (c_x - I_{A,B})^2 + c_y^2 = (a_x - I_{A,B})^2 + a_y^2. \]
+\item \(a_x = b_x\) and \(a_y = b_y\)
+\item \(a_x = b_x\) and \(a_y \neq b_y\) and \(c_x = a_x\).
+\item \(a_x \neq b_x\) and \[ (c_x - I_{A,B})^2 + c_y^2 = (a_x - I_{A,B})^2 + a_y^2. \]
 \end{proplist}
+This relation makes \(\mathbb{H}\) an incidence geometry, which we call the \emph{hyperbolic half-plane}\index{hyperbolic half-plane}.
+\end{prop}
 
-\end{dfn}
+\begin{proof}
+Note that IG3 holds by definition. (@@@)
+\end{proof}
 
+We can show that the lines in this incidence geometry come in two flavors, which we will call the Type I and Type II lines.
+
+\begin{cor}[Lines in \(\mathbb{H}\)]
+Let \(A, B \in \mathbb{H}\) be distinct points.
+\begin{proplist}
+\item If \(a_x = b_x\) we say \(\LINE{A}{B}\) is of \emph{Type I}, and we have \[ \LINE{A}{B} = \{ (x,y) \in \mathbb{H} \mid x = a_x \}. \]
+\item If \(a_x \neq b_x\) we say \(\LINE{A}{B}\) is of \emph{Type II}, and we have \[ \LINE{A}{B} = \{ (x,y) \in \mathbb{H} \mid (x - I_{A,B})^2 + y^2 = (a_x - I_{A,B})^2 + a_y^2 \}. \]
+\end{proplist}
+\end{cor}
+
+Intuitively, the Type I lines in \(\mathbb{H}\) are vertical half lines in \(\RR^2\), and the Type II lines in \(\mathbb{H}\) are semicircles in \(\RR^2\) (whatever that means) centered on the \(x\)-axis.
+In fact the cartesian center of a Type II line is at the point \((I_{A,B},0)\).
+
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}
+  \draw [dashed,<->] (-3,0) -- (3,0);
+  \draw [->] (-2,0) -- (-2,3);
+  \draw (2,0) arc (0:180:1.5);
+  \node at (-3,1) {Type I};
+  \node at (3,1) {Type II};
+\end{tikzpicture}
+\caption{\label{fig:lines-in-hyp-half-plane}Lines in \(\mathbb{H}\).}
+\end{center}
+\end{figure}
 
 
 
@@ -121,4 +162,9 @@ Show that \(\LINE{A}{B}\) and \(\LINE{C}{D}\) are parallel if and only if \[ \DE
 \begin{exercise}[A collinearity criterion in \(\RR^2\).]
 Let \(A = (a_x,a_y)\), \(B = (b_x,b_y)\), and \(C = (c_x,c_y)\) be points in \(\RR^2\) such that \(A \neq C\) and \(B \neq C\).
 Show that \(A\), \(B\), and \(C\) are collinear if and only if \[ \DET \begin{bmatrix} a_x - c_x & b_x - c_x \\ a_y - c_y & b_y - c_y \end{bmatrix} = 0. \]
+\end{exercise}
+
+
+\begin{exercise}
+Complete the proof of \propref{prop:hyp-half-plane}.
 \end{exercise}
