@@ -93,19 +93,23 @@ In particular, \(d\) is a common divisor of \(b\) and \(r\), and so \(d \leq e\)
 \end{proof}
 
 The Euclidean Algorithm gives us a way to explicitly compute the GCD of two integers \emph{as long as} we can compute quotients and remainders as in the Division Algorithm; in fact, it is quite fast.
+As an example, in \autoref{fig:euclid-alg-example} we use the Euclidean Algorithm to compute the GCD of 1337 and 1007.
 Note that since \(r\) is strictly less than \(b\), this recursion must eventually terminate with a statement of the form \(\GCD{a}{0}\).
 
 \begin{figure}[h]
-\begin{eqnarray*}
-\GCD{1337}{1007} & = & \GCD{1007}{330}\ \mathrm{since}\ 1337 = 1 \cdot 1007 + 330 \\
- & = & \GCD{330}{17}\ \mathrm{since}\ 1007 = 3 \cdot 330 + 17 \\
- & = & \GCD{17}{7}\ \mathrm{since}\ 330 = 19 \cdot 17 + 7 \\
- & = & \GCD{7}{3}\ \mathrm{since}\ 17 = 2 \cdot 7 + 3 \\
- & = & \GCD{3}{1}\ \mathrm{since}\ 7 = 2 \cdot 3 + 1 \\
- & = & \GCD{1}{0}\ \mathrm{since}\ 3 = 3 \cdot 1 + 0 \\
- & = & 1
-\end{eqnarray*}
-\caption{\label{fig:euclid-alg-example}}
+\begin{center}
+\begin{tabular}{lcrcl}
+\(\GCD{1337}{1007}\) & & \\
+ \(= \GCD{1007}{330}\) & since & 1337 & \(=\) & \(1 \cdot 1007 + 330\) \\
+ \(= \GCD{330}{17}\)   & since & 1007 & \(=\) & \(3 \cdot 330 + 17\) \\
+ \(= \GCD{17}{7}\)     & since & 330  & \(=\) & \(19 \cdot 17 + 7\) \\
+ \(= \GCD{7}{3}\)      & since & 17   & \(=\) & \(2 \cdot 7 + 3\) \\
+ \(= \GCD{3}{1}\)      & since & 7    & \(=\) & \(2 \cdot 3 + 1\) \\
+ \(= \GCD{1}{0}\)      & since & 3    & \(=\) & \(3 \cdot 1 + 0\) \\
+ \(= 1\) & & & & \\
+\end{tabular}
+\caption{\label{fig:euclid-alg-example}Computing \(\GCD{1337}{1007}\) using the Euclidean Algorithm.}
+\end{center}
 \end{figure}
 
 \propref{prop:euclid-alg-zz} is named after \emph{the} Euclid, because as far as we know he was the first to write it down -- in his book \emph{The Elements of Geometry}.
@@ -150,7 +154,7 @@ By Strong Induction, for all \(b \geq 0\) and all integers \(a\) there exist int
 Now suppose \(b < 0\), so that \(-b > 0\).
 By the previous discussion, there exist integers \(u'\) and \(v'\) such that \(\GCD{a}{-b} = au' + (-b)v'\).
 Now \[ \GCD{a}{b} = \GCD{a}{-b} = au' + (-b)v' = au' + b(-v'). \]
-That is, the result holds with \(u = u'\) and \(v = -v'\). 
+That is, the result holds with \(u = u'\) and \(v = -v'\).
 \end{proof}
 
 Similar to the Euclidean Algorithm, this proof of Bezout's Identity provides us with a strategy for actually finding the coefficients \(u\) and \(v\) recursively.
@@ -181,7 +185,8 @@ Show that if \(ac = b\) and \(ad = b\) then \(c = d\).
 \end{exercise}
 
 \begin{exercise}
-Suppose \(a\) and \(b\) are integers such that \(a|b\) and \(b|a\). Show that \(b = \pm a\).
+Suppose \(a\) and \(b\) are integers such that \(a|b\) and \(b|a\).
+Show that \(b = \pm a\).
 \end{exercise}
 
 \begin{exercise}
@@ -197,4 +202,9 @@ Use the Euclidean Algorithm to compute the following.
 \item \(\GCD{210}{115}\)
 \item \(\GCD{1337}{1007}\)
 \end{proplist*}
+\end{exercise}
+
+\begin{exercise}
+Let \(a\) and \(b\) be integers.
+Show that the equation \(ax = b\) has at most one solution \(x \in \ZZ\).
 \end{exercise}

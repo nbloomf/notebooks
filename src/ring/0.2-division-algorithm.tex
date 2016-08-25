@@ -34,7 +34,8 @@ Thus we have ``found'' integers \(q\) and \(r\) such that \(a = qb + r\) and \(0
 \item Let \(B\) be the set \[ B = \{ a \in \NN \mid a = qb + r\ \mathrm{for\ some}\ q,r \in \NN\ \mathrm{with}\ 0 \leq r < b \}. \]
 We will show that \(B = \NN\) using induction.
 \begin{itemize}
-\item Base case: \(a = 0\). Note that \(0 = 0 \cdot b + 0\).
+\item Base case: \(a = 0\).
+Note that \(0 = 0 \cdot b + 0\).
 Letting \(q = r = 0\) we have \(0 \in B\).
 \item Suppose that \(a-1 \in B\).
 That is, for any integer \(b\), there exist integers \(q'\) and \(r'\) such that \(a-1 = q'b + r'\) and \(0 \leq r' < b\).
@@ -42,9 +43,11 @@ If \(a = b\), then letting \(q = 1\) and \(r = 0\) we have \(a \in B\).
 If \(a < b\), then letting \(q = 0\) and \(r = a\) we have \(a \in B\).
 Otherwise, there are two possibilities: either \(r'+1 < b\) or \(r'+1 \geq b\).
 \begin{inlinecaselist}
-\item Suppose \(r'+1 < b\). In this case we have \(a = q'b + r'+1\) and \(0 \leq r'+1 < b\).
+\item Suppose \(r'+1 < b\).
+In this case we have \(a = q'b + r'+1\) and \(0 \leq r'+1 < b\).
 Letting \(q = q'\) and \(r = r'+1\) we have \(a \in B\).
-\item Suppose \(r'+1 \geq b\). Then in fact we must have \(r'+1 = b\).
+\item Suppose \(r'+1 \geq b\).
+Then in fact we must have \(r'+1 = b\).
 Now \(a = q'b + r'+1 = q'b + b = (q'+1)b\).
 Letting \(q = q'+1\) and \(r = 0\) we have \(a \in B\).
 \end{inlinecaselist}%
