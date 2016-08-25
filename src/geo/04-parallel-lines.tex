@@ -60,15 +60,16 @@ This observation is what motivates the following definition.
 
 \begin{dfn}[The Parallel Postulates]
 We say that an incidence geometry \(P\) is
-\begin{itemize}
-\item \textbf{Elliptic} if there are \emph{no} lines passing through \(x\) and parallel to \(\ell\), for all lines \(\ell\) and points \(x \notin \ell\).
-\item \textbf{Euclidean} if there is \emph{exactly one} line passing through \(x\) and parallel to \(\ell\), for all lines \(\ell\) and points \(x \notin \ell\).
-\item \textbf{Hyperbolic} if there are \emph{infinitely many} lines passing through \(x\) and parallel to \(\ell\), for all lines \(\ell\) and points \(x \notin \ell\).
-\end{itemize}
+\begin{description}
+\item[Elliptic] if there are \emph{no} lines passing through \(x\) and parallel to \(\ell\), for all lines \(\ell\) and points \(x \notin \ell\).
+\item[Euclidean] if there is \emph{exactly one} line passing through \(x\) and parallel to \(\ell\), for all lines \(\ell\) and points \(x \notin \ell\).
+\item[Hyperbolic] if there are \emph{infinitely many} lines passing through \(x\) and parallel to \(\ell\), for all lines \(\ell\) and points \(x \notin \ell\).
+\end{description}
 \end{dfn}
 
-With this definition, \(\RR^2\) and \(\QQ^2\) are Euclidean, \(\mathcal{F}\) and \(\mathbb{A}\) are Elliptic, and \(\mathbb{D}\) is Hyperbolic.
-It is important to note that a given incidence geometry need not satisfy \textbf{any} of these properties! We will see a strange example of this in the exercises.
+With this definition, \(\RR^2\) and \(\QQ^2\) are Euclidean, \(\mathcal{F}\) and \(\mathbb{A}\) are Elliptic, and \(\mathbb{D}\) and \(\mathbb{H}\) are Hyperbolic.
+It is important to note that a given incidence geometry need not satisfy \textbf{any} of these properties!
+We will see a strange example of this in the exercises.
 
 
 
@@ -102,25 +103,30 @@ And in an Elliptic incidence geometry the transitivity of parallelism is irrelev
 \Exercises%
 %---------%
 
-\begin{exercise}[The Two-Pointed Line]
-To demonstrate that an incidence geometry need not be either Elliptic, Euclidean, or Hyperbolic, consider the following example, which we will call the \emph{Two-Pointed Line}.
-Let \(P = \RR \cup \{ A, B \}\).
-We define lines of four types:
-\begin{itemize}
-\item \(\RR\) is a line of Type 1;
-\item \(\{x, A\}\), where \(x \in \RR\), is a line of Type 2;
-\item \(\{x, B\}\), where \(x \in \RR\), is a line of Type 3; and
-\item \(\{A, B\}\) is a line of Type 4.
-\end{itemize}
+Note that although all of our example incidence geometries happen to be either elliptic, euclidean, or hyperbolic, any given incidence geometry need not be in any of these classes.
+The next two exercises construct an example.
 
-Now consider the following.
-
+\begin{dfn}[The Two-Pointed Line]
+Let \(P = \RR \cup \{A,B\}\), where we think of \(A\) and \(B\) simply as symbols not belonging to \(\RR\).
+We define a ternary relation on \(P\) as follows.
+Given points \(x,y,z \in P\), not all equal, we say that \(\COLLINEAR{x}{y}{z}\) if one of the following holds.
 \begin{proplist}
-\item Show that the Two-Pointed Line is an incidence geometry.
+\item \(\{x,y,z\} \subseteq \RR\).
+\item \(\{x,y,z\} = \{A,\zeta\}\) for some \(\zeta \in \RR\).
+\item \(\{x,y,z\} = \{B,\zeta\}\) for some \(\zeta \in \RR\).
+\item \(\{x,y,z\} = \{A,B\}\).
+\end{proplist}
+We refer to this structure as the Two-Pointed Line.
+\end{dfn}
+
+\begin{exercise}
+Show that the Two-Pointed Line is an incidence geometry.
+\end{exercise}
+
+\begin{exercise}
+Show that the Two-Pointed Line is an incidence geometry which is neither elliptic, nor euclidean, nor hyperbolic as follows.
+\begin{proplist}
 \item Find a line \(\ell\) and a point \(x\) in the Two-Pointed Line such that there is exactly one line passing through \(x\) and parallel to \(\ell\).
 \item Find a line \(\ell\) and a point \(x\) in the Two-Pointed Line such that there are infinitely many lines passing through \(x\) and parallel to \(\ell\).
 \end{proplist}
-
-From these facts we can conclude that the Two-Pointed Line is an incidence geometry which is neither Elliptic, Euclidean, nor Hyperbolic.
-Can you think of a reason why this example is different from those we've seen so far?
 \end{exercise}

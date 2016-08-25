@@ -9,7 +9,7 @@ Let \(P\) be an incidence geometry.
 We say that a ternary relation \(\BETWEEN{\ast}{\ast}{\ast}\) on \(P\) is a \emph{betweenness relation}\index{betweenness} if the following properties hold.
 \begin{proplist}
 \item[B1.] If \(\BETWEEN{x}{y}{z}\), then \(x\), \(y\), and \(z\) are distinct and \(\COLLINEAR{x}{y}{z}\).
-\item[B2.] If \(x\) and \(y\) are points such that \(\BETWEEN{x}{z}{y}\), then \(\BETWEEN{y}{z}{x}\).
+\item[B2.] If \(\BETWEEN{x}{z}{y}\), then \(\BETWEEN{y}{z}{x}\).
 \item[B3.] If \(x\), \(y\), and \(z\) are distinct points such that \(\COLLINEAR{x}{y}{z}\), then at least one of \(\BETWEEN{x}{y}{z}\), \(\BETWEEN{y}{z}{x}\), and \(\BETWEEN{z}{x}{y}\) is true.
 \item[B4.] If \(\BETWEEN{x}{y}{z}\) and \(\BETWEEN{x}{z}{w}\), then \(\BETWEEN{x}{y}{w}\) and \(\BETWEEN{y}{z}{w}\).
 \item[B5.] If \(\BETWEEN{x}{y}{z}\) and \(\BETWEEN{y}{z}{w}\), then \(\BETWEEN{x}{y}{w}\) and \(\BETWEEN{x}{z}{w}\).
@@ -18,12 +18,39 @@ We say that a ternary relation \(\BETWEEN{\ast}{\ast}{\ast}\) on \(P\) is a \emp
 \end{dfn}
 
 If \(\BETWEEN{x}{y}{z}\), we say that \(z\) is \emph{between} \(x\) and \(y\).
+B1 says that ``betweenness'' is a refinement of ``collinearity''.
+B2 says that betweenness is symmetric (if we fix the middle point).
+B3 says that distinct collinear points must be in order somehow, outlawing the bizarre situation where points are collinear but not in order.
+B4 and B5 are a little more interesting; they are a kind of coherence condition for betweenness.
+Consider a situation like \autoref{fig:betweenness-coherence}.
+Axiom B4 says that if \(y\) is between \(x\) and \(z\) and \(z\) is between \(x\) and \(w\), then \(y\) is between \(x\) and \(w\) and \(z\) is between \(y\) and \(w\).
+That seems reasonable enough, and B5 says something similar.
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+  \coordinate [label=below:\(x\)] (X) at (0,0);
+  \coordinate [label=below:\(y\)] (Y) at (1,0.5);
+  \coordinate [label=below:\(z\)] (Z) at (2,1);
+  \coordinate [label=below:\(w\)] (W) at (3,1.5);
+
+  \draw [fill] (X) circle [radius=1pt];
+  \draw [fill] (Y) circle [radius=1pt];
+  \draw [fill] (Z) circle [radius=1pt];
+  \draw [fill] (W) circle [radius=1pt];
+
+  \draw [<->] (-1,-0.5) -- (4,2);
+\end{tikzpicture}
+\caption{\label{fig:betweenness-coherence}The coherence conditions B4 and B5.}
+\end{center}
+\end{figure}
+
 As shorthand, if \(x\), \(y\), \(z\), and \(w\) are distinct points, we will say \([xyzw]\) precisely when \(\BETWEEN{x}{y}{z}\), \(\BETWEEN{x}{y}{w}\), \(\BETWEEN{x}{z}{w}\), and \(\BETWEEN{y}{z}{w}\).
 More generally, if \(x_1, \ldots, x_n\) are distinct points, then \([x_1x_2 \ldots x_n]\) means that \(\BETWEEN{x_i}{x_j}{x_k}\) for all triples \((i,j,k)\) with \(1 \leq i < j < k \leq n\).
 The next definition will probably look familiar.
 
 \begin{dfn}[Segment, Ray]
-Let \(x\) and \(y\) be distinct points in an ordered geometry \(P\).
+Let \(x\) and \(y\) be distinct points in an incidence geometry \(P\) with a betweenness relation.
 \begin{proplist}
 \item The set \[ \SEGMENT{x}{y} = \{ z \in P \mid z = x\ \mathrm{or}\ z = y\ \mathrm{or}\ \BETWEEN{x}{z}{y} \} \] is called the \emph{segment}\index{segment} with \emph{endpoints} \(x\) and \(y\).
 If \(z \in \SEGMENT{x}{y}\) and \(z \neq x\) and \(z \neq y\), we say that \(z\) is \emph{interior to} \(\SEGMENT{x}{y}\).
