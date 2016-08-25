@@ -44,3 +44,42 @@ Topics
 symmetric polynomials
 formal power series
 multivariate polynomials
+
+
+
+Geometry Outline
+================
+
+Elementary Plain Geometrese
+
+Part I: Elements
+* Chapter 1: Incidence
+  * Models and Theories
+  * Incidence Geometry
+  * Parallels
+  * Cartesian Plane
+  * Hyperbolic Half Plane
+  * Poincare Disc
+  * Antipodal Sphere
+* Chapter 2: Order
+  * Betweenness
+  * Ordered Geometry
+  * Angles
+  * Cartesian Plane
+  * Hyperbolic Half Plane
+  * Poincare Disc
+* Chapter 5: Congruence
+  * Congruence
+  * Circles
+* Chapter 6: Models of Congruence
+  * Cartesian Plane
+  * Hyperbolic Half Plane
+  * Poincare Disc
+* Chapter 7: Planes
+* Chapter 8: Models of Plane Geometry
+
+Part II: Neutral Plane Geometry
+
+Part III: Euclidean Plane Geometry
+
+Part IV: Hyperbolic Plane Geometry
