@@ -1,0 +1,22 @@
+Let \(A = (a_x, a_y)\) and \(B = (b_x, b_y)\) be in \(\RR^2\).
+If \[ \DET \begin{bmatrix} a_x & a_y \\ b_x & b_y \end{bmatrix} \neq 0, \] we define the \emph{ideal point} of \(A\) and \(B\) to be \[ I_{A,B} = \frac{1}{2} \begin{bmatrix} a_x & a_y \\ b_x & b_y \end{bmatrix}^{-1} \begin{bmatrix} a_x^2 + a_y^2 + 1 \\ b_x^2 + b_y^2 + 1 \end{bmatrix}. \]
+
+\begin{prop}
+\begin{proplist}
+\item \(I_{A,B} = I_{B,A}\).
+\item \(a_x - I_{A,B,x})^2 + (a_y - I_{A,B,y})^2 = (b_x - I_{A,B,x})^2 + (b_y - I_{A,B,y})^2\).
+\end{proplist}
+\end{prop}
+
+\begin{prop}
+Let \(P = \{ (x,y) \in \RR^2 \mid x^2 + y^2 < 1 \}\).
+Define a ternary relation on \(P\) as follows.
+Given \(A = (a_x,a_y)\), \(B = (b_x, b_y)\), and \(C = (c_x, c_y)\) in \(P\), let \[ D = \DET \begin{bmatrix} a_x & a_y \\ b_x & b_y \end{bmatrix}. \]
+We say that \(\COLLINEAR{A}{B}{C}\) if one of the following holds.
+\begin{proplist}
+\item \(D = 0\) and \(A = B\)
+\item \(D = 0\) and \(A \neq B\) and \[ \DET \begin{bmatrix} a_x & a_y \\ c_x & c_y \end{bmatrix} \]
+\item \(D \neq 0\) and \(a_x - I_{A,B,x})^2 + (a_y - I_{A,B,y})^2 = (c_x - I_{A,B,x})^2 + (c_y - I_{A,B,y})^2\)
+\end{proplist}
+This relation makes \(P\) an incidence geometry, which we call the \emph{poincare disc}\index{poincare disc}.
+\end{prop}
