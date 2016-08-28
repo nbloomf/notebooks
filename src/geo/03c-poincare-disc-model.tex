@@ -1,22 +1,90 @@
-Let \(A = (a_x, a_y)\) and \(B = (b_x, b_y)\) be in \(\RR^2\).
-If \[ \DET \begin{bmatrix} a_x & a_y \\ b_x & b_y \end{bmatrix} \neq 0, \] we define the \emph{ideal point} of \(A\) and \(B\) to be \[ I_{A,B} = \frac{1}{2} \begin{bmatrix} a_x & a_y \\ b_x & b_y \end{bmatrix}^{-1} \begin{bmatrix} a_x^2 + a_y^2 + 1 \\ b_x^2 + b_y^2 + 1 \end{bmatrix}. \]
+We will now construct an alternative collinearity relation on the unit disc.
+For this example, our set of points is \( \POINCAREDISC = \{ (x,y) \in \RR^2 \mid x^2 + y^2 < 1 \}\).
+Given points \(A = (a_x, a_y)\) and \(B = (b_x, b_y)\) in \(\POINCAREDISC\), we define the abbreviation \[ \PDDET{A}{B} = \DET \begin{bmatrix} a_x & a_y \\ b_x & b_y \end{bmatrix}. \]
+If \(\PDDET{A}{B} \neq 0\), we define the \emph{poincare ideal point}\index{poincare ideal point} of \(A\) and \(B\) to be \[ \PDIDEALPOINT{A}{B} = \frac{1}{2} \begin{bmatrix} a_x & a_y \\ b_x & b_y \end{bmatrix}^{-1} \begin{bmatrix} a_x^2 + a_y^2 + 1 \\[4pt] b_x^2 + b_y^2 + 1 \end{bmatrix}. \]
 
-\begin{prop}\mbox{}
+\begin{lem}\label{lem:pd-ideal-point}
+Let \(A,B \in \POINCAREDISC\) such that \(\PDDET{A}{B} \neq 0\).
+Then we have the following.
 \begin{proplist}
-\item \(I_{A,B} = I_{B,A}\).
-\item \(a_x - I_{A,B,x})^2 + (a_y - I_{A,B,y})^2 = (b_x - I_{A,B,x})^2 + (b_y - I_{A,B,y})^2\).
+\item \label{lem:pd-ideal-point:sym} \(\PDIDEALPOINT{B}{A} = \PDIDEALPOINT{A}{B}\).
+\item \label{lem:pd-ideal-point:eq} The ideal point \(\PDIDEALPOINT{A}{B}\) is the unique solution \((x,y)\) to the following system of equations.
+\[ \left\{ \begin{array}{l} x^2 + y^2 - 1 = (a_x - x)^2 + (a_y - y)^2 \\[4pt] x^2 + y^2 - 1 = (b_x - x)^2 + (b_y - y)^2 \end{array} \right. \]
 \end{proplist}
-\end{prop}
+\end{lem}
+
+We can use the poincare ideal point to define a collinearity relation on \(\POINCAREDISC\) as follows.
 
 \begin{prop}
-Let \(P = \{ (x,y) \in \RR^2 \mid x^2 + y^2 < 1 \}\).
-Define a ternary relation on \(P\) as follows.
-Given \(A = (a_x,a_y)\), \(B = (b_x, b_y)\), and \(C = (c_x, c_y)\) in \(P\), let \[ D = \DET \begin{bmatrix} a_x & a_y \\ b_x & b_y \end{bmatrix}. \]
-We say that \(\COLLINEAR{A}{B}{C}\) if one of the following holds.
+Define a ternary relation on \(\POINCAREDISC\) as follows.
+Given \(A = (a_x,a_y)\), \(B = (b_x, b_y)\), and \(C = (c_x, c_y)\) in \(\POINCAREDISC\), we say that \(\COLLINEAR{A}{B}{C}\) if one of the following holds.
 \begin{proplist}
-\item \(D = 0\) and \(A = B\)
-\item \(D = 0\) and \(A \neq B\) and \[ \DET \begin{bmatrix} a_x & a_y \\ c_x & c_y \end{bmatrix} \]
-\item \(D \neq 0\) and \[ (a_x - I_{A,B,x})^2 + (a_y - I_{A,B,y})^2 = (c_x - I_{A,B,x})^2 + (c_y - I_{A,B,y})^2. \]
+\item Exactly two of \(A\), \(B\), and \(C\) are equal.
+\item \(A\), \(B\), and \(C\) are distinct and \(\PDDET{A}{B} = \PDDET{A}{C} = \PDDET{B}{C} = 0\).
+\item \(A\), \(B\), and \(C\) are distinct and \(\PDDET{A}{B}\), \(\PDDET{A}{C}\), and \(\PDDET{B}{C}\) are nonzero and \(\PDIDEALPOINT{A}{B} = \PDIDEALPOINT{A}{C} = \PDIDEALPOINT{B}{C}\).
 \end{proplist}
-This relation makes \(P\) an incidence geometry, which we call the \emph{poincare disc}\index{poincare disc}.
+This is a collinearity relation on the set \(\POINCAREDISC\), which we call the \emph{poincare disc}\index{poincare disc}.
+\end{prop}
+
+\begin{proof}\mbox{}
+\begin{itemize}
+\item[IG2.] Let \(A,B \in \POINCAREDISC\) be distinct.
+Then \(\COLLINEAR{A}{B}{B}\) holds by definition.
+
+\item[IG3.] Let \(A \in \POINCAREDISC\).
+Note that \(\COLLINEAR{A}{A}{A}\) does not hold by definition.
+
+\item[IG4.] Let \(A = (0,0)\), \(B = (1,0)\), and \(C = (0,1)\).
+Now \(A\), \(B\), and \(C\) are distinct, but we have \(\PDDET{A}{B} = 0\) \(\PDDET{B}{C} = 1 \neq 0\).
+So \(\COLLINEAR{A}{B}{C}\) does not hold.
+
+\item[IG1.] Suppose we have \(\COLLINEAR{A}{B}{C}\).
+If exactly two of \(A\), \(B\), and \(C\) are equal, then we also have \(\COLLINEAR{B}{A}{C}\) since exactly two of \(B\), \(A\), and \(C\) are equal, and \(\COLLINEAR{A}{C}{B}\) since exactly two of \(A\), \(C\), and \(B\) are equal.
+Suppose then that \(A\), \(B\), and \(C\) are distinct.
+Certainly then \(B\), \(A\), and \(C\) are distinct, as are \(A\), \(C\), and \(B\).
+If \(\PDDET{A}{B} = \PDDET{A}{C} = \PDDET{B}{C} = 0\), then \(\PDDET{B}{A} = \PDDET{B}{C} = \PDDET{A}{C} = 0\), so that \(\COLLINEAR{B}{A}{C}\), and \(\PDDET{A}{C} = \PDDET{C}{B} = \PDDET{C}{B} = 0\) so that \(\COLLINEAR{A}{C}{B}\).
+Finally, suppose we have \(\PDDET{A}{B}\), \(\PDDET{A}{C}\), and \(\PDDET{B}{C}\) nonzero and \(\PDIDEALPOINT{A}{B} = \PDIDEALPOINT{A}{C} = \PDIDEALPOINT{B}{C}\).
+Then \(\PDDET{B}{A}\), \(\PDDET{B}{C}\), and \(\PDDET{A}{C}\) are nonzero and \(\PDIDEALPOINT{B}{A} = \PDIDEALPOINT{B}{C} = \PDIDEALPOINT{A}{C}\), so that \(\COLLINEAR{B}{A}{C}\), and likewise \(\PDDET{A}{C}\), \(\PDDET{A}{B}\), and \(\PDDET{C}{B}\) are nonzero and \(\PDIDEALPOINT{A}{C} = \PDIDEALPOINT{A}{B} = \PDIDEALPOINT{C}{B}\), so that \(\COLLINEAR{A}{C}{B}\) as claimed.
+
+\item[IG5.] Suppose we have \(A \neq B\) and \(U \neq V\) such that \(\COLLINEAR{A}{B}{U}\) and \(\COLLINEAR{A}{B}{V}\).
+If \(U = B\), then we have \(\COLLINEAR{A}{U}{V}\); similarly, if \(V = B\) then \(\COLLINEAR{A}{V}{U}\), so that by IG1, \(\COLLINEAR{A}{U}{V}\).
+Suppose then that \(U \neq B\) and \(V \neq B\).
+If \(U = A\), then \(\COLLINEAR{A}{U}{V}\) by definition; similarly, if \(V = A\) then \(\COLLINEAR{A}{U}{V}\).
+Suppose then that \(U \neq A\) and \(V \neq A\).
+Now \(A\), \(B\), \(U\), and \(V\) are all distinct.
+There are two possibilities for \(\PDDET{A}{B}\): either zero or nonzero.
+
+If \(\PDDET{A}{B} = 0\), then in fact we have \(\PDDET{A}{U} = \PDDET{B}{U} = 0\) and \(\PDDET{A}{V} = \PDDET{B}{V} = 0\).
+Now since \(A \neq B\), one of \(A\) or \(B\) must be nonzero; suppose without loss of generality it is \(A\).
+Then either \(a_x\) or \(a_y\) must be nonzero; suppose it is \(a_x\) -- the argument for \(a_y\) is similar.
+We have \(a_xu_y = a_yu_x\), so that \(v_xa_xu_y = v_xa_yu_x\), and thus \(v_xa_xu_y = v_ya_xu_x\).
+Since \(a_x \neq 0\), we have \(v_xu_y = v_yu_x\), so that \(\PDDET{U}{V} = 0\).
+Thus \(\COLLINEAR{A}{U}{V}\) as needed.
+
+Suppose instead that \(\PDDET{A}{B} \neq 0\).
+Then \(\PDDET{A}{U}\), \(\PDDET{B}{U}\), \(\PDDET{A}{V}\), and \(\PDDET{B}{V}\) are all nonzero, and we have \(\PDIDEALPOINT{A}{B} = \PDIDEALPOINT{A}{U} = \PDIDEALPOINT{B}{U} = \PDIDEALPOINT{A}{V} = \PDIDEALPOINT{B}{V}\).
+Suppose first that \(\PDDET{U}{V} = 0\).
+In this case, we have \(V = kU\) for some constant \(k\), since \(U \neq 0\).
+Now we have \[ (u_x - x)^2 + (u_y - y)^2 = (ku_x - x)^2 + (ku_y - y)^2. \]
+Expanding this equation and supposing \(k \neq 1\) we solve for \(k\) as \[ k = 2\frac{u_xx + u_yy}{u_x^2 + u_y^2} - 1. \]
+But note that \(2(u_xx + u_yy) = u_x^2 + u_y^2 + 1\), so that in fact \(k = 1/(u_x^2 + u_y^2)\).
+But now \[v_x^2 + v_y^2 = 1/(u_x^2 + u_y^2) > 1,\] a contradiction.
+So in fact we have \(k = 1\), and thus \(V = U\), a contradiction.
+So we must have \(\PDDET{U}{V}\).
+Now by \sref{lem:pd-ideal-point}{eq}, we have \(\PDIDEALPOINT{U}{V} = \PDIDEALPOINT{A}{U} = \PDIDEALPOINT{A}{V}\), and thus \(\COLLINEAR{A}{U}{V}\) as needed.
+\qedhere
+\end{itemize}
+\end{proof}
+
+Much like the hyperbolic half plane, showing that the poincare disc is an incidence geometry is a bit tedious.
+But this only has to be done once, and all our incidence geometry theorems immediately apply.
+
+\begin{prop}[Lines in \(\POINCAREDISC\)]
+Let \(A,B \in \POINCAREDISC\) be distinct points, and without loss of generality suppose \(A \neq 0\).
+\begin{proplist}
+\item If \(\PDDET{A}{B} = 0\), we say that \(\LINE{A}{B}\) is of \emph{Type I}.
+In this case we have \[ \LINE{A}{B} = \left\{ (x,y) \in \POINCAREDISC \mid \DET \begin{bmatrix} a_x & a_y \\ x & y \end{bmatrix} = 0 \right\} \]
+\item If \(\PDDET{A}{B} \neq 0\), we say that \(\LINE{A}{B}\) is of \emph{Type II}.
+In this case we have \[ \LINE{A}{B} = \left\{ (x,y) \in \POINCAREDISC \mid (@@@) \right\} \]
+\end{proplist}
 \end{prop}

@@ -76,6 +76,12 @@ badness:
 	-@find src/ -name '*.tex' | \
 	  xargs grep '\\ref{chap:' | sponge zz-crefs.txt
 	@[ -s zz-crefs.txt ] || rm zz-crefs.txt
+	-@find src/ -name '*.tex' | \
+	  xargs grep '\\ref{prop:' | sponge zz-prefs.txt
+	@[ -s zz-prefs.txt ] || rm zz-prefs.txt
+	-@find src/ -name '*.tex' | \
+	  xargs grep '\\ref{lem:' | sponge zz-lrefs.txt
+	@[ -s zz-lrefs.txt ] || rm zz-lrefs.txt
 	@ #
 	@ #
 	@ #
