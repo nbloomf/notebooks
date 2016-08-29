@@ -95,3 +95,17 @@ Let \(A = (a_x, a_y)\), \(B = (b_x, b_y)\), and \(C = (c_x, c_y)\) be in \(\RR^2
 Show that \[ \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ c_x & c_y & 1 \end{bmatrix} = 0 \] if and only if \(C = A + t(B - A)\) for some unique \(t \in \RR\).
 (Hint: Consider \[ \frac{c_x - a_x}{b_x - a_x} = \frac{c_y - a_y}{b_y - a_y} \].)
 \end{exercise}
+
+\begin{dfn}[Collineation]
+Suppose we have incidence geometries \(P\) and \(Q\).
+A bijective mapping \(\varphi : P \rightarrow Q\) is called a \emph{collineation}\index{collineation} if, for all points \(x,y,z \in P\), whenever \(\COLLINEAR{x}{y}{z}\) in \(P\), we also have \(\COLLINEAR{\varphi(x)}{\varphi(y)}{\varphi(z)}\) in \(Q\).
+\end{dfn}
+
+\begin{exercise}
+Prove the following.
+\begin{proplist}
+\item If \(P\) is an incidence geometry, then the identity map \(1 : P \rightarrow P\) is a collineation.
+\item If \(\varphi : P \rightarrow Q\) and \(\psi : Q \rightarrow R\) are collineations, then \(\psi \circ \varphi\) is a collineation.
+\item If \(\varphi : P \rightarrow Q\) is a collineation, then \(\varphi^{-1} : Q \rightarrow P\) is a collineation.
+\end{proplist}
+\end{exercise}

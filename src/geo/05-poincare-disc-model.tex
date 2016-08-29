@@ -9,7 +9,7 @@ Then we have the following.
 \begin{proplist}
 \item \label{lem:pd-ideal-point:sym} \(\PDIDEALPOINT{B}{A} = \PDIDEALPOINT{A}{B}\).
 \item \label{lem:pd-ideal-point:eq} The ideal point \(\PDIDEALPOINT{A}{B}\) is the unique solution \((x,y)\) to the following system of equations.
-\[ \left\{ \begin{array}{l} x^2 + y^2 - 1 = (a_x - x)^2 + (a_y - y)^2 \\[4pt] x^2 + y^2 - 1 = (b_x - x)^2 + (b_y - y)^2 \end{array} \right. \]
+\[ \left\{ \begin{array}{l} x^2 + y^2 = (a_x - x)^2 + (a_y - y)^2 + 1 \\[4pt] x^2 + y^2 = (b_x - x)^2 + (b_y - y)^2 + 1 \end{array} \right. \]
 \end{proplist}
 \end{lem}
 
@@ -31,8 +31,7 @@ This is a collinearity relation on the set \(\POINCAREDISC\), which we call the 
 \item[IG2.] Let \(A,B \in \POINCAREDISC\) be distinct.
 Then \(\COLLINEAR{A}{B}{B}\) holds by definition.
 
-\item[IG3.] Let \(A \in \POINCAREDISC\).
-Note that \(\COLLINEAR{A}{A}{A}\) does not hold by definition.
+\item[IG3.] Note that \(\COLLINEAR{A}{A}{A}\) does not hold for any \(A\) by definition.
 
 \item[IG4.] Let \(A = (0,0)\), \(B = (1,0)\), and \(C = (0,1)\).
 Now \(A\), \(B\), and \(C\) are distinct, but we have \(\PDDET{A}{B} = 0\) \(\PDDET{B}{C} = 1 \neq 0\).
@@ -70,13 +69,13 @@ Expanding this equation and supposing \(k \neq 1\) we solve for \(k\) as \[ k = 
 But note that \(2(u_xx + u_yy) = u_x^2 + u_y^2 + 1\), so that in fact \(k = 1/(u_x^2 + u_y^2)\).
 But now \[v_x^2 + v_y^2 = 1/(u_x^2 + u_y^2) > 1,\] a contradiction.
 So in fact we have \(k = 1\), and thus \(V = U\), a contradiction.
-So we must have \(\PDDET{U}{V}\).
+So we must have \(\PDDET{U}{V} \neq 0\).
 Now by \sref{lem:pd-ideal-point}{eq}, we have \(\PDIDEALPOINT{U}{V} = \PDIDEALPOINT{A}{U} = \PDIDEALPOINT{A}{V}\), and thus \(\COLLINEAR{A}{U}{V}\) as needed.
 \qedhere
 \end{itemize}
 \end{proof}
 
-Much like the hyperbolic half plane, showing that the poincare disc is an incidence geometry is a bit tedious.
+As with the hyperbolic half plane, showing that the poincare disc is an incidence geometry is a bit tedious.
 But this only has to be done once, and all our incidence geometry theorems immediately apply.
 
 \begin{prop}[Lines in \(\POINCAREDISC\)]
@@ -85,6 +84,6 @@ Let \(A,B \in \POINCAREDISC\) be distinct points, and without loss of generality
 \item If \(\PDDET{A}{B} = 0\), we say that \(\LINE{A}{B}\) is of \emph{Type I}.
 In this case we have \[ \LINE{A}{B} = \left\{ (x,y) \in \POINCAREDISC \mid \DET \begin{bmatrix} a_x & a_y \\ x & y \end{bmatrix} = 0 \right\} \]
 \item If \(\PDDET{A}{B} \neq 0\), we say that \(\LINE{A}{B}\) is of \emph{Type II}.
-In this case we have \[ \LINE{A}{B} = \left\{ (x,y) \in \POINCAREDISC \mid (@@@) \right\} \]
+In this case we have \[ \LINE{A}{B} = \left\{ (x,y) \in \POINCAREDISC \mid (x - h)^2 + (y - k)^2 = t \right\}, \] where \((h,k) = \PDIDEALPOINT{A}{B}\) and \(t = (a_x - h)^2 + (a_y - k)^2\).
 \end{proplist}
 \end{prop}
