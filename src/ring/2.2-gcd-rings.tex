@@ -12,7 +12,7 @@ The set of all greatest common divisors of \(a\) and \(b\) is denoted \(\GCD{a}{
 We say that \(a\) and \(b\) are \emph{relatively prime}\index{relatively prime}, denoted \(a \COPRIME b\), if \(1_R \in \GCD{a}{b}\).
 \end{dfn}
 
-Watch out: sometimes in \(\ZZ\) the greatest common divisor is defined to be the \emph{largest} common divisor with respect to the \(\leq\) relation.
+Watch out: in \(\ZZ\) we defined the greatest common divisor to be the \emph{largest} common divisor with respect to the \(\leq\) relation.
 But in an arbitrary domain we may not have a meaningful order relation, so the word ``largest'' is interpreted here with respect to divisibility.
 An important consequence of this is that in a general domain, greatest common divisors need not exist, and if they do, they need not (and generally won't) be unique.
 For example by our definition we have \(\GCD{4}{6} = \{2, -2\}\) in \(\ZZ\).
@@ -107,7 +107,7 @@ That is, there are some domains, like \(\ZZ\), where \(\GCD{a}{b}\) is always no
 Those rings, like \(\ZZ\), where GCDs always exist are special enough to warrant a definition.
 
 \begin{dfn}[GCD Ring] \label{dfn:gcd-ring}
-Let \(R\) be a domain.
+Let \(R\) be a CU ring.
 We say that \(R\) is a \emph{GCD ring}\index{GCD ring} if any two elements of \(R\) have a greatest common divisor.
 If \(R\) is also a domain, we say it is a \emph{GCD domain}\index{GCD domain}.
 \end{dfn}

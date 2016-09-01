@@ -1,0 +1,102 @@
+In this section we will establish that the cartesian plane is an ordered geometry.
+To do this, we need to specify (1) how to detect when one point is between two others, and (2) the halfplanes for each line.
+
+\begin{prop}\label{prop:rr2-between}
+Given points \(A\), \(B\), and \(C\) in \(\RR^2\), we say \(\BETWEEN{A}{C}{B}\) if \(A \neq B\) and the equation \(C = A + t(B-A)\) has a solution \(t \in (0,1)\).
+Then this \(\BETWEEN{\ast}{\ast}{\ast}\) is a betweenness relation on \(\RR^2\).
+\end{prop}
+
+\begin{proof}\mbox{}
+\begin{itemize}
+\item[B1.] Suppose \(\BETWEEN{A}{C}{B}\).
+Now \(A \neq B\) by definition, and we have \(C = A + t(B-A)\) for some \(t \in (0,1)\).
+If \(C = A\), then \((0,0) = t(B-A)\), so that \(B = A\); a contradiction.
+If \(C = B\), then \((0,0) = (t-1)(B-A)\), so that \(B = A\); a contradiction.
+So \(A\), \(B\), and \(C\) are distinct.
+Now \(A\), \(B\), and \(C\) are collinear because \[ \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ c_x & c_y & 1 \end{bmatrix} = \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ a_x + t(b_x-a_x) & a_y + t(b_x-a_x) & 1 \end{bmatrix} = 0. \]
+
+\item[B2.] If \(C = A + t(B-A)\) where \(t \in (0,1)\), then (rearranging) we also have \(C = B + (1-t)(A-B)\) with \(1-t \in (0,1)\) as needed.
+
+\item[B3.] Suppose \(A\), \(B\), and \(C\) are distinct such that \(\COLLINEAR{A}{B}{C}\).
+Using Exercise \ref{exerc:rr2-collinear-comb}, we have \(C = A + t(B-A)\) for some real number \(t\).
+Note that \(t \neq 0\) and \(t \neq 1\) since in the first case we would have \(C = A\) and in the second, \(C = B\).
+There are then three possibilities for \(t\).
+If \(t \in (0,1)\), then \(\BETWEEN{A}{C}{B}\) by definition.
+If \(t > 1\), then ``solving for \(B\)'' we have \(B = A + \frac{1}{t}(C-A)\), and since \(1/t \in (0,1)\), we have \(\BETWEEN{A}{B}{C}\).
+If \(t < 0\), then we have \(A = C + \frac{-t}{1-t}(B-C)\), and since \(\frac{-t}{1-t} \in (0,1)\), we have \(\BETWEEN{C}{A}{B}\).
+
+\item[B4.] Suppose \(\BETWEEN{A}{B}{C}\) and \(\BETWEEN{A}{C}{D}\); say we have \(B = A + t(C-A)\) and \(C = A + s(D-A)\) where \(s,t \in (0,1)\).
+Now \(B = A + ts(D-A)\), and since \(st \in (0,1)\), we have \(\BETWEEN{A}{B}{D}\).
+Similarly, we have \(C = B + \frac{s-ts}{1-ts}(D-B)\), and since \(\frac{s-ts}{1-ts} \in (0,1)\), we have \(\BETWEEN{B}{C}{D}\) as needed.
+
+\item[B5.] Suppose \(\BETWEEN{A}{B}{C}\) and \(\BETWEEN{B}{C}{D}\); say we have \(B = t(C-A)\) and \(C = B + s(D-B)\) where \(s,t \in (0,1)\).
+Now \(C = A + \frac{s}{1-t+st}(D-A)\), and we also have \(\frac{s}{1-t+st} \in (0,1)\).
+(To see this, note that \(0 < (1-s)(1-t)\) and rearrange to get \(s < 1-t+st\).)
+Thus \(\BETWEEN{B}{C}{D}\).
+Next note that \(B = A + \frac{ts}{1-t+ts}(D-A)\), and since \(\frac{ts}{1-t+ts} \in (0,1)\), we have \(\BETWEEN{A}{B}{D}\) as needed.
+
+\item[B6.] Let \(A\) and \(B\) be distinct points.
+Given a real number \(t\), let \(C = A + t(B-A)\).
+If \(t \in (0,1)\), then \(\BETWEEN{A}{C}{B}\) by definition.
+If \(t > 1\), then \(B = A + \frac{1}{t}(C-A)\) with \(\frac{1}{t} \in (0,1)\) and we have \(\BETWEEN{A}{B}{C}\).
+If \(t < 0\), then \(A = C + \frac{-t}{1-t}(B-C)\) with \(\frac{-t}{1-t} \in (0,1)\) and we have \(\BETWEEN{C}{A}{B}\).
+\qedhere
+\end{itemize}
+\end{proof}
+
+Next, we'd like to show that \(\RR^2\) is an ordered geometry by showing that it has the Line Separation property.
+First, we need the following technical lemma about the intersection of a segment and a line in \(\RR^2\).
+
+\begin{lem}\label{lem:rr2-opp-side-incidence}
+Let \(A = (a_x,a_y)\) and \(B = (b_x,b_y)\) be distinct points in \(\RR^2\), and let \(U = (u_1, u_2)\) and \(V = (v_1, v_2)\) be distinct points not on \(\LINE{A}{B}\).
+Then \(\SEGMENT{U}{V} \cap \LINE{A}{B}\) consists of a single point if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ u_1 & u_2 & 1 \end{bmatrix} \quad \mathrm{and} \quad \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ v_1 & v_2 & 1 \end{bmatrix} \] have opposite signs.
+\end{lem}
+
+\begin{proof}
+Note that \(\LINE{U}{V} \cap \LINE{A}{B}\) contains exactly one point if and only if the equation \(U + t(V-U) = A + u(B-A)\) has a unique solution \((t,u)\).
+In fact, by comparing coordinates we can rewrite this equation in matrix form as \[ \begin{bmatrix} t \\ -u \end{bmatrix} = \begin{bmatrix} v_1 - u_1 & b_1 - a_1 \\ v_2 - u_2 & b_2 - a_2 \end{bmatrix}^{-1} \begin{bmatrix} a_1 - u_1 \\ a_2 - u_2 \end{bmatrix}. \]
+(This matrix is invertible by \eref{exerc:parallels-in-rr2}.) Comparing entries, we have \[ t = \frac{(b_2-a_2)(a_1-u_1) - (b_1-a_1)(a_2-u_2)}{(v_1-u_1)(b_2-a_2) - (v_2-u_2)(b_1-a_1)}. \]
+Now by definition the unique point in \(\LINE{U}{V} \cap \LINE{A}{B}\) is more specifically on the segment \(\SEGMENT{U}{V}\) if and only if \(t \in (0,1)\).
+
+There are now two possibilities, depending on whether the denominator of \(t\) is positive or negative.
+If the denominator of \(t\) is positive, we can see that \(t \in (0,1)\) if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ u_1 & u_2 & 1 \end{bmatrix} > 0 > \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ v_1 & v_2 & 1 \end{bmatrix}, \]
+and if the denominator of \(t\) is negative, then \(t \in (0,1)\) if and only if \[ \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ u_1 & u_2 & 1 \end{bmatrix} < 0 < \DET \begin{bmatrix} a_1 & a_2 & 1 \\ b_1 & b_2 & 1 \\ v_1 & v_2 & 1 \end{bmatrix} \] as needed.
+\end{proof}
+
+We are now prepared to show the following.
+
+\begin{prop}\label{prop:rr2-line-sep}
+For each line \(\ell = \LINE{A}{B}\) in \(\RR^2\), we define two halfplanes as follows.
+\begin{eqnarray*}
+\HALFPLANEA{\ell} & = & \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} > 0 \right\} \\[4pt]
+\HALFPLANEB{\ell} & = & \left\{ (x, y) \mid \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ x & y & 1 \end{bmatrix} < 0 \right\}.
+\end{eqnarray*}
+With halfplanes defined this way for all lines, \(\RR^2\) satisfies the Line Separation Property and thus is an ordered geometry.
+\end{prop}
+
+\begin{proof}
+It is enough to show that the Line Separation property is satisfied.
+But first, we need to verify that our halfplanes are well-defined; that is, they do not depend on the choice of line generators.
+(@@@)
+
+Certainly \(\HALFPLANEA{\ell}\), \(\HALFPLANEB{\ell}\), and \(\ell\) partition \(\RR^2\) by the trichotomy property of \(<\).
+To see that both halfplanes are nonempty we consider three cases: if \(a_x = b_x\), then \((a_x+1,0)\) and \((a_x-1,0)\) are in opposite halfplanes; if \(a_y = b_y\), then \((0,a_y+1)\) and \((0,a_y-1)\) are in opposite halfplanes; and if \(a_x \neq b_x\) and \(a_y \neq b_y\) then \((a_x,b_y)\) and \((b_x,a_y)\) are in opposite halfplanes. By Lemma \ref{lem:rr2-opp-side-incidence}, if \(U \in \HALFPLANEA{\ell}\) and \(V \in \HALFPLANEB{\ell}\), then \(\SEGMENT{U}{V} \cap \LINE{A}{B}\) consists of a unique point.
+All that remains is to show that \(\HALFPLANEA{\ell}\) and \(\HALFPLANEB{\ell}\) are convex.
+
+To see that \(\HALFPLANEA{\ell}\) is convex, let \(U,V \in \HALFPLANEA{\ell}\).
+By definition, we have \[ \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ u_x & u_y & 1 \end{bmatrix} > 0\ \mathrm{and}\ \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ v_x & v_y & 1 \end{bmatrix} > 0. \]
+Now suppose \(\BETWEEN{U}{W}{V}\); then again by definition we have \(t \in (0,1)\) such that \(W = U + t(V-U)\).
+Then
+\begin{eqnarray*}
+ & & \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ w_x & w_y & 1 \end{bmatrix} \\
+ & = & \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ u_x + t(v_x - u_x) & u_y + t(v_y - u_y) & 1 + t(1 - 1) \end{bmatrix} \\
+ & = & \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ u_x & u_y & 1 \end{bmatrix} + t \left( \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ v_x & v_y & 1 \end{bmatrix} - \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ u_x & u_y & 1 \end{bmatrix} \right) \\
+ & > & 0
+\end{eqnarray*}
+using \eref{exerc:rr-between-sign}, and because the determinant is multilinear.
+So we have \(W \in \HALFPLANEA{\ell}\), and thus \(\HALFPLANEA{\ell}\) is convex.
+A similar argument shows that \(\HALFPLANEB{\ell}\) is convex.
+\end{proof}
+
+The proofs of Propositions \ref{prop:rr2-between} and \ref{prop:rr2-line-sep} remain valid if we replace \(\RR^2\) by \(\QQ^2\), so that the Rational Plane is also an ordered geometry.
+However we cannot replace \(\RR^2\) by \(\CC^2\), because the order relation \(<\) does not make sense in the complex numbers.

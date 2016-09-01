@@ -4,25 +4,32 @@ Combined with an additional property -- the Line Separation property -- such geo
 \begin{dfn}[Ordered Geometry]
 Let \(P\) be an incidence geometry with a betweenness relation \(\BETWEEN{\ast}{\ast}{\ast}\).
 We say that \(P\) is an \emph{ordered geometry} if it satisfies the following additional \emph{Line Separation Property}.
+\begin{itemize}
+\item[LS.] For every line \(\ell\) there are two sets, \(\HALFPLANEA{\ell}\) and \(\HALFPLANEB{\ell}\), which satisfy the following properties.
 \begin{proplist}
-\item[LS.] Every line \(\ell\) partitions the set of points not on \(\ell\) into two nonempty, disjoint, convex sets, \(H_1\) and \(H_2\), with the property that if \(x \in H_1\) and \(y \in H_2\) then \(\SEGMENT{x}{y} \cap \ell = \{p\}\) for some point \(p\).
-The sets \(H_1\) and \(H_2\) are called the \emph{half-planes} cut by \(\ell\).
+\item \(\HALFPLANEA{\ell}\) and \(\HALFPLANEB{\ell}\) are not empty.
+\item \(\ell\), \(\HALFPLANEA{\ell}\), and \(\HALFPLANEB{\ell}\) partition \(P\).
+\item \(\HALFPLANEA{\ell}\) and \(\HALFPLANEB{\ell}\) are convex.
+\item If \(x \in \HALFPLANEA{\ell}\) and \(y \in \HALFPLANEB{\ell}\), then \(\SEGMENT{x}{y} \cap \ell = \{p\}\) for some point \(p\).
 \end{proplist}
+The sets \(\HALFPLANEA{\ell}\) and \(\HALFPLANEB{\ell}\) are called \emph{halfplanes}\index{halfplane}.
+\end{itemize}
 \end{dfn}
 
 The Line Separation property essentially states that every line divides the plane into two ``separate'' pieces -- we might call these pieces the \emph{sides} of the line.
-Given a line \(\ell\) and points \(x,y \notin \ell\), we say that \(x\) and \(y\) are on the \emph{same side} of \(\ell\) if they are both in the same half-plane bounded by \(\ell\), and otherwise they are on \emph{opposite sides}.
-See \autoref{fig:line-sep} for a picture, but remember that a given ordered geometry might look very different.
+Given a line \(\ell\) and points \(x,y \notin \ell\), we say that \(x\) and \(y\) are on the \emph{same side} of \(\ell\) if they are both in the same halfplane bounded by \(\ell\), and otherwise they are on \emph{opposite sides}.
+See \autoref{fig:line-sep} for a picture.
+(But remember that a given ordered geometry might look very different!)
 
 \begin{figure}[h]
 \begin{center}
 \begin{tikzpicture}
   \draw [<->] (0,0) -- (2,4);
   \coordinate [label=below right:\(\ell\)] (x) at (1,2);
-  \node at (-1,2) {\(H_1\)};
-  \node at (2.5,2) {\(H_2\)};
+  \node at (-1,2) {\(\HALFPLANEA{\ell}\)};
+  \node at (2.5,2) {\(\HALFPLANEB{\ell}\)};
 \end{tikzpicture}
-\caption{\label{fig:line-sep}The half planes bounded by a line.}
+\caption{\label{fig:line-sep}The halfplanes bounded by a line.}
 \end{center}
 \end{figure}
 
@@ -47,9 +54,9 @@ Then precisely one of the following two things happens:
 
 \begin{proof}
 Since \(P\) is an ordered geometry, it satisfies the Plane Separation property.
-In particular, the points not on \(\ell\) are partitioned into two convex, nonempty half-planes, \(H_1\) and \(H_2\).
-Since \(\SEGMENT{x}{y} \cap \ell = \{w\}\) is not empty, without loss of generality we have \(x \in H_1\) and \(y \in H_2\).
-Since \(z \notin \ell\), there are two possibilities: either \(z \in H_1\) or \(z \in H_2\).
+In particular, the points not on \(\ell\) are partitioned into two convex, nonempty half-planes, \(\HALFPLANEA{\ell}\) and \(\HALFPLANEB{\ell}\).
+Since \(x\) and \(y\) are not on \(\ell\), without loss of generality we have \(x \in \HALFPLANEA{\ell}\) and \(y \in \HALFPLANEB{\ell}\).
+Since \(z \notin \ell\), there are two possibilities: either \(z \in \HALFPLANEA{\ell}\) or \(z \in \HALFPLANEB{\ell}\).
 In the first case, we see that \(\ell\) cuts \(\SEGMENT{y}{z}\) and does not cut \(\SEGMENT{z}{x}\), and in the second case, \(\ell\) cuts \(\SEGMENT{z}{x}\) but not \(\SEGMENT{y}{z}\).
 \end{proof}
 

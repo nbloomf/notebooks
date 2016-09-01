@@ -1,0 +1,107 @@
+In this section we establish that the hyperbolic half plane is an ordered geometry.
+
+\begin{prop}
+Define a ternary relation \(\BETWEEN{\ast}{\ast}{\ast}\) on \(\HYPHP\) as follows.
+Given \(A = (a_x, a_y)\), \(B = (b_x, b_y)\), and \(C = (c_x, c_y)\), we say that \(\BETWEEN{A}{C}{B}\) if \(\COLLINEAR{A}{C}{B}\) and one of the following holds.
+\begin{proplist}
+\item \(a_x = b_x\) and \(\MIN(a_y,b_y) < c_y < \MAX(a_y,b_y)\).
+\item \(a_x \neq b_x\) and \(\MIN(a_x,b_x) < c_x < \MAX(a_x,b_x)\).
+\end{proplist}
+This relation is a betweenness on \(\HYPHP\).
+\end{prop}
+
+\begin{proof}\mbox{}
+\begin{itemize}
+\item[B1.] Suppose \(\BETWEEN{A}{B}{C}\).
+Now \(\COLLINEAR{A}{B}{C}\) by definition.
+Moreover, either \(a_x\), \(b_x\), and \(c_x\) or \(a_y\), \(b_y\), and \(c_y\) are all distinct, so that \(A\), \(B\), and \(C\) are distinct.
+
+\item[B2.] Follows because \(=\) and \(\neq\) are symmetric and we can permute the arguments of \(\COLLINEAR{\ast}{\ast}{\ast}\), \(\MIN(\ast,\ast)\), and \(\MAX(\ast,\ast)\).
+
+\item[B3.] Suppose \(A\), \(B\), and \(C\) are distinct and \(\COLLINEAR{A}{B}{C}\).
+Suppose \(a_x = b_x\).
+Then by the definition of collinearity in \(\HYPHP\), we have \(c_x = a_x\).
+Since \(A\), \(B\), and \(C\) are distinct, \(a_y\), \(b_y\), and \(c_y\) must be distinct.
+Since the order on \(\RR\) is total, there are six possibilities.
+If \(a_y < b_y < c_y\), \(a_y < c_y < b_y\), or \(c_y < a_y < b_y\), we have \(\BETWEEN{A}{B}{C}\), \(\BETWEEN{A}{C}{B}\), or \(\BETWEEN{C}{A}{B}\), respectively.
+If \(b_y < a_y < c_y\), \(b_y < c_y < a_y\), or \(c_y < b_y < a_y\), we have \(\BETWEEN{B}{A}{C}\), \(\BETWEEN{B}{C}{A}\), or \(\BETWEEN{C}{B}{A}\), respectively; using B2 we then have \(\BETWEEN{C}{A}{B}\), \(\BETWEEN{A}{C}{B}\), or \(\BETWEEN{A}{B}{C}\), respectively.
+
+Suppose instead that \(a_x \neq b_x\).
+We can see that because \(A\), \(B\), and \(C\) are distinct, \(a_x\), \(b_x\), and \(c_x\) must also be distinct.
+As in the previous paragraph, since the order on \(\RR\) is total there are six possibilities, and in each case either \(\BETWEEN{C}{A}{B}\), \(\BETWEEN{A}{C}{B}\), or \(\BETWEEN{A}{B}{C}\).
+
+\item[B4.] Suppose we have \(\BETWEEN{A}{B}{C}\) and \(\BETWEEN{A}{C}{D}\).
+Note that \(\COLLINEAR{A}{B}{C}\) and \(\COLLINEAR{A}{C}{D}\), and that \(A\), \(B\), and \(C\) are distinct, and \(A\), \(C\), and \(D\) are distinct.
+If \(a_x = b_x\), then we also have \(c_x = d_x = a_x\).
+Now \[ \MIN(a_y,c_y) < b_y < \MAX(a_y,c_y)\ \mathrm{and}\ \MIN(a_y,d_y) < c_y < \MAX(a_y,d_y). \]
+There are four possibilities.
+If \(a_y < b_y < c_y\) and \(a_y < c_y < d_y\), then we have \(\BETWEEN{A}{B}{D}\) and \(\BETWEEN{B}{C}{D}\).
+If \(c_y < b_y < a_y\) and \(d_y < c_y < a_y\), then we have \(\BETWEEN{D}{B}{A}\) and \(\BETWEEN{D}{C}{B}\), and by B2, \(\BETWEEN{A}{B}{D}\) and \(\BETWEEN{B}{C}{D}\).
+The other two possibilities lead to contradictions.
+
+Suppose instead that \(a_x \neq b_x\); a similar analysis of \(a_x\), \(b_x\), \(c_x\), and \(d_x\) shows that \(\BETWEEN{A}{B}{D}\) and \(\BETWEEN{B}{C}{D}\).
+
+\item[B5.] Similar to the proof for B4.
+
+\item[B6.] (@@@)
+\end{itemize}
+\end{proof}
+
+\begin{prop}
+Given a line \(\ell = \LINE{A}{B}\) in \(\HYPHP\), we define halfplanes \(\HALFPLANEA{\ell}\) and \(\HALFPLANEB{\ell}\) as follows.
+\begin{proplist}
+\item If \(a_x = b_x\), then
+\begin{eqnarray*}
+\HALFPLANEA{\ell} & = & \{ (x,y) \in \HYPHP \mid x < a_x \} \\[4pt]
+\HALFPLANEB{\ell} & = & \{ (x,y) \in \HYPHP \mid x > a_x \}
+\end{eqnarray*}
+
+\item If \(a_x \neq b_x\), then
+\begin{eqnarray*}
+\HALFPLANEA{\ell} & = & \{ (x,y) \in \HYPHP \mid (x - \HHPIDEALPOINT{A}{B})^2 + y^2 < (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2 \} \\[4pt]
+\HALFPLANEB{\ell} & = & \{ (x,y) \in \HYPHP \mid (x - \HHPIDEALPOINT{A}{B})^2 + y^2 > (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2 \}
+\end{eqnarray*}
+\end{proplist}
+With halfplanes defined this way for all lines, \(\HYPHP\) satisfies the Line Separation Property and thus is an ordered geometry.
+\end{prop}
+
+\begin{proof}
+First we need to verify that these half planes are well-defined as functions of \(\ell\); that is, they do not depend on the points used to generate \(\ell\).
+To see this, suppose we have distinct points \(U\) and \(V\) such that \(\ell = \LINE{U}{V}\).
+If \(a_x = b_x\), then in fact \(u_x = a_x\), and we have \( \{ (x,y) \in \HYPHP \mid x < a_x \} = \{ (x,y) \in \HYPHP \mid x < u_x \} \) and \( \{ (x,y) \in \HYPHP \mid x > a_x \} = \{ (x,y) \in \HYPHP \mid x > u_x \} \) as needed.
+If \(a_x \neq b_x\), then we have \((u_x - \HHPIDEALPOINT{A}{B})^2 + u_y^2 = (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2\), and using \eref{exerc:hhp-parallel-criterion} we have \(\HHPIDEALPOINT{U}{V} = \HHPIDEALPOINT{A}{B}\).
+Thus \[ (u_x - \HHPIDEALPOINT{U}{V})^2 + u_y^2 = (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2 \] as needed.
+
+Certainly \(\ell\), \(\HALFPLANEA{\ell}\), and \(\HALFPLANEB{\ell}\) partition \(\HYPHP\).
+To see that \(\HALFPLANEA{\ell}\) and \(\HALFPLANEB{\ell}\) are not empty, choose \(y_1\) and \(y_2\) such that \(y_1^2 < (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2 < y_2^2\); then \((\HHPIDEALPOINT{A}{B},y_1) \in \HALFPLANEA{\ell}\) and \((\HHPIDEALPOINT{A}{B},y_2) \in \HALFPLANEB{\ell}\).
+
+Next we show that \(\HALFPLANEA{\ell}\) is convex; the proof that \(\HALFPLANEB{\ell}\) is convex is very similar. To this end, let \(U,V \in \HALFPLANEA{\ell}\) be distinct and suppose \(\BETWEEN{U}{W}{V}\).
+First suppose that \(a_x = b_x\).
+If \(u_x = v_x\) then we have \(w_x = u_x < a_x\) so that \(W \in \HALFPLANEA{\ell}\).
+If \(u_x \neq v_x\) then we have \(w_x < \MAX(u_x,v_x) < a_x\) and thus \(W \in \HALFPLANEA{\ell}\).
+So \(\HALFPLANEA{\ell}\) is convex in this case.
+Next suppose that \(a_x \neq b_x\).
+If \(u_x = v_x\) then we have \(w_x = u_x = v_x\).
+Without loss of generality, suppose \(\MAX(u_y,v_y) = u_y\); then we have \[ (w_x - \HHPIDEALPOINT{A}{B})^2 + w_y^2 < (u_x - \HHPIDEALPOINT{A}{B})^2 + u_y^2 < (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2, \] and thus \(W \in \HALFPLANEA{\ell}\).
+If \(u_x \neq v_x\) and \(\HHPIDEALPOINT{U}{V} = \HHPIDEALPOINT{A}{B}\), then we have \[ (w_x - \HHPIDEALPOINT{A}{B})^2 + w_y^2 = (u_x - \HHPIDEALPOINT{A}{B})^2 + u_y^2 < (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2, \] and thus \(W \in \HALFPLANEA{\ell}\).
+Suppose then that \(u_x \neq v_x\) and \(\HHPIDEALPOINT{U}{V} \neq \HHPIDEALPOINT{A}{B}\).
+Since \(\COLLINEAR{U}{V}{W}\), we have \((w_x - \HHPIDEALPOINT{U}{V})^2 + w_y^2 = (u_x - \HHPIDEALPOINT{U}{V})^2 + u_y^2,\) which can be rearranged as \[ (w_x - \HHPIDEALPOINT{A}{B})^2 + w_y^2 + 2(\HHPIDEALPOINT{U}{V} - \HHPIDEALPOINT{A}{B})(u_x - w_x) = (u_x - \HHPIDEALPOINT{A}{B})^2 + u_y^2. \]
+A similar equality holds for \(V\).
+And since \(U\) and \(V\) are in \(\HALFPLANEA{\ell}\), we have the system of inequalities
+\begin{eqnarray*}
+(w_x - \HHPIDEALPOINT{A}{B})^2 + w_y^2 + 2(\HHPIDEALPOINT{U}{V} - \HHPIDEALPOINT{A}{B})(u_x - w_x) & < & (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2 \\[4pt]
+(w_x - \HHPIDEALPOINT{A}{B})^2 + w_y^2 + 2(\HHPIDEALPOINT{U}{V} - \HHPIDEALPOINT{A}{B})(v_x - w_x) & < & (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2.
+\end{eqnarray*}
+Note that either \(2(\HHPIDEALPOINT{U}{V} - \HHPIDEALPOINT{A}{B})(u_x - w_x)\) or \(2(\HHPIDEALPOINT{U}{V} - \HHPIDEALPOINT{A}{B})(v_x - w_x)\) must be negative, since we have \(w_x < \MAX(u_x,v_x)\).
+So \(W \in \HALFPLANEA{\ell}\) as needed, and \(\HALFPLANEA{\ell}\) is convex.
+
+Finally, suppose we have \(U \in \HALFPLANEA{\ell}\) and \(V \in \HALFPLANEB{\ell}\).
+We need to show that there is a point \(W \in \SEGMENT{U}{V} \cap \LINE{A}{B}\).
+If \(a_x = b_x\), then \(u_x < a_x < v_x\).
+Note that by \eref{exerc:rr-between-square} we can say without loss of generality that \((a_x - \HHPIDEALPOINT{U}{V})^2 < (u_x - \HHPIDEALPOINT{U}{V})^2\).
+Now let \(w_x = a_x\) and \[ w_y = \sqrt{(u_x - \HHPIDEALPOINT{U}{V})^2 + u_y^2 - (a_x - \HHPIDEALPOINT{U}{V})^2}. \]
+We can see that \(W = (w_x,w_y)\) is the unique point on both \(\SEGMENT{U}{V}\) and \(\LINE{A}{B}\).
+
+Suppose now that \(a_x \neq b_x\).
+(@@@)
+\end{proof}
