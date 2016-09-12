@@ -1,0 +1,68 @@
+We begin with a completely unmotivated definition.
+
+\begin{dfn}[Group]
+A \emph{group}\index{group} is a set, \(G\), equipped with a binary operation \(\ast\) and a special element \(1 \in G\) which satisfy the following properties.
+\begin{itemize}
+\item[G1.] For all \(a,b,c \in G\), \((a \ast b) \ast c = a \ast (b \ast c)\).
+
+\item[G2.] For all \(a \in G\), \(a \ast 1 = 1 \ast a = a\).
+
+\item[G3.] For each \(a \in G\), there is an element \(b \in G\) such that \(a \ast b = b \ast a = 1\).
+\end{itemize}
+\end{dfn}
+
+A group is a kind of \emph{abstract arithmetic}.
+If you've studied rings or vector spaces before, the basic rules will look familiar.
+The definition of ``group'' is a list of axioms, and any particular object which satisfies the axioms is a concrete group.
+Any theorems we can prove using only the axioms are immediately true in \emph{all} groups.
+For example, we can show that the special elements in axiom G3 are unique in a precise sense.
+
+\begin{prop}
+Let \(G\) be a group and \(a \in G\).
+Then there is a \emph{unique} element \(b \in G\) such that \(a \ast b = b \ast a = 1\).
+We refer to this unique element as the \emph{inverse}\index{inverse!of an element} of \(a\), and denote it by \(a^{-1}\).
+\end{prop}
+
+\begin{proof}
+Suppose \(b\) and \(c\) are elements such that \(b \ast a = a \ast b = 1\) and \(c \ast a = a \ast c = 1\).
+Now \[ b = b \ast 1 = b \ast (a \ast c) = (b \ast a) \ast c = 1 \ast c = c \] so that \(b = c\).
+\end{proof}
+
+We can sit around defining abstract arithmetics by writing lists of axioms all day long.
+But what makes a structure interesting is when it has a \textbf{diverse} array of \textbf{models} -- preferably, models which are themselves known to be interesting.
+And so, when defining a kind of structure, it is incumbent upon us to also give some useful models.
+The primary model for groups is sets of \emph{bijective functions}.
+
+\begin{dfn}[Bijection]
+Let \(X\) be a set.
+Recall that a mapping \(f : X \rightarrow X\) is called \emph{bijective}\index{bijection} if it is both injective (a.k.a. ``one-to-one'') and surjective (a.k.a. ``onto'').
+That is,
+\begin{proplist}
+\item If \(a,b \in X\) such that \(f(a) = f(b)\), then \(a = b\), and
+\item If \(b \in X\), then there is an \(a \in X\) such that \(f(a) = b\).
+\end{proplist}
+\end{dfn}
+
+Now the bijective functions \(X \rightarrow X\) are interesting enough, as we'll see.
+But (looking ahead) they become \emph{really} interesting if \(X\) is not just a set but has some additional structure of its own -- a vector space, a ring, another group, and so on.
+For example, the bijective structure-preserving maps on a vector space of finite dimension can be represented by invertible matrices.
+
+\begin{prop}
+Let \(X\) be a nonempty set.
+Then the set \[ \SYM{X} = \{ \varphi \mid \varphi\ \mathrm{is\ a\ bijection}\ X \rightarrow X \} \] is a group under function composition and the identity map.
+We refer to \(\SYM{X}\) as the \emph{symmetric group}\index{symmetric group} on \(X\).
+\end{prop}
+
+Symmetric groups are an extremely important family of examples of groups.
+In fact, it turns out that symmetric groups are essentially \emph{all} of the groups in a very precise sense which we will discuss later.
+The name ``symmetric'' is meant to be suggestive of what these mappings are: ways to transform an object so that it looks the same.
+
+Two more useful models of groups are found in modular arithmetic.
+
+\begin{prop}
+Let \(n\) be a positive integer.
+\begin{proplist}
+\item The set \(\ZZ/(n)\) is a group under modular addition.
+\item The set \[ \mathcal{U}_n = \{ k \in \ZZ/(n) \mid \GCD{k}{n} = 1 \} \] is a group under modular multiplication.
+\end{proplist}
+\end{prop}

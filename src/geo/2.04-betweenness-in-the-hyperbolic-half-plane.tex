@@ -105,9 +105,9 @@ We can see that \(W = (w_x,w_y)\) is the unique point on both \(\SEGMENT{U}{V}\)
 Suppose now that \(a_x \neq b_x\).
 If \(u_x = v_x\), then (@@@)
 
-Finally suppose \(u_x \neq v_x\).
+Finally suppose \(u_x \neq v_x\); without loss of generality, say \(u_x < v_x\) (the case \(v_x < u_x\) is similar).
 By \eref{exerc:hhp-parallel-criterion}, we have \(\HHPIDEALPOINT{U}{V} \neq \HHPIDEALPOINT{A}{B}\).
-Note that \(\SEGMENT{U}{V} \cap \LINE{A}{B}\) is the solution(s) of the following system of equations: \[ \left\{ \begin{array}{l} (x - \HHPIDEALPOINT{A}{B})^2 + y^2 = (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2 \\[4pt] (x - \HHPIDEALPOINT{U}{V})^2 + y^2 = (u_x - \HHPIDEALPOINT{U}{V})^2 + u_y^2 \\[4pt] u_x \lessgtr x \lessgtr v_x. \end{array} \right. \]
+Note that \(\SEGMENT{U}{V} \cap \LINE{A}{B}\) is the solution(s) of the following system of equations: \[ \left\{ \begin{array}{l} (x - \HHPIDEALPOINT{A}{B})^2 + y^2 = (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2 \\[4pt] (x - \HHPIDEALPOINT{U}{V})^2 + y^2 = (u_x - \HHPIDEALPOINT{U}{V})^2 + u_y^2 \\[4pt] u_x < x < v_x. \end{array} \right. \]
 We can solve the first two equations for \(x\) as \[ w_x = \frac{a_x^2 + a_y^2 - u_x^2 - u_y^2 + 2(u_x\HHPIDEALPOINT{U}{V} - a_x\HHPIDEALPOINT{A}{B})}{2(\HHPIDEALPOINT{U}{V} - \HHPIDEALPOINT{A}{B})}. \]
 Note that \[ (u_x - \HHPIDEALPOINT{A}{B})^2 + u_y^2 < (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2 < (v_x - \HHPIDEALPOINT{A}{B})^2 + v_y^2 \] because \(U \in \HALFPLANEA{\ell}\) and \(V \in \HALFPLANEB{\ell}\).
 Now
@@ -120,6 +120,6 @@ and thus
 (u_x - \HHPIDEALPOINT{A}{B})^2 + u_y^2 < (a_x - \HHPIDEALPOINT{A}{B})^2 + a_y^2 < \hfill \\
   (u_x - \HHPIDEALPOINT{U}{V})^2 + u_y^2 - \HHPIDEALPOINT{U}{V}^2 + 2v_x(\HHPIDEALPOINT{U}{V} - \HHPIDEALPOINT{A}{B}) + \HHPIDEALPOINT{A}{B}^2
 \end{multline*}
-which rearranges as \[ u_x \lessgtr \frac{a_x^2 + a_y^2 - u_x^2 - u_y^2 + 2(u_x\HHPIDEALPOINT{U}{V} - a_x\HHPIDEALPOINT{A}{B})}{2(\HHPIDEALPOINT{U}{V} - \HHPIDEALPOINT{A}{B})} \lessgtr v_x, \] where the direction of the inequalities depends on the sign of \(\HHPIDEALPOINT{U}{V} - \HHPIDEALPOINT{A}{B}\).
+which rearranges as \[ u_x < \frac{a_x^2 + a_y^2 - u_x^2 - u_y^2 + 2(u_x\HHPIDEALPOINT{U}{V} - a_x\HHPIDEALPOINT{A}{B})}{2(\HHPIDEALPOINT{U}{V} - \HHPIDEALPOINT{A}{B})} < v_x. \] (In the last step, we used \eref{exerc:hhp-ideal-point-inequality}.)
 (@@@)
 \end{proof}

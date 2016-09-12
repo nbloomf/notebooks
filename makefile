@@ -1,4 +1,4 @@
-all: rings geo badness
+all: rings geo groups badness
 
 rings:
 	@echo "Making rings.pdf" | doppler lightgreen
@@ -26,6 +26,19 @@ geo: src/geo/gfx/cover/cover.eps
 	@rm geo.aux geo.log geo.toc geo.out
 	@rm geo.idx geo.ilg geo.ind
 
+groups:
+	@echo "Making groups.pdf" | doppler lightgreen
+	@pdflatex -file-line-error -interaction=batchmode src/group/groups.tex > /dev/null
+	@pdflatex -file-line-error -interaction=batchmode src/group/groups.tex > /dev/null
+	@makeindex -q groups
+	@pdflatex -file-line-error -interaction=batchmode src/group/groups.tex > /dev/null
+	@echo "  Saving warnings" | doppler lightblue
+	@grep "LaTeX Warning" groups.log | sponge zz-groups-warnings.txt
+	@[ -s zz-groups-warnings.txt ] || rm zz-groups-warnings.txt
+	@echo "  Cleaning up" | doppler lightblue
+	@rm groups.aux groups.log groups.toc groups.out
+	@rm groups.idx groups.ilg groups.ind
+
 src/geo/gfx/cover/cover.eps: src/geo/gfx/cover/cover.hs
 	@echo '  Making cover' | doppler lightblue
 	@cd src/geo/gfx/cover; ./cover.hs > /dev/null
@@ -43,6 +56,9 @@ words:
 	-@find src/geo -name '*.tex' -exec cat {} \; | \
 	  tex-words.sh | sponge zz-geo-nonwords.txt
 	@[ -s zz-geo-nonwords.txt ] || rm zz-geo-nonwords.txt
+	-@find src/group -name '*.tex' -exec cat {} \; | \
+	  tex-words.sh | sponge zz-groups-nonwords.txt
+	@[ -s zz-groups-nonwords.txt ] || rm zz-groups-nonwords.txt
 
 badness:
 	@echo "Finding Badness" | doppler lightgreen
@@ -56,6 +72,9 @@ badness:
 	-@find src/geo -name '*.tex' -exec cat {} \; | \
 	  tex-words.sh | linda.sh | sponge zz-geo-nonwords.txt
 	@[ -s zz-geo-nonwords.txt ] || rm zz-geo-nonwords.txt
+	-@find src/group -name '*.tex' -exec cat {} \; | \
+	  tex-words.sh | linda.sh | sponge zz-groups-nonwords.txt
+	@[ -s zz-groups-nonwords.txt ] || rm zz-groups-nonwords.txt
 	@ #
 	@ #
 	@ #

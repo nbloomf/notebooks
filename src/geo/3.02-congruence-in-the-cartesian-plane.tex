@@ -1,0 +1,27 @@
+Remember: to show that an ordered geometry is a congruence geometry, we need to specify (1) how to detect when two segments are congruent and (2) how to detect when two angles are congruent.
+In this section we will establish segment and angle congruences in the cartesian plane.
+
+We define two helper functions, \(N\) and \(M\), as follows.
+Given \(A,B \in \RR^2\), we define \[ N(A,B) = (b_x - a_x)^2 + (b_y - a_y)^2. \]
+Given \(A,B,O \in \RR^2\), we define \[ M(A,O,B) = (a_x - o_x)(b_x - o_x) + (a_y - o_y)(b_y - o_y). \]
+
+\begin{prop}
+The following hold for all cartesian points \(A\) and \(B\).
+\begin{proplist}
+\item \(N(A,B) = 0\) if and only if \(A = B\).
+\item \(N(A,B) = N(B,A)\).
+\item \(M(A,O,B) = M(B,O,A)\).
+\end{proplist}
+\end{prop}
+
+\begin{prop}
+\(\RR^2\) is a congruence geometry under the following relations.
+\begin{proplist}
+\item Given points \(A\), \(B\), \(X\), and \(Y\) in \(\RR^2\), we say that \(\SEGCONG{A}{B}{X}{Y}\) if \[ N(A,B) = N(X,Y). \]
+\item Given points \(A\), \(O\), \(B\), \(X\), \(P\), and \(Y\) in \(\RR^2\) such that \(A \neq O\), \(B \neq O\), \(X \neq P\), and \(Y \neq P\), we say that \(\ANGCONG{A}{O}{B}{X}{P}{Y}\) if \[ \frac{M(A,O,B)^2}{N(A,O)N(B,O)} = \frac{M(X,P,Y)^2}{N(X,P)N(Y,P)}. \]
+\end{proplist}
+\end{prop}
+
+\begin{proof}
+(@@@)
+\end{proof}

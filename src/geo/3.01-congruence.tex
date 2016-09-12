@@ -1,5 +1,7 @@
 Intuitively, we want to say that two sets of points in a geometry are ``congruent'' if they have the same size and shape.
-Rather than defining congruence once and for all, we will define congruence in terms of primitive congruence relations on two special kinds of sets: segments and angles.
+But what exactly do ``size'' and ``shape'' mean?
+Rather than defining congruence once and for all, we will instead define two primitive forms of congruence on segments and angles.
+Then congruence for more complicated sets can be defined in terms of the primitives.
 
 \begin{dfn}[Segment Congruence]
 Let \(P\) be an ordered geometry, and suppose we have an equivalence relation on pairs of points, denoted \(\SEGCONG{\ast}{\ast}{\ast}{\ast}\).
@@ -30,7 +32,7 @@ Much like the properties of segment congruence, the first property handles the t
 
 \begin{dfn}[Congruence Geometry]
 Let \(P\) be an ordered geometry.
-If \(P\) has a segment congruence and an angle congruence, we say that \(P\) is an \emph{ordered geometry}\index{ordered geometry}.
+If \(P\) has a segment congruence and an angle congruence, we say that \(P\) is an \emph{congruence geometry}\index{congruence geometry}.
 \end{dfn}
 
 We can define congruence of many different kinds of figures in terms of segment and angle congruence.
@@ -56,7 +58,7 @@ In this case we say that \(\ANGLE{x}{p}{y}\) is a \emph{supplement} of \(\ANGLE{
 \end{dfn}
 
 \begin{prop}
-Let \(P\) be an ordered geometry with an angle congruence.
+Let \(P\) be a congruence geometry.
 \begin{proplist}
 \item If two angles form a linear pair, then they are supplementary.
 \item Every angle has a supplement.

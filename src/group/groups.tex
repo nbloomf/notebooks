@@ -1,0 +1,31 @@
+\documentclass{memoir}
+
+\input{src/packages.tex}
+\input{src/style.tex}
+\input{src/macros.tex}
+
+\makeindex
+
+\begin{document}
+
+\frontmatter
+  \begin{center}
+    \Large Things About Groups
+  \end{center}
+
+  \begin{KeepFromToc}
+    \tableofcontents%
+  \end{KeepFromToc}
+
+\mainmatter
+  \section{Groups}
+    \label{sec:groups}
+    \input{src/group/01-defn.tex}
+    \newpage
+
+  \section{Permutations}
+    \label{sec:perms}
+    \input{src/group/02-permutations.tex}
+    \newpage
+
+\end{document}
