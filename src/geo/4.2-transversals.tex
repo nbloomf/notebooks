@@ -1,10 +1,10 @@
 \begin{prop}[Supplements are unique] \mbox{}
-\begin{itemize}
-\item Suppose that \(\ANGLE{A}{O}{B}\) and \(\ANGLE{B}{O}{C}\) are a linear pair, and that \(\ANGLE{X}{P}{Y}\) and \(\ANGLE{Y}{P}{Z}\) are a linear pair.
-If \(\ANGLE{A}{O}{B} \equiv \ANGLE{X}{P}{Y}\), then \(\ANGLE{B}{O}{C} \equiv \ANGLE{Y}{P}{Z}\).
-\item Suppose \(\ANGLE{A}{B}{C}\) and \(\ANGLE{X}{Y}{Z}\) are supplementary, and that \(\ANGLE{A}{B}{C}\) and \(\ANGLE{H}{K}{L}\) are supplementary.
-Then \(\ANGLE{X}{Y}{Z} \equiv \ANGLE{H}{K}{L}\).
-\end{itemize}
+\begin{proplist}
+\item Suppose that \(\ANGLE{a_1}{o_1}{b_1}\) and \(\ANGLE{b_1}{o_1}{c_1}\) are a linear pair, and that \(\ANGLE{a_2}{o_2}{b_2}\) and \(\ANGLE{b_2}{o_2}{c_2}\) are a linear pair.
+If \(\ANGLE{a_1}{o_1}{b_1} \equiv \ANGLE{a_2}{o_2}{b_2}\), then \(\ANGLE{b_1}{o_1}{c_1} \equiv \ANGLE{b_2}{o_2}{c_2}\).
+\item Suppose \(\ANGLE{a_1}{o_1}{b_1}\) and \(\ANGLE{a_2}{o_2}{b_2}\) are supplementary, and that \(\ANGLE{a_1}{o_1}{b_1}\) and \(\ANGLE{a_3}{o_3}{b_3}\) are supplementary.
+Then \(\ANGLE{a_2}{o_2}{b_2} \equiv \ANGLE{a_3}{o_3}{b_3}\).
+\end{proplist}
 \end{prop}
 
 \begin{proof}
@@ -27,7 +27,7 @@ Suppose we have three lines \(\ell_1\), \(\ell_2\), and \(t\) in a plane geometr
 We say that \(t\) is a \emph{transversal} of \(\ell_1\) and \(\ell_2\) if \(t\) cuts both \(\ell_1\) and \(\ell_2\) at unique points, and these points are distinct.
 \end{dfn}
 
-Suppose \(t\) is a transversal of \(\ell_1\) and \(\ell_2\), cutting these lines at \(O_1\) and \(O_2\), respectively as shown.
+Suppose \(t\) is a transversal of \(\ell_1\) and \(\ell_2\), cutting these lines at \(o_1\) and \(o_2\), respectively as shown.
 
 \begin{center}
 \begin{tikzpicture}[scale=0.6]
@@ -43,9 +43,9 @@ Suppose \(t\) is a transversal of \(\ell_1\) and \(\ell_2\), cutting these lines
   \coordinate (y3) at (1,6);
   \draw [<->] (x3) -- (y3);
   \node at (0.7,6) {\(t\)};
-  \coordinate [label=below right:\(O_1\)] (o1) at (intersection of x1--y1 and x3--y3);
+  \coordinate [label=below right:\(o_1\)] (o1) at (intersection of x1--y1 and x3--y3);
   \draw [fill] (o1) circle [radius=1pt];
-  \coordinate [label=below left:\(O_2\)] (o2) at (intersection of x2--y2 and x3--y3);
+  \coordinate [label=below left:\(o_2\)] (o2) at (intersection of x2--y2 and x3--y3);
   \draw [fill] (o2) circle [radius=1pt];
   \coordinate (x4) at (-0.5,2);
   \coordinate (y4) at (1,3);
@@ -56,7 +56,7 @@ Suppose \(t\) is a transversal of \(\ell_1\) and \(\ell_2\), cutting these lines
 \end{tikzpicture}
 \end{center}
 
-If \(A\) is on \(\ell_1\) and \(B\) is on \(\ell_2\) such that \(A\) and \(B\) are on opposite sides of \(t\), then we say that \(\ANGLE{A}{O_1}{O_2}\) and \(\ANGLE{B}{O_2}{O_1}\) are \emph{alternate interior angles} of this transversal.
+If \(A\) is on \(\ell_1\) and \(B\) is on \(\ell_2\) such that \(A\) and \(B\) are on opposite sides of \(t\), then we say that \(\ANGLE{A}{o_1}{o_2}\) and \(\ANGLE{B}{o_2}{o_1}\) are \emph{alternate interior angles} of this transversal.
 
 \begin{prop}[Alternate Interior Angles]
 If two lines \(\ell_1\) and \(\ell_2\) are cut by a transversal \(t\) so that a pair of alternate interior angles are congruent, then \(\ell_1\) and \(\ell_2\) are parallel.

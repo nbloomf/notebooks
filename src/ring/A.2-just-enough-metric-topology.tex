@@ -8,8 +8,8 @@ Do not be alarmed; we will only do as much analysis as is absolutely necessary.
 This section proceeds at a much faster pace.
 
 \begin{dfn}[Absolute Value] \label{dfn:abs-val}
-Let \(R\) be a ring.
-A mapping \(v : R \rightarrow \QQ\) is called a (rational) \emph{absolute value}\index{absolute value} if the following properties are satisfied.
+Let \(R\) be a ring, and let \(Q\) be an ordered field.
+A mapping \(v : R \rightarrow Q\) is called a \(Q\)-\emph{absolute value}\index{absolute value} if the following properties are satisfied.
 \begin{proplist}
 \item \(v(x) \geq 0\) for all \(x \in R\).
 \item \(v(x) = 0\) if and only if \(x = 0_R\).
@@ -18,7 +18,8 @@ A mapping \(v : R \rightarrow \QQ\) is called a (rational) \emph{absolute value}
 \end{proplist}
 \end{dfn}
 
-The basic example of an absolute value on a ring is the usual absolute value on \(\QQ\).
+Our basic example of an ordered field is \(\QQ\), and our basic example of an absolute value is the usual absolute value on \(\QQ\).
+More generally, any ordered ring \(R\) has an \(R\)-absolute value given by \(v(x) = x\) if \(x \geq 0\) and \(-x\) otherwise.
 For now, in the interest of brevity, we will save any more examples for the exercises or the later sections of this chapter.
 
 \begin{prop} \label{prop:abs-val-basics}
@@ -35,11 +36,11 @@ If \(R\) is a ring with absolute value \(v\) then we have the following.
 \begin{proof}
 \begin{inlineproplist}
 \item If \(xy = 0_R\), then \(v(x)v(y) = v(xy) = 0\).
-Since \(\QQ\) is a field, either \(v(x) = 0\) (so that \(x = 0_R\)) or \(v(y) = 0\) (so that \(y = 0_R\)).
+Since \(Q\) is a field, either \(v(x) = 0\) (so that \(x = 0_R\)) or \(v(y) = 0\) (so that \(y = 0_R\)).
 \item We have \[ v(x) = v(x-y+y) \leq v(x-y) + v(y) \] so that \(v(x) - v(y) \leq v(x-y)\).
-\item Note that \(v(-x)^2 = v((-x)^2) = v(x^2) = v(x)^2\), so that \(v(-x)^2 - v(x)^2 = 0\) in \(\QQ\).
+\item Note that \(v(-x)^2 = v((-x)^2) = v(x^2) = v(x)^2\), so that \(v(-x)^2 - v(x)^2 = 0\) in \(Q\).
 Thus \((v(-x) + v(x))(v(-x) - v(x)) = 0\).
-Since \(\QQ\) is a field, one of these factors must be zero.
+Since \(Q\) is a field, one of these factors must be zero.
 But note that \(v(-x) + v(x) = 0\) can only be true if \(v(x) = v(-x) = 0\) since the value of \(v\) is nonnegative.
 In this case we have \(x = 0_R = -x\), and so \(v(x) = v(-x)\).
 If \(x \neq 0_R\), then \(v(x) + v(-x)\) is nonzero, so that \(v(x) - v(-x) = 0\), and thus \(v(-x) = v(x)\).
@@ -56,7 +57,7 @@ A sequence \(\alpha : \NN \rightarrow R\) is called \emph{bounded}\index{sequenc
 In this case we say that \(B\) is a \emph{bound} of \(\alpha\).
 \end{dfn}
 
-For instance the constant sequence \(r_i = r\) is bounded since \(v(\TILDE{r}_i) \leq v(r) < v(r) + 1\).
+For instance the constant sequence \(r_i = r\) is bounded since \(v(\TILDE{r}_i) = v(r) < v(r) + 1\).
 
 \begin{prop}
 Let \(R\) be a ring and \(v\) an absolute value on \(R\).

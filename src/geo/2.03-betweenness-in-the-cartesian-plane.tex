@@ -18,7 +18,7 @@ Now \(A\), \(B\), and \(C\) are collinear because \[ \DET \begin{bmatrix} a_x & 
 \item[B2.] If \(C = A + t(B-A)\) where \(t \in (0,1)\), then (rearranging) we also have \(C = B + (1-t)(A-B)\) with \(1-t \in (0,1)\) as needed.
 
 \item[B3.] Suppose \(A\), \(B\), and \(C\) are distinct such that \(\COLLINEAR{A}{B}{C}\).
-Using Exercise \ref{exerc:rr2-collinear-comb}, we have \(C = A + t(B-A)\) for some real number \(t\).
+Using \eref{exerc:rr2-collinear-comb}, we have \(C = A + t(B-A)\) for some real number \(t\).
 Note that \(t \neq 0\) and \(t \neq 1\) since in the first case we would have \(C = A\) and in the second, \(C = B\).
 There are then three possibilities for \(t\).
 If \(t \in (0,1)\), then \(\BETWEEN{A}{C}{B}\) by definition.
@@ -80,7 +80,8 @@ But first, we need to verify that our halfplanes are well-defined; that is, they
 (@@@)
 
 Certainly \(\HALFPLANEA{\ell}\), \(\HALFPLANEB{\ell}\), and \(\ell\) partition \(\RR^2\) by the trichotomy property of \(<\).
-To see that both halfplanes are nonempty we consider three cases: if \(a_x = b_x\), then \((a_x+1,0)\) and \((a_x-1,0)\) are in opposite halfplanes; if \(a_y = b_y\), then \((0,a_y+1)\) and \((0,a_y-1)\) are in opposite halfplanes; and if \(a_x \neq b_x\) and \(a_y \neq b_y\) then \((a_x,b_y)\) and \((b_x,a_y)\) are in opposite halfplanes. By Lemma \ref{lem:rr2-opp-side-incidence}, if \(U \in \HALFPLANEA{\ell}\) and \(V \in \HALFPLANEB{\ell}\), then \(\SEGMENT{U}{V} \cap \LINE{A}{B}\) consists of a unique point.
+To see that both halfplanes are nonempty we consider three cases: if \(a_x = b_x\), then \((a_x+1,0)\) and \((a_x-1,0)\) are in opposite halfplanes; if \(a_y = b_y\), then \((0,a_y+1)\) and \((0,a_y-1)\) are in opposite halfplanes; and if \(a_x \neq b_x\) and \(a_y \neq b_y\) then \((a_x,b_y)\) and \((b_x,a_y)\) are in opposite halfplanes.
+By Lemma \ref{lem:rr2-opp-side-incidence}, if \(U \in \HALFPLANEA{\ell}\) and \(V \in \HALFPLANEB{\ell}\), then \(\SEGMENT{U}{V} \cap \LINE{A}{B}\) consists of a unique point.
 All that remains is to show that \(\HALFPLANEA{\ell}\) and \(\HALFPLANEB{\ell}\) are convex.
 
 To see that \(\HALFPLANEA{\ell}\) is convex, let \(U,V \in \HALFPLANEA{\ell}\).
@@ -100,3 +101,14 @@ A similar argument shows that \(\HALFPLANEB{\ell}\) is convex.
 
 The proofs of Propositions \ref{prop:rr2-between} and \ref{prop:rr2-line-sep} remain valid if we replace \(\RR^2\) by \(\QQ^2\), so that the Rational Plane is also an ordered geometry.
 However we cannot replace \(\RR^2\) by \(\CC^2\), because the order relation \(<\) does not make sense in the complex numbers.
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}\label{exerc:rr2-ray-positive}
+Let \(A,B,C\) be points in the cartesian plane with \(A \neq B\).
+Show that \(C \in \RAY{A}{B}\) if and only if \(C = A + t(B - A)\) for some \(t \in (0,\infty)\).
+\end{exercise}

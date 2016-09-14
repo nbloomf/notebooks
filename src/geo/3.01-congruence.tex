@@ -20,10 +20,10 @@ The first property handles the ``trivial'' case, the second makes the relation w
 Let \(P\) be an ordered geometry, and suppose we have an equivalence relation on triples of points, denoted \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\).
 We call \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\) an \emph{angle congruence}\index{congruence!of angles} if the following properties are satisfied.
 \begin{itemize}
-\item[AC1.] If \(\BETWEEN{x}{y}{z}\) and \(\BETWEEN{a}{b}{c}\), then \(\ANGCONG{x}{y}{z}{a}{b}{c}\) and \(\ANGCONG{y}{x}{z}{b}{a}{c}\), and it is not the case that \(\ANGCONG{x}{y}{z}{y}{x}{z}\).
-\item[AC2.] If \(x \in \RAY{o}{a}\) and \(y \in \RAY{o}{b}\) and \(x\), \(y\), and \(o\) are distinct, then \(\ANGCONG{a}{o}{b}{x}{o}{y}\).
-\item[AC3.] \(\ANGCONG{a}{o}{b}{b}{o}{a}\) for all points \(a\), \(o\), and \(b\) with \(a \neq o\) and \(b \neq o\).
-\item[AC4.] If \(a\), \(b\), and \(o\) are noncollinear points and \(x\) is on the \(b\)-side of \(\LINE{o}{a}\) such that \(\ANGCONG{a}{o}{b}{a}{o}{x}\), then \(x \in \RAY{o}{b}\).
+\item[AC1.] If \(\BETWEEN{a_1}{b_1}{c_1}\) and \(\BETWEEN{a_2}{b_2}{c_2}\), then \(\ANGCONG{a_1}{b_1}{c_1}{a_2}{b_2}{c_2}\) and \(\ANGCONG{b_1}{a_1}{c_1}{b_2}{a_2}{c_2}\), and it is not the case that \(\ANGCONG{a_1}{b_1}{c_1}{b_1}{a_1}{c_1}\).
+\item[AC2.] If \(a\), \(b\), \(o\), \(x\), and \(y\) are points such that \(o \notin \{a,b,x,y\}\), \(x \in \RAY{o}{a}\), and \(y \in \RAY{o}{b}\), then \(\ANGCONG{a}{o}{b}{x}{o}{y}\).
+\item[AC3.] If \(a\), \(b\), and \(o\) are points such that \(o \notin \{a,b\}\), then \(\ANGCONG{a}{o}{b}{b}{o}{a}\).
+\item[AC4.] If \(a\), \(b\), and \(o\) are distinct noncollinear points and \(x\) is on the \(b\)-side of \(\LINE{o}{a}\) such that \(\ANGCONG{a}{o}{b}{a}{o}{x}\), then \(x \in \RAY{o}{b}\).
 \end{itemize}
 In this case, \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\) is an equivalence relation on the set of \emph{angles} in \(P\), and we write \(\ANGLE{a}{o}{b} \equiv \ANGLE{x}{p}{y}\) to mean \(\ANGCONG{a}{o}{b}{x}{p}{y}\).
 \end{dfn}
@@ -45,10 +45,10 @@ We say that \(\TRIANGLE{a}{b}{c}\) is \emph{congruent}\index{congruence!of trian
 
 \begin{dfn}
 Let \(a\), \(b\), and \(c\) be distinct points.
-\begin{itemize}
+\begin{proplist}
 \item We say that the triangle \(\TRIANGLE{a}{b}{c}\) is \emph{equilateral}\index{equilateral} if \(\SEGMENT{a}{b} \equiv \SEGMENT{b}{c} \equiv \SEGMENT{c}{a}\).
 \item We say that the triangle \(\TRIANGLE{a}{b}{c}\) is \emph{isoceles}\index{isoceles} if two of its sides are congruent to each other.
-\end{itemize}
+\end{proplist}
 \end{dfn}
 
 
