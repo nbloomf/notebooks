@@ -16,6 +16,7 @@ rings:
 geo: src/geo/gfx/cover/cover.eps
 	@echo 'Making geo.pdf' | doppler lightgreen
 	@pdflatex -file-line-error -interaction=batchmode src/geo/geo.tex > /dev/null
+	@bibtex geo > /dev/null
 	@pdflatex -file-line-error -interaction=batchmode src/geo/geo.tex > /dev/null
 	@makeindex -q geo
 	@pdflatex -file-line-error -interaction=batchmode src/geo/geo.tex > /dev/null

@@ -9,7 +9,7 @@ A ternary relation \(\COLLINEAR{\ast}{\ast}{\ast}\) on \(P\) is called a \emph{c
 \item[IG2.] If \(a\) and \(b\) are points such that \(a \neq b\), then \(\COLLINEAR{a}{b}{b}\).
 \item[IG3.] \(\COLLINEAR{a}{a}{a}\) does not hold for any point \(a\).
 \item[IG4.] There exist distinct points \(a\), \(b\), and \(c\) such that \(\COLLINEAR{a}{b}{c}\) does not hold.
-\item[IG5.] If \(a\), \(b\), \(u\), and \(v\) are points such that \(a \neq b\), \(u \neq v\), \(\COLLINEAR{a}{b}{u}\), and \(\COLLINEAR{a}{b}{v}\), then \(\COLLINEAR{a}{u}{v}\).
+\item[IG5.] \textbf{Exchange Property:} If \(a\), \(b\), \(u\), and \(v\) are points such that \(a \neq b\), \(u \neq v\), \(\COLLINEAR{a}{b}{u}\), and \(\COLLINEAR{a}{b}{v}\), then \(\COLLINEAR{a}{u}{v}\).
 \end{proplist}
 If such a relation exists we say that \((P, \COLLINEAR{\ast}{\ast}{\ast})\) is an \emph{incidence geometry}\index{incidence geometry}.
 In this case, when \(\COLLINEAR{a}{b}{c}\) we say that \(a\), \(b\), and \(c\) are \emph{collinear}.
@@ -93,19 +93,5 @@ We'll fix this in the next section.
 \begin{exercise}\label{exerc:rr2-collinear-comb}
 Let \(A = (a_x, a_y)\), \(B = (b_x, b_y)\), and \(C = (c_x, c_y)\) be in \(\RR^2\) such that \(A \neq B\).
 Show that \[ \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ c_x & c_y & 1 \end{bmatrix} = 0 \] if and only if \(C = A + t(B - A)\) for some unique \(t \in \RR\).
-(Hint: Consider \[ \frac{c_x - a_x}{b_x - a_x} = \frac{c_y - a_y}{b_y - a_y} \].)
-\end{exercise}
-
-\begin{dfn}[Collineation]
-Suppose we have incidence geometries \(P\) and \(Q\).
-A bijective mapping \(\varphi : P \rightarrow Q\) is called a \emph{collineation}\index{collineation} if, for all points \(x,y,z \in P\), whenever \(\COLLINEAR{x}{y}{z}\) in \(P\), we also have \(\COLLINEAR{\varphi(x)}{\varphi(y)}{\varphi(z)}\) in \(Q\).
-\end{dfn}
-
-\begin{exercise}
-Prove the following.
-\begin{proplist}
-\item If \(P\) is an incidence geometry, then the identity map \(1 : P \rightarrow P\) is a collineation.
-\item If \(\varphi : P \rightarrow Q\) and \(\psi : Q \rightarrow R\) are collineations, then \(\psi \circ \varphi\) is a collineation.
-\item If \(\varphi : P \rightarrow Q\) is a collineation, then \(\varphi^{-1} : Q \rightarrow P\) is a collineation.
-\end{proplist}
+(Hint: Consider the expression \( (c_x - a_x)/(b_x - a_x) = (c_y - a_y)/(b_y - a_y) \).)
 \end{exercise}

@@ -52,11 +52,12 @@ The next definition will probably look familiar.
 \begin{dfn}[Segment, Ray]
 Let \(x\) and \(y\) be points in an incidence geometry \(P\) with a betweenness relation.
 \begin{proplist}
-\item If \(x \neq y\), the set \[ \SEGMENT{x}{y} = \{ z \in P \mid z = x\ \mathrm{or}\ z = y\ \mathrm{or}\ \BETWEEN{x}{z}{y} \} \] is called the \emph{segment}\index{segment} with \emph{endpoints} \(x\) and \(y\).
-If \(x = y\) we say that \(\SEGMENT{x}{y} = \{x\}\).
-If \(z \in \SEGMENT{x}{y}\) and \(z \neq x\) and \(z \neq y\), we say that \(z\) is \emph{interior to} \(\SEGMENT{x}{y}\).
-\item If \(x \neq y\), the set \[ \RAY{x}{y} = \{ z \in P \mid z = x\ \mathrm{or}\ z = y\ \mathrm{or}\ \BETWEEN{x}{z}{y}\ \mathrm{or}\ \BETWEEN{x}{y}{z} \} \] is called the \emph{ray}\index{ray} with \emph{vertex} \(x\) \emph{toward} \(y\).
-If \(x = y\) we say that \(\RAY{x}{y} = \{x\}\).
+\item The set \[ \SEGMENT{x}{y} = \{ z \in P \mid z = x\ \mathrm{or}\ z = y\ \mathrm{or}\ \BETWEEN{x}{z}{y} \} \] is called the \emph{segment}\index{segment} with \emph{endpoints} \(x\) and \(y\).
+If \(x = y\) we say that the segment \(\SEGMENT{x}{y}\) is \emph{degenerate}.
+If \(z \in \SEGMENT{x}{y}\) and \(z \neq x\) and \(z \neq y\), we say that \(z\) is \emph{interior to}\index{interior!of a segment} \(\SEGMENT{x}{y}\).
+\item The set \[ \RAY{x}{y} = \{ z \in P \mid z = x\ \mathrm{or}\ z = y\ \mathrm{or}\ \BETWEEN{x}{z}{y}\ \mathrm{or}\ \BETWEEN{x}{y}{z} \} \] is called the \emph{ray}\index{ray} with \emph{vertex} \(x\) \emph{toward} \(y\).
+If \(x = y\) we say that the ray \(\RAY{x}{y}\) is \emph{degenerate}.
+If \(z \in \RAY{x}{y}\) and \(z \neq x\), we say that \(z\) is \emph{interior to}\index{interior!of a ray} \(\RAY{x}{y}\).
 \end{proplist}
 \end{dfn}
 

@@ -1,3 +1,51 @@
+Our definition of incidence geometry is a kind of \textbf{theory}, and a theory is only really useful if it has at least one \textbf{model}.
+So before we develop our theory of geometry further we'll spend the next few sections constructing some models.
+Remember that the words ``point'', ``collinear'', and ``line'' are context dependent -- what they mean depends on the model -- and so we may find ourselves using these words in unintuitive ways.
+
+We'll start with a model of incidence geometry with which you are probably already familiar: the cartesian plane.
+To define this or any model it's enough to specify (1) what our points are and (2) what it means for three points to be collinear.
+At risk of giving away the punchline, in this model points are pairs of real numbers and lines are what you expect.
+
+\begin{prop}[Cartesian Plane] \label{prop:rr2-incidence-geo}
+Define a ternary relation on \(\RR^2\) as follows.
+Given \(A = (a_x, a_y)\), \(B = (b_x, b_y)\), and \(C = (c_x, c_y)\) in \(\RR^2\), we say that \(\COLLINEAR{A}{B}{C}\) if and only if \(A\), \(B\), and \(C\) are not all equal and \[ \DET \begin{bmatrix} a_x & a_y & 1 \\ b_x & b_y & 1 \\ c_x & c_y & 1 \end{bmatrix} = 0. \]
+This relation makes the set \(\RR^2\) an incidence geometry, which we call the \emph{cartesian plane}\index{cartesian plane}.
+\end{prop}
+
+\begin{proof}
+IG1, IG2, and IG3 can be verified directly, and we can see that IG4 holds by considering the points \((0,0)\), \((0,1)\), and \((1,0)\).
+So it suffices to show that IG5 holds.
+To this end suppose we have \(A\), \(B\), \(U\), and \(V\).
+Expanding and rearranging the known determinants, we have \[ (b_x - a_x)(u_y - a_y) = (b_y - a_y)(u_x - a_x) \] and \[ (b_x - a_x)(v_y - a_y) = (b_y - a_y)(v_x - a_x). \]
+If \(a_x = b_x\), then we see that \(u_x = a_x = v_x\) and thus \(\COLLINEAR{A}{U}{V}\).
+Similarly, if \(a_y = b_y\), we see that \(u_y = a_y = v_y\) and so \(\COLLINEAR{A}{U}{V}\).
+Finally, suppose we have \(a_x \neq b_x\) and \(a_y \neq b_y\).
+Now we have \[ \frac{u_y - a_y}{u_x - a_x} = \frac{b_y - a_y}{b_x - a_x} = \frac{v_y - a_y}{v_x - a_x}. \]
+Equating the first and last of these expressions we see that \(\COLLINEAR{A}{U}{V}\).
+\end{proof}
+
+This might seem like a strange way to define ``collinearity'', but it is easy to compute, and by expanding the determinant we can see that the lines in this geometry are precisely the solutions of linear equations.
+
+\begin{cor}[Lines in \(\RR^2\)]\label{cor:cartesian-lines}
+Let \(A = (a_x, a_y)\) and \(B = (b_x, b_y)\) be distinct cartesian points.
+Then \(\LINE{A}{B}\) is the set of all points \(X = (x,y)\) which satisfy the equation \[ (b_y-a_y)x - (b_x-a_x)y + a_yb_x - a_xb_y = 0. \]
+\end{cor}
+
+That equation may look familiar as the standard form equation of a line.
+You might have noticed that our proof of \ref{prop:rr2-incidence-geo} used nothing more than the arithmetic on \(\RR\).
+This means that the result still holds if we replace \(\RR\) by any object \(F\) where we have an arithmetic which behaves like that of \(\RR\).
+Such objects are called \emph{fields}, and there are many examples, including the field \(\QQ\) of rational numbers and the field \(\CC\) of complex numbers.
+So we immediately get some additional models as well.
+
+\begin{cor}
+The sets \(\QQ^2\) and \(\CC^2\) are incidence geometries, which we call the \emph{rational plane} and the \emph{complex plane}, respectively.
+\end{cor}
+
+Note that lines in \(\QQ^2\) look much like lines in \(\RR^2\) except that they are filled with ``holes''; any point on a line in \(\RR^2\) which has an irrational coordinate is not on the corresponding line in \(\QQ^2\).
+Lines in \(\CC^2\) are stranger still.
+
+\subsection*{Betweenness}
+
 In this section we will establish that the cartesian plane is an ordered geometry.
 To do this, we need to specify (1) how to detect when one point is between two others, and (2) the halfplanes for each line.
 
@@ -81,7 +129,7 @@ But first, we need to verify that our halfplanes are well-defined; that is, they
 
 Certainly \(\HALFPLANEA{\ell}\), \(\HALFPLANEB{\ell}\), and \(\ell\) partition \(\RR^2\) by the trichotomy property of \(<\).
 To see that both halfplanes are nonempty we consider three cases: if \(a_x = b_x\), then \((a_x+1,0)\) and \((a_x-1,0)\) are in opposite halfplanes; if \(a_y = b_y\), then \((0,a_y+1)\) and \((0,a_y-1)\) are in opposite halfplanes; and if \(a_x \neq b_x\) and \(a_y \neq b_y\) then \((a_x,b_y)\) and \((b_x,a_y)\) are in opposite halfplanes.
-By Lemma \ref{lem:rr2-opp-side-incidence}, if \(U \in \HALFPLANEA{\ell}\) and \(V \in \HALFPLANEB{\ell}\), then \(\SEGMENT{U}{V} \cap \LINE{A}{B}\) consists of a unique point.
+By \lemref{lem:rr2-opp-side-incidence}, if \(U \in \HALFPLANEA{\ell}\) and \(V \in \HALFPLANEB{\ell}\), then \(\SEGMENT{U}{V} \cap \LINE{A}{B}\) consists of a unique point.
 All that remains is to show that \(\HALFPLANEA{\ell}\) and \(\HALFPLANEB{\ell}\) are convex.
 
 To see that \(\HALFPLANEA{\ell}\) is convex, let \(U,V \in \HALFPLANEA{\ell}\).
@@ -102,11 +150,91 @@ A similar argument shows that \(\HALFPLANEB{\ell}\) is convex.
 The proofs of Propositions \ref{prop:rr2-between} and \ref{prop:rr2-line-sep} remain valid if we replace \(\RR^2\) by \(\QQ^2\), so that the Rational Plane is also an ordered geometry.
 However we cannot replace \(\RR^2\) by \(\CC^2\), because the order relation \(<\) does not make sense in the complex numbers.
 
+\subsection*{Congruence}
+
+Remember: to show that an ordered geometry is a congruence geometry, we need to specify (1) how to detect when two segments are congruent and (2) how to detect when two angles are congruent.
+In this section we will establish segment and angle congruences in the cartesian plane.
+
+We define two helper functions, \(N\) and \(M\), as follows.
+Given \(A,B \in \RR^2\), we define \[ N(A,B) = (b_x - a_x)^2 + (b_y - a_y)^2. \]
+Given \(A,B,O \in \RR^2\), we define \[ M(A,O,B) = (a_x - o_x)(b_x - o_x) + (a_y - o_y)(b_y - o_y). \]
+
+\begin{prop}\label{prop:rr2-cong-helper}
+The following hold for all cartesian points \(A\) and \(B\).
+\begin{proplist}
+\item \label{prop:rr2-cong-helper:zero} \(N(A,B) \geq 0\), with equality if and only if \(A = B\).
+\item \label{prop:rr2-cong-helper:sym} \(N(A,B) = N(B,A)\).
+\item \(M(A,O,B) = M(B,O,A)\).
+\item If \(C\) is a point such that \(A\), \(B\), and \(C\) are distinct and \(\COLLINEAR{A}{B}{C}\), then \[ \frac{M(A,B,C)^2}{N(A,B)N(C,B)} = 1. \]
+\end{proplist}
+\end{prop}
+
+\begin{prop}
+\(\RR^2\) is a congruence geometry under the following relations.
+\begin{proplist}
+\item Given points \(A\), \(B\), \(X\), and \(Y\) in \(\RR^2\), we say that \(\SEGCONG{A}{B}{X}{Y}\) if \[ N(A,B) = N(X,Y). \]
+\item Given points \(A\), \(O\), \(B\), \(X\), \(P\), and \(Y\) in \(\RR^2\) such that \(A \neq O\), \(B \neq O\), \(X \neq P\), and \(Y \neq P\), we say that \(\ANGCONG{A}{O}{B}{X}{P}{Y}\) if \(M(A,O,B)\) and \(M(X,P,Y)\) have the same sign and \[ \frac{M(A,O,B)^2}{N(A,O)N(B,O)} = \frac{M(X,P,Y)^2}{N(X,P)N(Y,P)}. \]
+\end{proplist}
+\end{prop}
+
+\begin{proof}
+Certainly both \(\SEGCONG{\ast}{\ast}{\ast}{\ast}\) and \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\) are equivalence relations.
+\begin{itemize}
+\item[SC1.] Note that \(N(A,A) = 0 = N(B,B)\) for all points \(A\) and \(B\) by \sref{prop:rr2-cong-helper}{zero}.
+
+\item[SC2.] We have \(N(A,B) = N(B,A)\) for all points \(A\) and \(B\) by \sref{prop:rr2-cong-helper}{sym}
+
+\item[SC3.] Suppose we have \(C \in \RAY{A}{B}\) such that \(\SEGCONG{A}{C}{A}{B}\).
+By \eref{exerc:rr2-ray-positive}, we have \(C = A + t(B - A)\) for some real number \(t > 0\).
+Comparing coordinates, then, we have \(c_x - a_x = t(b_x - a_x)\) and \(c_y - a_y = t(b_y - a_y)\).
+Expanding the definition of segment congruence, and noting that \(A \neq B\), we see that \(t^2 = 1\).
+Since \(t\) is positive, in fact \(t = 1\), and thus \(C = B\) as needed.
+
+\item[AC1.] (@@@)
+
+\item[AC2.] (@@@)
+
+\item[AC3.] (@@@)
+
+\item[AC4.] (@@@)
+\end{itemize}
+\end{proof}
+
+
 
 
 %---------%
 \Exercises%
 %---------%
+
+\begin{exercise}
+Prove Corollary \ref{cor:cartesian-lines}.
+\end{exercise}
+
+\begin{exercise}[A parallel criterion in \(\RR^2\).] \label{exerc:parallels-in-rr2}
+Let \(A = (a_1,a_2)\), \(B = (b_1,b_2)\), \(C = (c_1,c_2)\), and \(D = (d_1,d_2)\) be points in the cartesian plane with \(A \neq B\) and \(C \neq D\).
+Show that \(\LINE{A}{B}\) and \(\LINE{C}{D}\) are parallel if and only if \[ \DET \begin{bmatrix} b_1 - a_1 & d_1 - c_1 \\ b_2 - a_2 & d_2 - c_2 \end{bmatrix} = 0. \]
+\end{exercise}
+
+
+\begin{exercise}[A collinearity criterion in \(\RR^2\).]
+Let \(A = (a_x,a_y)\), \(B = (b_x,b_y)\), and \(C = (c_x,c_y)\) be points in \(\RR^2\) such that \(A \neq C\) and \(B \neq C\).
+Show that \(A\), \(B\), and \(C\) are collinear if and only if \[ \DET \begin{bmatrix} a_x - c_x & b_x - c_x \\ a_y - c_y & b_y - c_y \end{bmatrix} = 0. \]
+\end{exercise}
+
+
+\begin{exercise}[The Unit Disc]
+Let \(\mathbb{D} = \{ (x,y) \in \RR^2 \mid x^2 + y^2 < 1 \}\); these are points in the cartesian plane which are inside the unit circle.
+Given points \(A\), \(B\), and \(C\) in \(\mathbb{D}\), we say they are collinear in \(\mathbb{D}\) if they are collinear in \(\RR^2\).
+Verify that this relation makes \(\mathbb{D}\) an incidence geometry, which we call the \emph{unit disc}\index{unit disc}.
+\end{exercise}
+
+
+\begin{exercise}
+Fix \((\alpha,\beta) \in \RR^2\), and define a mapping \(\varphi : \RR^2 \rightarrow \RR^2\) by \(\varphi(x,y) = (x + \alpha, y + \beta)\).
+Show that \(\varphi\) is a collineation.
+\end{exercise}
+
 
 \begin{exercise}\label{exerc:rr2-ray-positive}
 Let \(A,B,C\) be points in the cartesian plane with \(A \neq B\).

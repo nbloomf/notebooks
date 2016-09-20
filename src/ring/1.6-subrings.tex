@@ -356,7 +356,7 @@ Show that the following sequence is short exact.
 \end{center}
 \end{exercise}
 
-\begin{exercise}[Every ring is contained in a unital ring.] \label{exerc:adj-unit}
+\begin{exercise}[Every ring is a subring of a unital ring.]\label{exerc:adj-unit}
 Let \(R\) be a ring.
 We define a plus and times on the set \(\ADJUNIT{R} = \ZZ \times R\) by
 \begin{eqnarray*}
@@ -375,6 +375,12 @@ R \arrow[d,"\iota"'] \arrow[rd,"\varphi"] & \\
 \end{tikzcd}
 \end{center}
 \end{proplist}
+\end{exercise}
+
+\begin{exercise}[Every \emph{finite} ring is a subring of a \emph{finite} unital ring.]
+Let \(R\) be a ring, and suppose \(k\) annihilates \(R\).
+Repeat \eref{exerc:adj-unit}, using the set \(\ADJUNIT[k]{R} = \ZZ/(k) \times R\) instead of \(\ADJUNIT{R}\).
+Conclude that every finite ring is a subring of a finite unital ring.
 \end{exercise}
 
 \begin{exercise}[A representation theorem for unital rings.]

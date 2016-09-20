@@ -1,0 +1,29 @@
+Collinearity relations represent a kind of \emph{abstract structure}.
+Typically in mathematics, whenever we have a kind of structure, the mappings which \emph{preserve} that structure are interesting.
+In the case of an incidence geometry such mappings are called \emph{collineations}.
+
+\begin{dfn}[Collineation]
+Suppose we have incidence geometries \(P\) and \(Q\).
+A bijective mapping \(\varphi : P \rightarrow Q\) is called a \emph{collineation}\index{collineation} if, for all points \(x,y,z \in P\), whenever \(\COLLINEAR{x}{y}{z}\) in \(P\), we also have \(\COLLINEAR{\varphi(x)}{\varphi(y)}{\varphi(z)}\) in \(Q\).
+\end{dfn}
+
+\begin{prop}
+We have the following.
+\begin{proplist}
+\item If \(P\) is an incidence geometry, then the identity map \(1 : P \rightarrow P\) is a collineation.
+\item If \(\varphi : P \rightarrow Q\) and \(\psi : Q \rightarrow R\) are collineations, then \(\psi \circ \varphi\) is a collineation.
+\item If \(\varphi : P \rightarrow Q\) is a collineation, then \(\varphi^{-1} : Q \rightarrow P\) is a collineation.
+\end{proplist}
+\end{prop}
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}
+Let \(\varphi : \RR^2 \rightarrow \RR^2\) be given by \[ \varphi(X) = MX + B, \]
+where \(M\) is an invertible \(2 \times 2\) matrix over \(\RR\) and \(B \in \RR^2\).
+Show that \(\varphi\) is a collineation.
+\end{exercise}

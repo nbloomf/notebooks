@@ -2,35 +2,74 @@
 \begin{proplist}
 \item Suppose that \(\ANGLE{a_1}{o_1}{b_1}\) and \(\ANGLE{b_1}{o_1}{c_1}\) are a linear pair, and that \(\ANGLE{a_2}{o_2}{b_2}\) and \(\ANGLE{b_2}{o_2}{c_2}\) are a linear pair.
 If \(\ANGLE{a_1}{o_1}{b_1} \equiv \ANGLE{a_2}{o_2}{b_2}\), then \(\ANGLE{b_1}{o_1}{c_1} \equiv \ANGLE{b_2}{o_2}{c_2}\).
-\item Suppose \(\ANGLE{a_1}{o_1}{b_1}\) and \(\ANGLE{a_2}{o_2}{b_2}\) are supplementary, and that \(\ANGLE{a_1}{o_1}{b_1}\) and \(\ANGLE{a_3}{o_3}{b_3}\) are supplementary.
-Then \(\ANGLE{a_2}{o_2}{b_2} \equiv \ANGLE{a_3}{o_3}{b_3}\).
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \coordinate [label=below:\(o_1\)] (o1) at (-3,0);
+  \coordinate [label=below:\(a_1\)] (a1) at ($ (o1)+(180:1) $);
+  \coordinate [label=left:\(b_1\)] (b1) at ($ (o1)+(70:1) $);
+  \coordinate [label=below:\(c_1\)] (c1) at ($ (o1)+(0:1) $);
+
+  \draw [fill] (o1) circle [radius=1pt];
+  \draw [fill] (a1) circle [radius=1pt];
+  \draw [fill] (b1) circle [radius=1pt];
+  \draw [fill] (c1) circle [radius=1pt];
+
+  \draw [->] (o1) -- ($ (a1)+(180:0.5) $);
+  \draw [->] (o1) -- ($ (b1)+(70:0.5) $);
+  \draw [->] (o1) -- ($ (c1)+(0:0.5) $);
+
+  \coordinate [label=below:\(o_2\)] (o2) at (2,0);
+  \coordinate [label=below:\(a_2\)] (a2) at ($ (o2)+(180:1) $);
+  \coordinate [label=left:\(b_2\)] (b2) at ($ (o2)+(80:1) $);
+  \coordinate [label=below:\(c_2\)] (c2) at ($ (o2)+(0:1) $);
+
+  \draw [fill] (o2) circle [radius=1pt];
+  \draw [fill] (a2) circle [radius=1pt];
+  \draw [fill] (b2) circle [radius=1pt];
+  \draw [fill] (c2) circle [radius=1pt];
+
+  \draw [->] (o2) -- ($ (a2)+(180:0.5) $);
+  \draw [->] (o2) -- ($ (b2)+(80:0.5) $);
+  \draw [->] (o2) -- ($ (c2)+(0:0.5) $);
+\end{tikzpicture}
+\end{center}
+
+\item Suppose \(\alpha\), \(\beta\), and \(\gamma\) are angles such that \(\alpha\) and \(\beta\) are supplementary and \(\alpha\) and \(\gamma\) are supplementary.
+Then \(\alpha \equiv \gamma\).
 \end{proplist}
 \end{prop}
 
-\begin{proof}
-Suppose we have two such linear pairs.
-Without loss of generality, we can suppose that \[ \SEGMENT{O}{A} \equiv \SEGMENT{O}{B} \equiv \SEGMENT{O}{C} \equiv \SEGMENT{P}{X} \equiv \SEGMENT{P}{Y} \equiv \SEGMENT{P}{Z}. \] (If they aren't, we can use Circle Separation and the Segment Copy construction to find such points.) Now \(\TRIANGLE{B}{O}{A} \equiv \TRIANGLE{Y}{P}{X}\) by SAS, so that \(\ANGLE{B}{A}{O} \equiv \ANGLE{Y}{X}{P}\).
-Now \(\SEGMENT{A}{C} \equiv \SEGMENT{X}{Z}\), so that \(\TRIANGLE{B}{A}{C} \equiv \TRIANGLE{Y}{X}{Z}\) by SAS.
-So \(\SEGMENT{B}{C} \equiv \SEGMENT{Y}{Z}\), and thus \(\TRIANGLE{B}{O}{C} \equiv \TRIANGLE{Y}{P}{Z}\) by SSS.
-Thus \(\ANGLE{B}{O}{C} \equiv \ANGLE{Y}{P}{Z}\).
+\begin{proof}\mbox{}
+\begin{proplist}
+\item Suppose we have two such linear pairs.
+Without loss of generality, we can suppose that \[ \SEGMENT{o_1}{a_1} \equiv \SEGMENT{o_1}{b_1} \equiv \SEGMENT{o_1}{c_1} \equiv \SEGMENT{o_2}{a_2} \equiv \SEGMENT{o_2}{b_2} \equiv \SEGMENT{o_2}{c_2}. \] (If they aren't, we can use Circle Cut and the Segment Copy construction to find such points.) Now \(\TRIANGLE{b_1}{o_1}{a_1} \equiv \TRIANGLE{b_2}{o_2}{a_2}\) by SAS, so that \(\ANGLE{b_1}{a_1}{o_1} \equiv \ANGLE{b_2}{a_2}{o_2}\).
+Now \(\SEGMENT{a_1}{c_1} \equiv \SEGMENT{a_2}{c_2}\), so that \(\TRIANGLE{b_1}{a_1}{c_1} \equiv \TRIANGLE{b_2}{a_2}{c_2}\) by SAS.
+So \(\SEGMENT{b_1}{c_1} \equiv \SEGMENT{b_2}{c_2}\), and thus \(\TRIANGLE{b_1}{o_1}{c_1} \equiv \TRIANGLE{b_2}{o_2}{c_2}\) by SSS.
+Thus \(\ANGLE{b_1}{o_1}{c_1} \equiv \ANGLE{b_2}{o_2}{c_2}\) as needed.
 
-The second statement follows easily.
+\item Follows from the definition of supplementary.
+\qedhere
+\end{proplist}
 \end{proof}
 
 \begin{cor}
-Vertical pairs of angles are congruent.
+If angles \(\alpha\) and \(\beta\) are a vertical pair, then \(\alpha \equiv \beta\).
 \end{cor}
+
+\begin{proof}
+If \(\ANGLE{a}{o}{b}\) and \(\ANGLE{c}{o}{d}\) are a vertical pair, with \(\BETWEEN{b}{o}{c}\) and \(\BETWEEN{a}{o}{d}\), then both \(\ANGLE{a}{o}{b}\) and \(\ANGLE{c}{o}{d}\) are supplementary to \(\ANGLE{a}{o}{c}\).
+\end{proof}
 
 
 \begin{dfn}[Transversal]
 Suppose we have three lines \(\ell_1\), \(\ell_2\), and \(t\) in a plane geometry.
-We say that \(t\) is a \emph{transversal} of \(\ell_1\) and \(\ell_2\) if \(t\) cuts both \(\ell_1\) and \(\ell_2\) at unique points, and these points are distinct.
-\end{dfn}
+We say that \(t\) is a \emph{transversal}\index{transversal} of \(\ell_1\) and \(\ell_2\) if \(t\) cuts both \(\ell_1\) and \(\ell_2\) at unique points, and these points are distinct.
 
 Suppose \(t\) is a transversal of \(\ell_1\) and \(\ell_2\), cutting these lines at \(o_1\) and \(o_2\), respectively as shown.
 
 \begin{center}
-\begin{tikzpicture}[scale=0.6]
+\begin{tikzpicture}[scale=0.5]
   \coordinate (x1) at (-5,0);
   \coordinate (y1) at (4,0);
   \draw [<->] (x1) -- (y1);
@@ -49,38 +88,66 @@ Suppose \(t\) is a transversal of \(\ell_1\) and \(\ell_2\), cutting these lines
   \draw [fill] (o2) circle [radius=1pt];
   \coordinate (x4) at (-0.5,2);
   \coordinate (y4) at (1,3);
-  \coordinate [label=below:\(A\)] (a) at (intersection of x1--y1 and x4--y4);
+  \coordinate [label=below:\(a\)] (a) at (intersection of x1--y1 and x4--y4);
   \draw [fill] (a) circle [radius=1pt];
-  \coordinate [label=below:\(B\)] (b) at (intersection of x2--y2 and x4--y4);
+  \coordinate [label=below:\(b\)] (b) at (intersection of x2--y2 and x4--y4);
   \draw [fill] (b) circle [radius=1pt];
 \end{tikzpicture}
 \end{center}
 
-If \(A\) is on \(\ell_1\) and \(B\) is on \(\ell_2\) such that \(A\) and \(B\) are on opposite sides of \(t\), then we say that \(\ANGLE{A}{o_1}{o_2}\) and \(\ANGLE{B}{o_2}{o_1}\) are \emph{alternate interior angles} of this transversal.
+If \(a\) is on \(\ell_1\) and \(b\) is on \(\ell_2\) such that \(a\) and \(b\) are on opposite sides of \(t\), then we say that \(\ANGLE{a}{o_1}{o_2}\) and \(\ANGLE{b}{o_2}{o_1}\) are \emph{alternate interior angles}\index{alternate interior angles} of this transversal.
+\end{dfn}
 
-\begin{prop}[Alternate Interior Angles]
+Every transversal has two pairs of alternate interior angles.
+
+\begin{prop}[Alternate Interior Angles]\label{prop:aia-theorem}
 If two lines \(\ell_1\) and \(\ell_2\) are cut by a transversal \(t\) so that a pair of alternate interior angles are congruent, then \(\ell_1\) and \(\ell_2\) are parallel.
 \end{prop}
 
 \begin{proof}
-Suppose \(t\) meets \(\ell_1\) and \(\ell_2\) at points \(O_1\) and \(O_2\) respectively, and that \(A\) and \(B\) are on \(\ell_1\) and \(\ell_2\), respectively, and on opposite sides of \(t\).
-Let \(C\) be on \(\ell_1\) such that \(\BETWEEN{A}{O_1}{C}\).
-Suppose by way of contradiction that \(\ell_1\) and \(\ell_2\) are \emph{not} parallel; rather, they meet at a point \(X\) which (WLOG) is on the \(A\)-side of \(t\).
-Copy \(\SEGMENT{O_1}{X}\) onto \(\RAY{O_2}{B}\) at the point \(Y\).
-Now \(\SEGMENT{O_1}{X} \equiv \SEGMENT{O_2}{Y}\), \(\SEGMENT{O_1}{O_2} \equiv \SEGMENT{O_2}{O_1}\), and \(\ANGLE{X}{O_1}{O_2} \equiv \ANGLE{Y}{O_2}{O_1}\), so by SAS we have \(\TRIANGLE{X}{O_1}{O_2} \equiv \TRIANGLE{Y}{O_2}{O_1}\).
-In particular, \(\ANGLE{O_2}{O_1}{Y} \equiv \ANGLE{O_1}{O_2}{X}\).
+Suppose \(t\) meets \(\ell_1\) and \(\ell_2\) at points \(o_1\) and \(o_2\) respectively, and that \(a\) and \(b\) are on \(\ell_1\) and \(\ell_2\), respectively, and on opposite sides of \(t\), such that \(\ANGLE{a}{o_1}{o_2} \equiv \ANGLE{b}{o_2}{o_1}\).
+Now suppose by way of contradiction that \(\ell_1\) and \(\ell_2\) are \emph{not} parallel; rather, they meet at a point \(x\) which (WLOG) is on the \(a\)-side of \(t\).
+Let \(c\) be on \(\ell_1\) such that \(\BETWEEN{a}{o_1}{c}\).
+Copy \(\SEGMENT{o_1}{x}\) onto \(\RAY{o_2}{b}\) at the point \(y\).
+Note that \(\SEGMENT{o_1}{x} \equiv \SEGMENT{o_2}{y}\), \(\SEGMENT{o_1}{o_2} \equiv \SEGMENT{o_2}{o_1}\), and \(\ANGLE{x}{o_1}{o_2} \equiv \ANGLE{y}{o_2}{o_1}\); by \hyperref[prop:sas-theorem]{SAS} we thus have \(\TRIANGLE{x}{o_1}{o_2} \equiv \TRIANGLE{y}{o_2}{o_1}\).
+In particular, \(\ANGLE{o_2}{o_1}{y} \equiv \ANGLE{o_1}{o_2}{x}\).
 
-Now \(\ANGLE{X}{O_2}{O_1}\) and \(\ANGLE{O_1}{O_2}{Y}\) are supplementary, and \(\ANGLE{O_1}{O_2}{Y} \equiv \ANGLE{A}{O_1}{O_2}\), so that \(\ANGLE{A}{O_1}{O_2}\) and \(\ANGLE{X}{O_2}{O_1}\) are supplementary.
-Since \(\ANGLE{X}{O_2}{O_1} \equiv \ANGLE{Y}{O_1}{O_2}\), we have that \(\ANGLE{A}{O_1}{O_2}\) and \(\ANGLE{Y}{O_1}{O_2}\) are supplementary.
-But also \(\ANGLE{A}{O_1}{O_2}\) and \(\ANGLE{O_2}{O_1}{C}\) are supplementary.
-Now \(\ANGLE{O_2}{O_1}{Y} \equiv \ANGLE{O_2}{O_1}{C}\).
-By the uniqueness of congruent angles on a half-plane, we have that \(O_1\), \(C\), and \(Y\) are collinear, so that \(Y \in \ell_1\).
-But now \(\ell_1\) and \(ell_2\) have two points in common -- \(X\) and \(Y\) -- and thus must be equal, a contradiction.
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \coordinate [label=above right:\(o_1\)] (o1) at (0,2);
+  \coordinate [label=below right:\(o_2\)] (o2) at ($ (o1)+(270:2) $);
+  \coordinate [label=above:\(a\)] (a) at ($ (o1)+(160:-1) $);
+  \coordinate [label=above:\(c\)] (c) at ($ (o1)+(160:1) $);
+  \coordinate [label=above:\(b\)] (b) at ($ (o2)+(200:1) $);
+  \coordinate [label=below:\(x\)] (x) at (intersection of o1--a and o2--b);
+  \coordinate [label=above:\(y\)] (y) at ($ (o2)+(200:1.5) $);
 
-So in fact \(\ell_1\) and \(\ell_2\) must be parallel. 
+  \draw [fill] (o1) circle [radius=1pt];
+  \draw [fill] (o2) circle [radius=1pt];
+  \draw [fill] (a) circle [radius=1pt];
+  \draw [fill] (c) circle [radius=1pt];
+  \draw [fill] (b) circle [radius=1pt];
+  \draw [fill] (x) circle [radius=1pt];
+  \draw [fill] (y) circle [radius=1pt];
+
+  \draw [<->] ($ (o1)+(90:0.5) $) -- ($ (o2)+(270:0.5) $);
+  \draw [<->] ($ (y)+(200:0.5) $) -- ($ (x)+(200:-0.5) $);
+  \draw [<->] ($ (c)+(160:0.5) $) -- ($ (x)+(160:-0.5) $);
+\end{tikzpicture}
+\end{center}
+
+Note that \(\ANGLE{x}{o_2}{o_1}\) and \(\ANGLE{o_1}{o_2}{y}\) are supplementary, and \(\ANGLE{o_1}{o_2}{y} \equiv \ANGLE{a}{o_1}{o_2}\) by hypothesis, so that \(\ANGLE{a}{o_1}{o_2}\) and \(\ANGLE{x}{o_2}{o_1}\) are supplementary.
+Since \(\ANGLE{x}{o_2}{o_1} \equiv \ANGLE{y}{o_1}{o_2}\), we have that \(\ANGLE{a}{o_1}{o_2}\) and \(\ANGLE{y}{o_1}{o_2}\) are supplementary.
+But also \(\ANGLE{a}{o_1}{o_2}\) and \(\ANGLE{o_2}{o_1}{c}\) are supplementary.
+Thus \(\ANGLE{o_2}{o_1}{y} \equiv \ANGLE{o_2}{o_1}{c}\).
+By AC4, we have that \(o_1\), \(c\), and \(y\) are collinear, so that \(y \in \ell_1\).
+But now \(\ell_1\) and \(\ell_2\) have two points in common -- \(x\) and \(y\) -- which are necessarily distinct as they are on opposite halfplanes of \(t\).
+So we have \(\ell_1 = \ell_2\), a contradiction.
+
+Thus \(\ell_1\) and \(\ell_2\) must be parallel. 
 \end{proof}
 
-\begin{prop}[AAS]
+\begin{prop}[AAS Theorem]\label{prop:aas-theorem}
 Suppose we have triangles \(\TRIANGLE{A}{B}{C}\) and \(\TRIANGLE{X}{Y}{Z}\) such that \(\ANGLE{C}{A}{B} \equiv \ANGLE{Z}{X}{Y}\), \(\ANGLE{A}{B}{C} \equiv \ANGLE{X}{Y}{Z}\), and \(\SEGMENT{B}{C} \equiv \SEGMENT{Y}{Z}\).
 Then \(\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{X}{Y}{Z}\).
 \end{prop}
@@ -95,7 +162,7 @@ But now by the Alternate Interior Angles theorem \(\LINE{X}{Z}\) and \(\LINE{W}{
 So in fact \(X\) and \(W\) are the same point, and thus \(\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{X}{Y}{Z}\) by SAS.
 \end{proof}
 
-\begin{prop}[HL]
+\begin{prop}[HL Theorem]
 Let \(\TRIANGLE{A}{B}{C}\) and \(\TRIANGLE{X}{Y}{Z}\) be triangles such that \(\ANGLE{B}{C}{A}\) and \(\ANGLE{Y}{Z}{X}\) are right and \(\SEGMENT{A}{B} \equiv \SEGMENT{X}{Y}\) and \(\SEGMENT{B}{C} \equiv \SEGMENT{Y}{Z}\).
 Then \(\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{X}{Y}{Z}\).
 \end{prop}
