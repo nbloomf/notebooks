@@ -7,7 +7,7 @@ Then congruence for more complicated sets can be defined in terms of the primiti
 Let \(P\) be an ordered geometry, and suppose we have an equivalence relation on pairs of points, denoted \(\SEGCONG{\ast}{\ast}{\ast}{\ast}\).
 We call \(\SEGCONG{\ast}{\ast}{\ast}{\ast}\) a \emph{segment congruence}\index{congruence!of segments} if the following properties are satisfied.
 \begin{proplist}
-\item[SC1.] \(\SEGCONG{x}{x}{y}{y}\) for all points \(x\) and \(y\).
+\item[SC1.] \(\SEGCONG{x}{x}{y}{z}\) if and only if \(y = z\) for all points \(x\), \(y\), and \(z\).
 \item[SC2.] \(\SEGCONG{x}{y}{y}{x}\) for all points \(x\) and \(y\).
 \item[SC3.] If \(z \in \RAY{x}{y}\) such that \(\SEGCONG{x}{z}{x}{y}\), then \(z = y\).
 \end{proplist}
@@ -70,6 +70,24 @@ An angle is called \emph{right} if it is supplementary to itself.
 \end{dfn}
 
 
+\begin{dfn}[Circle]
+Let \(P\) be a congruence geometry and let \(o,a \in P\) be points.
+The set \[ \CIRCLE{o}{a} = \{ x \in P \mid \SEGMENT{o}{x} \equiv \SEGMENT{o}{a} \} \] is called the \emph{circle}\index{circle} with \emph{center} \(o\) and \emph{passing through} \(a\).
+If \(o = a\), we say the circle \(\CIRCLE{o}{a}\) is \emph{degenerate}.
+\end{dfn}
+
+
+\begin{dfn}[Radius, Diameter, Chord]
+Let \(o\) and \(a\) be distinct points in a congruence geometry, and let \(C = \CIRCLE{o}{a}\).
+\begin{proplist}
+\item If \(u \in C\), then the segment \(\SEGMENT{o}{u}\) is called a \emph{radius}\index{radius} of \(C\).
+\item If \(u\) and \(v\) are distinct points on \(C\), then the segment \(\SEGMENT{u}{v}\) is called a \emph{chord}\index{chord} of \(C\).
+\item A chord \(\SEGMENT{u}{v}\) of \(C\) is called a \emph{diameter}\index{diameter} if \(\BETWEEN{u}{o}{v}\).
+\end{proplist}
+\end{dfn}
+
+
+
 %---------%
 \Exercises%
 %---------%
@@ -81,4 +99,9 @@ Show that triangle congruence is an equivalence relation.
 \begin{exercise}
 Let \(\alpha\), \(\beta\), and \(\gamma\) be angles in a congruence geometry such that \(\alpha\) and \(\beta\) are supplementary and \(\beta \equiv \gamma\).
 Show that \(\alpha\) and \(\gamma\) are supplementary.
+\end{exercise}
+
+\begin{exercise}
+Let \(\alpha\) and \(\beta\) be angles in a congruence geometry such that \(\alpha\) and \(\beta\) are supplementary and \(\alpha\) is right.
+Show that \(\beta\) is right.
 \end{exercise}

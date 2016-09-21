@@ -140,18 +140,21 @@ Moreover, we see that \(\TRIANGLE{a}{b}{c_1} \equiv \TRIANGLE{a}{b}{c_2}\) by th
 \end{proof}
 
 \begin{lem}[Betweenness Transfer]\label{lem:betweenness-transfer}
-Suppose \(\BETWEEN{a}{b}{c}\) and \(y \in \RAY{x}{z}\).
-If \(\SEGMENT{a}{b} \equiv \SEGMENT{x}{y}\) and \(\SEGMENT{a}{c} \equiv \SEGMENT{x}{z}\), then \(\BETWEEN{x}{y}{z}\).
+Let \(a_1\), \(b_1\), \(c_1\), \(a_2\), \(b_2\), and \(c_2\) be points such that \(\BETWEEN{a_1}{b_1}{c_1}\), \(b_2 \in \RAY{a_2}{c_2}\), \(\SEGMENT{a_1}{b_1} \equiv \SEGMENT{a_2}{b_2}\), and \(\SEGMENT{a_1}{c_1} \equiv \SEGMENT{a_2}{c_2}\).
+Then \(\BETWEEN{a_2}{b_2}{c_2}\).
 \end{lem}
 
 \begin{proof}
-Since \(y \in \RAY{x}{z}\), we have four possibilities: \(y = x\), \(\BETWEEN{x}{y}{z}\), \(y = z\), and \(\BETWEEN{x}{z}{y}\).
-If \(y = x\), then we have \(\SEGMENT{a}{b} \equiv \SEGMENT{x}{x}\), so that \(b = a\), a contradiction.
-Similarly if \(y = z\) then we have \(\SEGMENT{a}{b} \equiv \SEGMENT{x}{y} \equiv \SEGMENT{x}{z} \equiv \SEGMENT{a}{c}\), so that \(b = c\), also a contradiction.
-Now suppose that \(\BETWEEN{x}{z}{y}\).
-Note that \(\ANGLE{c}{a}{b} \equiv \ANGLE{z}{x}{y}\), \(\SEGMENT{a}{c} \equiv \SEGMENT{x}{z}\), and \(\SEGMENT{a}{b} \equiv \SEGMENT{x}{y}\); by \hyperref[prop:sas-theorem]{SAS}, \(\TRIANGLE{a}{b}{c} \equiv \TRIANGLE{x}{y}{z}\).
-In particular, the flat angle \(\ANGLE{a}{c}{b}\) is congruent to the straight angle \(\ANGLE{x}{z}{y}\), a contradiction.
-Thus \(\BETWEEN{x}{y}{z}\) as claimed.
+Note that \(a_1\), \(b_1\), and \(c_1\) are distinct.
+Since \(\SEGMENT{a_1}{b_1} \equiv \SEGMENT{a_2}{b_2}\), \(a_2\) and \(b_2\) are distinct.
+If \(b_2 = c_2\), then we have \(\SEGMENT{a_1}{b_1} \equiv \SEGMENT{a_1}{c_1}\), so that \(b_1 = c_1\) by S3 -- a contradiction.
+So \(b_2\) and \(c_2\) are distinct.
+Because \(b_2 \in \RAY{a_2}{c_2}\), there are two possibilities: either \(\BETWEEN{a_2}{c_2}{b_2}\) or \(\BETWEEN{a_2}{b_2}{c_2}\).
+
+Suppose \(\BETWEEN{a_2}{c_2}{b_2}\).
+Now \(\ANGLE{c_2}{a_2}{b_2} \equiv \ANGLE{c_1}{a_1}{b_1}\) (both angles are flat), and by \hyperref[prop:sas-theorem]{SAS} we have \(\TRIANGLE{c_1}{a_1}{b_1} \equiv \TRIANGLE{c_2}{a_2}{b_2}\).
+In particular, we have \(\ANGLE{a_1}{b_1}{c_1} \equiv \ANGLE{a_2}{b_2}{c_2}\); a contradiction, as in this case \(\ANGLE{a_1}{b_1}{c_1}\) is straight while \(\ANGLE{a_2}{b_2}{c_2}\) is flat.
+Thus \(\BETWEEN{a_2}{b_2}{c_2}\) as claimed.
 \end{proof}
 
 \begin{construct}[Segment Copy Theorem]
@@ -171,7 +174,7 @@ Uniqueness follows from SC3.
 \end{proof}
 
 \begin{construct}[Angle Copy Theorem]
-Let \(a\), \(o\), \(b\) be distinct noncollinear points and let \(P\) and \(x\) be distinct points.
+Let \(a\), \(o\), \(b\) be distinct noncollinear points and let \(p\) and \(x\) be distinct points.
 There exist two points \(y_1\) and \(y_2\), on opposite sides of \(\LINE{p}{x}\), such that \(\ANGLE{x}{p}{y_1} \equiv \ANGLE{x}{p}{y_2} \equiv \ANGLE{a}{o}{b}\). 
 \end{construct}
 
@@ -185,15 +188,15 @@ By the SSS Theorem, we have \(\TRIANGLE{p}{u}{z_1} \equiv \TRIANGLE{o}{b}{a} \eq
 \end{proof}
 
 \begin{prop}[ASA Theorem]
-Let \(a\), \(b\), \(c\) be distinct noncollinear points, and let \(x\), \(y\), \(z\) be distinct points.
-If \(\ANGLE{a}{b}{c} \equiv \ANGLE{x}{y}{z}\), \(\SEGMENT{b}{c} \equiv \SEGMENT{y}{z}\), and \(\ANGLE{b}{c}{a} \equiv \ANGLE{y}{z}{x}\), then \(\TRIANGLE{a}{b}{c} \equiv \TRIANGLE{x}{y}{z}\).
+Let \(a_1\), \(b_1\), and \(c_1\) be distinct noncollinear points, and let \(a_2\), \(b_2\), and \(c_2\) be distinct points.
+If \(\ANGLE{a_1}{b_1}{c_1} \equiv \ANGLE{a_2}{b_2}{c_2}\), \(\SEGMENT{b_1}{c_1} \equiv \SEGMENT{b_2}{c_2}\), and \(\ANGLE{b_1}{c_1}{a_1} \equiv \ANGLE{b_2}{c_2}{a_2}\), then \(\TRIANGLE{a_1}{b_1}{c_1} \equiv \TRIANGLE{a_2}{b_2}{c_2}\).
 \end{prop}
 
 \begin{proof}
-Copy \(\SEGMENT{y}{x}\) onto \(\RAY{b}{a}\) at \(d\).
-Note that \(d\) and \(a\) are on the same side of \(\LINE{b}{c}\).
-Moreover, we have \(\TRIANGLE{d}{b}{c} \equiv \TRIANGLE{x}{y}{z}\) by the SAS Theorem, and so \(\ANGLE{b}{c}{d} \equiv \ANGLE{y}{z}{x} \equiv \ANGLE{b}{c}{a}\).
-By AC4, we have \(d \in \RAY{c}{a}\).
-Now \(d\) is on both \(\LINE{b}{a}\) and \(\LINE{c}{a}\), and since \(a\), \(b\), and \(c\) are not collinear, we must have \(d = a\).
-So \(\TRIANGLE{a}{b}{c} \equiv \TRIANGLE{x}{y}{z}\) as claimed.
+Copy \(\SEGMENT{b_2}{a_2}\) onto \(\RAY{b_1}{a_1}\) at \(d\).
+Note that \(d\) and \(a_1\) are on the same side of \(\LINE{b_1}{c_1}\).
+Moreover, we have \(\TRIANGLE{d}{b_1}{c_1} \equiv \TRIANGLE{a_2}{b_2}{c_2}\) by \hyperref[prop:sas-theorem]{SAS}, and so \(\ANGLE{b_1}{c_1}{d} \equiv \ANGLE{b_2}{c_2}{a_2} \equiv \ANGLE{b_1}{c_1}{a_1}\).
+By AC4, we have \(d \in \RAY{c_1}{a_1}\).
+Now \(d\) is on both \(\LINE{b_1}{a_1}\) and \(\LINE{c_1}{a_1}\), and since \(a_1\), \(b_1\), and \(c_1\) are not collinear, we must have \(d = a_1\).
+So we have \(\TRIANGLE{a_1}{b_1}{c_1} \equiv \TRIANGLE{a_2}{b_2}{c_2}\) as claimed.
 \end{proof}

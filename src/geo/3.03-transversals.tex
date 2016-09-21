@@ -100,7 +100,7 @@ If \(a\) is on \(\ell_1\) and \(b\) is on \(\ell_2\) such that \(a\) and \(b\) a
 
 Every transversal has two pairs of alternate interior angles.
 
-\begin{prop}[Alternate Interior Angles]\label{prop:aia-theorem}
+\begin{prop}[AIA Theorem]\label{prop:aia-theorem}
 If two lines \(\ell_1\) and \(\ell_2\) are cut by a transversal \(t\) so that a pair of alternate interior angles are congruent, then \(\ell_1\) and \(\ell_2\) are parallel.
 \end{prop}
 
@@ -147,79 +147,106 @@ So we have \(\ell_1 = \ell_2\), a contradiction.
 Thus \(\ell_1\) and \(\ell_2\) must be parallel. 
 \end{proof}
 
+\begin{cor}
+A triangle formed by three distinct noncollinear points cannot have two interior angles which are both right.
+\end{cor}
+
+\begin{proof}
+Such a triangle would violate the \hyperref[prop:aia-theorem]{AIA Theorem} since right angles are self-supplementary, and any two right angles are congruent.
+\end{proof}
+
 \begin{prop}[AAS Theorem]\label{prop:aas-theorem}
-Suppose we have triangles \(\TRIANGLE{A}{B}{C}\) and \(\TRIANGLE{X}{Y}{Z}\) such that \(\ANGLE{C}{A}{B} \equiv \ANGLE{Z}{X}{Y}\), \(\ANGLE{A}{B}{C} \equiv \ANGLE{X}{Y}{Z}\), and \(\SEGMENT{B}{C} \equiv \SEGMENT{Y}{Z}\).
-Then \(\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{X}{Y}{Z}\).
+Suppose we have distinct noncollinear points \(a_1\), \(b_1\), and \(c_1\) and distinct noncollinear points \(a_2\), \(b_2\), and \(c_2\) such that \(\ANGLE{c_1}{a_1}{b_1} \equiv \ANGLE{c_2}{a_2}{b_2}\), \(\ANGLE{a_1}{b_1}{c_1} \equiv \ANGLE{a_2}{b_2}{c_2}\), and \(\SEGMENT{b_1}{c_1} \equiv \SEGMENT{b_2}{c_2}\).
+Then \(\TRIANGLE{a_1}{b_1}{c_1} \equiv \TRIANGLE{a_2}{b_2}{c_2}\).
 \end{prop}
 
 \begin{proof}
-Copy \(\SEGMENT{B}{A}\) onto \(\RAY{Y}{X}\) at the point \(W\).
-Note that \(\TRIANGLE{W}{Y}{Z} \equiv \TRIANGLE{A}{B}{C}\) by SAS, so that \(\ANGLE{B}{A}{C} \equiv \TRIANGLE{Y}{W}{Z}\).
-Suppose now that \(W\) and \(X\) are distinct points.
-In this case \(\LINE{X}{Z}\) and \(\LINE{W}{Z}\) are lines cut by a transversal \(\LINE{X}{Y}\).
-Moreover, if we let \(U\) be a point such that \(\BETWEEN{U}{X}{Z}\), then \(\ANGLE{U}{X}{W}\) and \(\ANGLE{Y}{X}{Z}\) are vertical, hence congruent, and so \(\ANGLE{U}{X}{W} \equiv \ANGLE{Y}{X}{Z}\).
-But now by the Alternate Interior Angles theorem \(\LINE{X}{Z}\) and \(\LINE{W}{Z}\) must be parallel, a contradiction since they meet at \(Z\).
-So in fact \(X\) and \(W\) are the same point, and thus \(\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{X}{Y}{Z}\) by SAS.
+Copy \(\SEGMENT{b_1}{a_1}\) onto \(\RAY{b_2}{a_2}\) at the point \(w\).
+Note that \(w \neq b_2\), since \(a_1 \neq b_1\).
+Note also that \(\TRIANGLE{w}{b_2}{c_2} \equiv \TRIANGLE{a_1}{b_2}{c_2}\) by \hyperref[prop:sas-theorem]{SAS}, so that \(\ANGLE{b_1}{a_1}{c_1} \equiv \ANGLE{b_2}{w}{c_2}\).
+Suppose now that \(w\) and \(a_2\) are distinct points; say \(\BETWEEN{b_2}{w}{a_2}\).
+(The case \(\BETWEEN{b_2}{a_2}{w}\) is very similar.)
+In this case \(\LINE{a_2}{c_2}\) and \(\LINE{w}{c_2}\) are lines cut by a transversal \(\LINE{a_2}{b_2}\).
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \coordinate [label=above right:\(w\)] (w) at (0,0);
+  \coordinate [label=below left:\(a_2\)] (a2) at ($ (w)+(160:2) $);
+  \coordinate [label=above:\(b_2\)] (b2) at ($ (w)+(160:-2.5) $);
+  \coordinate [label=below:\(c_2\)] (c2) at ($ (w)+(100:-2) $);
+  \coordinate [label=left:\(u\)] (u) at ($ (w)+(100:1) $);
+
+  \draw [fill] (w) circle [radius=1pt];
+  \draw [fill] (a2) circle [radius=1pt];
+  \draw [fill] (b2) circle [radius=1pt];
+  \draw [fill] (c2) circle [radius=1pt];
+  \draw [fill] (u) circle [radius=1pt];
+
+  \draw (a2) -- (b2) -- (c2) -- cycle;
+  \draw [->] (c2) -- ($ (u)+(100:0.5) $);
+\end{tikzpicture}
+\end{center}
+
+Moreover, if we let \(u\) be a point such that \(\BETWEEN{u}{w}{c_2}\), then \(\ANGLE{u}{w}{a_2}\) and \(\ANGLE{b_2}{w}{c_2}\) are vertical, hence congruent, and so we have \(\ANGLE{u}{w}{a_2} \equiv \ANGLE{b_2}{a_2}{c_2}\).
+But now by the \hyperref[prop:aia-theorem]{AIA Theorem}, \(\LINE{a_2}{c_2}\) and \(\LINE{w}{c_2}\) must be parallel -- a contradiction since they meet at \(c_2\).
+So in fact \(a_2\) and \(w\) are the same point, and thus \(\TRIANGLE{a_1}{b_1}{c_1} \equiv \TRIANGLE{a_2}{b_2}{c_2}\) by \hyperref[prop:sas-theorem]{SAS}.
 \end{proof}
+
+Note that the AAS Theorem is slightly less general than the triangle congruence theorems we've seen so far: it does not apply to triangles whose vertices are collinear, while the SSS and SAS Theorems do.
 
 \begin{prop}[HL Theorem]
-Let \(\TRIANGLE{A}{B}{C}\) and \(\TRIANGLE{X}{Y}{Z}\) be triangles such that \(\ANGLE{B}{C}{A}\) and \(\ANGLE{Y}{Z}{X}\) are right and \(\SEGMENT{A}{B} \equiv \SEGMENT{X}{Y}\) and \(\SEGMENT{B}{C} \equiv \SEGMENT{Y}{Z}\).
-Then \(\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{X}{Y}{Z}\).
+Suppose we have distinct noncollinear points \(a_1\), \(b_1\), and \(c_1\) and distinct noncollinear points \(a_2\), \(b_2\), and \(c_2\) such that \(\ANGLE{b_1}{c_1}{a_1}\) and \(\ANGLE{b_2}{c_2}{a_2}\) are right and \(\SEGMENT{a_1}{b_1} \equiv \SEGMENT{a_2}{b_2}\) and \(\SEGMENT{b_1}{c_1} \equiv \SEGMENT{b_2}{c_2}\).
+Then \(\TRIANGLE{a_1}{b_1}{c_1} \equiv \TRIANGLE{a_2}{b_2}{c_2}\).
 \end{prop}
 
 \begin{proof}
-Copy \(\SEGMENT{Z}{X}\) onto the ray opposite \(\RAY{C}{A}\) at the point \(D\).
-Now \(\ANGLE{B}{C}{D}\) is a right angle, since it is supplementary to \(\ANGLE{A}{C}{B}\).
-By SAS, we have \(\TRIANGLE{X}{Y}{Z} \equiv \TRIANGLE{D}{C}{B}\), and thus \(\SEGMENT{B}{D} \equiv \SEGMENT{Y}{X} \equiv \SEGMENT{B}{A}\).
-Now \(\TRIANGLE{A}{B}{D}\) is isoceles with \(\SEGMENT{B}{A} \equiv \SEGMENT{B}{D}\), so that \(\ANGLE{B}{A}{C} \equiv \ANGLE{B}{A}{D} \equiv \ANGLE{B}{D}{A} \equiv \ANGLE{Y}{X}{Z}\).
-By AAS, we have \(\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{X}{Y}{Z}\).
-\end{proof}
-
-\begin{prop}
-A triangle formed by three noncollinear points cannot have two interior angles which are both right.
-\end{prop}
-
-\begin{proof}
-Such a triangle would violate the Alternate Interior Angles theorem since right angles are self-supplementary, and any two right angles are congruent.
+Copy \(\SEGMENT{c_2}{a_2}\) onto the ray opposite \(\RAY{c_1}{a_1}\) at the point \(d\).
+Now \(\ANGLE{b_1}{c_1}{d}\) is a right angle, since it is supplementary to \(\ANGLE{a_1}{c_1}{b_1}\).
+By \hyperref[prop:sas-theorem]{SAS}, we have \(\TRIANGLE{a_2}{c_2}{b_2} \equiv \TRIANGLE{d}{c_1}{b_1}\), and thus \(\SEGMENT{b_1}{d} \equiv \SEGMENT{b_2}{a_2} \equiv \SEGMENT{b_1}{a_1}\).
+Now \(\TRIANGLE{a_1}{b_1}{d}\) is isoceles with \(\SEGMENT{b_1}{a_1} \equiv \SEGMENT{b_1}{d}\), so that \(\ANGLE{b_1}{a_1}{c_1} = \ANGLE{b_1}{a_1}{d} \equiv \ANGLE{b_1}{d}{a_1} \equiv \ANGLE{b_2}{a_2}{c_2}\) using Pons Asinorum.
+By \hyperref[prop:aas-theorem]{AAS}, we have \(\TRIANGLE{a_1}{b_1}{c_1} \equiv \TRIANGLE{a_2}{b_2}{c_2}\) as needed.
 \end{proof}
 
 
 \begin{construct}[Angle Bisector]
-Let \(A\), \(O\), and \(B\) be noncollinear points.
-There exists a unique line \(\ell\), containing \(O\), such that if \(U \in \ell\) is different from \(O\) then \(\ANGLE{A}{O}{U} \equiv \ANGLE{B}{O}{U}\).
-This line is called the \emph{bisector} of \(\ANGLE{A}{O}{B}\).
+Let \(a\), \(o\), and \(b\) be noncollinear points.
+There exists a unique line \(\ell\), containing \(o\), such that if \(u \in \ell\) is different from \(o\) then \(\ANGLE{a}{o}{u} \equiv \ANGLE{b}{o}{u}\).
+This line is called the \emph{bisector}\index{bisector} of \(\ANGLE{a}{o}{b}\).
 \end{construct}
 
 \begin{proof}
-Note that we can assume WLOG that \(\SEGMENT{O}{A} \equiv \SEGMENT{O}{B}\); if not, construct such a point on \(\RAY{O}{B}\) using the Circle Separation property.
-Since the intersection of \(\CIRCLE{A}{O}\) and \(\CIRCLE{B}{O}\) contains a point not on \(\LINE{A}{B}\), by Circle Cut Transfer there is a second point \(U\) on the opposite side of \(\LINE{A}{B}\) such that \(\SEGMENT{A}{U} \equiv \SEGMENT{B}{U}\).
-Let \(\ell = \LINE{O}{U}\).
-Note that \(\TRIANGLE{A}{O}{U} \equiv \TRIANGLE{B}{O}{U}\) by SSS, so that \(\ANGLE{A}{O}{U} \equiv \ANGLE{B}{O}{U}\).
-Then if \(V\) is a point such that \(\BETWEEN{V}{O}{U}\), we have \(\ANGLE{V}{O}{A} \equiv \ANGLE{V}{O}{B}\), since these are supplementary to congruent angles.
+WLOG, we can assume that \(\SEGMENT{o}{a} \equiv \SEGMENT{o}{b}\); if not, construct such a point on \(\RAY{o}{b}\) using Circle Cut.
+Since the intersection of \(\CIRCLE{a}{o}\) and \(\CIRCLE{b}{o}\) contains a point not on \(\LINE{a}{b}\), by Interleaved Diameters there is a second point \(u\) on the opposite side of \(\LINE{a}{b}\) such that \(\SEGMENT{a}{u} \equiv \SEGMENT{b}{u}\).
+Let \(\ell = \LINE{o}{u}\).
+Note that \(\TRIANGLE{a}{o}{u} \equiv \TRIANGLE{b}{o}{u}\) by \hyperref[prop:sss-theorem]{SSS}, so that \(\ANGLE{a}{o}{u} \equiv \ANGLE{b}{o}{u}\).
 
-To see uniqueness, note that any such line must contain \(O\) and \(U\).
+Now let \(v\) be a point in \(\LINE{o}{u}\) distinct from \(o\).
+Certainly if \(v \in \RAY{o}{u}\) then \(\ANGLE{v}{o}{a} \equiv \ANGLE{v}{o}{b}\).
+If instead we have \(\BETWEEN{v}{o}{u}\), then \(\ANGLE{v}{o}{a} \equiv \ANGLE{v}{o}{b}\), since these are supplementary to congruent angles.
+
+To see uniqueness, note that any such line must contain \(o\) and \(u\) and thus be equal to \(\LINE{o}{u}\).
 \end{proof}
 
 \begin{cor}
-\(A\) and \(B\) are on opposite sides of the bisector of \(\ANGLE{A}{O}{B}\).
-In particular, the bisector of \(\ANGLE{A}{O}{B}\) contains points which are interior to \(\ANGLE{A}{O}{B}\).
+The points \(a\) and \(b\) are on opposite sides of the bisector of \(\ANGLE{a}{o}{b}\).
+In particular, the bisector of \(\ANGLE{a}{o}{b}\) contains points which are interior to \(\ANGLE{a}{o}{b}\).
 \end{cor}
 
 \begin{proof}
-Suppose otherwise, and let \(U \neq O\) be a point on the bisector.
-Then \(\ANGLE{U}{O}{A}\) and \(\ANGLE{U}{O}{B}\) are congruent angles on the same half-plane of a ray, so that \(A\), \(B\), and \(O\) are collinear -- a contradiction.
-By the plane separation property there is a point \(W\) between \(A\) and \(B\) which is on the bisector; this point is interior to \(\ANGLE{A}{O}{B}\) as needed.
+Suppose otherwise, and let \(u \neq o\) be a point on the bisector.
+Then \(\ANGLE{u}{o}{a}\) and \(\ANGLE{u}{o}{b}\) are congruent angles on the same halfplane of a ray, so that \(a\), \(b\), and \(o\) are collinear -- a contradiction.
+Now by the Line Separation property there is a point \(w\) between \(a\) and \(b\) which is on the bisector; this point is interior to \(\ANGLE{a}{o}{b}\) by \lemref{lem:betweenness-separation} as needed.
 \end{proof}
 
 \begin{construct}[Segment Midpoint]
-Let \(A\) and \(B\) be distinct points.
-There is a unique point \(M\) such that \(\BETWEEN{A}{M}{B}\) and \(\SEGMENT{A}{M} \equiv \SEGMENT{B}{M}\).
-This point is called the \emph{midpoint} of \(\SEGMENT{A}{B}\).
+Let \(a\) and \(b\) be distinct points.
+There is a unique point \(m\) such that \(\BETWEEN{a}{m}{b}\) and \(\SEGMENT{a}{m} \equiv \SEGMENT{b}{m}\).
+This point is called the \emph{midpoint}\index{midpoint} of \(\SEGMENT{a}{b}\).
 \end{construct}
 
 \begin{proof}
-Construct a point \(O\) such that \(\TRIANGLE{A}{O}{B}\) is equilateral, and construct the bisector of \(\ANGLE{A}{O}{B}\).
-By the Crossbar theorem, this bisector must cut \(\SEGMENT{A}{B}\) at an interior point, say \(M\).
-Now \(\TRIANGLE{O}{A}{M} \equiv \TRIANGLE{O}{B}{M}\) by SAS, and thus \(\SEGMENT{A}{M} \equiv \SEGMENT{B}{M}\) as needed.
-Note that \(M\) is unique by the uniqueness of congruent segments on a ray.
+Construct a point \(o\) such that \(\TRIANGLE{a}{o}{b}\) is equilateral, and construct the bisector of \(\ANGLE{a}{o}{b}\).
+By the Crossbar Theorem, this bisector must cut \(\SEGMENT{a}{b}\) at an interior point, say \(m\).
+Now \(\TRIANGLE{o}{a}{m} \equiv \TRIANGLE{o}{b}{m}\) by \hyperref[prop:sas-theorem]{SAS}, and thus \(\SEGMENT{a}{m} \equiv \SEGMENT{b}{m}\) as needed.
+Note that \(m\) is unique by the uniqueness of congruent segments on a ray.
 \end{proof}
