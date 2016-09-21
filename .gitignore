@@ -5,3 +5,5 @@ zz-*.txt
 *.out
 *.toc
 *.ilg
+*.bbl
+*.blg

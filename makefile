@@ -26,6 +26,7 @@ geo: src/geo/gfx/cover/cover.eps
 	@echo '  Cleaning up' | doppler lightblue
 	@rm geo.aux geo.log geo.toc geo.out
 	@rm geo.idx geo.ilg geo.ind
+	@rm geo.bbl geo.blg
 
 groups:
 	@echo "Making groups.pdf" | doppler lightgreen
