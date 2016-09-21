@@ -126,7 +126,7 @@ But then \(d \in \RAY{b}{c}\), and in fact \(c = d\) by AC4.
 \end{proof}
 
 \begin{construct}[Equilateral triangle with a given side]\label{construct:equilateral-points}
-Given distinct points \(a\) and \(b\), there exist points \(c_1\) and \(c_2\), on opposite sides of \(\LINE{a}{b}\), such that \(\TRIANGLE{a}{b}{c_1}\) and \(\TRIANGLE{a}{b}{c_2}\) are equilateral.
+Given distinct points \(a\) and \(b\), there exist two and only two points \(c_1\) and \(c_2\), on opposite sides of \(\LINE{a}{b}\), such that \(\TRIANGLE{a}{b}{c_1}\) and \(\TRIANGLE{a}{b}{c_2}\) are equilateral.
 In fact, we have \(\TRIANGLE{a}{b}{c_1} \equiv \TRIANGLE{a}{b}{c_2}\).
 \end{construct}
 
@@ -158,12 +158,15 @@ Thus \(\BETWEEN{a_2}{b_2}{c_2}\) as claimed.
 \end{proof}
 
 \begin{construct}[Segment Copy Theorem]
-Let \(a\) and \(b\) be distinct points, and let \(o\) and \(t\) be distinct points.
+Let \(a\) and \(b\) be points, and let \(o\) and \(t\) be distinct points.
 Then there is a unique point \(x\) on \(\RAY{o}{t}\) such that \(\SEGMENT{o}{x} \equiv \SEGMENT{a}{b}\).
 \end{construct}
 
 \begin{proof}
-First we construct a point \(z\) such that \(\TRIANGLE{a}{o}{z}\) is equilateral; now \(\SEGMENT{z}{a} \equiv \SEGMENT{z}{o}\).
+If \(a = b\), note that \(x = t\) satisfies the theorem.
+Suppose now that \(a \neq b\).
+Now at least one of \(a\) and \(b\) has to be distinct from \(o\); without loss of generality, suppose \(a \neq o\).
+Construct a point \(z\) such that \(\TRIANGLE{a}{o}{z}\) is equilateral; now \(\SEGMENT{z}{a} \equiv \SEGMENT{z}{o}\).
 Using the Interpolation property, construct a point \(h\) such that \(\BETWEEN{z}{a}{h}\), and using the Circle Cut property, construct a point \(u\) on \(\RAY{a}{h}\) such that \(\SEGMENT{a}{u} \equiv \SEGMENT{a}{b}\).
 Again using Circle Cut, construct a point \(v\) on \(\RAY{z}{o}\) such that \(\SEGMENT{z}{v} \equiv \SEGMENT{z}{u}\).
 By \lemref{lem:betweenness-transfer} we have \(\BETWEEN{z}{o}{v}\).
@@ -171,6 +174,18 @@ Now \(\SEGMENT{z}{a} \equiv \SEGMENT{z}{o}\) and \(\SEGMENT{z}{u} \equiv \SEGMEN
 Again using Circle Cut, construct a point \(x\) on \(\RAY{o}{t}\) such that \(\SEGMENT{o}{x} \equiv \SEGMENT{o}{v}\).
 Then we have \(\SEGMENT{o}{x} \equiv \SEGMENT{o}{v} \equiv \SEGMENT{a}{u} \equiv \SEGMENT{a}{b}\) as needed.
 Uniqueness follows from SC3.
+\end{proof}
+
+\begin{lem}
+Suppose \(a_1\), \(b_1\), \(c_1\), \(d_1\), \(a_2\), \(b_2\), \(c_2\), and \(d_2\) are points such that \(\SEGMENT{a_1}{c_1} \equiv \SEGMENT{a_2}{c_2}\), \(\SEGMENT{b_1}{d_1} \equiv \SEGMENT{b_2}{d_2}\), \(\SEGMENT{a_1}{d_1} \equiv \SEGMENT{a_2}{d_2}\), \(\BETWEENS{a_1b_1c_1d_1}\), \(c_2 \in \RAY{a_2}{d_2}\), and \(b_2 \in \RAY{d_2}{a_2}\).
+Then \(\BETWEENS{a_2b_2c_2d_2}\).
+\end{lem}
+
+\begin{proof}
+We have \(\BETWEEN{a_2}{c_2}{d_2}\) by Betweenness Transfer and \(\SEGMENT{c_1}{d_1} \equiv \SEGMENT{c_2}{d_2}\) by Segment Addition.
+Similarly, \(\BETWEEN{a_2}{b_2}{d_2}\) and \(\SEGMENT{a_1}{b_1} \equiv \SEGMENT{a_2}{b_2}\).
+Now \(\BETWEEN{a_2}{b_2}{c_2}\) by Betweenness Transfer.
+Thus \(\BETWEENS{a_2b_2c_2d_2}\) as needed.
 \end{proof}
 
 \begin{construct}[Angle Copy Theorem]

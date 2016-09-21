@@ -20,7 +20,7 @@ The first property handles the ``trivial'' case, the second makes the relation w
 Let \(P\) be an ordered geometry, and suppose we have an equivalence relation on triples of points, denoted \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\).
 We call \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\) an \emph{angle congruence}\index{congruence!of angles} if the following properties are satisfied.
 \begin{itemize}
-\item[AC1.] If \(\BETWEEN{a_1}{b_1}{c_1}\) and \(\BETWEEN{a_2}{b_2}{c_2}\), then \(\ANGCONG{a_1}{b_1}{c_1}{a_2}{b_2}{c_2}\) and \(\ANGCONG{b_1}{a_1}{c_1}{b_2}{a_2}{c_2}\), and it is not the case that \(\ANGCONG{a_1}{b_1}{c_1}{b_1}{a_1}{c_1}\).
+\item[AC1.] If \(\BETWEEN{a_1}{b_1}{c_1}\) and \(a_2\), \(b_2\), and \(c_2\) are points, then \(\ANGCONG{a_1}{b_1}{c_1}{a_2}{b_2}{c_2}\) if and only if \(\BETWEEN{a_2}{b_2}{c_2}\) if and only if \(\ANGCONG{b_1}{a_1}{c_1}{b_2}{a_2}{c_2}\).
 \item[AC2.] If \(a\), \(b\), \(o\), \(x\), and \(y\) are points such that \(o \notin \{a,b,x,y\}\), \(x \in \RAY{o}{a}\), and \(y \in \RAY{o}{b}\), then \(\ANGCONG{a}{o}{b}{x}{o}{y}\).
 \item[AC3.] If \(a\), \(b\), and \(o\) are points such that \(o \notin \{a,b\}\), then \(\ANGCONG{a}{o}{b}{b}{o}{a}\).
 \item[AC4.] If \(a\), \(b\), and \(o\) are distinct noncollinear points and \(x\) is on the \(b\)-side of \(\LINE{o}{a}\) such that \(\ANGCONG{a}{o}{b}{a}{o}{x}\), then \(x \in \RAY{o}{b}\).
@@ -104,4 +104,8 @@ Show that \(\alpha\) and \(\gamma\) are supplementary.
 \begin{exercise}
 Let \(\alpha\) and \(\beta\) be angles in a congruence geometry such that \(\alpha\) and \(\beta\) are supplementary and \(\alpha\) is right.
 Show that \(\beta\) is right.
+\end{exercise}
+
+\begin{exercise}
+Show that no flat angle is congruent to any straight angle.
 \end{exercise}
