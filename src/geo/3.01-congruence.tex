@@ -21,14 +21,13 @@ Let \(P\) be an ordered geometry, and suppose we have an equivalence relation on
 We call \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\) an \emph{angle congruence}\index{congruence!of angles} if the following properties are satisfied.
 \begin{itemize}
 \item[AC1.] If \(\BETWEEN{a_1}{b_1}{c_1}\) and \(a_2\), \(b_2\), and \(c_2\) are points, then \(\ANGCONG{a_1}{b_1}{c_1}{a_2}{b_2}{c_2}\) if and only if \(\BETWEEN{a_2}{b_2}{c_2}\) if and only if \(\ANGCONG{b_1}{a_1}{c_1}{b_2}{a_2}{c_2}\).
-\item[AC2.] If \(a\), \(b\), \(o\), \(x\), and \(y\) are points such that \(o \notin \{a,b,x,y\}\), \(x \in \RAY{o}{a}\), and \(y \in \RAY{o}{b}\), then \(\ANGCONG{a}{o}{b}{x}{o}{y}\).
-\item[AC3.] If \(a\), \(b\), and \(o\) are points such that \(o \notin \{a,b\}\), then \(\ANGCONG{a}{o}{b}{b}{o}{a}\).
-\item[AC4.] If \(a\), \(b\), and \(o\) are distinct noncollinear points and \(x\) is on the \(b\)-side of \(\LINE{o}{a}\) such that \(\ANGCONG{a}{o}{b}{a}{o}{x}\), then \(x \in \RAY{o}{b}\).
+\item[AC2.] If \(a\), \(b\), \(o\), \(x\), and \(y\) are points such that \(o \notin \{a,b,x,y\}\), \(x \in \RAY{o}{a}\), and \(y \in \RAY{o}{b}\), then \(\ANGCONG{a}{o}{b}{x}{o}{y}\) and \(\ANGCONG{a}{o}{b}{y}{o}{x}\).
+\item[AC3.] If \(a\), \(b\), and \(o\) are distinct noncollinear points and \(x\) is on the \(b\)-side of \(\LINE{o}{a}\) such that \(\ANGCONG{a}{o}{b}{a}{o}{x}\), then \(x \in \RAY{o}{b}\).
 \end{itemize}
 In this case, \(\ANGCONG{\ast}{\ast}{\ast}{\ast}{\ast}{\ast}\) is an equivalence relation on the set of \emph{angles} in \(P\), and we write \(\ANGLE{a}{o}{b} \equiv \ANGLE{x}{p}{y}\) to mean \(\ANGCONG{a}{o}{b}{x}{p}{y}\).
 \end{dfn}
 
-Much like the properties of segment congruence, the first property handles the trivial cases, the second and third make the relation well-defined on angles, and the fourth ensures that it differentiates between angles on one half-plane which share a vertex.
+Much like the properties of segment congruence, the first property handles the trivial cases, the second makes the relation well-defined on angles, and the third ensures that it differentiates between angles on one half-plane which share a vertex.
 
 \begin{dfn}[Congruence Geometry]
 Let \(P\) be an ordered geometry.
@@ -64,10 +63,6 @@ Let \(P\) be a congruence geometry.
 \item Every angle has a supplement.
 \end{proplist}
 \end{prop}
-
-\begin{dfn}
-An angle is called \emph{right} if it is supplementary to itself.
-\end{dfn}
 
 
 \begin{dfn}[Circle]

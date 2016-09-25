@@ -61,6 +61,20 @@ If angles \(\alpha\) and \(\beta\) are a vertical pair, then \(\alpha \equiv \be
 If \(\ANGLE{a}{o}{b}\) and \(\ANGLE{c}{o}{d}\) are a vertical pair, with \(\BETWEEN{b}{o}{c}\) and \(\BETWEEN{a}{o}{d}\), then both \(\ANGLE{a}{o}{b}\) and \(\ANGLE{c}{o}{d}\) are supplementary to \(\ANGLE{a}{o}{c}\).
 \end{proof}
 
+\begin{dfn}
+An angle is called \emph{right} if it is supplementary to itself.
+\end{dfn}
+
+\begin{cor}
+Any two right angles are congruent.
+\end{cor}
+
+\begin{proof}
+Suppose angles \(\alpha\) and \(\beta\) are right.
+We can copy \(\beta\) to an angle \(\beta'\) in the configuration of \ref{lem:coinitial-right-angle-congruence}.
+Since supplements are congruent, \ref{lem:coinitial-right-angle-congruence} applies.
+\end{proof}
+
 
 \begin{dfn}[Transversal]
 Suppose we have three lines \(\ell_1\), \(\ell_2\), and \(t\) in a plane geometry.
@@ -147,7 +161,7 @@ So we have \(\ell_1 = \ell_2\), a contradiction.
 Thus \(\ell_1\) and \(\ell_2\) must be parallel. 
 \end{proof}
 
-\begin{cor}
+\begin{cor}\label{cor:a-triangle-has-at-most-one-right-angle}
 A triangle formed by three distinct noncollinear points cannot have two interior angles which are both right.
 \end{cor}
 
@@ -250,3 +264,13 @@ By the Crossbar Theorem, this bisector must cut \(\SEGMENT{a}{b}\) at an interio
 Now \(\TRIANGLE{o}{a}{m} \equiv \TRIANGLE{o}{b}{m}\) by \hyperref[prop:sas-theorem]{SAS}, and thus \(\SEGMENT{a}{m} \equiv \SEGMENT{b}{m}\) as needed.
 Note that \(m\) is unique by the uniqueness of congruent segments on a ray.
 \end{proof}
+
+
+
+%---------%
+\Exercises%
+%---------%
+
+\begin{exercise}
+Show that no right angle is also flat or straight.
+\end{exercise}

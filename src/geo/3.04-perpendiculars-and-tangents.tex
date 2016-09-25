@@ -1,29 +1,27 @@
 We say that two lines are \emph{perpendicular}\index{perpendicular} if they form a right angle.
 
-\begin{dfn}[Foot]
-Let \(\ell\) be a line and \(p\) a point not on \(\ell\) in a plane geometry.
-We say that a point \(f \in \ell\) is a \emph{foot} of \(p\) on \(\ell\) if \(\ell\) and \(\LINE{F}{P}\) are perpendicular.
-\end{dfn}
-
-\begin{construct}[Foot of a point]
-Let \(\ell\) be a line and \(p\) a point not on \(\ell\) in a plane geometry.
-Then \(p\) has a unique foot on \(\ell\).
+\begin{construct}[Foot of a point]\label{construct:foot}
+Let \(x\) and \(y\) be distinct points and \(p\) a point not on \(\LINE{x}{y}\).
+There is a unique point \(f \in \LINE{x}{y}\) such that \(\LINE{x}{y}\) and \(\LINE{p}{f}\) are perpendicular.
+We say that \(f\) is the \emph{foot}\index{foot} of \(p\) on \(\LINE{x}{y}\).
 \end{construct}
 
 \begin{proof}
-To see existence, let \(x\) and \(y\) be distinct points on \(\ell\).
-Note that \(\CIRCLE{x}{p} \cap \CIRCLE{y}{p}\) is not empty, and by Circle Cut Transfer there is a second point \(o\) in the intersection of these circles which is on the opposite side of \(\ell\).
-By the Plane Separation property, \(\ell\) and \(\SEGMENT{o}{p}\) meet at a unique point \(f\).
+First we show existence.
+Note that \(\CIRCLE{x}{p} \cap \CIRCLE{y}{p}\) is not empty (as it contains \(p\)), and by Interleaved Diameters there is a second point \(o\) in the intersection of these circles which is on the opposite side of \(\LINE{x}{y}\).
+By the Plane Separation property, \(\LINE{x}{y}\) and \(\SEGMENT{o}{p}\) meet at a unique point \(f\).
+Note that \(f\) must be different from either \(x\) or \(y\); WLOG, suppose \(f \neq x\).
 Now \(\TRIANGLE{o}{x}{y} \equiv \TRIANGLE{p}{x}{y}\) by SSS, so that \(\ANGLE{p}{x}{f} \equiv \ANGLE{o}{x}{f}\).
 Then \(\TRIANGLE{p}{x}{f} \equiv \TRIANGLE{o}{x}{f}\) by SAS.
-Then \(\ANGLE{p}{f}{x} \equiv \ANGLE{o}{f}{x}\), so that \(\ell\) and \(\LINE{o}{p}\) meet at a right angle as needed.
+Then \(\ANGLE{p}{f}{x} \equiv \ANGLE{o}{f}{x}\); that is, \(\ANGLE{p}{f}{x}\) is congruent to its supplement. Thus \(\ell\) and \(\LINE{p}{f}\) are perpendicular.
 
-To see uniqueness, note that if \(p\) has two distinct feet \(f_1\) and \(f_2\) on \(\ell\) then \(p\), \(f_1\), and \(f_2\) form a triangle with two internal right angles -- a contradiction.
+To see uniqueness, note that if \(p\) has two distinct feet \(f_1\) and \(f_2\) on \(\ell\) then \(p\), \(f_1\), and \(f_2\) form a triangle with two internal right angles, contradicting \ref{cor:a-triangle-has-at-most-one-right-angle}.
 \end{proof}
 
-\begin{construct}[Perpendicular at a point]
+\begin{construct}[Normal at a point]
 Let \(\ell\) be a line and \(p \in \ell\) a point in a plane geometry.
-There exists a unique line \(t\) containing \(p\) which is perpendicular to \(\ell\).
+There is a unique line \(t\) containing \(p\) which is perpendicular to \(\ell\).
+We say that \(t\) is the \emph{normal line}\index{normal line} of \(\ell\) at \(p\).
 \end{construct}
 
 \begin{proof}
@@ -32,12 +30,17 @@ Note that \(p\) is the midpoint of \(\SEGMENT{x}{y}\).
 Construct a point \(z\) such that \(\TRIANGLE{x}{y}{z}\) is equilateral.
 Now \(\TRIANGLE{z}{x}{p} \equiv \TRIANGLE{z}{y}{p}\) by SSS, so that \(\ANGLE{z}{p}{x} \equiv \ANGLE{z}{p}{y}\), and thus \(\LINE{p}{z}\) is perpendicular to \(\ell\).
 
-Uniqueness follows from the uniqueness of angles on a half-plane.
+Uniqueness follows from the uniqueness of angles on a half-plane, since all right angles are congruent.
 \end{proof}
 
 \begin{dfn}[Perpendicular Bisector]
-If \(x\) and \(y\) are two points, then the (unique) line perpendicular to \(\LINE{x}{y}\) at the midpoint of \(\SEGMENT{x}{y}\) is called the \emph{perpendicular bisector} of \(\SEGMENT{x}{y}\).
+If \(x\) and \(y\) are two points, then the (unique) line perpendicular to \(\LINE{x}{y}\) at the midpoint of \(\SEGMENT{x}{y}\) is called the \emph{perpendicular bisector}\index{perpendicular bisector} of \(\SEGMENT{x}{y}\).
 \end{dfn}
+
+\begin{prop}
+Let \(x\) and \(y\) be distinct points.
+Then \(z\) is on the perpendicular bisector of \(x\) and \(y\) if and only if \(\SEGMENT{x}{z} \equiv \SEGMENT{y}{z}\).
+\end{prop}
 
 \subsection*{Intersections of Lines and Circles}
 

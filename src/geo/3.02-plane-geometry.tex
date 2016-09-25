@@ -2,12 +2,10 @@
 Let \(P\) be an ordered geometry with a segment congruence and an angle congruence.
 We say that \(P\) is a \emph{plane geometry} if the following properties are satisfied.
 \begin{proplist}
-\item[PG1.] \textbf{Right Angle Property.} Any two right angles are congruent.
-
-\item[PG2.] \textbf{Angle-Side Congruence.} Suppose \(a_1\), \(b_1\), and \(c_1\) are distinct points and \(a_2\), \(b_2\), and \(c_2\) are distinct points such that \(\SEGMENT{b_1}{a_1} \equiv \SEGMENT{b_2}{a_2}\) and \(\SEGMENT{b_1}{c_1} \equiv \SEGMENT{b_2}{c_2}\).
+\item[PG1.] \textbf{Angle-Side Congruence.} Suppose \(a_1\), \(b_1\), and \(c_1\) are distinct points and \(a_2\), \(b_2\), and \(c_2\) are distinct points such that \(\SEGMENT{b_1}{a_1} \equiv \SEGMENT{b_2}{a_2}\) and \(\SEGMENT{b_1}{c_1} \equiv \SEGMENT{b_2}{c_2}\).
 Then \(\SEGMENT{a_1}{c_1} \equiv \SEGMENT{a_2}{c_2}\) if and only if \(\ANGLE{a_1}{b_1}{c_1} \equiv \ANGLE{a_2}{b_2}{c_2}\).
 
-\item[PG3.] \textbf{Circle Cut.} If \(o\), \(a\), and \(b\) are points such that \(a \neq o\) and \(b \neq o\), then there is a point \(c \in \RAY{o}{b}\) such that \(\SEGMENT{o}{c} \equiv \SEGMENT{o}{a}\).
+\item[PG2.] \textbf{Circle Cut.} If \(o\), \(a\), and \(b\) are points such that \(a \neq o\) and \(b \neq o\), then there is a point \(c \in \RAY{o}{b}\) such that \(\SEGMENT{o}{c} \equiv \SEGMENT{o}{a}\).
 
 \begin{center}
 \begin{tikzpicture}[scale=0.6]
@@ -22,7 +20,7 @@ Then \(\SEGMENT{a_1}{c_1} \equiv \SEGMENT{a_2}{c_2}\) if and only if \(\ANGLE{a_
 \end{tikzpicture}
 \end{center}
 
-\item[PG4.] \textbf{Interleaved Diameters.} Let \(C_1\) and \(C_2\) be circles centered at distinct points \(o_1\) and \(o_2\), respectively.
+\item[PG3.] \textbf{Interleaved Diameters.} Let \(C_1\) and \(C_2\) be circles centered at distinct points \(o_1\) and \(o_2\), respectively.
 Further suppose we have diameters \(\SEGMENT{a_1}{b_1}\) of \(C_1\) and \(\SEGMENT{a_2}{b_2}\) of \(C_2\) such that \(\BETWEEN{a_1}{o_1}{a_2}\) and \(\BETWEEN{a_1}{o_2}{a_2}\).
 Then \(C_1 \cap C_2\) is nonempty if and only if \(\BETWEENS{a_1b_2b_1a_2}\), and in this case \(C_1 \cap C_2\) consists of exactly two points which are on opposite sides of \(\LINE{o_1}{o_2}\).
 
@@ -106,13 +104,9 @@ Note that \(\ANGLE{a_1}{b_1}{c_1} \equiv \ANGLE{a_2}{b_2}{c_2}\), \(\ANGLE{b_1}{
 The result then follows from three applications of \hyperref[prop:sas-theorem]{SAS}.
 \end{proof}
 
-\begin{dfn}[Antipode]
-Let \(a\), \(b\), and \(c\) be points.
-We say that \(c\) is an \emph{antipode}\index{antipode} of \(a\) \emph{through} \(b\) if \(\BETWEEN{a}{b}{c}\) and \(\SEGMENT{a}{b} \equiv \SEGMENT{b}{c}\).
-\end{dfn}
-
 \begin{construct}[Antipode]\label{construct:antipode}
-Given distinct points \(a\) and \(b\), there is a unique point \(c\) such that \(c\) is an antipode of \(a\) through \(b\).
+Given distinct points \(a\) and \(b\), there is a unique point \(c\) such that \(\BETWEEN{a}{b}{c}\) and \(\SEGMENT{a}{b} \equiv \SEGMENT{b}{c}\).
+We say that \(c\) is an \emph{antipode}\index{antipode} of \(a\) \emph{through} \(b\).
 \end{construct}
 
 \begin{proof}
@@ -215,3 +209,23 @@ By AC4, we have \(d \in \RAY{c_1}{a_1}\).
 Now \(d\) is on both \(\LINE{b_1}{a_1}\) and \(\LINE{c_1}{a_1}\), and since \(a_1\), \(b_1\), and \(c_1\) are not collinear, we must have \(d = a_1\).
 So we have \(\TRIANGLE{a_1}{b_1}{c_1} \equiv \TRIANGLE{a_2}{b_2}{c_2}\) as claimed.
 \end{proof}
+
+
+\begin{lem}\label{lem:coinitial-right-angle-congruence}
+If \(\BETWEEN{a}{o}{c}\) and if \(b\) and \(d\) are points on the same side of \(\LINE{a}{c}\) such that \(\ANGLE{b}{o}{c} \equiv \ANGLE{a}{o}{b}\) and \(\ANGLE{d}{o}{c} \equiv \ANGLE{a}{o}{d}\), then \(\ANGLE{b}{o}{c} \equiv \ANGLE{d}{o}{c}\).
+\end{lem}
+
+\begin{proof}
+Note that we can assume that \(\SEGMENT{a}{o} \equiv \SEGMENT{o}{c}\); if not, use Circle Cut to construct \(c'\) on \(\RAY{o}{c}\) with this property.
+Since \(\ANGLE{b}{o}{c}\) is right, we then have \(\ANGLE{a}{o}{b} \equiv \ANGLE{b}{o}{c}\) by definition; thus \(\TRIANGLE{a}{o}{b} \equiv \TRIANGLE{c}{o}{b}\) by SAS.
+In particular, we have \(\ANGLE{b}{a}{o} \equiv \ANGLE{b}{c}{o}\).
+Now there are three possibilities for \(d\): either \(d\) is on \(\LINE{o}{b}\), \(d\) is on the \(a\)-side of \(\LINE{o}{b}\), or \(d\) is on the \(c\)-side of \(\LINE{o}{b}\).
+Suppose \(d\) is on the \(c\)-side of \(\LINE{o}{b}\); the \(a\)-side case is similar.
+By the Crossbar Theorem, \(\RAY{o}{d}\) cuts \(\SEGMENT{b}{c}\) at an interior point \(w\).
+Now \(\TRIANGLE{a}{o}{w} \equiv \TRIANGLE{c}{o}{w}\) again using SAS.
+But now we have \(\ANGLE{w}{a}{o} \equiv \ANGLE{w}{c}{o} \equiv \ANGLE{b}{a}{o}\).
+By AC4, then, we have \(w \in \LINE{a}{b}\) and \(w \in \LINE{b}{c}\); thus \(w = b\).
+In this case we have \(d \in \LINE{o}{b}\), a contradiction.
+Thus \(d \in \RAY{o}{b}\), and we have \(\ANGLE{b}{o}{c} \equiv \ANGLE{d}{o}{c}\).
+\end{proof}
+

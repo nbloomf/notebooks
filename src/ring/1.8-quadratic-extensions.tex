@@ -25,17 +25,18 @@ If \(R\) is unital, then \(\iota\) is unital.
 
 The most important use of quadratic extensions is to construct new domains and fields out of old ones.
 
-\begin{prop} \label{prop:quad-ext-dom} \mbox{}
+\begin{prop} \label{prop:quad-ext-dom}
+Let \(R\) be a ring and \(D \in R\) nonzero.
 \begin{proplist}
-\item If \(R\) is a domain, then \(R[\sqrt{D}]\) is a domain if and only if the equation \(Dy^2 = x^2\) has no nonzero solutions in \(R\).
-\item If \(R\) is a field, then \(R[\sqrt{D}]\) is a field if and only if the equation \(D = x^2\) has no nonzero solutions in \(R\).
+\item If \(R\) is a domain and the equation \(Dy^2 = x^2\) has no nonzero solutions in \(R\), then \(R[\sqrt{D}]\) is a domain.
+\item If \(R\) is a field and the equation \(D = x^2\) has no nonzero solutions in \(R\), then \(R[\sqrt{D}]\) is a field.
 \end{proplist}
 \end{prop}
 
 \begin{proof}
 \begin{inlineproplist}
-\item (@@@)
-\item (@@@)
+\item If \((x,y)\) is such a solution, then \((x,y) \cdot (x,-y) = 0\) and thus \(R\) is not a domain.
+\item Follows because every field is a domain.
 \end{inlineproplist}
 \end{proof}
 
@@ -66,7 +67,7 @@ There are plenty of squarefree integers; in fact these are precisely the integer
 Each such integer yields a different domain \(\ZZ[\sqrt{D}]\) and field \(\QQ[\sqrt{D}]\).
 These rings are particularly nice for a few reasons.
 They are easy to compute in, and while similar to \(\ZZ\) and \(\QQ\), can exhibit wildly different behavior, as we will see in the next chapter.
-
+For now, these will serve as a large class of new examples of domains and fields.
 
 
 
@@ -84,6 +85,7 @@ Let \(R = \ZZ/(3)\).
 \item Show that \(2x^2 = y^2\) has no nonzero solutions in \(R\).
 (Hint: When in doubt, use brute force.)
 \item Conclude that \(R[\sqrt{2}]\) is a field with 9 elements.
+Draw the cayley tables of this field.
 \end{proplist}
 \end{exercise}
 
@@ -95,7 +97,7 @@ Elements of \(\ZZ[\sqrt{-1}]\) are sometimes called \emph{gaussian integers}.
 \end{exercise}
 
 \begin{exercise}
-Show that \(\CHAR{R} = \CHAR{R[\sqrt{D}]}\).
+Show that \(\CHAR{R[\sqrt{D}]} = \CHAR{R}\).
 \end{exercise}
 
 \begin{exercise}
@@ -112,4 +114,9 @@ R \arrow[r,"\varphi"] \arrow[d, "\iota"']    & S \arrow[d, "\iota"] \\
 R[\sqrt{D}] \arrow[r, "\Phi"'] & S[\sqrt{E}]
 \end{tikzcd}
 \end{center}
+\end{exercise}
+
+\begin{exercise}
+Let \(R\) be a ring and \(D,E \in R\).
+Show that \( R[\sqrt{DE^2}] \cong R[\sqrt{D}] \).
 \end{exercise}
