@@ -1,0 +1,140 @@
+Recall that an incidence geometry is called \emph{euclidean} if, given any line \(\ell\) and any point \(p\) not on \(\ell\), there is exactly one line passing through \(p\) which is parallel to \(\ell\).
+So far we have avoided using any assumptions about the uniqueness of parallel lines, and have been able to prove a good number of interesting results.
+We will now specialize to the Euclidean case for a while.
+
+\begin{prop}[Converse of the Alternate Interior Angles Theorem]
+In a Euclidean plane geometry, if two parallel lines are cut by a transversal, then alternate interior angles formed by the cut are congruent.
+\end{prop}
+
+\begin{proof}
+(copy angle, use AIA, use uniqueness.)
+\end{proof}
+
+\begin{prop}
+If \(\ell\) and \(m\) are parallel and \(m\) and \(t\) are parallel, then \(\ell\) and \(t\) are parallel.
+\end{prop}
+
+\begin{proof}
+We can assume that \(\ell\) and \(t\) are distinct (if equal, they are parallel).
+Suppose BWOC that \(\ell\) and \(t\) meet at the unique point \(x\).
+Since \(\ell\) and \(m\) are parallel, \(x\) is not on \(m\).
+By the Euclidean property, there is a unique line \(s\) containing \(x\) which is parallel to \(m\).
+But both \(\ell\) and \(t\) satisfy this condition, and they are distinct - a contradiction.
+\end{proof}
+
+\begin{cor}
+If \(\ell_1\) and \(\ell_2\) are parallel and \(m\) is incident to \(\ell_1\), then \(m\) is incident to \(\ell_2\).
+\end{cor}
+
+\begin{prop}
+If \(\ell_1\) and \(m\) are perpendicular, and if \(\ell_1\) and \(\ell_2\) are parallel, then \(\ell_2\) and \(m\) are perpendicular.
+\end{prop}
+
+\begin{proof}
+If \(\ell_1 = \ell_2\) there's nothing to do.
+Otherwise \(m\) is a transversal and the result follows from the converse of the AIA theorem.
+\end{proof}
+
+\begin{prop}
+If \(\ell_1\) and \(\ell_2\) are parallel, \(m_1\) and \(\ell_1\) are perpendicular, and \(m_2\) and \(\ell_2\) are perpendicular, then \(m_1\) and \(m_2\) are parallel.
+\end{prop}
+
+\begin{proof}
+\(\ell_2\) and \(m_1\) are perpendicular by the converse of AIA, and then \(m_1\) and \(m_2\) are parallel by AIA.
+\end{proof}
+
+\begin{construct}
+Given 3 distinct noncollinear points \(A\), \(B\), and \(C\), there is a unique circle which contains all of them.
+This circle is called the \emph{circumcircle} of \(\TRIANGLE{A}{B}{C}\), and its center is the \emph{circumcenter}.
+\end{construct}
+
+\begin{proof}
+Let \(\ell\) be the perpendicular bisector of \(\SEGMENT{A}{B}\) and let \(m\) be the perpendicular bisector of \(\SEGMENT{B}{C}\).
+Now \(\ell\) and \(m\) must meet, since otherwise \(\LINE{A}{B}\) and \(\LINE{B}{C}\) are parallel (which they aren't, as they meet at the unique point \(B\) (since \(A\), \(B\), and \(C\) are not collinear)).
+Moreover they must meet at a \emph{unique} point, say \(O\), since otherwise we can show that \(A = C\).
+Recall that points \(X\) on the perpendicular bisector of \(\SEGMENT{A}{B}\) have the property that \(\SEGMENT{A}{X} \equiv \SEGMENT{B}{X}\).
+So we have \(\SEGMENT{A}{O} \equiv \SEGMENT{B}{O} \equiv \SEGMENT{C}{O}\), and thus \(\CIRCLE{O}{A}\) contains \(A\), \(B\), and \(C\).
+\end{proof}
+
+\begin{prop} \mbox{}
+\begin{enumerate}
+\item Opposite angles of a parallelogram are congruent.
+\item Opposite sides of a parallelogram are congruent.
+\item The diagonals of a parallelogram bisect each other.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+For the angles, use AIA and converse of AIA.
+For the sides, construct a diagonal and use AAS.
+For the diagonals, use converse of AIA and ASA.
+\end{proof}
+
+\begin{prop}[Thales' Theorem]
+Suppose \(A\) and \(B\) are the opposite endpoints of a diameter of a circle centered at \(O\), and that \(C\) is a point on this circle distinct from \(A\) and \(B\).
+Then \(\ANGLE{A}{C}{B}\) is right.
+Moreover, \(\ANGLE{C}{A}{B}\) is congruent to the bisector of \(\ANGLE{C}{O}{B}\).
+\end{prop}
+
+\begin{proof}
+Construct the point \(D\) on the intersection of \(\CIRCLE{O}{A}\) and \(\LINE{O}{C}\) by the circle separation axiom.
+Now \(\SEGMENT{A}{C} \equiv \SEGMENT{B}{D}\) using SAS, and similarly \(\SEGMENT{C}{B} \equiv \SEGMENT{A}{D}\).
+Now \(\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{B}{A}{D}\) by SSS, so that \(\ANGLE{C}{B}{A} \equiv \ANGLE{D}{A}{B}\).
+Thus \(\LINE{B}{C}\) and \(\LINE{A}{D}\) are parallel by AIA.
+Now \(\TRIANGLE{B}{A}{C} \equiv \TRIANGLE{D}{C}{A}\) by SSS, so that \(\ANGLE{B}{C}{A} \equiv \ANGLE{D}{A}{C}\).
+Now \(\ANGLE{D}{A}{C}\) and \(\ANGLE{B}{C}{A}\) are supplementary by the converse of AIA.
+So \(\ANGLE{B}{C}{A}\) is right.
+
+Now let \(M\) be the point on \(\SEGMENT{B}{C}\) such that \(\RAY{O}{M}\) bisects \(\ANGLE{C}{O}{B}\).
+(Use crossbar.)
+We have \(\ANGLE{O}{C}{B} \equiv \ANGLE{O}{B}{C}\) by Pons Asinorum, so that \(\ANGLE{O}{M}{C} \equiv \ANGLE{O}{M}{B}\) by ASA.
+Thus \(\ANGLE{C}{M}{O}\) is right.
+By AIA, \(\LINE{O}{M}\) is parallel to \(\LINE{A}{C}\).
+By the converse of AIA, \(\ANGLE{O}{C}{A} \equiv \ANGLE{C}{O}{M}\), and \(\ANGLE{C}{A}{O} \equiv \ANGLE{C}{O}{M}\) by Pons Asinorum.
+\end{proof}
+
+\begin{prop}[Converse of Thales' Theorem]
+Let \(A\), \(B\), and \(C\) be distinct points.
+If \(\ANGLE{A}{C}{B}\) is right, then \(C\) is on the circle centered at the midpoint of \(A\) and \(B\) and passing through \(A\).
+\end{prop}
+
+\begin{proof}
+Let \(M\) be the midpoint of \(A\) and \(B\), and copy \(\SEGMENT{M}{C}\) to the other side of \(M\) at \(D\) by circle separation.
+Now \(\SEGMENT{B}{C} \equiv \SEGMENT{A}{D}\) by SAS, and similarly \(\SEGMENT{A}{C} \equiv \SEGMENT{B}{D}\).
+So \(\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{B}{A}{D}\) by SSS.
+Now \(\LINE{B}{C}\) is parallel to \(\LINE{A}{D}\) by AIA, and so \(\ANGLE{C}{A}{D} \equiv \ANGLE{A}{C}{B}\) using the converse of AIA.
+Now \(\TRIANGLE{C}{A}{D} \equiv \TRIANGLE{A}{C}{B}\) by SAS, so that \(\SEGMENT{A}{B} \equiv \SEGMENT{C}{D}\).
+Thus \(\SEGMENT{A}{M} \equiv \SEGMENT{C}{M}\).
+\end{proof}
+
+(Here we used a lemma that if two segments are congruent, then their midsegments are congruent.)
+
+\begin{construct}
+Given a circle \(\CIRCLE{O}{A}\) and a point \(B\) exterior to this circle, there exist two lines which are tangent to \(\CIRCLE{O}{A}\) and which pass through \(B\).
+\end{construct}
+
+\begin{proof}
+Construct the midpoint \(M\) of \(\SEGMENT{B}{O}\), and construct circle centered at \(M\) and passing through \(O\).
+By the circle cut axiom, \(\CIRCLE{M}{O} \cap \CIRCLE{O}{A}\) contains exactly two points, \(X\) and \(Y\).
+Note that \(\ANGLE{O}{X}{B}\) and \(\ANGLE{O}{Y}{B}\) are inscribed on the diameter of a circle, and thus are right; so \(\LINE{B}{X}\) and \(\LINE{B}{Y}\) are tangent to \(\CIRCLE{O}{A}\).
+
+(still have to prove these are the only two.)
+\end{proof}
+
+\begin{prop}[Inscribed Angle Theorem]
+Let \(A\) and \(B\) be distinct points on a circle centered at \(O\).
+If \(C\) is a point on \(C\) such that \(C\) and \(O\) are on the same side of \(\LINE{A}{B}\), then \(\ANGLE{A}{C}{B}\) is congruent to a bisector of \(\ANGLE{A}{O}{B}\).
+In particular, any two such points form congruent angles.
+\end{prop}
+
+\subsection*{Altitudes and the Orthocenter}
+
+\begin{dfn}
+Let \(A\), \(B\), and \(C\) be distinct noncollinear points, and let \(F\) be the foot of \(A\) on \(\LINE{B}{C}\).
+Then \(\SEGMENT{A}{F}\) is called an \emph{altitude} of \(\TRIANGLE{A}{B}{C}\).
+\end{dfn}
+
+\begin{prop}[Orthocenter Theorem]
+Let \(A\), \(B\), and \(C\) be distinct noncollinear points.
+Then the lines containing the three altitudes of \(\TRIANGLE{A}{B}{C}\) are concurrent at a point \(O\), called the \emph{orthocenter} of \(\TRIANGLE{A}{B}{C}\).
+\end{prop}
