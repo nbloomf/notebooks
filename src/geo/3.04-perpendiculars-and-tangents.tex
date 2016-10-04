@@ -73,13 +73,15 @@ Suppose \(\ell\) is tangent to \(C\) at \(p\).
 If \(o \in \ell\), then \(\ell \cap C\) contains a second point by Circle Separation; so in fact \(o\) is not on \(\ell\).
 Let \(f\) be the foot of \(o\) on \(\ell\).
 If \(f \neq p\), then \(o\), \(f\), and \(p\) are noncollinear and form a triangle.
-Since \(\SEGMENT{o}{p} \equiv \SEGMENT{o}{f}\) and \(\ANGLE{o}{f}{p}\) is right, \(\ANGLE{o}{p}{f}\) is also right by Pons Asinorum.
-But no triangle can have two right interior angles.
+Now construct the antipode of \(p\) through \(f\) at \(q\).
+Note that \(\TRIANGLE{o}{p}{f} \equiv \TRIANGLE{o}{q}{f}\) by SAS, so that \(\SEGMENT{o}{p} \equiv \SEGMENT{o}{q}\).
+In particular, \(q\) is a second point in the intersection of \(\ell\) and \(C\), a contradiction.
+Thus \(f = p\) as needed.
 
 Conversely, suppose \(\ell\) does not contain \(o\) and that the foot \(f\) of \(o\) on \(\ell\) is on \(C\).
 Suppose BWOC that there is a second point \(g \in \ell \cap C\).
 Now \(o\), \(f\), and \(g\) are noncollinear, and \(\SEGMENT{o}{f} \equiv \SEGMENT{o}{g}\), and \(\ANGLE{o}{f}{g}\) is right (by the definition of foot).
-So \(\ANGLE{o}{g}{f}\) is right by Pons Asinorum, again a contradiction.
+So \(\ANGLE{o}{g}{f}\) is right by Pons Asinorum, a contradiction since no triangle can have two interior angles which are both right.
 So \(C \cap \ell\) contains exactly one point as needed.
 \end{proof}
 
