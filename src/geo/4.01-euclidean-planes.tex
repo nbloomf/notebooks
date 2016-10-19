@@ -44,24 +44,27 @@ If \(\ell_1\) and \(\ell_2\) are parallel, \(m_1\) and \(\ell_1\) are perpendicu
 \end{proof}
 
 \begin{construct}
-Given 3 distinct noncollinear points \(A\), \(B\), and \(C\), there is a unique circle which contains all of them.
-This circle is called the \emph{circumcircle} of \(\TRIANGLE{A}{B}{C}\), and its center is the \emph{circumcenter}.
+Let \(a\), \(b\), and \(c\) be distinct noncollinear points.
+Then the perpendicular bisectors of \(\SEGMENT{a}{b}\), \(\SEGMENT{b}{c}\), and \(\SEGMENT{c}{a}\) are concurrent at a point \(o\), called the \emph{circumcenter}\index{circumcenter} of \(a\), \(b\), and \(c\).
+Moreover, \(\CIRCLE{o}{a}\) contains all of \(a\), \(b\), and \(c\) and is unique with this property; this circle is called the \emph{circumcircle}\index{circumcircle} of \(\TRIANGLE{a}{b}{c}\).
 \end{construct}
 
 \begin{proof}
-Let \(\ell\) be the perpendicular bisector of \(\SEGMENT{A}{B}\) and let \(m\) be the perpendicular bisector of \(\SEGMENT{B}{C}\).
-Now \(\ell\) and \(m\) must meet, since otherwise \(\LINE{A}{B}\) and \(\LINE{B}{C}\) are parallel (which they aren't, as they meet at the unique point \(B\) (since \(A\), \(B\), and \(C\) are not collinear)).
-Moreover they must meet at a \emph{unique} point, say \(O\), since otherwise we can show that \(A = C\).
-Recall that points \(X\) on the perpendicular bisector of \(\SEGMENT{A}{B}\) have the property that \(\SEGMENT{A}{X} \equiv \SEGMENT{B}{X}\).
-So we have \(\SEGMENT{A}{O} \equiv \SEGMENT{B}{O} \equiv \SEGMENT{C}{O}\), and thus \(\CIRCLE{O}{A}\) contains \(A\), \(B\), and \(C\).
+Let \(\ell\) be the perpendicular bisector of \(\SEGMENT{a}{b}\) and let \(m\) be the perpendicular bisector of \(\SEGMENT{b}{c}\).
+Now \(\ell\) and \(m\) must be incident at a unique point \(o\), since otherwise \(\LINE{a}{b}\) and \(\LINE{b}{c}\) are parallel (which they aren't, as they meet at the unique point \(b\) (since \(a\), \(b\), and \(c\) are not collinear)).
+Recall that all points \(x\) on the perpendicular bisector of \(\SEGMENT{a}{b}\) have the property that \(\SEGMENT{a}{x} \equiv \SEGMENT{b}{x}\).
+So we have \(\SEGMENT{a}{o} \equiv \SEGMENT{b}{o} \equiv \SEGMENT{c}{o}\).
+Thus \(o\) is also on the perpendicular bisector of \(\SEGMENT{c}{a}\), and moreover \(\CIRCLE{o}{a}\) contains \(a\), \(b\), and \(c\).
+
+To see uniqueness, note that the center of any circle containing all of \(a\), \(b\), and \(c\) must be on the perpendicular bisectors of \(\SEGMENT{a}{b}\), \(\SEGMENT{b}{c}\), and \(\SEGMENT{c}{a}\).
 \end{proof}
 
 \begin{prop} \mbox{}
-\begin{enumerate}
+\begin{proplist}
 \item Opposite angles of a parallelogram are congruent.
 \item Opposite sides of a parallelogram are congruent.
 \item The diagonals of a parallelogram bisect each other.
-\end{enumerate}
+\end{proplist}
 \end{prop}
 
 \begin{proof}
@@ -71,70 +74,104 @@ For the diagonals, use converse of AIA and ASA.
 \end{proof}
 
 \begin{prop}[Thales' Theorem]
-Suppose \(A\) and \(B\) are the opposite endpoints of a diameter of a circle centered at \(O\), and that \(C\) is a point on this circle distinct from \(A\) and \(B\).
-Then \(\ANGLE{A}{C}{B}\) is right.
-Moreover, \(\ANGLE{C}{A}{B}\) is congruent to the bisector of \(\ANGLE{C}{O}{B}\).
+Suppose \(a\) and \(b\) are the opposite endpoints of a diameter of a circle centered at \(o\), and that \(c\) is a point on this circle distinct from \(a\) and \(b\).
+Then \(\ANGLE{a}{c}{b}\) is right.
+Moreover, \(\ANGLE{c}{a}{b}\) is congruent to the bisector of \(\ANGLE{c}{o}{b}\).
 \end{prop}
 
 \begin{proof}
-Construct the point \(D\) on the intersection of \(\CIRCLE{O}{A}\) and \(\LINE{O}{C}\) by the circle separation axiom.
-Now \(\SEGMENT{A}{C} \equiv \SEGMENT{B}{D}\) using SAS, and similarly \(\SEGMENT{C}{B} \equiv \SEGMENT{A}{D}\).
-Now \(\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{B}{A}{D}\) by SSS, so that \(\ANGLE{C}{B}{A} \equiv \ANGLE{D}{A}{B}\).
-Thus \(\LINE{B}{C}\) and \(\LINE{A}{D}\) are parallel by AIA.
-Now \(\TRIANGLE{B}{A}{C} \equiv \TRIANGLE{D}{C}{A}\) by SSS, so that \(\ANGLE{B}{C}{A} \equiv \ANGLE{D}{A}{C}\).
-Now \(\ANGLE{D}{A}{C}\) and \(\ANGLE{B}{C}{A}\) are supplementary by the converse of AIA.
-So \(\ANGLE{B}{C}{A}\) is right.
+Construct the second point \(d\) on the intersection of \(\CIRCLE{o}{a}\) and \(\LINE{o}{c}\) using Circle Cut.
+Now \(\SEGMENT{a}{c} \equiv \SEGMENT{b}{d}\) using SAS, and similarly \(\SEGMENT{c}{b} \equiv \SEGMENT{a}{d}\).
+Now \(\TRIANGLE{a}{b}{c} \equiv \TRIANGLE{b}{a}{d}\) by SSS, so that \(\ANGLE{c}{b}{a} \equiv \ANGLE{d}{a}{b}\).
+Thus \(\LINE{b}{c}\) and \(\LINE{a}{d}\) are parallel by AIA.
+Now \(\TRIANGLE{b}{a}{c} \equiv \TRIANGLE{d}{c}{a}\) by SSS, so that \(\ANGLE{b}{c}{a} \equiv \ANGLE{d}{a}{c}\).
+Now \(\ANGLE{d}{a}{c}\) and \(\ANGLE{b}{c}{a}\) are supplementary by the converse of AIA.
+So \(\ANGLE{b}{c}{a}\) is right.
 
-Now let \(M\) be the point on \(\SEGMENT{B}{C}\) such that \(\RAY{O}{M}\) bisects \(\ANGLE{C}{O}{B}\).
+Now let \(m\) be the point on \(\SEGMENT{b}{c}\) such that \(\RAY{o}{m}\) bisects \(\ANGLE{c}{o}{b}\).
 (Use crossbar.)
-We have \(\ANGLE{O}{C}{B} \equiv \ANGLE{O}{B}{C}\) by Pons Asinorum, so that \(\ANGLE{O}{M}{C} \equiv \ANGLE{O}{M}{B}\) by ASA.
-Thus \(\ANGLE{C}{M}{O}\) is right.
-By AIA, \(\LINE{O}{M}\) is parallel to \(\LINE{A}{C}\).
-By the converse of AIA, \(\ANGLE{O}{C}{A} \equiv \ANGLE{C}{O}{M}\), and \(\ANGLE{C}{A}{O} \equiv \ANGLE{C}{O}{M}\) by Pons Asinorum.
+We have \(\ANGLE{o}{c}{b} \equiv \ANGLE{o}{b}{c}\) by Pons Asinorum, so that \(\ANGLE{o}{m}{c} \equiv \ANGLE{o}{m}{b}\) by ASA.
+Thus \(\ANGLE{c}{m}{o}\) is right.
+By AIA, \(\LINE{o}{m}\) is parallel to \(\LINE{a}{c}\).
+By the converse of AIA, \(\ANGLE{o}{c}{a} \equiv \ANGLE{c}{o}{m}\), and \(\ANGLE{c}{a}{o} \equiv \ANGLE{c}{o}{m}\) by Pons Asinorum.
 \end{proof}
 
 \begin{prop}[Converse of Thales' Theorem]
-Let \(A\), \(B\), and \(C\) be distinct points.
-If \(\ANGLE{A}{C}{B}\) is right, then \(C\) is on the circle centered at the midpoint of \(A\) and \(B\) and passing through \(A\).
+Let \(a\), \(b\), and \(c\) be distinct noncollinear points and let \(m\) be the midpoint of \(\SEGMENT{a}{b}\).
+If \(\ANGLE{a}{c}{b}\) is right, then \(c\) lies on \(\CIRCLE{m}{a}\).
 \end{prop}
 
 \begin{proof}
-Let \(M\) be the midpoint of \(A\) and \(B\), and copy \(\SEGMENT{M}{C}\) to the other side of \(M\) at \(D\) by circle separation.
-Now \(\SEGMENT{B}{C} \equiv \SEGMENT{A}{D}\) by SAS, and similarly \(\SEGMENT{A}{C} \equiv \SEGMENT{B}{D}\).
-So \(\TRIANGLE{A}{B}{C} \equiv \TRIANGLE{B}{A}{D}\) by SSS.
-Now \(\LINE{B}{C}\) is parallel to \(\LINE{A}{D}\) by AIA, and so \(\ANGLE{C}{A}{D} \equiv \ANGLE{A}{C}{B}\) using the converse of AIA.
-Now \(\TRIANGLE{C}{A}{D} \equiv \TRIANGLE{A}{C}{B}\) by SAS, so that \(\SEGMENT{A}{B} \equiv \SEGMENT{C}{D}\).
-Thus \(\SEGMENT{A}{M} \equiv \SEGMENT{C}{M}\).
+Construct the antipode \(d\) of \(c\) through \(m\).
+Now \(\SEGMENT{b}{c} \equiv \SEGMENT{a}{d}\) by SAS, and similarly \(\SEGMENT{a}{c} \equiv \SEGMENT{b}{d}\).
+So \(\TRIANGLE{a}{b}{c} \equiv \TRIANGLE{b}{a}{d}\) by SSS.
+Now \(\LINE{b}{c}\) is parallel to \(\LINE{a}{d}\) by AIA, and so \(\ANGLE{c}{a}{d} \equiv \ANGLE{a}{c}{b}\) using the converse of AIA.
+Now \(\TRIANGLE{c}{a}{d} \equiv \TRIANGLE{a}{c}{b}\) by SAS, so that \(\SEGMENT{a}{b} \equiv \SEGMENT{c}{d}\).
+Thus \(\SEGMENT{a}{m} \equiv \SEGMENT{c}{m}\).
 \end{proof}
 
 (Here we used a lemma that if two segments are congruent, then their midsegments are congruent.)
 
-\begin{construct}
-Given a circle \(\CIRCLE{O}{A}\) and a point \(B\) exterior to this circle, there exist two lines which are tangent to \(\CIRCLE{O}{A}\) and which pass through \(B\).
+\begin{construct}[Tangent through an exterior point.]
+Given a circle \(\CIRCLE{o}{a}\) and a point \(b\) exterior to this circle, there exist two lines which are tangent to \(\CIRCLE{o}{a}\) and which pass through \(b\).
 \end{construct}
 
 \begin{proof}
-Construct the midpoint \(M\) of \(\SEGMENT{B}{O}\), and construct circle centered at \(M\) and passing through \(O\).
-By the circle cut axiom, \(\CIRCLE{M}{O} \cap \CIRCLE{O}{A}\) contains exactly two points, \(X\) and \(Y\).
-Note that \(\ANGLE{O}{X}{B}\) and \(\ANGLE{O}{Y}{B}\) are inscribed on the diameter of a circle, and thus are right; so \(\LINE{B}{X}\) and \(\LINE{B}{Y}\) are tangent to \(\CIRCLE{O}{A}\).
+Construct the midpoint \(m\) of \(\SEGMENT{b}{o}\), and construct circle centered at \(m\) and passing through \(o\).
+By the Interleaved Diameters axiom, \(\CIRCLE{m}{o} \cap \CIRCLE{o}{a}\) contains exactly two points, \(x\) and \(y\).
+Note that \(\ANGLE{o}{x}{b}\) and \(\ANGLE{o}{y}{b}\) are inscribed on the diameter of a circle, and thus are right; so \(\LINE{b}{x}\) and \(\LINE{b}{y}\) are tangent to \(\CIRCLE{o}{a}\).
 
-(still have to prove these are the only two.)
+Suppose now that there is a third point \(z\) on \(\CIRCLE{o}{a}\), different from \(x\) and \(y\), such that \(\ANGLE{o}{z}{b}\) is right.
+By the HL Theorem, we have \(\TRIANGLE{o}{x}{b} \equiv \TRIANGLE{o}{y}{b} \equiv \TRIANGLE{o}{z}{b}\).
+In particular, \(\ANGLE{x}{o}{b} \equiv \ANGLE{y}{o}{b} \equiv \ANGLE{z}{o}{b}\).
+But now \(z\) is on either the \(x\) side or the \(y\) side of \(\LINE{o}{b}\) (it cannot be on \(\LINE{o}{b}\) since that line is not tangent to \(\CIRCLE{o}{a}\)).
+By the uniqueness of angles on a half-plane, either \(x = z\) or \(y = z\).
 \end{proof}
 
 \begin{prop}[Inscribed Angle Theorem]
-Let \(A\) and \(B\) be distinct points on a circle centered at \(O\).
-If \(C\) is a point on \(C\) such that \(C\) and \(O\) are on the same side of \(\LINE{A}{B}\), then \(\ANGLE{A}{C}{B}\) is congruent to a bisector of \(\ANGLE{A}{O}{B}\).
+Let \(a\), \(b\), and \(o\) be distinct noncollinear points with \(\SEGMENT{a}{o} \equiv \SEGMENT{b}{o}\).
+If \(c\) is a point on \(\CIRCLE{o}{a}\) such that \(c\) and \(o\) are on the same side of \(\LINE{a}{b}\), then \(\ANGLE{a}{c}{b}\) is congruent to a bisector of \(\ANGLE{a}{o}{b}\).
 In particular, any two such points form congruent angles.
 \end{prop}
+
+\begin{proof}
+(@@@)
+\end{proof}
 
 \subsection*{Altitudes and the Orthocenter}
 
 \begin{dfn}
-Let \(A\), \(B\), and \(C\) be distinct noncollinear points, and let \(F\) be the foot of \(A\) on \(\LINE{B}{C}\).
-Then \(\SEGMENT{A}{F}\) is called an \emph{altitude} of \(\TRIANGLE{A}{B}{C}\).
+Let \(a\), \(b\), and \(c\) be distinct noncollinear points, and let \(f\) be the foot of \(a\) on \(\LINE{b}{c}\).
+Then \(\SEGMENT{a}{f}\) is called an \emph{altitude}\index{altitude!of a triangle} of \(\TRIANGLE{a}{b}{c}\).
 \end{dfn}
 
 \begin{prop}[Orthocenter Theorem]
-Let \(A\), \(B\), and \(C\) be distinct noncollinear points.
-Then the lines containing the three altitudes of \(\TRIANGLE{A}{B}{C}\) are concurrent at a point \(O\), called the \emph{orthocenter} of \(\TRIANGLE{A}{B}{C}\).
+Let \(a\), \(b\), and \(c\) be distinct noncollinear points.
+Then the lines containing the three altitudes of \(\TRIANGLE{a}{b}{c}\) are concurrent at a point \(o\), called the \emph{orthocenter}\index{orthocenter} of \(\TRIANGLE{a}{b}{c}\).
 \end{prop}
+
+\begin{proof}
+Construct the feet \(f_a\), \(f_b\), and \(f_c\) of \(a\), \(b\), and \(c\) on \(\SEGMENT{b}{c}\), \(\SEGMENT{a}{c}\), and \(\SEGMENT{a}{b}\), respectively.
+Let \(\ell_a\) be the (unique) line passing through \(a\) and parallel to \(\LINE{b}{c}\); similarly, construct lines \(\ell_b\) and \(\ell_c\) passing through \(b\) and \(c\) and parallel to \(\LINE{a}{c}\) and \(\LINE{a}{b}\).
+Note that \(\ell_a\) and \(\ell_b\) are incident at a point \(c^\prime\).
+Similarly, \(\ell_a\) and \(\ell_c\) are incident at \(b^\prime\) and \(\ell_b\) and \(\ell_c\) are incident at \(a^\prime\).
+Note that \(\SEGMENT{c^\prime}{a}\) and \(\SEGMENT{b}{c}\) are opposite sides of a parallelogram, and thus congruent; similarly we have \(\SEGMENT{a}{b^\prime} \equiv \SEGMENT{b}{c}\).
+In particular, \(\LINE{a}{f_a}\) is the perpendicular bisector of \(\SEGMENT{b^\prime}{c^\prime}\).
+Similarly, \(\LINE{b}{f_b}\) is the perpendicular bisector of \(\SEGMENT{a^\prime}{c^\prime}\) and \(\LINE{c}{f_c}\) the perpendicular bisector of \(\SEGMENT{a^\prime}{b^\prime}\).
+That is, the lines containing the altitudes of \(\TRIANGLE{a}{b}{c}\) are the perpendicular bisectors of the sides of \(\TRIANGLE{a^\prime}{b^\prime}{c^\prime}\), and thus are concurrent.
+\end{proof}
+
+\subsection*{Medians and the Centroid}
+
+\begin{prop}
+Let \(a\), \(b\), and \(c\) be distinct noncollinear points.
+Let \(m\) be the midpoint of \(\SEGMENT{a}{b}\), and let \(n\) be the midpoint of \(\SEGMENT{a}{c}\).
+Finally, let \(\ell\) be the line parallel to \(\LINE{a}{b}\) through \(n\) and \(t\) the line parallel to \(\LINE{a}{c}\) through \(m\).
+Then \(\ell\) and \(m\) meet at the midpoint of \(\SEGMENT{b}{c}\) and \(\LINE{m}{n}\) is parallel to \(\LINE{b}{c}\).
+\end{prop}
+
+\begin{proof}
+Let \(p\) be the point of intersection of \(\ell\) and \(t\).
+Use converse of AIA, then triangle congruence, then converse of AIA again.
+Show that \(\LINE{p}{b}\) and \(\LINE{p}{c}\) are both parallel to \(\LINE{m}{n}\).
+\end{proof}
