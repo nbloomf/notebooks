@@ -172,6 +172,84 @@ Then \(\ell\) and \(m\) meet at the midpoint of \(\SEGMENT{b}{c}\) and \(\LINE{m
 
 \begin{proof}
 Let \(p\) be the point of intersection of \(\ell\) and \(t\).
-Use converse of AIA, then triangle congruence, then converse of AIA again.
-Show that \(\LINE{p}{b}\) and \(\LINE{p}{c}\) are both parallel to \(\LINE{m}{n}\).
+Now \(\ANGLE{m}{n}{a} \equiv \ANGLE{n}{m}{p}\) by the converse of AIA; similarly \(\ANGLE{n}{m}{a} \equiv \ANGLE{m}{n}{p}\).
+Then \(\TRIANGLE{a}{m}{n} \equiv \TRIANGLE{p}{n}{m}\) by ASA.
+In particular we have \(\SEGMENT{m}{p} \equiv \SEGMENT{a}{n}\) and \(\SEGMENT{n}{p} \equiv \SEGMENT{a}{m}\).
+Next, using the converse of AIA and the Vertical Angles theorem, we have \(\ANGLE{m}{a}{n} \equiv \ANGLE{b}{m}{p}\) and \(\ANGLE{m}{a}{n} \equiv \ANGLE{p}{n}{c}\).
+By SAS we have \(\TRIANGLE{b}{m}{p} \equiv \TRIANGLE{m}{a}{n} \equiv \TRIANGLE{p}{n}{c}\).
+Using AIA, then, we have that \(\LINE{b}{p}\) and \(\LINE{p}{c}\) are both parallel to \(\LINE{m}{n}\); by the uniqueness of parallel lines through a point, in face \(b\), \(p\), and \(c\) are collinear, and we see that \(p\) is the midpoint of \(\SEGMENT{b}{c}\) as needed.
+\end{proof}
+
+\begin{lem}\label{lem:parallel-bisector}
+Let \(a\), \(b\), and \(c\) be distinct collinear points, and \(a\), \(e\), and \(d\) distinct collinear points such that \(e\) is the midpoint of \(\SEGMENT{a}{d}\).
+Then \(\LINE{b}{e}\) is parallel to \(\LINE{c}{d}\) if and only if \(\SEGMENT{a}{b} \equiv \SEGMENT{b}{c}\).
+\end{lem}
+
+\begin{proof}
+Follows from the previous result.
+\end{proof}
+
+\begin{cor}
+Let \(a\), \(b\), and \(c\) be distinct noncollinear points.
+Then the medians of \(\TRIANGLE{a}{b}{c}\) are concurrent at a point \(o\), called the \emph{centroid}\index{centroid} of \(\TRIANGLE{a}{b}{c}\).
+\end{cor}
+
+\begin{proof}
+Let \(m\) be the midpoint of \(\SEGMENT{a}{b}\) and \(n\) the midpoint of \(\SEGMENT{a}{c}\).
+By the previous proposition, \(\LINE{m}{n}\) is parallel to \(\LINE{b}{c}\).
+Now let \(o\) be the point of concurrency of \(\SEGMENT{b}{n}\) and \(\SEGMENT{c}{m}\), and using the Crossbar Theorem let \(t\) be the point on \(\SEGMENT{b}{c}\) which is also on \(\RAY{a}{o}\).
+We need to show that \(t\) is the midpoint of \(\SEGMENT{b}{c}\).
+To this end, construct the line parallel to \(\LINE{b}{m}\) through \(c\), and let \(h\) be the point where this line cuts \(\LINE{a}{o}\).
+By the previous lemma, \(o\) is the midpoint of \(\SEGMENT{a}{h}\).
+Again using the previous lemma, \(\LINE{b}{h}\) is parallel to \(\LINE{c}{n}\).
+In particular, \(b\), \(h\), \(c\), \(o\) form a parallelogram whose diagonals meet at \(t\).
+Thus \(t\) is the midpoint of \(\SEGMENT{b}{c}\).
+\end{proof}
+
+\begin{prop}[Centroid Trisection]
+
+\end{prop}
+
+\begin{prop}[Euler Line]
+Let \(a\), \(b\), and \(c\) be distinct noncollinear points.
+Then the orthocenter, centroid, and circumcenter of \(\TRIANGLE{a}{b}{c}\) are collinear.
+The line containing these three points is called the \emph{euler line} of \(\TRIANGLE{a}{b}{c}\).
+\end{prop}
+
+\begin{proof}
+Let \(o\) be the orthocenter and \(d\) the centroid of \(\TRIANGLE{a}{b}{c}\).
+Let \(m\) be the midpoint of \(\SEGMENT{o}{d}\), and construct the antipode of \(m\) through \(d\) at \(p\).
+We claim that \(p\) lies on the perpendicular bisector of \(\SEGMENT{b}{c}\).
+To this end, let \(m_a\) be the midpoint of \(\SEGMENT{b}{c}\).
+Note that \(\SEGMENT{m}{d} \equiv \SEGMENT{d}{p}\) by construction.
+Now constuct the parallel to \(\LINE{a}{o}\) through \(m\), cutting \(\LINE{a}{d}\) at \(h\).
+By the lemma, since \(\SEGMENT{o}{m} \equiv \SEGMENT{m}{d}\) we have \(\SEGMENT{a}{h} \equiv \SEGMENT{h}{d}\).
+By the Centroid Trisection theorem we have \(\SEGMENT{h}{d} \equiv \SEGMENT{d}{m_a}\).
+Note that \(\ANGLE{h}{d}{o} \equiv \ANGLE{m_a}{d}{p}\), and by SAS, \(\TRIANGLE{h}{d}{o} \equiv \TRIANGLE{m_a}{d}{p}\).
+Thus \(\ANGLE{m}{h}{d} \equiv \ANGLE{m_a}{p}{d}\).
+By AIA, we have \(\LINE{p}{m_a}\) parallel to \(\LINE{h}{m}\), so that \(\LINE{p}{m_a}\) is the perpendicular bisector of \(\SEGMENT{b}{c}\).
+That is, \(p\) lies on the perpendicular bisector of \(\SEGMENT{b}{c}\).
+Similar reasoning shows that \(p\) lies on the perpendicular bisectors of \(\SEGMENT{a}{b}\) and \(\SEGMENT{a}{c}\) as well; thus \(p\) is the circumcenter of \(\TRIANGLE{a}{b}{c}\).
+In particular, the orthocenter, centroid, and circumcenter of \(\TRIANGLE{a}{b}{c}\) are collinear.
+\end{proof}
+
+
+\begin{prop}[9 Point Circle]
+Let \(a\), \(b\), and \(c\) be distinct noncollinear points, and let \(o\) be the orthocenter of \(\TRIANGLE{a}{b}{c}\).
+Then the following points all lie on a common circle:
+\begin{proplist}
+\item The midpoints \(m_a\), \(m_b\), and \(m_c\) of \(\SEGMENT{b}{c}\), \(\SEGMENT{a}{c}\), and \(\SEGMENT{a}{b}\),
+\item The feet \(h_a\), \(h_b\), and \(h_c\) of \(a\) on \(\LINE{b}{c}\), \(b\) on \(\LINE{a}{c}\), and \(c\) on \(\LINE{a}{b}\), and
+\item The midpoints \(n_a\), \(n_b\), and \(n_c\) of \(\SEGMENT{a}{o}\), \(\SEGMENT{b}{o}\), and \(\SEGMENT{c}{o}\).
+\end{proplist}
+\end{prop}
+
+\begin{proof}
+Note that \(\LINE{m_b}{m_c}\) is parallel to \(\LINE{b}{c}\), which is parallel to \(\LINE{n_b}{n_c}\) using \lemref{lem:parallel-bisector}.
+Similarly, we have \(\LINE{n_b}{m_c}\) parallel to \(\LINE{a}{o}\) parallel to \(\LINE{n_c}{m_b}\).
+Since \(\LINE{b}{c}\) is perpendicular to \(\LINE{a}{o}\), in fact \(m_c\), \(m_b\), \(n_c\), and \(n_b\) form a rectangle.
+Thus \(m_c\), \(m_b\), \(n_c\), and \(n_b\) lie on a common circle having diameters \(\SEGMENT{m_b}{n_b}\) and \(\SEGMENT{m_c}{n_c}\).
+By similar reasoning, \(m_c\), \(m_a\), \(n_c\), and \(n_a\) lie on a common circle having diameters \(\SEGMENT{m_a}{n_a}\) and \(\SEGMENT{m_c}{n_c}\).
+Because every segment is the diameter of a unique circle, in fact all six points \(m_i\) and \(n_i\) lie on a common circle.
+By the converse of Thales' Theorem, \(h_a\), \(h_b\), and \(h_c\) also lie on this circle as claimed.
 \end{proof}
