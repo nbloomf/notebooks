@@ -1,0 +1,240 @@
+\section{Rings and Fields}
+
+Several of the kinds of objects which we encounter in elementary algebra - such as polynomials, rational functions, and matrices - satisfy a kind of ``arithmetic'' analogous to the usual integer arithmetic. Experience shows that whenever we find common behavior like this it is frequently useful to \emph{abstract it out}. With this in mind and inspired by integer arithmetic, we define a kind of structure called a \emph{ring} as follows.
+
+\begin{dfn}[Ring with identity]
+\label{dfn:ring}
+Let $R$ be a set, let $+$ and $\cdot$ be binary operations on $R$, and let $0$ and $1$ be elements of $R$. We say that $(R,+,\cdot,0,1)$ is a \emph{ring with identity} if the following axioms are satisfied.
+\begin{enumerate*}
+\item[(A)] $(R,+,0)$ is an abelian group. That is,
+\begin{enumerate*}
+\item[(A.1)] For all $x,y,z \in R$ we have $(x+y)+z = x+(y+z)$.
+\item[(A.2)] For all $x \in R$ we have $x+0 = 0+x = x$.
+\item[(A.3)] For each $x \in R$, there is an element $-x \in R$ such that $x + (-x) = (-x) + x = 0$.
+\item[(A.4)] For all $x,y \in R$ we have $x+y = y+x$.
+\end{enumerate*}
+\item[(B)] $(R,\cdot,1)$ is a commutative monoid. That is,
+\begin{enumerate*}
+\item[(B.1)] For all $x,y,z \in R$ we have $(x \cdot y) \cdot z = x \cdot (y \cdot z)$.
+\item[(B.2)] For all $x \in R$ we have $1 \cdot x = x \cdot 1 = x$.
+\end{enumerate*}
+\item[(C)] For all $x,y,z \in R$ we have $x \cdot (y+z) = (x \cdot y) + (x \cdot z)$ and $(y+z)\cdot x = (y \cdot x) + (z \cdot x)$.
+\end{enumerate*}
+We say that $R$ is \emph{commutative} if, in addition,
+\begin{enumerate*}
+\item[(D)] For all $x,y \in R$ we have $x \cdot y = y \cdot x$.
+\end{enumerate*}
+\end{dfn}
+
+Our most basic and familiar example of a ring is the ring of integers, $\mathbb{Z}$, under the usual plus and times. Borrowing some language from this example we refer to the $+$ operation on a ring as \emph{addition} and the $\cdot$ operation as \emph{multiplication}, to the elements $0$ and $1$ as \emph{zero} and \emph{one}, respectively, and to $-x$ as a \emph{negative} of $x$. Also, to save space we will typically indicate multiplication by juxtaposition (e.g. by writing $xy=yx$ rather than $x \cdot y = y \cdot x$) and declare that multiplication has precedence over addition (e.g. by writing $xy + z$ rather than $(xy)+z$). In general, rings can be very different from our basic example $\mathbb{Z}$. However, as the next two results show several comforting facts are straightforward consequences of the definition.
+
+\begin{prp}
+\label{prp:ring:uniq}
+Let $R$ be a ring. Then zero, one, and negatives are unique in the following sense.
+\begin{enumerate*}
+\item{\label{prp:ring:uniq:zero}} 
+If $z \in R$ such that $x+z=x$ for some $x \in R$, then $z = 0$.
+\item{\label{prp:ring:uniq:neg}} 
+If $x,w \in R$ such that $x+w=w+x=0$, then $w = -x$.
+\item{\label{prp:ring:uniq:one}} 
+If $u \in R$ such that $ux=xu=x$ for all $x \in R$, then $u = 1$.
+\end{enumerate*}
+\end{prp}
+
+\begin{theproof}
+\begin{inparaenum}
+\item If $z$ is such an element, then in particular $z = z+0 = 0$.
+\item If $x,w$ is such a pair of elements, then in particular $w = w+0 = w+(x+(-x)) = (w+x)+(-x) = 0+(-x) = -x$.
+\item If $u$ is such an element, then in particular $u = u \cdot 1 = 1$.
+\end{inparaenum}
+\end{theproof}
+
+\begin{prp}
+\label{prp:ring:bookkeeping}
+Let $R$ be a ring and let $x,y,z \in R$. Then the following hold.
+\begin{enumerate*}
+\item{\label{prp:ring:bookkeeping:cancel}}
+If $x+y = x+z$, then $y = z$.
+\item{\label{prp:ring:bookkeeping:annihil}}
+$0x=x0=0$.
+\item{\label{prp:ring:bookkeeping:double-neg}}
+$-(-x) = x$.
+\item $(-1)x = -x$.
+\item $(-x)y = x(-y) = -xy$.
+\item{\label{prp:ring:bookkeeping:neg-zero}}
+$-0 = 0$.
+\end{enumerate*}
+\end{prp}
+
+\begin{theproof}
+\begin{inparaenum}
+\item Note that $-x + (x+y) = -x + (x+z)$, so that $(-x+x) + y = (-x+x) + z$, so that $0+y = 0+z$, and thus $y = z$.
+\item Note that $0x + x = 0x + 1x = (0+1)x = 1x = x$. Adding $-x$ to both sides, we see that $0x = 0$. Similarly, $x0 = 0$.
+\item By definition, we have $x + (-x) = (-x) + x = 0$. By \ref{prp:ring:uniq}\ref{prp:ring:uniq:neg}, in fact $x = -(-x)$.
+\item Note that $(-1)x + x = (-1)x + 1x = (-1+1)x = 0x = 0$, and similarly $x + (-1)x = 0$. By \ref{prp:ring:uniq}\ref{prp:ring:uniq:neg}, $(-1)x = -x$
+\item Note that $(-x)y + xy = (-x+x)y = 0y = 0$, and similarly $xy + (-x)y = 0$. By \ref{prp:ring:uniq}\ref{prp:ring:uniq:neg} we have $(-x)y = -xy$. Similarly, $x(-y) = -xy$.
+\item Certainly $0+0 = 0$, so that $-0 = 0$ by \ref{prp:ring:uniq}\ref{prp:ring:uniq:neg}.
+\end{inparaenum}
+\end{theproof}
+
+\subsection*{Units and Fields}
+
+Our definition of ring was an attempt to capture the behavior of addition and multiplication on the integers. We demand that in a ring, subtraction is always possible. But what about division? Subtraction allows us to solve an equation like $x+a = b$ by adding $-a$ to both sides of the equation, and this is effective because $a + (-a) = 0$ is the additive identity in $R$. Solving the analogous equation $xa = b$ would likewise require multiplying both sides by a ``reciprocal'' of $a$ having the property that $aa^\inv = 1$. Our ring axioms do not require that this always be possible, and in fact in the prototypical ring, $\mathbb{Z}$, it isn't. A ring element which does have a reciprocal like this is very special, so we give them a special name.
+
+\begin{dfn} \mbox{}
+\begin{enumerate*}
+\item Let $R$ be a ring and $x \in R$. We say $x$ is \emph{invertible} (or a \emph{unit}) if there is an element $x^{-1} \in R$ such that $xx^{-1} = x^{-1}x = 1$.
+\item A commutative ring is called a \emph{field} if every nonzero element is invertible.
+\end{enumerate*}
+\end{dfn}
+
+\begin{exm*}
+The units in $\mathbb{Z}$ are $\pm 1$. To see this, suppose $uv = 1$. If $|u| > 1$, then $1 = |1| = |uv| = |u||v| >  1$.
+\end{exm*}
+
+\begin{prp} Let $R$ be a ring and let $x,y \in R$ be units.
+\label{prp:ring:unit}
+\begin{enumerate*}
+\item 1 is a unit.
+\item If $1 \neq 0$ then $0$ is not a unit.
+\item{\label{prp:ring:unit:inv-uniq}} $x^{-1}$ is unique in the following sense: if $y \in R$ such that $xy=yx=1$, then $y = x^{-1}$.
+\item $x^{-1}$ is a unit and $(x^{-1})^{-1} = x$.
+\item $xy$ is a unit and $(xy)^{-1} = y^{-1}x^{-1}$.
+\item If $a,b,c \in R$ such that $ab = 1$ and $bc = 1$, then in fact $b$ is invertible and $a = c = b^\inv$.
+\item If $F$ is a field and if $a,b \in F$ such that $ab = 0$, then either $a = 0$ or $b = 0$.
+\end{enumerate*}
+\end{prp}
+
+\begin{theproof}
+Exercise.
+\end{theproof}
+
+\subsection*{Ring Homomorphisms}
+
+A ring is a kind of structured set. As usual, anytime we identify a structure it is useful to identify the structure-preserving functions between them. The structure on a ring with 1 has three aspects: the addition operation, the multiplication operation, and the special element 1. Maps among rings which preserve this structure get a special name.
+
+\begin{dfn}
+Let $R$ and $S$ be rings. A mapping $\varphi : R \rightarrow S$ is called a \emph{(unital) ring homomorphism} if the following hold for all $x,y \in R$: $\varphi(x+y) = \varphi(x)+\varphi(y)$, $\varphi(xy) = \varphi(x)\varphi(y)$, and $\varphi(1) = 1$. If $R$ and $S$ are fields, we say $\varphi$ is a field homomorphism.
+\end{dfn}
+
+\begin{prp}
+If $\varphi : R \rightarrow S$ is a unital ring homomorphism and $x \in R$, then the following hold.
+\begin{enumerate*}
+\item $\varphi(0) = 0$.
+\item $\varphi(-x) = -\varphi(x)$ for all $x \in R$.
+\item If $x \in R$ is invertible then so is $\varphi(x)$ and $\varphi(x)^{-1} = \varphi(x^{-1})$.
+\end{enumerate*}
+\end{prp}
+
+\begin{theproof}
+\begin{inparaenum}
+\item Note that $\varphi(0) + 1 = \varphi(0) + \varphi(1) = \varphi(0+1) = \varphi(1) = 1$. Subtracting 1 from both sides, we have $\varphi(0) = 0$.
+\item We have $\varphi(x) + \varphi(-x) = \varphi(x-x) = \varphi(0) = 0$, and similarly $\varphi(-x) + \varphi(x) = 0$. By \ref{prp:ring:uniq}\ref{prp:ring:uniq:neg}, $\varphi(-x) = -\varphi(x)$.
+\item We have $\varphi(x)\varphi(x^\inv) = \varphi(xx^\inv) = \varphi(1) = 1$, and similarly $\varphi(x^\inv)\varphi(x) = 1$. So $\varphi(x)$ is invertible, and by \ref{prp:ring:unit}\ref{prp:ring:unit:inv-uniq} we have $\varphi(x)^\inv = \varphi(x^\inv)$.
+\end{inparaenum}
+\end{theproof}
+
+\NowForSomeExercises
+
+\subsubsection*{Examples of Rings}
+
+\begin{exercises}
+\item{\label{exr:trivial-ring}}%
+(Trivial Ring) The definition of a ring with identity does not require that $0$ and $1$ be distinct elements. Show that if $R$ is a ring in which $0 = 1$, then $R = \{0\}$. (This is called the \emph{trivial ring}, and any ring in which $0 \neq 1$ is called \emph{nontrivial}.)
+
+\item{\label{exr:rings-of-sets}}
+(Rings of Sets) Fix a set $X$. Recall that if $A$ and $B$ are subsets of $X$ then their \emph{symmetric difference} is the set $A \symdiff B = (A \setminus B) \cup (B \setminus A)$. We can think of $\symdiff$ and $\cap$ as binary operations on the powerset $\powset{X}$.
+\begin{enumerate*}
+\item Show that $(\powset{X},\symdiff,\cap,\emptyset,X)$ is a ring.
+\item Characterize the units in this ring.
+\end{enumerate*}
+
+\item{\label{exr:quadratic-fields}}
+(Quadratic Fields) Let $D \in \mathbb{Z}$ be squarefree (that is, $D$ is the product of unique primes), and define $\mathbb{Q}(\sqrt{D}) = \{a+b\sqrt{D} \mid a,b \in \mathbb{Q}\}$ as a subset of $\mathbb{R}$. Show that $\mathbb{Q}(\sqrt{D})$ is a field.
+
+\item
+(Modular Arithmetic) Fix an integer $n$ and define a relation $\sim$ on $\mathbb{Z}$ as follows: say $a \sim b$ if there is an integer $c$ such that $b - a = cn$.
+\begin{enumerate*}
+\item Show that $\sim$ is an equivalence relation on $\mathbb{Z}$.
+\item Denote the $\sim$-equivalence class containing $a$ by $\overline{a}$, and denote the set of all $\sim$-equivalence classes in $\mathbb{Z}$ by $\mathbb{Z}/(n)$. Now define two subsets of $(\mathbb{Z}/(n) \times \mathbb{Z}/(n)) \times \mathbb{Z}/(n)$ as follows: \[+ = \left\{ \left((\overline{a},\overline{b}),\overline{a+b}\right) \mid a,b \in \mathbb{Z} \right\} \quad \mathrm{and} \quad \cdot = \left\{ \left((\overline{a},\overline{b}),\overline{ab}\right) \mid a,b \in \mathbb{Z} \right\}.\] Show that $+$ and $\cdot$ are in fact binary operations on $\mathbb{Z}/(n)$.
+\item Show that $(\mathbb{Z}/(n),+,\cdot,\overline{0},\overline{1})$ is a ring.
+\item Characterize the units in $\mathbb{Z}/(n)$.
+\item Show that $\mathbb{Z}/(n)$ is a field if and only if $n$ is prime.
+\end{enumerate*}
+\PauseExercises
+\end{exercises}
+
+\subsubsection*{More Properties of Arithmetic}
+
+\begin{exercises}
+\ResumeExercises
+\item{\label{exr:n-ary-sums}}
+($n$-ary Sums) Given an interval of integers $\intrange{m}{n}$ with $m \leq n$ and a list of ring elements $a_m, a_{m+1}, \ldots, a_{n-1}, a_n$, we define the \emph{$n$-ary sum} $\sum_{i=m}^n a_i$ recursively on $n-m$ by $\sum_{i=m}^m a_i = a_m$ and $\sum_{i=m}^{n+1} a_i = \sum_{i=m}^{n} a_i + a_{n+1}$. If $n < m$, then $\sum_{i=m}^n a_i = 0$.
+\begin{enumerate*}
+\item Show that for each $k$ in $\intrange{m}{n}$, $\sum_{i=m}^n a_i = \sum_{i=m}^k a_i + \sum_{i=k+1}^n a_i$. \vspace{10pt}
+\item Show that $\sum_{i=m}^n a_i + \sum_{i=m}^n b_i = \sum_{i=m}^n (a_i + b_i)$. \vspace{10pt}
+\item Show that $\sum_{i=m}^n (\sum_{j=k}^\ell a_{i,j}) = \sum_{j=k}^\ell \left(\sum_{i=m}^n a_{i,j} \right)$. \vspace{10pt}
+\item Show that if $\sigma$ is a permutation of $\intrange{m}{n}$, then $\sum_{i=m}^n a_{\sigma(i)} = \sum_{i=m}^n a_i$. \vspace{10pt}
+\item Show that if $\varphi : R \rightarrow S$ is a ring homomorphism, then $\varphi(\sum_{i=m}^n a_i) = \sum_{i=m}^n \varphi(a_i)$.
+\end{enumerate*}
+Note that it makes sense to define the $n$-ary sum for any binary operation, and that these properties depend only on axioms A.1, A.2, and A.4 from the definition of a ring, namely, that $(R,+,0)$ be a commutative monoid.
+
+\item{\label{exr:powers-i}}
+(Powers, Part I) Given a ring element $a$, define $a^\ast : \mathbb{N} \rightarrow R$ recursively by $a^0 = 1$ and $a^{n+1} = aa^n$.
+\begin{enumerate*}
+\item Show that $a^{m+n} = a^ma^n$.
+\item Show that $(a^m)^n = a^{mn}$.
+\item Show that if $ab = ba$ then $(ab)^n = a^n b^n$.
+\end{enumerate*}
+
+\item{\label{exr:powers-ii}}
+(Powers, Part II) Given an \emph{invertible} ring element $a$, we can extend the map $a^\ast$ in the previous exercise to all of $\mathbb{Z}$ by $a^n = (a^\inv)^{-n}$ for negative $n$. Show that the conclusions of \ref{exr:powers-i} remain true if $a$ and $b$ are invertible and $m$ and $n$ are integers.
+\PauseExercises
+\end{exercises}
+
+\subsubsection*{Inserting the Integers}
+
+In the next exercise, we see that if $R$ is a ring then the integers can be homomorphically `inserted' into $R$ in exactly one way. This allows us to carry some basic number theoretic results over to $R$. For example, we can think of $n! = 1 \cdot 2 \cdots n$ and the binomial coefficients ${n \choose k} = n!/k!(n-k)!$ as (possibly zero!) elements of $R$.
+
+\begin{exercises}
+\ResumeExercises
+\item{\label{exr:inserting-zz}}
+(Inserting the Integers) Show that for every ring $R$, there is a unique unital ring homomorphism $\varphi : \mathbb{Z} \rightarrow R$. (Hint: Define $\varphi$ recursively on the nonnegative integers.)
+
+\item{\label{exr:binomial-thm}}%
+(Binomial Theorem) Let $R$ be a ring, $n$ a natural number, and $x,y \in R$ such that $xy=yx$. Show that $(x+y)^n = \sum_{k=0}^n {n \choose k} x^ky^{n-k}$.
+
+\item{\label{exr:nilpotence}}%
+(Nilpotence) A ring element $a$ is called \emph{nilpotent} if $a^k = 0$ for some positive integer $k$. 
+\begin{enumerate*}
+\item Show that if $a$ and $b$ are nilpotent and $ab = ba$, then $a+b$ and $ab$ are also nilpotent.
+\item Show that if $a$ is nilpotent, then $1-a$ is invertible.
+\end{enumerate*}
+
+\item{\label{exr:characteristic}}%
+(Characteristic) We define the \emph{characteristic} of a ring $R$, denoted $\mathsf{char}(R)$, to be the smallest positive integer $n$ such that $n = 0$ in $R$ if such an integer exists, and 0 otherwise.
+\begin{enumerate*}
+\item The characteristic of a field is either 0 or a prime.
+\item If $R$ is a ring of prime characteristic $p$ and $x,y \in R$ commute, then $(x+y)^p = x^p+y^p$.
+\item $\mathsf{char}(\mathbb{Z}/(n)) = n$.
+\end{enumerate*}
+\PauseExercises
+\end{exercises}
+
+\subsubsection*{Homomorphisms and Isomorphisms}
+
+\begin{exercises}
+\ResumeExercises
+\item Show the following.
+\begin{enumerate*}
+\item The identity map $1 : R \rightarrow R$ is a ring homomorphism.
+\item If $\varphi$ and $\psi$ are ring homomorphisms, then the composite $\psi\varphi$ is as well (if it exists).
+\end{enumerate*}
+
+\item A ring homomorphism $\varphi : R \rightarrow S$ which is also bijective is called an \emph{isomorphism}. In this case we say that $R$ and $S$ are \emph{isomorphic}, denoted $R \cong S$. Show the following.
+\begin{enumerate*}
+\item $R \cong R$
+\item If $R \cong S$ then $S \cong R$
+\item If $R \cong S$ and $S \cong T$ then $R \cong T$
+\end{enumerate*}
+\end{exercises}

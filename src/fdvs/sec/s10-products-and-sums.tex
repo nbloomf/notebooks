@@ -1,0 +1,31 @@
+\section{Products and Sums}
+
+\begin{prp}
+Let $\{V_i\}_{i \in I}$ be a family of $F$-vector spaces indexed by a set $I$. Then we have the following.
+\begin{enumerate*}
+\item The set $\prod_{i \in I} V_i$ is an $F$-vector space under the operations $(v_i)_{i \in I} + (w_i)_{i \in I} = (v_i + w_i)_{i \in I}$ and $\alpha(v_i)_{i \in I} = (\alpha v_i)_{i \in I}$. 
+\item If $k \in I$, then the projection map $\pi_k : \prod_{i \in I} V_i \rightarrow V_k$ given by $\pi_k(v) = v_k$ is a surjective linear transformation.
+\item The subset $\bigoplus_{i \in I} V_i \subseteq \prod_{i \in I} V_i$ consisting of precisely those elements $(v_i)_{i \in I}$ such that $v_i = 0$ for all but finitely many $i \in I$ is a subspace.
+\item If $k \in I$, then the injection map $\iota_k : V_k \rightarrow \bigoplus_{i \in I} V_i$ given by $(\iota_k(v))_i = v$ if $i = k$ and $0$ otherwise is an injective linear transformation.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof}
+Exercise.
+\end{proof}
+
+\begin{prp}[Universal Properties of Products and Sums]
+Let $\{V_i\}_{i \in I}$ be a family of $F$-vector spaces indexed by a set $I$, and let $W$ be a vector space.
+\begin{enumerate*}
+\item If $\varphi_i : W \rightarrow V_i$ is a family of linear transformations indexed by $I$, then there is a unique linear transformation $\theta : W \rightarrow \prod_{i \in I} V_i$ such that $\pi_k \circ \theta = \varphi_k$ for each $k \in I$. That is, there is a unique $\theta$ such that the following diagram commutes for each $k$. (@@@)
+\item If $\varphi_i : V_i \rightarrow W$ is a family of linear transformations indexed by $I$, then there is a unique linear transformation $\theta : \bigoplus_{i \in I} V_i \rightarrow W$ such that $\theta \circ \iota_k = \varphi_k$ for each $k \in I$. That is, there is a unique $\theta$ usch that the following diagram commutes for each $k$. (@@@)
+\end{enumerate*}
+\end{prp}
+
+Note that if the indexing set $I$ is finite, then $\bigoplus_I V_i = \prod_I V_i$, while if $I$ is infinite the containment is proper.
+
+\NowForSomeExercises
+
+\begin{exercises}
+\item 
+\end{exercises}

@@ -1,0 +1,31 @@
+\section{Spans}
+
+\begin{prp}
+\label{prp:span-dfn}
+Let $V$ be a vector space and let $X \subseteq V$. Then \[\sum_{x \in X} Fx = \bigcap \{ W \subseteq V \mid W\ \mathrm{is\ a\ subspace\ and}\ X \subseteq X \}.\] This subspace is called the \emph{$F$-span} of $X$ (or just \emph{span}) and denoted $\Span[F]{X}$.
+\end{prp}
+
+\begin{theproof}
+Exercise
+\end{theproof}
+
+\begin{prp}
+\label{prp:span-basics}
+\begin{enumerate*}
+\item $X \subseteq \Span{X}$.
+\item If $X \subseteq Y$, then $\Span{X} \subseteq \Span{Y}$.
+\item If $W \subseteq V$ is a subspace, then $\Span{W} = W$.
+\item If $W \subseteq V$ is a subspace and $X \subseteq W$, then $\Span{X} \subseteq W$.
+\end{enumerate*}
+\end{prp}
+
+\begin{dfn}
+If $\Span[F]{X} = V$, we say $X$ is a \emph{generating set} for $V$.
+\end{dfn}
+
+\NowForSomeExercises
+
+\begin{exercises}
+\item{\label{exr:free-vs-part-iii}}
+(Free Vector Space on a Set, Part III) Let $F_X$ denote the free vector space defined in (@@@). For each $x \in X$, define $\alpha_x : X \rightarrow F$ by $\alpha_x(y) = 1$ if $y = x$ and $0$ otherwise. Show that $\mathsf{span}_F(\alpha_x \mid x \in X) = F_X$.
+\end{exercises}

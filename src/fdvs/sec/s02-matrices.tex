@@ -1,0 +1,182 @@
+\section{Matrices}
+
+In this section we will recall the basics of matrices and establish some essential properties.
+
+\begin{dfn}
+Let $A$ be a set and $n$ and $m$ be positive natural numbers. An $n \times m$ \emph{matrix} over $A$ is a function $M : \intrange{1}{n} \times \intrange{1}{m} \rightarrow A$. The value of $M$ at a pair $(i,j)$ is denoted $M_{i,j}$, and called the $(i,j)$-entry of $M$. We visualize a matrix as a rectangular array such that the entries $M_{i,j}$ with $i$ fixed are in the same \emph{row} (i.e. horizontal line) and with $j$ fixed are in the same \emph{column} (i.e. vertical line). \[M = \left[\begin{array}{cccc} M_{1,1} & M_{1,2} & \cdots & M_{1,m} \\ M_{2,1} & M_{2,2} & \cdots & M_{2,m} \\ \vdots & \vdots & \ddots & \vdots \\ M_{n,1} & M_{n,2} & \cdots & M_{n,m} \end{array}\right]\] The set of all $n \times m$ matrices over $A$ is denoted $\mathsf{Mat}_{n \times m}(A)$, and if $m = n$, simply by $\mathsf{Mat}_n(A)$.
+\end{dfn}
+
+For the moment we will think of matrices simply as a kind of data structure.
+
+\begin{dfn}[Matrix Operations] 
+\label{dfn:matrix-ops}
+Let $R$ be a ring and let $n$, $k$, and $m$ be positive natural numbers.
+\begin{enumerate*}
+\item Given matrices $A$ and $B$ in $\mathsf{Mat}_{n \times m}(R)$, we define their \emph{sum} to be the $n \times m$ matrix $A+B$ whose $(i,j)$ entry is $$(A+B)_{i,j} = A_{i,j} + B_{i,j}.$$
+
+\item Given a matrix $A$ in $\mathsf{Mat}_{n \times m}(R)$, we define the \emph{negative} of $A$ to be the $n \times m$ matrix $-A$ whose $(i,j)$ entry is $$(-A)_{i,j} = -A_{i,j}$$
+
+\item Given $A \in \mathsf{Mat}_{n \times k}(R)$ and $B \in \mathsf{Mat}_{k \times m}(R)$, we define their \emph{product} to be the $n \times m$ matrix $AB$ whose $(i,j)$ entry is $$(AB)_{i,j} = \sum_{\ell=1}^k A_{i,\ell}B_{\ell,j}.$$
+
+\item Given a matrix $A$ in $\mathsf{Mat}_{n \times m}(R)$, we define the \emph{transpose} of $A$ to be the $m \times n$ matrix $A^\mathsf{T}$ whose $(i,j)$-entry is $$A^\mathsf{T}_{i,j} = A_{j,i}.$$
+\end{enumerate*}
+\end{dfn}
+
+We will denote by $0_{m \times n}$ (or just $0$) the $m \times n$ matrix over $R$ having a 0 in every entry, and by $I_n$ (or just $I$) the $n \times n$ matrix over $R$ whose $(i,j)$ entry is 1 if $i = j$ and is 0 otherwise.
+
+\begin{prp} Let $A$, $B$, and $C$ be matrices over a ring $R$. Provided the dimensions match up correctly, the following hold.
+\begin{enumerate*}
+\item $(A+B)+C = A+(B+C)$
+\item $A+0 = 0+A = A$
+\item $A+(-A) = (-A)+A = 0$
+\item $A+B = B+A$
+\item $(AB)C = A(BC)$
+\item $I_nA = A$ and $AI_m = A$
+\item $A(B+C) = AB + AC$ and $(B+C)A = BA + CA$
+\item $(A^\mathsf{T})^\mathsf{T} = A$
+\item $(A+B)^\mathsf{T} = A^\mathsf{T} + B^\mathsf{T}$
+\item $(AB)^\mathsf{T} = B^\mathsf{T} A^\mathsf{T}$
+\item If $A$ is invertible, so is $A^\mathsf{T}$, and $(A^\inv)^\mathsf{T} = (A^\mathsf{T})^\inv$
+\end{enumerate*}
+\end{prp}
+
+\begin{cor}
+The set $\mathsf{Mat}_n(R)$ of $n \times n$ matrices over a ring $R$ is a ring with one under matrix addition and multiplication.
+\end{cor}
+
+\NowForSomeExercises
+
+\begin{exercises}
+\item Over each of the following fields $F$, find all of the matrices $A$ in $\mathsf{Mat}_2(F)$ such that $A^2 = A$.
+\begin{inparaenum}
+\item $\mathbb{Q}$
+\item $\mathbb{Z}/(2)$
+\item $\mathbb{Z}/(5)$
+\end{inparaenum}
+(This is supposed to be painful.)
+\PauseExercises
+\end{exercises}
+
+\subsubsection*{Special Kinds of Matrices}
+
+\begin{exercises}
+\ResumeExercises
+\item{\label{exr:triangular-matrices}}
+An $n \times n$ matrix $A$ over a ring $R$ is called \emph{upper triangular} if $A_{i,j} = 0$ whenever $i > j$, and is called \emph{lower triangular} if $A_{i,j} = 0$ whenever $i < j$. The set of all $n \times n$ upper triangular matrices over $R$ is denoted $\mathsf{UT}_n(R)$, and similarly the set of lower triangular matrices is denoted $\mathsf{LT}_n(R)$.
+\begin{enumerate*}
+\item The $n \times n$ zero matrix and identity matrix are both upper and lower triangular.
+\item If $A$ is upper (lower) triangular, then $A^\mathsf{T}$ is lower (upper) triangular.
+\item If $A$ and $B$ are upper (lower) triangular, then so are $A+B$ and $AB$.
+\end{enumerate*}
+
+\item{\label{exr:permutation-matrices}}%
+Let $\sigma$ be a permutation of $\intrange{1}{n}$. We define the \emph{permutation matrix} $P_\sigma$ by \[ (P_\sigma)_{i,j} = \left\{\begin{array}{cl} 1 & \mathrm{if}\ i = \sigma(j) \\ 0 & \mathrm{otherwise.} \end{array}\right. \]
+\begin{enumerate*}
+\item Show that if $\sigma$ and $\tau$ are permutations of $\intrange{1}{n}$, then $P_{\sigma\tau} = P_\sigma P_\tau$.
+\item Show that every permutation matrix is invertible.
+\item Show that if $\sigma \neq \tau$ then $P_\sigma \neq P_\tau$.
+\end{enumerate*}
+
+\PauseExercises
+\end{exercises}
+
+\subsubsection*{Special Equivalence Relations}
+
+\begin{exercises}
+\ResumeExercises
+
+\item (Row/Column Equivalence) We define two relations on the set of $n \times m$ matrices over a ring $R$ as follows. Matrices $A$ and $B$ are called \emph{row equivalent} if there is an invertible $n \times n$ matrix $P$ such that $PA = B$, and are called \emph{column equivalent} if there is an invertible $m \times m$ matrix $Q$ such that $AQ = B$.
+\begin{enumerate*}
+\item Show that row equivalence and column equivalence are equivalence relations.
+\item Show that $A$ and $B$ are row equivalent if and only if $A^\mathsf{T}$ and $B^\mathsf{T}$ are column equivalent.
+\end{enumerate*}
+
+\item (Similarity) Given $n \times m$ matrices $A$ and $B$, we say that $A$ and $B$ are \emph{similar} if there is an invertible $n \times n$ matrix $P$ and an invertible $m \times m$ matrix $Q$ such that $PAQ = B$. Show that similarity is an equivalence relation.
+
+\item (Conjugacy) Given $n \times n$ matrices $A$ and $B$, we say that $A$ and $B$ are \emph{conjugate} if there is an invertible $n \times n$ matrix $P$ such that $P^{-1}AP = B$.
+\begin{enumerate*}
+\item Show that conjugacy is an equivalence relation.
+\item Show that $(P^{-1}AP)^k = P^{-1}A^kP$ for all positive integers $k$.
+\end{enumerate*}
+
+\PauseExercises
+\end{exercises}
+
+\subsubsection*{Elementary Matrices}
+
+Given a ring $R$ and a positive natural number $n$, we define three types of $n \times n$ \emph{elementary matrices} as follows.
+
+\begin{enumerate*}
+\item[] Type 1: Given $1 \leq k,\ell \leq n$ with $k \neq \ell$, $E^1_{k,\ell}$ is the $n \times n$ matrix with a 1 in every diagonal entry except in the $k$th and $\ell$th rows, a 1 in entry $(k,\ell)$ and $(\ell,k)$, and 0 elsewhere. That is, for each $1 \leq i,j \leq n$, \[(E^1_{k,\ell})_{i,j} = \left\{ \begin{array}{ll} 1 & \mathrm{if}\ (i,j) = (k,\ell), (\ell,k) \\ 1 & \mathrm{if}\ i=j\ \mathrm{and}\ i,j \neq k,\ell \\ 0 & \mathrm{otherwise.} \end{array}\right. \]
+
+\item[] Type 2: Given $1 \leq k,\ell \leq n$ with $k \neq \ell$ and an element $x \in R$, $E^2_{k,\ell}(x)$ is the $n \times n$ matrix with a 1 in every diagonal entry, $x$ in the $(i,j)$ entry, and 0 elsewhere. That is, for $1 \leq i,j \leq n$, \[(E^2_{k,\ell}(x))_{i,j} = \left\{ \begin{array}{ll} 1 & \mathrm{if}\ i = j \\ x & \mathrm{if}\ (i,j) = (k,\ell) \\ 0 & \mathrm{otherwise.} \end{array}\right.\]
+
+\item[] Type 3: Given $1 \leq k \leq n$ and a unit $u \in R$, $E^3_k(u)$ is the matrix with a 1 in every diagonal entry except in the $k$th row, a $u$ in the $(k,k)$ entry, and 0 elsewhere. That is, for $1 \leq i,j \leq n$, \[(E^3_k(u))_{i,j} = \left\{\begin{array}{ll} u & \mathrm{if}\ i=j=k \\ 1 & \mathrm{if}\ i=j, i \neq k \\ 0 & \mathrm{otherwise.} \end{array}\right.\]
+\end{enumerate*}
+
+\begin{exercises}
+\ResumeExercises
+\item{\label{exr:ercos}}
+(Elementary row and column operations) Let $A$ be a matrix.
+\begin{enumerate*}
+\item If $E^1_{k,\ell}$ is an elementary matrix of type 1, then $E^1_{k,\ell}A$ is obtained from $A$ by swapping the entries in rows $k$ and $\ell$, and similarly $AE^1_{k,\ell}$ is obtained from $A$ by swapping the entries in columns $k$ and $\ell$.
+\item If $E^2_{k,\ell}(x)$ is an elementary matrix of type 2, then $E^2_{k,\ell}(x)A$ is obtained from $A$ by adding $x$ times row $\ell$ to row $k$, and similarly $AE^2_{k,\ell}(x)$ is obtained from $A$ by adding $x$ times column $k$ to column $\ell$.
+\item If $E^3_k(u)$ is an elementary matrix of type 3, then $E^3_k(u)A$ is obtained from $A$ by multiplying each entry of row $k$ by $u$, and similarly $AE^3_k(u)$ is obtained from $A$ by multiplying each entry of column $k$ by $u$.
+\end{enumerate*}
+
+\item{\label{exr:elementary-matrix-is-invertible}}
+Show that every elementary matrix is invertible.
+\PauseExercises
+\end{exercises}
+
+\subsubsection*{Matrix Concatenation}
+
+Given an $n \times m$ matrix $A$ and an $n \times k$ matrix $B$, we define an $n \times (m+k)$ matrix $[A \mid B]$ by \[[A \mid B]_{i,j} = \left\{ \begin{array}{ll} A_{i,j} & \mathrm{if}\ 1 \leq j \leq m \\ B_{i,j-m} & \mathrm{if}\ m < j \leq m+k. \end{array}\right.\] That is, $[A \mid B]$ is obtained by concatenating $A$ and $B$ horizontally. We will sometimes use the notation $A \varobar B$ instead, when convenient. Similarly, if $A$ is an $n \times m$ matrix and $B$ a $k \times m$ matrix, we define an $(n+k) \times m$ matrix $\left[ \frac{A}{B} \right]$ by \[ \left[ \frac{A}{B} \right]_{i,j} = \left\{ \begin{array}{ll} A_{i,j} & \mathrm{if}\ 1 \leq i \leq n \\ B_{i-n,j} & \mathrm{if}\ n < i \leq n+k. \end{array} \right. \]
+
+\begin{exercises}
+\ResumeExercises
+\item{\label{exr:concatenation}}
+Show that, provided all the dimensions match up correctly, the following hold.
+\begin{enumerate*}
+\item $(A \varobar B) \varobar C = A \varobar (B \varobar C)$, so that expressions such as $[A_1 \mid A_2 \mid \cdots \mid A_n]$ are meaningful.
+\item $(A \varobar B)^\mathsf{T} = A^\mathsf{T} \varominus B^\mathsf{T}$ and $(A \varominus B)^\mathsf{T} = A^\mathsf{T} \varobar B^\mathsf{T}$.
+\item $(A \varominus B) \varominus C = A \varominus (B \varominus C)$
+\item $(A \varominus B) \varobar (C \varominus D) = (A \varobar C) \varominus (B \varobar D)$
+\end{enumerate*}
+
+\item Show that, provided all the dimensions match up correctly, the following hold.
+\begin{enumerate*}
+\item $A(B \varobar C) = AB \varobar AC$
+\item $(A \varominus B)C = AC \varominus BC$
+\item $\left[\begin{array}{c|c} A_{1,1} & A_{1,2} \\ \hline A_{2,1} & A_{2,2} \end{array}\right] \left[\begin{array}{c|c} B_{1,1} & B_{1,2} \\ \hline B_{2,1} & B_{2,2} \end{array}\right] = \left[\begin{array}{c|c} A_{1,1}B_{1,1} + A_{1,2}B_{2,1} & A_{1,1}B_{1,2} + A_{1,2}B_{2,2} \\ \hline A_{2,1}B_{1,1} + A_{2,2}B_{1,2} & A_{2,1}B_{1,2} + A_{2,2}B_{2,2} \end{array}\right]$
+\end{enumerate*}
+
+\item Given matrices $A$ and $B$ of dimension $m \times n$ and $k \times \ell$, their \emph{block sum} is the $(m+k) \times (n+\ell)$ matrix \[A \oplus B = \left[ \begin{array}{c|c} A & 0 \\ \hline 0 & B \end{array}\right]. \] Show that if $A_1$ and $A_2$ are matrices of dimension $n \times n$ and if $B_1$ and $B_2$ are matrices of dimension $m \times m$, then $(A_1 \oplus B_1)(A_2 \oplus B_2) = A_1A_2 \oplus B_1B_2$.
+\PauseExercises
+\end{exercises}
+
+\subsubsection*{The Strassen Algorithm}
+
+As we will see later (and the reader may already know), matrix multiplication turns out to be of great practical value. A worthwhile question to ask ourselves is this: how difficult is matrix multiplication? That is, given two matrices of size $n \times n$, how much time will it take to find their product? Of course, the answer to this question depends on the algorithm we use. The definition for the matrix product suggests one algorithm, which we will call \emph{naive}. Suppose adding and multiplying two elements of $R$ requires $\alpha$ and $\mu$ steps, respectively. The naive algorithm requires $n$ multiplications and $n-1$ additions (in $R$) to compute each of $n^2$ entries, so the total number of steps required to multiply two $n \times n$ matrices using the naive algorithm is $$c_N(n) = n^3 \mu + (n^3 - n^2)\alpha.$$
+
+Let \[A = \left[\begin{array}{c|c} A_{1,1} & A_{1,2} \\ \hline A_{2,1} & A_{2,2} \end{array}\right]\ \mathrm{and}\ B = \left[\begin{array}{c|c} B_{1,1} & B_{1,2} \\ \hline B_{2,1} & B_{2,2} \end{array}\right]\] be matrices of dimension $2k \times 2k$, where each submatrix has dimension $k \times k$. Define 
+\[ \begin{array}{rclrcl} 
+M_1 & = & (A_{1,1} + A_{2,2})(B_{1,1} + B_{2,2}) & M_5 & = & (A_{1,1} + A_{1,2})B_{2,2} \\ 
+M_2 & = & (A_{2,1} + A_{2,2})B_{1,1} & M_6 & = & (A_{2,1} - A_{1,1})(B_{1,1} + B_{1,2}) \\
+M_3 & = & A_{1,1}(B_{1,2} - B_{2,2}) & M_7 & = & (A_{1,2} - A_{2,2})(B_{2,1} + B_{2,2}) \\
+M_4 & = & A_{2,2}(B_{2,1} - B_{1,1}) & & & \end{array}\]
+
+Now computing the matrices $M_i$ requires only seven multiplications of matrices of size $k \times k$.
+
+\begin{exercises}
+\ResumeExercises
+
+\item 
+Show that 
+\[ AB = \left[\begin{array}{c|c} M_1 + M_4 - M_5 + M_7 & M_3 + M_5 \\ \hline M_2 + M_4 & M_1 - M_2 + M_3 + M_6 \end{array}\right]. \]
+
+\item 
+Show that if $n = 2^k$, then the number of steps required to multiply two $n \times n$ matrices using the Strassen algorithm is $$c_S(n) = n^{\log_2 7} \mu + 6(n^{\log_2 7} - n^2)\alpha.$$
+\end{exercises}
+
+%Compare $c_S$ with $c_N$; in particular, note that $\log_2 7 < 2.81 < 3$. And for $n \geq 10292$ we have $6(n^{\log_2(7)} - n^2) > n^3-n^2$, so that for sufficiently large $n$, $c_S(n) < c_N(n)$. For many rings of practical interest, multiplication is more difficult than addition, and the boundary at which the Strassen algorithm becomes faster than the naive algorithm is even smaller. 

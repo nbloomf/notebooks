@@ -1,0 +1,161 @@
+\documentclass{memoir}
+\usepackage{fdvs-style}
+\usepackage{fdvs-style-operators}
+
+\begin{document}
+
+\setcounter{section}{14}
+\section{Invariant Subspaces}
+
+In this section, $V$ is a fixed finite dimensional vector space and $\varphi : V \rightarrow V$ a fixed linear transformation.
+
+\begin{dfn}
+A subspace $W \subseteq V$ is called \emph{$\varphi$-invariant} if $\varphi[W] \subseteq W$. We say that $V$ is \emph{directly decomposable} if there are nontrivial invariant subspaces $W_1$ and $W_2$ such that $V = W_1 \oplus W_2$, and we say that $V$ is \emph{directly indecomposable} otherwise.
+\end{dfn}
+
+\begin{prp}
+Suppose $V = W_1 \oplus W_2$ is directly decomposable and that $\mathcal{E}_1 \subseteq W_1$ and $\mathcal{E}_2 \subseteq W_2$ are bases. Then $\mathcal{E} = \mathcal{E}_1 \cup \mathcal{E}_2$ is a basis of $V$, and in fact \[ [\varphi]^\mathcal{E}_\mathcal{E} = [\varphi_1]^{\mathcal{E}_1}_{\mathcal{E}_1} \oplus [\varphi_2]^{\mathcal{E}_2}_{\mathcal{E}_2}, \] where $\varphi_i$ is the restriction of $\varphi$ to $W_i$.
+\end{prp}
+
+\begin{prp}
+There exist directly indecomposable, invariant subspaces $W_1,\ldots,W_k \subseteq V$ such that \[V = W_1 \oplus \cdots \oplus W_k.\] If $\mathcal{E}_i$ is a basis of $W_i$ for each $i$, then $\mathcal{E} = \bigcup \mathcal{E}_i$ is a basis of $V$ and the matrix of $\varphi$ with respect to $\mathcal{E}$ is \[ [\varphi]^\mathcal{E}_\mathcal{E} = [\varphi_1]^{\mathcal{E}_1}_{\mathcal{E}_1} \oplus \cdots \oplus [\varphi_k]^{\mathcal{E}_k}_{\mathcal{E}_k}. \]
+\end{prp}
+
+\begin{proof}
+We proceed by induction on $\Dim*{V}$. If $V$ has dimension 1, then clearly $V$ is both invariant and directly indecomposable. Suppose the result holds for all vector spaces of dimension at most $n$, and that $V$ has dimension $n+1$. Certainly $V$ is invariant. If $V$ is directly indecomposable, we're done. If $V$ is not directly indecomposable, then $V = W_1 \oplus W_2$ for some nontrivial invariant subspaces $W_1$ and $W_2$, which have dimension at most $n$. By the inductive hypothesis, we have directly indecomposable invariant subspaces $U_1,\ldots,U_t \subseteq W_1$ and $U_{t+1},\ldots,U_k \subseteq W_2$ such that $V = U_1 \oplus \cdots \oplus U_k$.
+\end{proof}
+
+\begin{prp}
+The following subspaces of $V$ are invariant.
+\begin{enumerate*}
+\item $\Im*{\varphi}$ and $\Ker*{\varphi}$.
+\item The sum and intersection of invariant subspaces.
+\item Given $v \in V$, the \emph{cyclic span} of $v$ under $\varphi$ defined by $\CycSpan[\varphi]{v} = \Span{v, \varphi(v), \varphi^2(v), \ldots}$.
+\end{enumerate*}
+\end{prp}
+
+
+
+\section{Minimal Polynomials}
+
+In this section, $V$ is a fixed finite dimensional vector space and $\varphi : V \rightarrow V$ a fixed linear transformation.
+
+\begin{dfn}[Minimal polynomial of $v$ with respect to $\varphi$]
+If $v \in V$, then there is a smallest natural number $k$ such that the vectors \[ (v, \varphi(v), \varphi^2(v), \ldots, \varphi^k(v))  \] are dependent in $V$. If $v=0$, we define the minimal polynomial of $v$ to be $\MinPoly[0]{\varphi}(x) = 1$. If $v \neq 0$, then $k>0$, and there are unique $\alpha_i \in F$ such that \[ \varphi^k(v) + \alpha_{k-1} \varphi^{k-1}(v) + \cdots + \alpha_1 \varphi(v) + \alpha_0 v = 0. \] We define the \emph{minimal polynomial} of $v$ with respect to $\varphi$ to be \[ \MinPoly[v]{\varphi}(x) = x^k + \alpha_{k-1} x^{k-1} + \cdots + \alpha_1 x + \alpha_0 \in F[x]. \]
+\end{dfn}
+
+\begin{prp} \mbox{}
+\begin{enumerate*}
+\item If $v \neq 0$ then $\MinPoly[v]{0}(x) = x$.
+\item If $v \neq 0$ then $\MinPoly[v]{1}(x) = x-1$.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item Now $(v)$ is independent and $(v, \varphi(v)) = (v,0)$ is dependent, so that $k = 1$ and $\varphi(v) + 0 v = 0$.
+\item Now $(v)$ is independent and $(v,1(v)) = (v,v)$ is dependent, so that $k = 1$ and $\varphi(v) - 1 v = 0$. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{prp} \mbox{}
+\begin{enumerate*}
+\item If $p(\varphi)(v) = 0$, then either $p = 0$ or $\Deg{\MinPoly[v]{\varphi}} \leq \Deg{p}$.
+\item If $p(\varphi)(v) = 0$, then $\MinPoly[v]{\varphi} \mid p$.
+\item $\MinPoly[v]{\varphi}$ is the unique monic polynomial $p$ of least degree such that $p(\varphi)(v) = 0$.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item Suppose we have such a $p$, and write $p(x) = \sum_{i=0}^m \beta_i x^i$. Then we have \[ 0 = p(\varphi)(v) = \left( \sum_{i=0}^m \beta_i \varphi^i \right)(v) = \sum_{i=0}^m \beta_i \varphi^i(v). \] If $p \neq 0$, then this gives a nontrivial dependence among the vectors $v, \varphi(v), \ldots, \varphi^m(v)$, which, unless $\Deg{p} \geq \Deg{\MinPoly[v]{\varphi}}$, gives a contradiction.
+\item Suppose $p(\varphi)(v) = 0$. By the Division Algorithm, we have $p = q\MinPoly[v]{\varphi} + r$ where either $r = 0$ or $\Deg{r} < \Deg{\MinPoly[v]{\varphi}}$. If $r \neq 0$ we have $r = p - q\MinPoly[v]{\varphi}$, and in particular, \[ r(\varphi)(v) = p(\varphi)(v) - q(\varphi)(v) \MinPoly[v]{\varphi}(\varphi)(v) = 0, \] which yields a contradiction. So $r = 0$ and thus $\MinPoly[v]{\varphi} \mid p$.
+\item If $p$ is another such polynomial, then $\MinPoly[v]{\varphi} \mid p$, so that $\MinPoly[v]{\varphi}$ and $p$ differ by a unit factor. But both are monic, so $p = \MinPoly[v]{\varphi}$. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{dfn}[Minimal polynomial of $\varphi$]
+There is a smallest natural number $k$ such that the vectors \[ (1, \varphi, \varphi^2, \ldots, \varphi^k) \] are dependent in $\End[F]{V}$. Note that $k>0$. There are unique $\alpha \in F$ such that \[ \varphi^k + \alpha_{k-1} \varphi^{k-1} + \cdots + \alpha_1 \varphi + \alpha_0 1 = 0. \] (Note that this 0 is the zero map $V \rightarrow V$.) We define the \emph{minimal polynomial} of $\varphi$ on $V$ to be \[ \MinPoly![V]{\varphi}(x) = x^k + \alpha_{k-1} x^{k-1} + \cdots + \alpha_1 x + \alpha_0 \in F[x]. \]
+\end{dfn}
+
+\begin{prp} \mbox{}
+\begin{enumerate*}
+\item $\MinPoly!{0} = x$.
+\item $\MinPoly!{1} = x-1$.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item Now $(1)$ is independent and $(1,0)$ is dependent, so $k=1$, and we have $0 + 0 \cdot 1 = 0$.
+\item Now $(1)$ is independent and $(1,1)$ is dependent, so $k=1$, and we have $1 - 1 \cdot 1 = 0$. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{prp} \mbox{}
+\begin{enumerate*}
+\item If $p(\varphi)(v) = 0$ for all $v \in V$, then $p = 0$ or $\Deg{\MinPoly![V]{\varphi}} \leq \Deg{p}$.
+\item If $p(\varphi)(v) = 0$ for all $v \in V$, then $\MinPoly![V]{\varphi} \mid p$.
+\item $\MinPoly![V]{\varphi}$ is the unique monic polynomial $p$ of least degree such that $p(\varphi)(v) = 0$ for all $v \in V$.
+\item $\MinPoly![ \CycSpan{v}{\varphi} ]{\varphi} = \MinPoly[v]{\varphi}$.
+\end{enumerate*}
+\end{prp}
+
+\begin{prp}
+If $\mathcal{B} = \{b_1, \ldots, b_n\}$ is a basis for $V$, then \[ \MinPoly![V]{\varphi} = \LCM#{\MinPoly[b_1]{\varphi}, \ldots, \MinPoly[b_n]{\varphi}}. \]
+\end{prp}
+
+\begin{proof}
+Let $v \in V$, and say $v = \sum \alpha_i b_i$. Letting $\ell = \LCM#{\MinPoly[b_1]{\varphi}, \ldots, \MinPoly[b_n]{\varphi}}$, we have \[ \ell(\varphi)(v) = \ell(\varphi)(\sum \alpha_i b_i) = \sum \alpha_i \ell(\varphi)(b_i) = \sum\alpha_i t_i(\varphi)(b_i) \MinPoly[b_i]{\varphi}(\varphi)(b_i) = 0,  \] so that $\MinPoly![V]{\varphi} \mid \ell$. Conversely, we have $\MinPoly![V]{\varphi}(b_i) = 0$ for each $b_i$, so that $\MinPoly[b_i]{\varphi} \mid \MinPoly![V]{\varphi}$ for each $b_i$, and thus $\ell \mid \MinPoly![V]{\varphi}$.
+\end{proof}
+
+\begin{prp}
+If $W \subseteq V$ is a subspace, we denote by $\varphi/W$ the map $V/W \rightarrow V/W$ given by $(\varphi/W)(v+W) = \varphi(v)+W$ (which exists using the First Isomorphism Theorem). Then $\MinPoly![V/W]{\varphi/W} \mid \MinPoly![V]{\varphi}$.
+\end{prp}
+
+\begin{proof}
+Say $\MinPoly![V]{\varphi}(x) = \sum \alpha_i x^i$. Then if $v \in V$, we have \[ \MinPoly![V]{\varphi}(\varphi/W)(v+W) = \sum \alpha_i (\varphi/W)^i (v+W) = \sum \alpha_i (\varphi^i(v) + W) = (\sum \alpha_i \varphi^i(v)) + W = \MinPoly![V]{\varphi}(\varphi)(v) + W = W, \] so that $\MinPoly![V/W]{\varphi/W} \mid \MinPoly![V]{\varphi}$.
+\end{proof}
+
+\begin{prp}
+Suppose $\MinPoly![V]{\varphi} = st$, where $s$ and $t$ are relatively prime and have positive degree. Letting $V_s = \Ker{s(\varphi)}$ and $V_t = \Ker{t(\varphi)}$, we have the following.
+\begin{enumerate*}
+\item $V_s$ and $V_t$ are invariant.
+\item $\MinPoly![V_s]{\varphi} = s$ and $\MinPoly![V_t]{\varphi} = t$.
+\item $V = V_s \oplus V_t$.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item Suppose $v \in V_s$; then $s(\varphi)(v) = 0$. Now $s(\varphi)(\varphi(v)) = (s(\varphi) \circ \varphi)(v) = \varphi \circ s(\varphi))(v) = \varphi(0) = 0$, so that $\varphi(v) \in V_s$. Thus $V_s$ (similarly, $V_t$) is invariant.
+\item Certainly $s(\varphi)(v) = 0$ for all $v \in V_s$, so that $\MinPoly![V_s]{\varphi} \mid s$. Now using the Division Algorithm, write $s = \MinPoly![V_s]{\varphi} q + r$, where either $r = 0$ or $\Dim{r} < \Dim{\MinPoly![V_s]{\varphi}}$. Note that if $r \neq 0$, then in fact for all $v \in V_s$ we have \[ r(\varphi)(v) = s(\varphi)(v) - q(\varphi)(\MinPoly![V_s]{\varphi}(v)) = 0, \] so that $\MinPoly![V_s]{\varphi} \mid r$, a contradiction. So $r = 0$ as needed.
+\item Since $s$ and $t$ are relatively prime, we have $as + bt = 1$ for some $a$ and $b$. In particular, if $v \in V$ then \[ v = 1(\varphi)(v) = (as+bt)(\varphi)(v) = (bt)(\varphi)(v) + (as)(\varphi)(v). \] Note that $s(\varphi)((bt)(\varphi)(v)) = b(\varphi)(\MinPoly![V]{\varphi}{v}) = 0$, so that $(bt)(\varphi)(v) \in V_s$. Similarly, $(as)(\varphi)(v) \in V_t$, and thus $V = V_s + V_t$. Now suppose $v \in V_s \cap V_t$. Then we have $s(\varphi)(v) = t(\varphi)(v) = 0$, and since (again) $as+bt = 1$, we have $v = 1(\varphi)(v) = 0$. Thus $V = V_s \oplus V_t$. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{cor}
+If $\MinPoly![V]{\varphi} = q_1 \cdots q_k$, where the $q_i$ are pairwise relatively prime and $q_i = p_i^{t_i}$ for prime $p_i$, then there exist invariant subspaces $V_i$ such that $V = \bigoplus V_i$ and $\MinPoly![V_i]{\varphi} = q_i$.
+\end{cor}
+
+\section{Cyclic Vectors}
+
+\begin{dfn}
+A vector $v \in V$ is called \emph{cyclic} if $\CycSpan[\varphi]{v} = V$. In this case, if $\MinPoly[v]{\varphi}$ has degree $k$, then the ordered set $\CycBasis{v}{\varphi} = \{v,\varphi(v),\ldots,\varphi^{k-1}(v)\}$ is a basis of $V$.
+\end{dfn}
+
+Given a polynomial $p(x) = \sum \alpha_i x^i$ of degree $k$, the \emph{companion matrix} of $p$ is the $k \times k$ matrix \[ \CompMat{p} = \begin{bmatrix} 0 & 0 & 0 & 0 & \cdots & 0 & -\alpha_0\alpha_k^\inv \\ 1 & 0 & 0 & 0 & \cdots & 0 & -\alpha_1\alpha_k^\inv \\ 0 & 1 & 0 & 0 & \cdots & 0 & -\alpha_2\alpha_k^\inv \\ 0 & 0 & 1 & 0 & \cdots & 0 & -\alpha_3\alpha_k^\inv \\ \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 0 & 0 & 0 & 0 & \cdots & 1 & -\alpha_{k-1}\alpha_k^\inv \end{bmatrix}. \] We can see that if $v$ is a cyclic vector of $V$, then the matrix of $\varphi$ with respect to the cyclic basis $\mathcal{B} = \CycBasis{v}{\varphi}$ is precisely \[ [\varphi]^\mathcal{B}_\mathcal{B} = \CompMat{\MinPoly[v]{\varphi}}. \]
+
+\begin{prp} \mbox{}
+\begin{enumerate*}
+\item If $v_1, v_2 \in V$ are vectors such that $\MinPoly[v_1]{\varphi}$ and $\MinPoly[v_2]{\varphi}$ are relatively prime, then $\MinPoly[v_1+v_2]{\varphi} = \MinPoly[v_1]{\varphi} \MinPoly[v_2]{\varphi}$.
+\item If $\MinPoly![V]{\varphi} = p^t$ is a power of a prime polynomial, then $V$ contains a cyclic vector.
+\item Every finite dimensional vector space contains a cyclic vector.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof}
+Next time.
+\end{proof}
+
+\end{document}

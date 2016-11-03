@@ -1,0 +1,31 @@
+\section{Polynomials}
+
+\begin{dfn}
+Let $F$ be a field and let $X = \{1,x,x^2,\ldots,x^x,\ldots\}$. We define the set $F[x]$ of \emph{polynomials over $F$} to be the free $F$-vector space on $X$. That is, an element of $F[x]$ is a formal sum of the form \[p = \alpha_0 + \alpha_1 x + \alpha_2 x^2 + \cdots + \alpha_n x^n\] for some natural number $n$ and some $\alpha_i \in F$. If $p \neq 0$, then there is a largest index $i$ such that $\alpha_i \neq 0$; we call this the \emph{degree} of $p(x)$. The degree of 0 is undefined.
+\end{dfn}
+
+Note that for each natural number $k$, the set of all pairs of natural numbers $(i,j)$ such that $i+j=k$ is finite. We define a multiplication on $F[x]$ as follows: if $p = \sum_{i=0}^n \alpha_i x^i$ and $q = \sum_{j=0}^m \beta_j x^j$ are in $F[x]$, then $pq = \sum_{k=0}^{n+m} (\sum_{i+j=k} \alpha_i \beta+j) x^k$
+
+\begin{prp}
+\begin{enumerate*}
+\item $F[x]$ is a commutative ring with 1.
+\item If $pq = 0$, then either $p = 0$ or $q = 0$.
+\item The units in $F[x]$ are precisely the nonzero
+\end{enumerate*}
+\end{prp}
+
+\begin{proof}
+(@@@)
+\end{proof}
+
+\begin{prp}
+\begin{enumerate*}
+\item $\mathsf{deg}(p+q) \leq \max(\mathsf{deg}(p), \mathsf{deg}(q))$
+\item If $p$ and $q$ are nonzero, then $\mathsf{deg}(pq) = \mathsf{deg}(p) + \mathsf{deg}(q)$.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof}
+(@@@)
+\end{proof}
+

@@ -1,0 +1,100 @@
+\documentclass{memoir}
+\usepackage{mystyle}
+
+\begin{document}
+
+\setcounter{section}{10}
+\setcounter{dfn}{5}
+
+\begin{prp}
+If $A$ and $B$ are row echelon matrices which are row equivalent, then $A$ and $B$ have the same pivots.
+\end{prp}
+
+\begin{lem}
+If \[ P = \left[ \begin{array}{c|c} [1] & V \\ \hline 0 & P^\prime \end{array} \right] \] is invertible with inverse $Q$, then \[Q = \left[ \begin{array}{c|c} [1] & W \\ \hline 0 & Q^\prime \end{array} \right] \] and $P^\prime$ is invertible.
+\end{lem}
+
+\begin{proof}[Proof of Lemma]
+Write the inverse of $P$ as \[ Q = \left[ \begin{array}{c|c} Q_{1,1} & Q_{1,2} \\ \hline Q_{2,1} & Q_{2,2} \end{array} \right] \] so that the dimensions work in the next sentence. Now the equation $PQ = I$ expands as \[ \left[ \begin{array}{c|c} Q_{1,1} + VQ_{2,1} & Q_{1,2} + VQ_{2,2} \\ \hline P^\prime Q_{2,1} & P^\prime Q_{2,2} \end{array} \right] = \left[ \begin{array}{c|c} [1] & 0 \\ \hline 0 & I \end{array} \right]. \] Note that $P^\prime Q_{2,2} = I$, so that $P^\prime$ is invertible. Since $P^\prime Q_{2,1} = 0$, we have $Q_{2,1} = 0$, and thus $Q_{1,1} = [1]$ as desired.
+\end{proof}
+
+\begin{proof}[Proof of 10.6]
+Let $A$ and $B$ be row equivalent matrices in row echelon form, and say $P$ is invertible such that $PA = B$. Note that $A = 0$ if and only if $B = 0$. In particular, if either of $A$ or $B$ is 0, then $A$ and $B$ have the same pivots. So we may assume that $A$ and $B$ are nonzero.
+
+Suppose $A$ and $B$ have dimension $1 \times m$; say \[A = \left[ \begin{array}{c|c|c} 0 & [1] & A^\prime \end{array} \right] \quad \mathrm{and} \quad B = \left[ \begin{array}{c|c|c} 0 & [1] & B^\prime \end{array} \right], \] where the pivot of $A$ is $(1,k)$ and the pivot of $B$ is $(1,\ell)$. Since $P = [\alpha]$ is invertible, $\alpha$ is nonzero, and so we have \[ \left[ \begin{array}{c|c|c} 0 & [1] & B^\prime \end{array} \right] = [\alpha] \left[ \begin{array}{c|c|c} 0 & [1] & A^\prime \end{array} \right] = \left[ \begin{array}{c|c|c} 0 & [\alpha] & [\alpha]A^\prime \end{array} \right]. \] If $k \neq \ell$, comparing entries we have $1 = 0$ or $\alpha = 0$, both contradictions. So $k = \ell$, and thus $A$ and $B$ have the same pivots.
+
+Suppose now that the conclusion holds for matrices of dimension $n \times m$ and that $A$ and $B$ have dimension $(n+1) \times m$. Write \[ A = \left[ \begin{array}{c|c|c} 0 & [1] & V \\ \hline 0 & 0 & A^\prime \end{array} \right] \quad \mathrm{and} \quad B = \left[ \begin{array}{c|c|c} 0 & [1] & W \\ \hline 0 & 0 & B^\prime \end{array} \right], \] and say the pivots of $A$ are $(1,k)$ (with the pivots coming from $A^\prime$) and the pivots of $B$ are $(1,\ell)$ (with the pivots coming from $B^\prime$). If we write \[ P = \left[ \begin{array}{c|c} P_{1,1} & P_{1,2} \\ \hline P_{2,1} & P_{2,2} \end{array} \right] \] (partitioning $P$ so that the dimensions line up in the next sentence) then the equation $PA = B$ expands as \[ \left[ \begin{array}{c|c|c} 0 & P_{1,1} & P_{1,1}V + P_{1,2}A^\prime \\ \hline 0 & P_{2,1} & P_{2,1}V + P_{2,2} A^\prime \end{array} \right] = \left[ \begin{array}{c|c|c} 0 & [1] & W \\ \hline 0 & 0 & B^\prime \end{array} \right]. \] Note that the left hand matrix above (being equal to the right hand matrix) is in row echelon form. In particular, if $P_{1,1} = 0$, then $P_{2,1} = 0$; but in this case, $P$ has a zero column - a contradiction since $P$ is invertible. So in fact $P_{1,1} = [1]$, $P_{2,1} = 0$ and $k = \ell$. By the lemma, $P_{2,2}$ is invertible, and since $P_{2,2} A^\prime = B^\prime$ and $A^\prime$ and $B^\prime$ are $n \times (m-k)$ row echelon matrices they have the same pivots. So $A$ and $B$ have the same pivots.
+\end{proof}
+
+Note that every matrix is row equivalent to a row echelon matrix, but that this matrix is not unique. The \emph{pivots} of this matrix, however, are unique. So we can think of pivots as a feature of any matrix, not just row echelon matrices. We denote the set of pivots of $A$ by $\pivot{A}$.
+
+\begin{prp}
+If $A$ is a row echelon matrix, then we have the following.
+\begin{enumerate*}
+\item $\pivot{A}$ is either empty or of the form $\{(1,\ell_1), (2,\ell_2), \ldots, (k,\ell_k)\}$ where $\ell_1 < \ell_2 < \ldots < \ell_k$.
+\item The nonpivotal rows of $A$ are 0.
+\item If $(t,\ell_t)$ is a pivot of $A$ and $i > t$, then $A_{i,\ell_t} = 0$.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof}
+If $A = 0$, then $\pivot{A}$ is empty, every row of $A$ is 0, and every entry of $A$ is 0, so all three statements hold. We proceed for nonzero $A$ on the number of rows.
+
+If $A$ has dimension $1 \times m$, then $A = \PMatrixIxIII{0 & [1] & A^\prime}$ with $\pivot{A} = \{(1,\ell_1)\}$. Then all three conclusions are vacuously true.
+
+Suppose now that $A$ has dimension $(n+1) \times m$, where \[ A = \PMatrixIIxIII{0 & [1] & V}{0 & 0 & A^\prime} \] and $A^\prime$ is in row echelon form. If (using the induction hypothesis) the pivots of $A^\prime$ are $\{(1,\ell_1^\prime),$ $(2,\ell_2^\prime),$ $\ldots, (k,\ell_k^\prime)\}$ where $\ell_1^\prime < \ell_2^\prime < \ldots < \ell_k^\prime$, then (by definition) the pivots of $A$ are $\{1,\ell_1), (2,\ell_1^\prime + \ell_1), \ldots, (k+1, \ell_k^\prime + \ell_1)\}$ and thus (i) holds. If $t > 1$, then the $t$th row of $A$ is precisely $\PMatrixIxIII{0 & 0 & R}$ where $R$ is the $(t-1)$th row of $A^\prime$. If $k+1 < t \leq n+1$, then $k < t-1 \leq n$, and (by the inductive hypothesis) $R = 0$, so that the $t$th (nonpivotal) row of $A$ is 0. Part (iii) is clear.
+\end{proof}
+
+\begin{dfn}
+A row echelon matrix $A$ is called \emph{reduced} if whenever $(k,\ell)$ is a pivot of $A$ and $j = \ell$ and $i < k$, in fact $A_{i,j} = 0$.
+\end{dfn}
+
+\begin{prp}
+Every row echelon matrix (hence every matrix) is row equivalent to a reduced row echelon matrix.
+\end{prp}
+
+\begin{proof}
+Let $A$ be a row echelon matrix. If $A = 0$ then $A = IA$ is a reduced row echelon matrix; we may suppose $A \neq 0$. If $A$ has dimension $1 \times m$, then $A$ is vacuously a reduced row echelon matrix.
+
+Suppose now that the conclusion holds for every $n \times m$ row echelon matrix, and let $A$ be an $(n+1) \times m$ row echelon matrix. Say \[ A = \left[ \begin{array}{c|c|c} 0 & [1] & V \\ \hline 0 & 0 & A^\prime \end{array} \right] \] where the first pivot of $A$ is $(1,\ell_1)$. Since $A^\prime$ is an $n \times (m-\ell_1)$ row echelon matrix, there is an invertible matrix $P^\prime$ such that $P^\prime A^\prime = B^\prime$ is reduced row echelon; that is, for every pivot $(k,\ell)$ of $B^\prime$, if $j = k$ and $i < \ell$ then $B^\prime_{i,j} = 0$. Write \[ P = \PMatrixIIxII{[1] & 0}{0 & P^\prime} \] so that \[ PA = \PMatrixIIxIII{0 & [1] & V}{0 & 0 & B^\prime}. \] Write $V = [v_{1,\ell+1}\ v_{2,\ell+2}, \ldots, v_{1,m}]$, and let \[ Q = \EMAdd{1}{k+1}{\text{-}v_{1,\ell_{k+1}}} \cdots \EMAdd{1}{3}{\text{-}v_{1,\ell_3}} \EMAdd{1}{2}{\text{-}v_{1,\ell_2}}. \] Now \[ QPA = \PMatrixIIxIII{0 & [1] & W}{0 & 0 & B^\prime}. \] Note that if $t > 1$, then exactly one nonpivotal column of the $t$th row of $PA$ is nonzero. So the effect of $Q$ is to zero out all the entries of $V$ which are in pivotal columns. So $QPA$ is in reduced row echelon form.
+\end{proof}
+
+\begin{prp}
+If $A$ and $B$ are row equivalent reduced row echelon matrices, then $A = B$.
+\end{prp}
+
+\begin{proof}
+Suppose $A$ and $B$ are reduced row echelon matrices and that $P$ is invertible such that $PA = B$. Note that $A = 0$ if and only if $B = 0$, so we can assume that $A$ and $B$ are nonzero.
+
+Suppose $A$ and $B$ have dimension $1 \times m$. Say \[ A = \PMatrixIxIII{0 & [1] & V} \quad \mathrm{and} \quad B = \PMatrixIxIII{0 & [1] & W}. \] Now $A$ and $B$ have the same pivots, so if we write $P = [\alpha]$ with $\alpha$ invertible then the equation $PA = B$ expands as \[ \PMatrixIxIII{0 & [\alpha] & \alpha V} = \PMatrixIxIII{0 & [1] & W} \] where both sides of this equation are partitioned into blocks of the same size. So $\alpha = 1$ and $A = B$.
+
+Suppose now that the result holds for matrices of dimension $n \times m$, and let $A$ and $B$ have dimension $(n+1) \times m$. Say \[ A = \PMatrixIIxIII{0 & [1] & V}{0 & 0 & A^\prime} \quad \mathrm{and} \quad B = \PMatrixIIxIII{0 & [1] & W}{0 & 0 & B^\prime}. \] Note that $A$ and $B$ are partitioned into blocks of the same size, since they have the same (first) pivot, and that $A^\prime$ and $B^\prime$ are reduced row echelon matrices. If we write \[ P = \PMatrixIIxII{P_{1,1} & P_{1,2}}{P_{2,1} & P_{2,2}}, \] then the equation $PA = B$ expands as \[ \PMatrixIIxIII{0 & P_{1,1} & P_{1,1}V + P_{1,2}A^\prime}{0 & P_{2,1} & P_{2,1}V + P_{2,2}A^\prime} = \PMatrixIIxIII{0 & [1] & W}{0 & 0 & B^\prime}. \] So in fact $P_{1,1} = [1]$ and $P_{2,1} = 0$. By 10.7, $P_{2,2}$ is invertible, so that $A^\prime$ and $B^\prime$ are row equivalent, reduced row echelon form matrices- hence are equal by the induction hypothesis. We claim that $V = W$. Comparing entries of the above matrix, we have $P_{1,2}A^\prime = W - V$. Note that because $A$ and $B$ are reduced row echelon, if $(i,\ell_i)$ is a pivot of $A^\prime$ then $W_{1,\ell_i} = V_{1,\ell_i} = 0$. On the other hand, the $\ell_i$ column of $A^\prime$ is the $i$th standard basis matrix of dimension $n \times 1$, so that the $(1,\ell_i)$ entry of $P_{1,2}A^\prime$ is $(P_{1,2})_{1,i}$. That is, the first $k$ entries of $P_{1,2}$ are 0, where $k$ is the number of pivots of $A^\prime$. That is, we have \[ W - V = P_{1,2}A^\prime = \left[ \begin{array}{c|c} 0 & P_{1,2}^\prime \end{array} \right] \left[ \begin{array}{c} A^{\prime\prime} \\ \hline 0 \end{array} \right] = 0. \] Thus $A = B$.
+\end{proof}
+
+\begin{cor}[Gauss-Jordan Factorization]
+If $A$ is an $m \times n$ matrix, then there is an invertible $m \times m$ matrix $P$ and a unique reduced row echelon matrix $R$ such that $A = PR$. This $R$ is called the \emph{reduced row echelon form} of $A$ and denoted $\mathsf{rref}(A)$.
+\end{cor}
+
+\begin{prp}
+If $A$ is a reduced row echelon matrix, then the pivotal columns of $A$ are independent, and the nonpivotal columns are dependent on the pivotal columns.
+\end{prp}
+
+\begin{proof}
+The pivotal columns of a reduced row echelon matrix are (by definition) standard basis matrices, and thus are independent.
+\end{proof}
+
+\subsection*{Application: Computing a basis for $\Ker*{A}$.}
+Note that if $A$ and $B$ are row equivalent matrices, then $\Ker*{A} = \Ker*{B}$. (Why?) In particular, if we wish to find a basis for the kernel of a matrix $A$, it suffices to do so for the reduced row echelon form $M$ of $A$.
+
+Say $M = [\mu_{i,j}]$ has dimension $n \times m$ with pivots $(1,\ell_1), \ldots, (k,\ell_k)$, and let $d_{i,1}$ denote the standard $m \times 1$ basis vectors. Note that $Md_{j,1}$ is the $j$th column of $M$. In particular, if $(i,\ell_i)$ is a pivot of $M$, then $Md_{\ell_i,1} = d_{i,1}$, and if the $j$th column of $M$ is not pivotal, then $Md_{j,1} = \sum_{i=1}^k \mu_{i,j} d_{i,1}$ is a linear combination of the pivotal columns. But now 
+\begin{eqnarray*}
+Md_j & = & \sum_{i=1}^k \mu_{i,j} d_i \\
+     & = & \sum_{i=1}^k \mu_{i,j} Md_{\ell_i,1} \\
+     & = & M(\sum_{i=1}^k \mu_{i,j} d_{\ell_i,1}) \\
+\end{eqnarray*}
+so in fact $M(d_j - \sum_{i=1}^k \mu_{i,j} d_{\ell_i,1}) = 0$. That is, if the $j$th column of $M$ is nonpivotal, then the vector \[ z_j = d_j - \sum_{i=1}^k \mu_{i,j} d_{\ell_i,1} \] is in $\Ker*{M}$. Certainly the $z_j$, where $j$ ranges over the indices of the nonpivotal columns of $M$, are $m-k$ independent vectors (being expressable as a subset of an independent set derived from the standard basis using elementary operations). In fact, the set of $z_i$ together with the pivotal $d_{\ell_i,1}$ form a basis for $\Mat{m}{1}{F}$. We claim that the $z_i$ are a \emph{maximal} independent set in $\Ker*{M}$; if not, then (rearranging so the indices work out nicely) there is a vector \[ v = \sum_{i=1}^k \alpha_i z_i + \sum_{i=k+1}^m \beta_i d_i \] such that $Mv = 0$. Since all the $z_i$ are in the kernel, in fact all the $\beta_i$ are zero.
+
+\subsubsection*{Example}
+
+The matrix \[ M = \left[ \begin{array}{cccccc} 1 & 0 & 3 & 0 & 0 & 3 \\ 0 & 1 & 2 & 0 & 0 & 4 \\ 0 & 0 & 0 & 1 & 0 & 5 \\ 0 & 0 & 0 & 0 & 1 & \text{-} 1 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{array} \right] \] is in reduced row echelon form (check it) and has pivots $(1,1)$, $(2,2)$, $(3,4)$, and $(4,5)$. Then \[ z_3 = d_3 - 3d_1 - 2d_2 - 0d_4 - 0d_5 = \left[ \begin{array}{c} \text{-}3 \\ \text{-}2 \\ 1 \\ 0 \\ 0 \\ 0 \end{array} \right] \quad \mathrm{and} \quad z_6 = d_6 - 3d_1 - 4d_2 - 5d_4 + d_5 = \left[ \begin{array}{c} \text{-}3 \\ \text{-}4 \\ 0 \\ \text{-}5 \\ 1 \\ 1 \end{array} \right] \] are a basis for $\Ker*{M}$.
+\end{document}

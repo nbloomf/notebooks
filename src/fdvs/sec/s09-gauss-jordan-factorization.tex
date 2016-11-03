@@ -1,0 +1,60 @@
+\section{Gauss-Jordan Factorization}
+
+\begin{dfn}[Row Echelon Form]
+A $1 \times m$ matrix is said to be in \emph{row echelon form} if $A = 0$ or if $A = [0_{1 \times k-1} \mid 1 \mid A^\prime]$, where $A$ has dimension $1 \times m-k$. A $n \times m$ matrix $A$ is in row echelon form if $A = 0$ or if \[A = \left[\begin{array}{c|c|c} 0 & 1 & A^{\prime\prime} \\ \hline 0_{n-1,k-1} & 0_{n-1,1} & A^\prime \end{array}\right] \] for some matrices $A^{\prime\prime}$ and $A^\prime$ of dimension $1 \times m-k$ and $n-1 \times m-k$, where $A^\prime$ is also in row echelon form.
+\end{dfn}
+
+Recall that two matrices $A$ and $B$ are said to be row-equivalent if there is an invertible matrix $P$ such that $PA = B$. In Exercise (@@@) we saw that row-equivalence is an equivalence relation, and in particular in Exercise (@@@) saw that elementary matrices $E$ are invertible and that there is a nice, predictable relationship between the rows of a matrix $A$ and those of $EA$. We can exploit this relationship and induction to show the following.
+
+\begin{prp}
+Every matrix is row-equivalent to a matrix in row echelon form.
+\end{prp}
+
+\begin{proof}
+Let $A$ be an $n \times m$ matrix over $F$. If $A = 0$, then $I_nA$ is in row echelon form. Thus we can assume $A$ is nonzero; we proceed by induction on $n$.
+
+Suppose $n = 1$. Since $A \neq 0$, we may write $A = [0_{1,k-1} \mid [\alpha] \mid A^\prime]$, where $0 \leq k \leq n$ and $A^\prime$ has dimension $1 \times (m-k-1)$. Let $P = E^3_1(\alpha^\inv) = [\alpha^\inv]$. Then $PA = [0_{1,k-1} \mid I_1 \mid PA^\prime]$ is in row echelon form.
+
+Now suppose that for some $n$, any matrix of dimension $n \times m$ is row-equivalent to a matrix in row echelon form, and let $A$ be a nonzero matrix of dimension $(n+1) \times m$. Since $A$ is nonzero, there is a minimal $k$, $1 \leq k \leq m$, such that the $j$th column of $A$ has a nonzero entry. Let $(i,k)$ be the index of one such entry and let $P = E^3_1(\alpha^\inv)E^1_{i,k}$. Then $PA$ has the form \[PA = E^3_1(\alpha^\inv)E^1_{i,k}A = E^3_1(\alpha^\inv)\left[\begin{array}{c|c|c} 0 & [\alpha] & B \\ \hline 0 & C & D \end{array}\right] = \left[\begin{array}{c|c|c} 0 & I_1 & \alpha^\inv B \\ \hline 0 & C & D \end{array}\right]\] for some matrices $B$, $C$, and $D$.
+
+Next suppose that $C = [c_2\ c_3\ \ldots\ c_{n+1}]^\mathsf{T}$ and let $Q = E^2_{n+1,k}(-c_{n+1}) E^2_{n,k}(-c_n) \cdots E^2_{2,k}(-c_2)$. Then \[ QPA = \left[\begin{array}{c|c|c} 0 & I_1 & B_2 \\ \hline 0 & 0 & D_2 \end{array}\right] \] where $D_2$ has dimension $n \times (m-k)$. By the inductive hypothesis, there is an invertible matrix $R^\prime$ such that $R^\prime D_2$ is in row echelon form, and letting $R = I_1 \oplus R^\prime$ we have that \[RQPA = \left[\begin{array}{c|c|c} 0 & I_1 & B_3 \\ \hline 0 & 0 & R^\prime D_2 \end{array}\right]\] is in row echelon form.
+\end{proof}
+
+\begin{dfn}[Pivot]
+Given a matrix $A$ in row echelon form, we associate to $A$ a (possibly empty) set of pairs of natural numbers called \emph{pivots} as follows. If $A = 0$, then $A$ has no pivots. If $A = [0_{1,k-1} \mid 1 \mid A^\prime]$, then the only pivot of $A$ is $(1,k)$. If \[A = \left[\begin{array}{c|c|c} 0 & 1 & A^{\prime\prime} \\ \hline 0_{n-1,k-1} & 0_{n-1,1} & A^\prime \end{array}\right], \] then the pivots of $A$ are $(1,k)$ and $(i+1,j+k)$ where $(i,j)$ is a pivot of $A^\prime$.
+\end{dfn}
+
+A given matrix $A$ is generally row equivalent to many different matrices in row echelon form. That is, while the algorithm given in (@@@) will exhibit \emph{a} row echelon matrix that is row equivalent to $A$, the exact matrix it returns depends on the choices made while executing the algorithm. However the pivots of the resulting REF matrix are unique, as we show.
+
+\begin{prp}
+\label{prp:pivots}
+If $A$ and $B$ are row-equivalent matrices in row echelon form then they have the same pivots.
+\end{prp}
+
+\begin{proof}
+Let $A$ and $B$ be row-equivalent matrices in row echelon form; say $P$ is an invertible matrix such that $PA = B$. If $A = 0$, then $B = P0 = 0$, and thus $A$ and $B$ both have no pivots. Similarly, if $B = 0$ we have $A = P^\inv 0 = 0$; thus $A = 0$ and both $A$ and $B$ have no pivots. We may assume that $A$ and $B$ are nonzero.
+
+Suppose $A$ and $B$ have dimension $1 \times m$; say $A = [0_{1,k-1} \mid 1 \mid A^\prime]$ (with pivot $(1,k)$) and $B = [0_{1,\ell-1} \mid 1 \mid B^\prime]$ (with pivot $(1,\ell)$). Now $P = [\alpha]$ for some nonzero $\alpha \in F$, and we have \[[0_{1,k-1} \mid \alpha \mid \alpha A^\prime] = PA = B = [0_{1,\ell-1} \mid 1 \mid B^\prime].\] Since $\alpha \neq 0$, in fact $k = \ell$ since the leftmost nonzero entry of the left hand matrix appears at index $(1,k)$ and on the right at index $(1,\ell)$. So $A$ and $B$ have the same pivots.
+
+Finally, suppose $A$ and $B$ have dimension $n \times m$ and that \[ P = \left[\begin{array}{c|c} P_{1,1} & P_{1,2} \\ \hline P_{2,1} & P_{2,2} \end{array}\right], A = \left[\begin{array}{c|c|c} 0_{1,k-1} & I_1 & A^{\prime\prime} \\ \hline 0_{n-1,k-1} & 0_{n-1,1} & A^\prime \end{array}\right],\ \mathrm{and}\ B = \left[\begin{array}{c|c|c} 0_{1,\ell-1} & I_1 & B^{\prime\prime} \\ \hline 0_{n-1,\ell-1} & 0_{n-1,1} & B^\prime \end{array}\right], \] where $P_{1,1}$ has dimension $1 \times 1$, $P_{1,2}$ has dimension $1 \times n-1$, $P_{2,1}$ has dimension $n-1 \times 1$, and $P_{2,2}$ has dimension $n-1 \times n-1$. Now the equation $PA = B$ expands as \[ \left[\begin{array}{c|c|c} 0_{1,k-1} & P_{1,1} & P_{1,1}A^{\prime\prime} + P_{1,2}A^\prime \\ \hline 0_{n-1,k-1} & P_{2,1} & P_{2,1}A^{\prime\prime} + P_{2,2}A^\prime \end{array}\right] = \left[\begin{array}{c|c|c} 0_{1,\ell-1} & I_1 & B^{\prime\prime} \\ \hline 0_{n-1,\ell-1} & 0_{n-1,1} & B^\prime \end{array}\right]. \] If $P_{1,1} = 0$, then we must have $P_{2,1} = 0$. But then $P$ has a zero column, and is thus not invertible. So in fact $P_{1,1} \neq 0$. Thus column $k$ (in the left hand matrix) is the leftmost nonzero column, and in fact $k = \ell$, $P_{1,1} = I_1$, and $P_{2,1} = 0$. Hence $P_{2,2}A^\prime = B^\prime$.
+
+Let us write \[ P^\inv = \left[\begin{array}{c|c} Q_{1,1} & Q_{1,2} \\ \hline Q_{2,1} & Q_{2,2} \end{array}\right] \] where $Q_{1,1}$ has dimension $1 \times 1$, $Q_{1,2}$ has dimension $1 \times (n-1)$, $Q_{2,1}$ has dimension $(n-1) \times 1$, and $Q_{2,2}$ has dimension $(n-1) \times (n-1)$. The equation $P^\inv P = I_n$ expands as \[ \left[\begin{array}{c|c} Q_{1,1} & Q_{1,1}P_{1,2} + Q_{1,2}P_{2,2} \\ \hline Q_{2,1} & Q_{2,1}P_{1,2} + Q_{2,2}P_{2,2} \end{array}\right] = \left[\begin{array}{c|c} I_1 & 0_{1,n-1} \\ \hline 0_{n-1,1} & I_{n-1} \end{array}\right]. \] In particular, $Q_{2,1} = 0$, and thus $Q_{2,2}P_{2,2} = I_{n-1}$. By (@@@), $P_{2,2}$ is invertible. Thus $A^\prime$ and $B^\prime$ are row equivalent matrices in row echelon form; by induction they have the same pivots. Hence $A$ and $B$ have the same pivots.
+\end{proof}
+
+Thus by Proposition \ref{prp:pivots} we can meaningfully define the pivots of an arbitrary matrix to be the pivots of any row-equivalent row echelon form matrix.
+
+\begin{dfn}
+A matrix $A$ is said to be in \emph{reduced row echelon form} if $A$ is in row echelon form and if $A_{i,j} = 0$ whenever there is a pivot $(k,\ell)$ of $A$ such that $\ell = j$ and $k > i$.
+\end{dfn}
+
+\begin{prp}
+Every matrix is row-equivalent to a unique matrix in reduced row echelon form, which we denote $\mathsf{rref}(A)$.
+\end{prp}
+
+\begin{proof}
+(@@@)
+\end{proof}
+
+\begin{cor}
+$A$ and $B$ are row equivalent if and only if $\mathsf{rref}(A) = \mathsf{rref}(B)$.
+\end{cor}

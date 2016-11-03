@@ -1,0 +1,134 @@
+\ProvidesPackage{mystyle}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=3cm]{geometry}
+\usepackage{mdwlist}
+\usepackage{paralist}
+\usepackage{stmaryrd}
+\usepackage{mathabx}
+\usepackage{suffix}
+\usepackage{tikz}
+\usepackage{mathtools}
+
+\newcommand{\pseudochapter}[1]{
+  \chapter*{#1}
+  \addcontentsline{toc}{chapter}{#1}
+  \markboth{#1}{}}
+
+\counterwithout{section}{chapter}
+
+\newcommand{\NowForSomeExercises}{\fancybreak{\vspace{12pt}$\ast\quad\ast\quad\ast$\vspace{12pt}}}
+
+\newcounter{exercise}[section]
+\newenvironment{exercises}
+  {\begin{list}{\theexercise .}{\usecounter{exercise}}}
+  {\end{list}}
+
+\newcounter{dummycounter}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{Def}[section]
+\newtheorem{prp}[dfn]{Prop}
+\newtheorem{cor}[dfn]{Cor}
+\newtheorem{lem}[dfn]{Lem}
+
+\newtheoremstyle{note}% name
+  {3pt}% Space above
+  {3pt}% Space below
+  {\small}% Body font
+  {\parindent}%Indent amount 1
+  {\itshape}% Theorem head font
+  {:}%Punctuation after theorem head
+  {.5em}%Space after theorem head 2
+  {}%Theorem head spec (can be left empty, meaning ‘normal’)
+
+\theoremstyle{note}
+\newtheorem{exm}[dfn]{Example}
+\newtheorem{nex}[dfn]{Nonexample}
+\newtheorem*{exm*}{Example}
+\newtheorem*{nex*}{Nonexample}
+
+\pagestyle{ruled}
+
+% For functions:
+\newcommand{\ParenFunc}[2]{\ensuremath{{#1}\left(#2\right)}} % Normal Version:  Parentheses
+
+% Scheduled for deletion
+\newcommand{\image}[1]{\ensuremath{\mathsf{im}\left(#1\right)}}
+  \WithSuffix\newcommand\image*[1]{\ensuremath{\mathsf{im}\ {#1}}}
+
+\newcommand{\inv}{\ensuremath{{\,\text{-}1}}}
+\newcommand{\Dual}[1]{\ensuremath{\widecheck{{#1}}}}
+\newcommand{\symdiff}{\ensuremath{\mathbin{\Delta}}}
+\newcommand{\powset}[1]{\ensuremath{\mathcal{P}(#1)}}
+\newcommand{\intrange}[2]{\ensuremath{\llbracket #1, #2 \rrbracket}}
+\newcommand{\Mat}[3]{\ensuremath{\ParenFunc{\mathsf{Mat}_{{#1} \times {#2}}}{#3}}}
+\newcommand{\FreeVS}[2]{\ensuremath{{#1}_{#2}}}
+\newcommand{\supp}[1]{\ensuremath{\mathsf{supp}\left(#1\right)}}
+  \WithSuffix\newcommand\supp*[1]{\ensuremath{\mathsf{supp}\ {#1}}}
+\newcommand{\pivot}[1]{\ensuremath{\mathsf{pivot}(#1)}}
+
+% "End" Operator
+%   Optional first argument is the field.
+%   Starred version is sans parentheses.
+\DeclareMathOperator{\EndOperator}{\mathsf{End}}%
+\newcommand{\End}[2][]{\ensuremath{\EndOperator_{#1}\left(#2\right)}}%
+\WithSuffix\newcommand\End*[2][]{\ensuremath{\EndOperator_{#1} {#2}}}%
+
+% "Aut" Operator
+%   Optional first argument is the field.
+%   Starred version is sans parentheses.
+\DeclareMathOperator{\AutOperator}{\mathsf{Aut}}%
+\newcommand{\Aut}[2][]{\ensuremath{\AutOperator_{#1}\left(#2\right)}}%
+\WithSuffix\newcommand\Aut*[2][]{\ensuremath{\AutOperator_{#1} {#2}}}%
+
+% "Hom" Operator
+%   Optional first argument is the field
+\DeclareMathOperator{\HomOperator}{\mathsf{Hom}}%
+\newcommand{\Hom}[3][]{\ensuremath{\HomOperator_{#1}\left(#2,#3\right)}}%
+
+% "span" Operator
+%   Optional first argument is the field.
+%   Starred version is sans parentheses.
+\DeclareMathOperator{\SpanOperator}{\mathsf{span}}%
+\newcommand{\Span}[2][]{\ensuremath{\SpanOperator_{#1}\left(#2\right)}}%
+\WithSuffix\newcommand\Span*[2][]{\ensuremath{\SpanOperator_{#1} {#2}}}%
+
+% "dim" Operator
+%   Optional first argument is the field.
+%   Starred version is sans parentheses.
+\DeclareMathOperator{\DimOperator}{\mathsf{dim}}%
+\newcommand{\Dim}[2][]{\ensuremath{\DimOperator_{#1}\left(#2\right)}}%
+\WithSuffix\newcommand\Dim*[2][]{\ensuremath{\DimOperator_{#1} {#2}}}%
+
+% "ker" Operator
+%   Starred version is sans parentheses.
+\DeclareMathOperator{\KerOperator}{\mathsf{ker}}%
+\newcommand{\Ker}[1]{\ensuremath{\KerOperator\left(#1\right)}}%
+\WithSuffix\newcommand\Ker*[1]{\ensuremath{\KerOperator {#1}}}%
+
+% "im" Operator
+%   Starred version is sans parentheses.
+\DeclareMathOperator{\ImOperator}{\mathsf{im}}%
+\renewcommand{\Im}[1]{\ensuremath{\ImOperator\left(#1\right)}}%
+\WithSuffix\newcommand\Im*[1]{\ensuremath{\ImOperator {#1}}}%
+
+\newcommand{\EMSwap}[2]{\ensuremath{\mathsf{E}_{{#1},{#2}}}}
+\newcommand{\EMScale}[2]{\ensuremath{\mathsf{F}_{#1}^{#2}}}
+\newcommand{\EMAdd}[3]{\ensuremath{\mathsf{G}_{{#1},{#2}}^{#3}}}
+
+\renewcommand{\theenumi}{(\roman{enumi})}
+\renewcommand{\labelenumi}{\theenumi}
+
+\newenvironment{theproof}
+  {\begin{proof} \footnotesize}
+  {\end{proof}}
+  
+\newcommand{\PauseExercises}{\setcounter{dummycounter}{\value{exercise}}}
+\newcommand{\ResumeExercises}{\setcounter{exercise}{\value{dummycounter}}}
+
+\newtheorem*{claim}{Claim}
+
+\newcommand{\PMatrixIxIII}[1]{\ensuremath{\left[ \begin{array}{c|c|c} #1 \end{array} \right]}}
+\newcommand{\PMatrixIIxII}[2]{\ensuremath{\left[ \begin{array}{c|c} #1 \\ \hline #2 \end{array} \right]}}
+\newcommand{\PMatrixIIxIII}[2]{\ensuremath{\left[ \begin{array}{c|c|c} #1 \\ \hline #2 \end{array} \right]}}

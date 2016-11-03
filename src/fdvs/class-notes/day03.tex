@@ -1,0 +1,257 @@
+\documentclass{memoir}
+\usepackage{mystyle}
+
+\begin{document}
+\setcounter{section}{6}
+
+\subsection*{Spans}
+
+Every subset $X$ of a vector space is contained in a subspace - for instance, $X \subseteq V$. We can say more than this, however; every subset $X$ is contained in a \emph{unique smallest} subspace.
+
+\begin{dfn}
+Let $V$ be a vector space over $F$ and let $X \subseteq V$ be a nonempty subset. The \emph{span} of $X$ in $V$ is the subset \[ \Span[F]{X} = \left\{ \sum_{i=1}^n \alpha_i x_i \mid n \in \mathbb{N}, \alpha_i \in F, x_i \in X \right\}. \] We define $\Span[F]{\emptyset} = 0$.
+\end{dfn}
+
+That is, the span of $X$ is the set of all finite linear combinations of elements of $X$.
+
+\begin{prp} \mbox{}
+\begin{enumerate*}
+\item $\Span*{X}$ is a subspace of $V$.
+\item $X \subseteq \Span*{X}$.
+\item If $W \subseteq V$ is a subspace and $X \subseteq W$, then $\Span*{X} \subseteq W$. That is, $\Span*{X}$ is the unique $\subseteq$-smallest subspace of $V$ which contains $X$.
+\item If $W \subseteq V$ is a subspace, then $\Span*{W} = W$.
+\item If $X \subseteq Y$, then $\Span*{X} \subseteq \Span*{Y}$.
+\item If $y \in \Span*{X}$ then $\Span{X \cup \{y\}} = \Span*{X}$.
+\item $\Span{X \cup Y} = \Span*{X} + \Span*{Y}$
+\end{enumerate*}
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item We will show this using the Subspace Criterion. Certainly if $X = \emptyset$ then $\Span*{X} = 0$ is a subspace. Suppose now that $X$ is nonempty, with $x \in X$. Then $0 = 0x \in \Span*{X}$, so that $\Span*{X}$ is nonempty. Now suppose $v_1 = \sum_{i=1}^n \alpha_i x_i$ and $v_2 = \sum_{i=1}^m \beta_i y_i$ are in $\Span*{X}$ and that $\gamma \in F$. Then \[ v_1 + \alpha v_2 = \sum_{i=1}^n \alpha_i x_i + \gamma \sum_{i=1}^m \beta_i y_i = \sum_{i=1}^n \alpha_i x_i + \sum_{i=1}^m \gamma \beta_i y_i \in \Span*{X} \] as needed.
+\item Certainly we have $\emptyset \subseteq 0 = \Span*{\emptyset}$. Now if $x \in X$, then $x = 1x \in \Span*{X}$, so that $X \subseteq \Span*{X}$.
+\item Clearly holds if $X = \emptyset$. Suppose $X$ is nonempty and let $\sum_{i=1}^n \alpha_i x_i \in \Span*{X}$. Each $\alpha_i x_i \in W$ since $W$ is closed under scalar multiplication, and the sum is again in $W$ since $W$ is closed under sums. So $\Span*{X} \subseteq W$.
+\item We have $W \subseteq \Span*{W}$ by (ii), and $\Span*{W} \subseteq W$ by (iii).
+\item Clear.
+\item Suppose $y = \sum_{i=1}^n \alpha_i x_i \in \Span*{X}$. Since $X \subseteq X \cup \{y\}$, we have $\Span*{X} \subseteq \Span{X \cup\{y\}}$ by (v). Now let $v = \sum_{i=1}^m \beta_i z_i + \gamma y \in \Span{X \cup \{y\}}$ where $z_i \in X$; then we have \[v = \sum_{i=1}^m \beta_i z_i + \sum_{i=1}^n \gamma \alpha_i x_i \in \Span*{X}\] as needed.
+\item We have $\Span*{X} \subseteq \Span{X \cup Y}$ by (v), and likewise $\Span*{Y} \subseteq \Span{X \cup Y}$. Thus $\Span*{X} + \Span*{Y} \subseteq \Span{X \cup Y}$. Now suppose we have $v = \sum_{i=1}^n \alpha_i z_i \in \Span{X \cup Y}$. Note that each $z_i$ is in either $X$ or $Y$; without loss of generality, we can assume that the $z_i$ are ordered so that the first $k$ terms are in $X$ and that the last $n-k$ terms are in $Y$. Then \[z = \sum_{i=1}^k \alpha_i z_i + \sum_{\mathclap{i=k+1}}^n \alpha_i z_i \in \Span*{X} + \Span*{Y}. \qedhere \]
+\end{enumerate*}
+\end{proof}
+
+For example, we have $\Span*{0} = 0$ and $\Span*{\{v\}} = \{\alpha v \mid \alpha \in F\} = Fv$.
+
+\begin{prp} \mbox{}
+\begin{enumerate*}
+\item If $\gamma \neq 0$, then $\Span{\gamma v} = \Span{v}$.
+\item $\Span{v,w} = \Span{v,w+\gamma v}$.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item Suppose $\gamma \neq 0$ and let $w = \sum_{i=1}^n \alpha_i \gamma x_i \in \Span{\gamma v}$; certainly $w \in \Span{v}$, so that $\Span{\gamma v} \subseteq \Span{v}$. Now $\gamma$ is invertible, and in fact $\Span{v} = \Span{\gamma^\inv \gamma v} \subseteq \Span{\gamma v}$ as needed.
+\item Suppose $\alpha v + \beta w \in \Span{v,w}$. Now \[\alpha v + \beta w = (\alpha - \beta \gamma) v + \beta(w + \gamma v) \in \Span{v,w+\gamma v}, \] so that $\Span{v,w} \subseteq \Span{v,w+\gamma v}$. Now $\Span{v,w+\gamma v} \subseteq \Span{v,w+\gamma v - \gamma v} = \Span{v,w}$ as needed. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{dfn}
+If $\Span[F]{X} = V$, we say that $X$ is a \emph{generating set} of $V$.
+\end{dfn}
+
+Note that every vector space as \emph{a} generating set, since $\Span*{V} = V$. But this generating set has a lot of redundant elements. Typically, we like for your generating sets to be as small as possible. For example, if we let $E(i,j)$ be the $n \times m$ matrix having a 1 in entry $(i,j)$ and 0 elsewhere, then the $nm$ matrices $E(i,j)$ span $\Mat{n}{m}{F}$.
+
+\begin{prp}
+Let $\varphi : V \rightarrow W$ be a surjective linear transformation. If $X = \{x_1, \ldots, x_n\}$ is a generating set of $V$, then $\varphi[X] = \{\varphi(x_1), \ldots, \varphi(x_n)\}$ is a generating set of $W$.
+\end{prp}
+
+\begin{proof}
+Let $w \in W$. Since $\varphi$ is surjective, we have $w = \varphi(v)$ for some $v \in V$. Since $X$ generates $V$, we have $v = \sum_{i=1}^n \alpha_i x_i$ for some $\alpha_i \in F$. Now $w = \varphi(v) = \sum_{i=1}^n \alpha_i \varphi(x_i)$, so that $w \in \Span{\varphi[X]}$ as needed.
+\end{proof}
+
+\subsection*{Independence}
+\setcounter{section}{7}
+\setcounter{dfn}{0}
+
+\begin{dfn}
+Let $V$ be an $F$-vector space. We say that the nonempty subset $X \subseteq V$ is \emph{independent} if whenever $\alpha_1, \ldots, \alpha_n \in F$ and $x_1,\ldots,x_n \in X$ such that $\sum_{i=1}^n \alpha_i x_i = 0$, in fact $\alpha_i = 0$ for each $i$. A subset which is not independent is called \emph{dependent}. By convention\footnote{This actually can be proven, but we'll take it as a definition.}, the empty set is also independent.
+\end{dfn}
+
+\begin{prp} \mbox{}
+\begin{enumerate*}
+\item If $0 \in X$, then $X$ is dependent.
+\item If $X$ is independent and $Y \subseteq X$, then $Y$ is independent.
+\item If $X$ is independent and $y \in V$, then $y \notin \Span*{X}$ if and only if $X \cup \{y\}$ is independent.
+\item If $X$ and $Y$ are independent, then $X \cup Y$ is independent if and only if $\Span*{X} \cap \Span*{Y} = 0$.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item If $0 \in X$, we have $1 \cdot 0 = 0$ where $1 \neq 0$, so that $X$ is dependent.
+\item Clear.
+\item First suppose $y \notin \Span*{X}$. Suppose we have $\alpha_i,\beta \in F$ such that $\sum_{i=1}^n \alpha_i x_i + \beta y = 0$. If $\beta \neq 0$, then in fact $y = \sum_{i=1}^n -\beta^\inv \alpha_i x_i \in \Span*{X}$, a contradiction. So $\beta = 0$, and now $\sum_{i=1}^n \alpha_i x_i = 0$, so that $\alpha_i = 0$ for each $i$ (since $X$ is independent). Thus $X \cup \{y\}$ is independent. Conversely, suppose $X \cup \{y\}$ is independent. If $y \in \Span*{X}$, then we have $y = \sum_{i=1}^n \alpha_i x_i$ for some $\alpha_i$. But now $\sum_{i=1}^n \alpha_i x_i + (-1)y = 0$, and thus $X \cup \{y\}$ is dependent - a contradiction. So $y \notin \Span*{X}$.
+\item First suppose that $X \cup Y$ is independent and let $v \in \Span*{X} \cap \Span*{Y}$; say $v = \sum_{i=1}^n \alpha_i x_i = \sum_{i=1}^m \beta_i y_i$ where $\alpha_i,\beta_i \in F$, $x_i \in X$, and $y_i \in Y$. Now $\sum_{i=1}^n \alpha_i x_i + \sum_{i=1}^m (-\beta_i)y_i = 0$, and since $X \cup Y$ is independent, we have $\alpha_i,\beta_i = 0$. Thus $v = 0$, and we have $\Span*{X} \cap \Span*{Y} = 0$. Conversely, suppose $\Span*{X} \cap \Span*{Y} = 0$ and that we have $\alpha_i, \beta_i \in F$ such that $\sum_{i=1}^n \alpha_i x_i + \sum_{i=1}^m \beta_i y_i = 0$. Now $\sum_{i=1}^n \alpha_i x_i = \sum_{i=1}^m (-\beta_i) y_i \in \Span*{X} \cap \Span*{Y} = 0$, and since $X$ and $Y$ are independent, we have $\alpha_i,\beta_i = 0$. Thus $X \cup Y$ is independent. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{prp}
+Let $X = \{x_1,x_2,x_3,\ldots,x_n\}$, $X_1 = \{\alpha x_1,x_2,\ldots,x_n\}$ where $\alpha \neq 0$, and $X_2 = \{x_1 + \beta x_2,x_2,\ldots,x_n\}$. If $X$ is independent, then so are $X_1$ and $X_2$.
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item First we show that $X_1$ is independent. If $\alpha_1 (\alpha x_1) + \sum_{i=2}^n \alpha_i x_i = 0$, then $(\alpha_1 \alpha) x_1 + \sum_{i=2}^n \alpha_i x_i = 0$ Since $X$ is independent, we have $\alpha_i = 0$ for $i \in \intrange{2}{n}$ and $\alpha_i \alpha = 0$, and since $\alpha \neq 0$, $\alpha_1 = 0$. So $X_1$ is independent.
+\item Now we show that $X_2$ is independent. If $\alpha_1 (x_1 + \beta x_2) + \sum_{i=2}^n \alpha_i x_i = 0$, then $\alpha_1 x_1 + (\alpha_1\beta + \alpha_2) x_2 + \sum_{i=3}^n \alpha_i x_i = 0$. Since $X$ is independent, $\alpha_i = 0$ for $i \in \intrange{3}{n}$, $\alpha_1 = 0$, and $\alpha\beta + \alpha_2 = 0$, hence $\alpha_2 = 0$. So $X_2$ is independent. \qedhere
+\end{enumerate*}
+\end{proof}
+
+The value of knowing that $X$ is independent is that it allows us to give unique ``coordinates'' to every element of $\Span*{X}$ as in the following result.
+
+\begin{prp}
+If $X$ is independent, then every element in $\Span*{X}$ can be written uniquely as $\sum_{i=1}^n \alpha_i x_i$ for some distinct $x_i \in X$.
+\end{prp}
+
+\begin{proof}
+By definition each $v \in \Span*{X}$ has the form $\sum_{i=1}^n \alpha_i x_i$ for some $\alpha_i \in F$ and $x_i \in X$; by collecting ``like terms'' we can assume that the $x_i$ in this sum are distinct. Suppose now that $v = \sum_{i=1}^m \beta_i x_i$. If $n < m$, we define $\alpha_i = 0$ for $i \in \intrange{n+1}{m}$, and similarly if $n > m$ we define $\beta_i = 0$ for $i \in \intrange{m+1}{n}$. In either case, letting $\ell = \max(m,n)$ we have \[0 = v - v = \sum_{i=1}^{\mathclap{\ell}} (\alpha_i - \beta_i) x_i. \] Since $X$ is independent, in fact $\alpha_i = \beta_i$ for each $i$.
+\end{proof}
+
+\begin{prp}
+If $B = \{b_1,\ldots,b_n\} \subseteq V$ is independent, then any $n+1$ elements of $\Span*{B}$ are dependent.
+\end{prp}
+
+\begin{proof}
+We proceed by induction on $n$.
+\begin{enumerate*}
+\item[$\ast$] Let $n = 1$ and let $E = \{e_1,e_2\} \subseteq \Span*{B}$. Say $e_1 = \alpha_1 b_1$ and $e_2 = \alpha_2 b_1$. If $e_1 = 0$, then $E$ is dependent. If $e_1 \neq 0$, then $\alpha_1 \neq 0$, and we have $e_2 = \alpha_2 \alpha_1^\inv e_1 \in \Span{e_1}$. Thus $E$ is dependent.
+\item[$\ast$] Suppose the conclusion holds for all independent subsets having $n$ elements, and suppose $B$ has $n+1$ elements. Let $E = \{e_1,e_2,\ldots,e_{n+2}\}$ be a subset of $\Span*{B}$ having $n+2$ elements. Then for each $j$ in $\intrange{1}{n+2}$, we can write $e_j = \sum_{i=1}^{n+1} \alpha_{i,j} b_i$ for some $\alpha_{i,j} \in F$. If $\alpha_{1,j} = 0$ for all $j$, then in fact \[ E \subseteq \Span{b_2,b_3,\ldots,b_{n+1}} \] is dependent by the induction hypothesis. Without loss of generality, suppose $\alpha_{1,1} \neq 0$. Now define \[ E^\prime = \{e_1,\ e_2 - \alpha_{1,2}\alpha_{1,1}^\inv e_1,\ \ldots,\ e_{n+2} - \alpha_{1,n+2} \alpha_{1,1}^\inv e_1 \}. \] Note that the last $n+1$ elements of this set are in $\Span{b_2,\ldots,b_{n+1}}$, and thus are dependent, so that $E^\prime$ is dependent. Thus $E$ is dependent. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{prp}[Exchange Lemma]
+Let $X = \{x_1,\ldots,x_n\}$ and $Y = \{y_1,\ldots,y_m\}$ be nonempty independent subsets of $V$ such that $Y \subseteq \Span*{X}$. Then (possibly after reordering the $x_i$) the set $Z = \{y_1,\ldots,y_m,x_{m+1},\ldots,x_n\}$ is independent and $\Span*{Z} = \Span*{X}$.
+\end{prp}
+
+\begin{proof}
+We proceed by induction on $m$.
+\begin{enumerate*}
+\item[$\ast$] Let $m = 1$. We have $y_1 = \sum_{i=1}^n \alpha_i x_i$ for some $\alpha_i$; note that (without loss of generality) $\alpha_1 \neq 0$ since otherwise $y = 0$ and thus $Y$ is dependent. That is, $x_1 = -\alpha_1^\inv y + \sum_{i=2}^n -\alpha_1^\inv \alpha_i x_i$. Now  $Z = \{y_1,x_2,\ldots,x_n\}$ is independent and $\Span*{Z} = \Span*{X}$ as desired.
+\item[$\ast$] Suppose the conclusion holds for some $m$ with $1 \leq m < n$, and suppose $Y = \{y_1,\ldots,y_{m+1}\}$ is independent. By the induction hypothesis, $Z^\prime = \{y_1,\ldots,y_m,x_{m+1},\ldots,x_n\}$ is independent and $\Span*{Z^\prime} = \Span*{X}$. Now $y_{m+1} = \sum_{i=1}^m \alpha_i y_i + \sum_{i=m+1}^n \beta_i x_i$ for some $\alpha_i,\beta_i \in F$. At least one of the $\beta_i$ must be nonzero, since otherwise we have $y_{m+1} \in \Span{y_1,\ldots,y_m}$, a contradiction since $Y$ is independent. Without loss of generality, suppose $\beta_{m+1} \neq 0$. Then we have \[x_{m+1} = \beta_{m+1}^\inv y_{m+1} - \beta_1^\inv \left( \sum_{i=1}^m \alpha_i y_i + \sum_{i=m+2}^n \beta_i x_i \right) \] Thus, if $Z = \{y_1,\ldots,y_{m+1},x_{m+2},\ldots,x_n\}$, then $Z$ is independent and $\Span*{Z} = \Span*{Z^\prime} = \Span*{X}$. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{prp}
+Let $\varphi : V \rightarrow W$ be an injective linear transformation. If $X = \{x_1,\ldots,x_m\}$ is independent in $V$, then $\varphi[X] = \{\varphi(x_1), \ldots, \varphi(x_m)\}$ is independent in $W$.
+\end{prp}
+
+\begin{proof}
+Suppose $\sum_{i=1}^m \alpha_i \varphi(x_i) = 0$. Then $\varphi\left( \sum_{i=1}^n \alpha_i x_i \right) = 0$, and since $\varphi$ is injective, $\sum_{i=1}^n \alpha_i x_i = 0$. Since $X$ is independent, each $\alpha_i$ is 0. Thus $\varphi[X]$ is independent.
+\end{proof}
+
+\subsection*{Bases and Dimension}
+\setcounter{section}{8}
+\setcounter{dfn}{0}
+
+\begin{prp} Let $\mathcal{B}$ be a subset of the vector space $V$. Then the following are equivalent.
+\begin{enumerate*}
+\item $\mathcal{B}$ is an independent generating set of $V$.
+\item $\mathcal{B}$ is a $\subseteq$-maximal independent set of $V$.
+\item $\mathcal{B}$ is a $\subseteq$-minimal generating set of $V$.
+\end{enumerate*}
+A subset having one (and thus all) of these properties is called a \emph{basis} of $V$.
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item[(i) $\Rightarrow$ (ii)] Let $\mathcal{B}$ be an independent generating set of $V$. Note that if $y \in V$, then $y \in \Span*{\mathcal{B}}$, and so $\mathcal{B} \cup \{y\}$ is dependent. So $\mathcal{B}$ is maximal among the independent subsets of $V$.
+\item[(ii) $\Rightarrow$ (i)] Suppose $\mathcal{B}$ is a $\subseteq$-maximal independent set in $V$. If $y \in V$ is not in $\Span*{\mathcal{B}}$, then $\mathcal{B} \cup \{y\}$ is independent, and so (since $\mathcal{B}$ is maximal) $y \in \mathcal{B} \subseteq \Span*{\mathcal{B}}$, a contradiction.
+\item[(i) $\Rightarrow$ (iii)] Let $\mathcal{B}$ be an independent generating set of $V$. Note that if $y \in \mathcal{B}$, then $y \notin \Span{\mathcal{B} \setminus \{y\}}$. In particular, $\mathcal{B} \setminus \{y\}$ is not a generating set of $V$, and thus $\mathcal{B}$ is minimal among the generating sets of $V$.
+\item[(iii) $\Rightarrow$ (i)] Let $\mathcal{B}$ be a $\subseteq$-minimal generating set of $V$, and suppose we have $\alpha_i \in F$ and $b_i \in \mathcal{B}$ such that $\sum_{i=1}^n \alpha_i b_i = 0$. If (without loss of generality) $\alpha_1 \neq 0$, then we have $b_1 = \sum_{i=2}^n -\alpha_1^\inv \alpha_i b_i \in \Span{b_2,\ldots,b_n}$. In particular, $\Span{\mathcal{B} \setminus \{b_1\}} = \Span*{\mathcal{B}} = V$, violating the minimalness of $\mathcal{B}$. So in fact $\alpha_i = 0$ for all $i$, and thus $\mathcal{B}$ is independent. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{prp}
+Every vector space has a basis.
+\end{prp}
+
+\begin{proof}
+Let $S$ denote the collection of all independent subsets of $V$. Recall that $\emptyset$ is independent, so that $S$ is nonempty. Now suppose $\mathcal{C}$ is a $\subseteq$-chain in $S$; that is, a family of independent sets having the property that if $C_1$ and $C_2$ are in $\mathcal{C}$ then either $C_1 \subseteq C_2$ or $C_2 \subseteq C_1$. We claim that $\bigcup \mathcal{C}$ is independent. To see this, suppose we have $\alpha_i \in F$ and $x_i \in \bigcup \mathcal{C}$ such that $\sum_{i=1}^n \alpha_i x_i = 0$. Now each $x_i$ is in some $C_i \in \mathcal{C}$, and the $C_i$ form a finite chain of independent sets. That is, there is some $C_k \in \mathcal{C}$ which contains all the $C_1,\ldots,C_n$, and thus contains the $x_1,\ldots,x_n$. Since $C_k$ is independent, we have $\alpha_i = 0$ for each $i$. Thus $\bigcup \mathcal{C}$ is independent. In particular, the chain $\mathcal{C}$ has an upper bound in $S$, namely $\bigcup \mathcal{C}$. By Zorn's Lemma, $S$ has a $\subseteq$-maximal element $\mathcal{B}$ which is, by definition, a basis.
+\end{proof}
+
+We used Zorn's Lemma to show the existence of a basis in any vector space. Zorn's Lemma is equivalent to the Axiom of Choice (AC), which has a interesting history of being considered ``controversial''. In fact AC is also equivalent to the statement that every vector space has a basis via some colorful set-theoretic gymnastics. This is one reason why most modern algebraists have no trouble accepting AC.
+
+\begin{prp}
+If $V$ has a finite basis of $n$ elements, then \emph{every} basis of $V$ has $n$ elements. In this case we say that $n$ is the \emph{dimension} of $V$ over $F$, denoted $\Dim[F]{V}$.
+\end{prp}
+
+\begin{proof}
+Suppose $\mathcal{B}$ is a finite basis of $V$ having $n$ elements, and that $\mathcal{E}$ is another basis of $V$. If $\mathcal{E}$ is infinite, then it has a subset of $n+1$ elements, which is dependent (a contradiction). Suppose $\mathcal{E}$ is finite with cardinality $m$. If $n < m$ then $\mathcal{E}$ is dependent (bad) while if $n > m$ then $\mathcal{B}$ is dependent (also bad). So $m = n$.
+\end{proof}
+
+Dimension is a way to attach a notion of ``size'' to a vector space which is slightly more refined than cardinality. A very important fact about bases is that they enjoy the \emph{lifting property} for linear transformations.
+
+\begin{prp}
+Let $V$ be finite dimensional with basis $\mathcal{B} = \{b_1,\ldots,b_n\}$, and let $W$ be a vector space. If $f : \mathcal{B} \rightarrow W$ is a mapping, then there is a unique linear transformation $\varphi : V \rightarrow W$ such that $\varphi(b_i) = f(b_i)$ for each $b_i \in \mathcal{B}$.
+\end{prp}
+
+\begin{proof}
+Note that each element $v$ of $V$ can be written uniquely as $v = \sum_{i=1}^n \alpha_i b_i$ for some $\alpha_i \in F$. We define $\varphi : V \rightarrow W$ by $\varphi(\sum_{i=1}^n \alpha_i b_i) = \sum_{i=1}^n \alpha_i f(b_i)$. This relation is well-defined because the expansion of $v$ with respect to the $b_i$ is unique. Now if $v = \sum_{i=1}^n \alpha_i b_i$ and $w = \sum_{i=1}^n \beta_i b_i$, then 
+\[\begin{array}{lclclcl} 
+\varphi(v+w) & = & \varphi\left(\displaystyle\sum_{i=1}^n \alpha_i b_i + \displaystyle\sum_{i=1}^n \beta_i b_i\right) & = & \varphi\left(\displaystyle\sum_{i=1}^n (\alpha_i + \beta_i)b_i\right) & \vspace{0.2cm} & \\
+ & = & \displaystyle\sum_{i=1}^n (\alpha_i+\beta_i)f(b_i) & = & \displaystyle\sum_{i=1}^n \alpha_i f(b_i) + \displaystyle\sum_{i=1}^n \beta_i f(b_i) & = & \varphi(v) + \varphi(w).
+\end{array} \]
+Similarly, if $\gamma \in F$, then \[ \varphi(\gamma v) = \varphi\left(\gamma \sum_{i=1}^n \alpha_i b_i \right) = \varphi\left(\sum_{i=1}^n \gamma\alpha_i b_i \right) = \sum_{i=1}^n \gamma\alpha_i f(b_i) = \gamma \sum_{i=1}^n \alpha_i f(b_i) = \gamma \varphi(v), \] so that $\varphi$ is a linear transformation. Certainly $\varphi(b_i) = f(b_i)$ for each $b_i$. If $\psi$ is another linear transformation with this property, then \[\psi(v) = \psi\left(\sum_{i=1}^n \alpha_i b_i\right) = \sum_{i=1}^n \alpha_i \psi(b_i) = \sum_{i=1}^n \alpha_i f(b_i) = \varphi(v)\] so that $\psi = \varphi$.
+\end{proof}
+
+In fact, a finite dimensional vector space is determined (up to isomorphism) by its dimension.
+
+\begin{prp}
+If $V$ and $W$ are finite dimensional vector spaces with $\Dim*{V} = \Dim*{W} = n$, then $V \cong W$.
+\end{prp}
+
+\begin{proof}
+Let $\mathcal{B} = \{b_1,\ldots,b_n\} \subseteq V$ and $\mathcal{E} = \{e_1,\ldots,e_n\} \subseteq W$ be bases, and note that $\theta : \mathcal{B} \rightarrow \mathcal{E}$ given by $\theta(b_i) = e_i$ is a bijection. Now $\theta$ lifts uniquely to a linear transformation $\Theta : V \rightarrow W$, and likewise $\theta^\inv$ lifts uniquely to a linear transformation $\overline{\theta} : W \rightarrow V$. Note that $\overline{\Theta}\Theta : V \rightarrow V$ is a linear transformation and that $(\overline{\Theta}\Theta)(b_i) = \overline{\Theta}(e_i) = b_i$ for each $i$. By the unique lifting property, $\overline{\Theta}\Theta = 1_V$. Similarly, $\Theta\overline{\Theta} = 1_W$, and so $\Theta$ is an isomorphism.
+\end{proof}
+
+\begin{prp}
+Let $V$ be a finite dimensional vector space; say $\Dim*{V} = n$.
+\begin{enumerate*}
+\item If $W \subseteq V$ is a subspace, then $W$ is finite dimensional and in fact $\Dim{W} \leq \Dim{V}$.
+\item If $W \subseteq V$ is a subspace such that $\Dim*{W} = \Dim*{V}$, then $W = V$.
+\item If $W,U \subseteq V$ are subspaces, then $\Dim{W + U} + \Dim{W \cap U} = \Dim*{W} + \Dim*{U}$.\footnote{Compare this to analogous statements about positive integers: $\mathsf{gcd}(a,b) \cdot \mathsf{lcm}(a,b) = a \cdot b$; finite subsets of a fixed set: $|X \cup Y| + |X \cap Y| = |X| + |Y|$; and finite subgroups of a fixed group: $|HK| \cdot |H \cap K| = |H| \cdot |K|$. There is deep magic here.}
+\end{enumerate*}
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item Every set of $n+1$ elements in $W$ is dependent, so that any basis of $W$ is finite and has cardinality at most $n$.
+\item Let $\mathcal{E}$ be a basis of $W$ and suppose we have $v \in V \setminus W$; that is, $v \notin \Span*{\mathcal{E}}$. Then $\mathcal{E} \cup \{v\}$ is independent and has $\Dim*{V} + 1$ elements, a contradiction. So in fact $W = V$.
+\item Say $\Dim*{W} = k$ and $\Dim*{U} = \ell$, and let $\mathcal{W} = \{w_1,\ldots,w_k\}$ and $\mathcal{U} = \{u_1,\ldots,u_\ell\}$ be bases of $W$ and $U$, respectively. Now let $\mathcal{B} = \{b_1,\ldots,b_t\}$ be a basis of $W \cap U$. By the Exchange Lemma, up to a renaming we have that $\mathcal{W}^\prime = \{b_1,\ldots,b_t,w_{t+1},\ldots,w_k\}$ and $\mathcal{U}^\prime = \{b_1,\ldots,b_t,u_{t+1},\ldots,u_\ell\}$ are bases of $W$ and $U$, respectively. Let $\mathcal{U}^{\prime\prime} = \{u_{t+1},\ldots,u_\ell\}$. Now $\mathcal{W}^\prime \cup \mathcal{U}^{\prime\prime}$ is a generating set of $W + U$. In fact, if $v \in \Span*{\mathcal{U}^{\prime\prime}} \cap \Span*{\mathcal{W}^\prime}$ then $v \in W \cap U$, so that $v \in \Span*{\mathcal{B}} \cap \Span*{\mathcal{U}^{\prime\prime}} = 0$. Thus $\mathcal{W}^\prime \cup \mathcal{U}^{\prime\prime}$ is a basis of $W+U$, which has dimension $m+n-t$. The conclusion follows from the equation $(m+n-t) + t = m+n$. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{prp}
+If $V$ and $W$ are vector spaces of finite dimension $n$ and $\varphi : V \rightarrow W$ a linear transformation, then the following are equivalent.
+\begin{enumerate*}
+\item $\varphi$ is bijective.
+\item $\varphi$ is injective.
+\item $\varphi$ is surjective.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof}
+Let $\mathcal{B} = \{b_1,\ldots,b_n\}$ be a basis of $V$. It suffices to show that $\varphi$ is injective if and only if it is surjective. To that end, suppose $\varphi$ is injective. Then $\varphi[\mathcal{B}] = \{\varphi(b_1), \ldots, \varphi(b_n)\}$ is independent in $W$. In particular, $\Dim*{\image{\varphi}} \geq n$, and since $W$ has dimension $n$, we have $\image*{\varphi} = W$ so that $\varphi$ is surjective. Convesely, suppose $\varphi$ is surjective. Then $\varphi[\mathcal{B}]$ is a generating set of $W$. Now $\varphi[\mathcal{B}]$ contains at most $n$ elements, and as a generating set contains at least $n$ elements, so in fact $\varphi[\mathcal{B}]$ is a basis of $W$. Suppose $v \in \kernel*{\varphi}$ and write $v = \sum_{i=1}^n \alpha_i b_i$. Then we have $\sum_{i=1}^n \alpha_i \varphi(b_i) = \varphi\left( \sum_{i=1}^n \alpha_i b_i\right) = \varphi(v) = 0$, so that $\alpha_i = 0$ for each $i$, and thus $v = 0$. So $\kernel*{\varphi} = 0$ and thus $\varphi$ is injective.
+\end{proof}
+
+\begin{dfn}
+A finite basis $\mathcal{B} \subseteq V$ which is indexed by the integers $1, 2, \ldots, n$ is called an \emph{ordered basis}.
+\end{dfn}
+
+\begin{prp}
+If $V$ is a vector space with finite dimension $n$, then $V \cong \Mat{n}{1}{F}$.
+\end{prp}
+
+\begin{proof}
+Let $\mathcal{B} = \{b_1,\ldots,b_n\}$ be an ordered basis of $V$, and define $f : \mathcal{B} \rightarrow \Mat{n}{1}{F}$ by $f(b_i)_{j,1} = \delta_{i,j}$, where $\delta_{i,j}$ is the Kronecker delta. Now $f$ lifts uniquely to a linear transformation $\varphi : V \rightarrow \Mat{n}{1}{F}$. Let $v = \sum_{i=1}^n \alpha_i b_i$, and note that \[ \varphi(v) = \varphi\left(\sum_{i=1}^n \alpha_i b_i \right) = \sum_{i=1}^n \alpha_i f(b_i) = \begin{bmatrix} \alpha_1 & \alpha_2 & \cdots & \alpha_n \end{bmatrix}^\mathsf{T}. \] If $\varphi(v) = 0$, then the $\alpha_i$ are all 0, and thus $v = 0$, so that $\varphi$ is injective and hence bijective.
+\end{proof}
+
+\end{document}

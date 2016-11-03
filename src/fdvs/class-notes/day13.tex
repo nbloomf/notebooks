@@ -1,0 +1,73 @@
+\documentclass{memoir}
+\usepackage{fdvs-style}
+
+\begin{document}
+
+\setcounter{section}{17}
+
+\begin{proof}[Proof of 17.2] \mbox{}
+\begin{enumerate*}
+\item Let $p = \MinPoly[v_1]{\varphi} \MinPoly[v_2]{\varphi}$. We certainly have that $p(\varphi)(v_1+v_2) = 0$, so that $\MinPoly[v_1+v_2]{\varphi} \mid p$. Conversely, note that $(\MinPoly[v_2]{\varphi} \MinPoly[v_1+v_2]{\varphi})(\varphi)(v_1) = 0$, so that $\MinPoly[v_1]{\varphi} \mid \MinPoly[v_2]{\varphi} \MinPoly[v_1+v_2]{\varphi}$. By Euclid's lemma we have $\MinPoly[v_1]{\varphi} \mid \MinPoly[v_1+v_2]{\varphi}$, and similarly $\MinPoly[v_2]{\varphi} \mid \MinPoly[v_1+v_2]{\varphi}$. So $p \mid \MinPoly[v_1+v_2]{\varphi}$.
+
+\item Let $\mathcal{B} = \{b_1, \ldots, b_k\}$ be a basis of $V$. Now $\MinPoly[b_i]{\varphi} \mid \MinPoly!{\varphi}$ for each $i$, so that $\MinPoly[b_i]{\varphi} = p^{t_i}$ for each $i$. Now \[ p^t = \MinPoly!{\varphi} = \LCM#{\MinPoly[b_1]{\varphi}, \ldots, \MinPoly[b_k]{\varphi}} = p^{\mathsf{max}(t_1,\ldots,t_k)}, \] and we have (without loss of generality) $\MinPoly[b_1]{\varphi} = \MinPoly!{\varphi}$, so that $b_1$ is a cyclic vector.
+
+\item Each primary component of $V$ has a cyclic vector by (ii), and by (i) their sum is a cyclic vector for $V$. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{cor}
+$\Deg{\MinPoly![V]{\varphi}} \leq \Dim{V}$.
+\end{cor}
+
+\section{Normal Forms of Matrices}
+
+\begin{prp}
+If $M$ is an $n \times n$ matrix, then there is an invertible $n \times n$ matrix $P$ and a sequence $p_1, \ldots, p_k$ of monic polynomials such that $p_1 \mid p_2 \mid \cdots \mid p_k$, $p_k = \MinPoly!{M}$, and \[ PMP^\inv = \CompMat{p_1} \oplus \cdots \oplus \CompMat{p_k}. \] The polynomials $p_i$ are called the \emph{invariant factors} of $M$ and are unique. The matrix $PMP^\inv$ is called the \emph{Frobenius Normal Form} of $M$, and is unique.
+\end{prp}
+
+\begin{dfn}[Hypercompanion Matrix]
+Let $p(x) = \sum_{i=0}^{k} \alpha_i x^i$ be a polynomial of degree $k$ over $F$, and let $t$ be a positive natural number. The $t$th \emph{hypercompanion matrix} of $p$ is the $t \times t$ block matrix \[ \HypCompMat{p}{t} = \left[ \begin{array}{c|c|c|c|c|c} \CompMat{p} & 0 & 0 & \cdots & 0 & 0 \\ \hline N & \CompMat{p} & 0 & \cdots & 0 & 0 \\ \hline 0 & N & \CompMat{p} & \cdots & 0 & 0 \\ \hline \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ \hline 0 & 0 & 0 & \cdots & \CompMat{p} & 0 \\ \hline 0 & 0 & 0 & \cdots & N & \CompMat{p} \end{array} \right] \] where $N$ is a matrix with a 0 in every entry except in the first row and last column.
+\end{dfn}
+
+Note that the effect of the matrices $N$ in a hypercompanion matrix is to give an unbroken line of 1s on the first subdiagonal.
+
+\begin{prp}
+If $M$ is an $n \times n$ matrix with $\MinPoly!{M} = p_1^{e_1} \cdots p_k^{e_k}$, where the $p_i$ are pairwise distinct irreducible polynomials, then there is an invertible $n \times n$ matrix $P$ such that \[ PMP^\inv = \bigoplus_{i=1}^k \bigoplus_{j=1}^{\ell_i} \HypCompMat{p_i}{t_{i,j}}. \] The polynomials $p_i^{t_{i,j}}$ are called the \emph{elementary divisors} of $M$ and are unique up to a rearrangement. The matrix $PMP^\inv$ is called a \emph{Jordan normal form} of $M$, and is unique up to a rearrangement of the blocks.
+\end{prp}
+
+Given a matrix $M$,
+\begin{enumerate*}
+\item What are its invariant factors? Elementary divisors?
+\item What is its Frobenius normal form? Jordan normal form?
+\item What is a matrix $P$ such that $PMP^\inv$ is in Frobenius normal form? Jordan normal form?
+\end{enumerate*}
+
+\section{Field Extensions}
+
+The Jordan normal form of a matrix depends on the factorization of its minimal polynomial, and this in turn depends on the base field $F$. It may be the case that a polynomial $p$ is irreducible over $F$, but that there is a larger field $E \supseteq F$ over which $p$ is not irreducible. For example, the polynomial $x^2+1$ is irreducible over $\mathbb{R}$ but factors as $(x+i)(x-i)$ over $\mathbb{C}$. Consequently, the Jordan normal form of a given matrix will look more or less ``granular'' depending on how its minimal polynomial factors.
+
+\begin{dfn}
+Let $p(x) \in F[x]$ and let $E \supseteq F$ be a field containing $F$. A polynomial is said to \emph{split} over $E$ if $p$ factors as a product of linear polynomials over $E$. In this case we say $E$ is a \emph{splitting field} of $p$. \underline{The} splitting field of $p$ is the smallest such field. (There is one and it is unique.)
+\end{dfn}
+
+Suppose $M$ is a matrix over a field $F$. The minimal polynomial of $M$ has a splitting field $E$. Then the Jordan normal form of $M$ over $E$ has a very special form: the entries on the first subdiagonal are either 0 or 1, and every entry not on the main diagonal or on the first subdiagonal is zero. This is as close to a diagonal matrix as one can possibly be.
+
+\section{Applications of JN and FN forms}
+
+\subsection*{Detecting Similarity}
+
+Two $n \times n$ matrices $A$ and $B$ are called \emph{similar} if there is an invertible matrix $P$ such that $PAP^\inv = B$. In the language of transformations, matrices are similar precisely when they represent the same linear transformation with respect to different bases.
+
+\begin{prp}
+Two matrices are similar if and only if they have the same Frobenius Normal or Jordan Normal Forms.
+\end{prp}
+
+\subsection*{The General Linear Group}
+
+The set $\GL[F]{n}$ of all invertible $n \times n$ matrices is a group, called the \emph{general linear group} of degree $n$. Remember that two elements $a$ and $b$ in a group $G$ are called \emph{conjugate} if there is a group element $g$ such that $gag^\inv = b$. Conjugacy is an equivalence relation on $G$, whose classes are called \emph{conjugacy classes}. An important problem is this: given elements $a$ and $b$, are $a$ and $b$ conjugate? The normal forms of matrices give us an effective procedure for deciding this problem. Even better, they give us a complete description of the conjugacy classes in $\GL[F]{n}$.
+
+\subsection*{Solving polynomial equations over the matrices}
+
+Remember this problem from HW1: find all the $2 \times 2$ matrices over $\mathbb{Z}/(3)$ such that $A^2 = A$. Now $p(x) = x^2-x$ is a polynomial which annihilates $A$, and so $\MinPoly!{A}$ divides $p$. So the minimal polynomial of $A$ is either $x$, $x-1$, or $x^2-x$, and thus $A$ is similar to \[ \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}, \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}, \quad \text{or} \quad \begin{bmatrix} 0 & 0 \\ 1 & 1 \end{bmatrix}. \]
+
+\end{document}

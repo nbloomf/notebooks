@@ -1,0 +1,57 @@
+\documentclass{memoir}
+\usepackage{fdvs-style}
+
+\begin{document}
+
+\setcounter{section}{22}
+\section{Tensor Algebras}
+
+\begin{dfn}
+Let $V$ be a vector space. We define the vector space $\TensorAlg{V}$ to be 
+\begin{eqnarray*}
+\TensorAlg[F]{V} & = & \bigoplus_{i \in \mathbb{N}} \TensorPow{n}{V} \\
+ & = & F \oplus V \oplus (V \otimes V) \oplus (V \otimes V \otimes V) \oplus \cdots
+\end{eqnarray*}
+
+We define a multiplication on $\TensorAlg{V}$ on simple tensors by $v \cdot w = v \otimes w$ and ``extend linearly''.
+\end{dfn}
+
+The tensor algebra on $V$ is the smallest $F$-algebra which contains $V$ as a subspace, in the sense that if $A$ is another such algebra then there is a unique homomorphism $\TensorAlg{V} \rightarrow A$ lifting the inclusion map. If $V$ is finite dimensional, we can think of $\TensorAlg{V}$ as a generalization of the polynomial ring $F[x]$ to finitely many variables $x_1,\ldots,x_n$ which \emph{do not commute}.
+
+There are two important algebras which can be defined as either sub- or quotient-algebras of $\TensorAlg{V}$: the \emph{symmetric algebra} and the \emph{exterior algebra}. These get some use in differential topology.
+
+\section{Linear Representation Theory}
+
+\begin{dfn}
+Let $G$ be a group, $F$ a field, and $V$ a vector space over $F$ of dimension $n$. An \emph{$F$-linear representation} of $G$ is a group homomorphism $\varphi : G \rightarrow \Aut[F]{V}$. If $\varphi$ is injective we say the representation is \emph{faithful}.
+\end{dfn}
+
+A linear representation of a group $G$ gives us a concrete realization of $G$ by matrices (after choosing a basis). This provides a link between the abstract world of axiomatic groups and the theory of vector spaces which we've built up. This link can be exploited to tell us things about $G$. For example, after building up some basic theory of linear representations, it is not terribly difficult to show that
+
+\begin{prp}[Burnside's Theorem]
+Every finite group of order $p^a q^b$, where $p$ and $q$ are prime and $a$ and $b$ positive integers, is solvable.
+\end{prp}
+
+A proof of this result which does not use representation theory does exist, but is considerably longer. Linear representation theory is an enormous and active field, and even has applications outside of mathematics (gasp!) of which I am only vaguely familiar.
+
+\section{Random Matrix Theory}
+
+Random matrix theory is a relatively recent development which enables us to find meaningful solutions to questions such as: given a random $n \times n$ matrix $M$, what is the probability that $M$ is singular? The answer depends on the base field. For example, if $F = \mathbb{R}$ the answer is 0; i.e., almost all real matrices are invertible.
+
+A recent result in this area is 
+
+\begin{prp}[Costello, Tao, Vu (2006)]
+A random symmetric $n \times n$ matrix whose entries are either 0 or 1 is nonsingular with probability $1 - O(n^{-1/8 + \delta})$ for any $\delta > 0$.
+\end{prp}
+
+\section{Spectral Graph Theory}
+
+A \emph{graph} $\Gamma$ consists of a set $V$ of objects called \emph{vertices} and a set $E$ of unordered pairs of elements of $V$ called \emph{edges}. Any given (finite) graph can be represented by a matrix $M$ in several different ways, and linear algebraic properties of $M$ can tell us useful combinatorial information about $\Gamma$. For example, the eigenvalues of one such matrix reveal information about the number of connected components, the number of spanning trees, and other stuff.
+
+\section{Linear Codes}
+
+A \emph{code} is a method for converting information from one form to another. The goal of such a conversion may be to make the information take up less ``space'' (compression), to make it robust against noisy transmission channels (error correction), to conceal it from another party (encryption), or any combination thereof.
+
+One approach to coding is to represent information as fixed length strings of bits, and then to represent these strings of bits as matrices over the finite field $\mathbb{Z}/(2)$. The code is then a particular linear transformation between finite dimensional spaces over $\mathbb{Z}/(2)$. This approach is used to construct particularly efficient codes (efficient both in terms of the computational complexity of encoding and the space tradeoff of redundancy).
+
+\end{document}

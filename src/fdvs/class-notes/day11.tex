@@ -1,0 +1,154 @@
+\documentclass{memoir}
+\usepackage{fdvs-style}
+\usepackage{fdvs-style-operators}
+
+\begin{document}
+
+\setcounter{section}{13}
+\section{Polynomials}
+
+\begin{dfn} \mbox{}
+\begin{enumerate}
+\item Fix a field $F$ and let $X = \{1, x, x^2, \ldots \}$, where $x$ is a formal variable (if you want, $X$ is the free monoid on one generator). We denote by $F[x]$ the free $F$-vector space on $X$. That is, every element of $F[x]$ is a (finite) $F$-linear combination of powers of $x$, like \[ p(x) = \sum_{i} \alpha_i x^i. \] We will write these linear combinations without an upper limit, with the implicit assumption that only finitely many $\alpha_i$ are nonzero. We call elements of $F[x]$ the \emph{polynomials} in $x$ over $F$.
+\item If $p(x) = \sum_{i} \alpha_i x^i \in F[x]$ is a polynomial, then the $\alpha_i$ are called the \emph{coefficients} of $p$. If $p \neq 0$, then the largest $i$ such that $\alpha_i$ is not zero is called the \emph{degree} of $p$ and denoted $\Deg*{p}$. The degree of 0 is undefined.
+\item Note that by defining $F[x]$ in this way, we get an addition and $F$-scalar multiplication on $F[x]$ for free. To belabor the point, \[ \left( \sum_{i} \alpha_i x^i \right) + \left( \sum_{i} \beta_i x^i \right) = \sum_{i} (\alpha_i+\beta_i)x^i \]  and \[ \beta \sum_{i} \alpha_i x^i = \sum_{i} \beta\alpha_i x^i. \]
+\end{enumerate}
+\end{dfn}
+
+\begin{dfn}
+Given polynomials $p(x) = \sum_{i} \alpha_i x^i$ and $q(x) = \sum_{i} \beta_i x^i$, we define their product to be the polynomial \[ (pq)(x) = \sum_{k} \left( \sum_{i+j=k} \alpha_i \beta_j \right) x^k \] where the inner sum is taken over the (finitely many) pairs of natural numbers $(i,j)$ such that $i+j=k$. Note that only finitely many of the inner sums are nonzero, so that this is in fact an element of $F[x]$.
+\end{dfn}
+
+\begin{prp} \mbox{}
+\begin{enumerate*}
+\item $(F[x],+,\cdot,0,1)$ is a commutative ring with 1.
+\item If $pq = 0$, then either $p = 0$ or $q = 0$.
+\item If $pr = ps$ and $p \neq 0$, then $r = s$.
+\item $\Deg{pq} = \Deg{p} + \Deg{q}$ and $\Deg{p+q} \leq \mathsf{max}(\Deg{p}, \Deg{q})$ (provided neither $p$ nor $q$ is 0).
+\item The units in $F[x]$ are precisely the polynomials of degree 0.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item Straightforward but tedious.
+\item Suppose we have $p \neq 0$ and $q \neq 0$, and say $\Deg{p} = m$ and $\Deg{q} = n$. Now consider the $m+n$ coefficient of $pq$: the only $(i,j)$ with $i+j = m+n$ is $(m,n)$. That is, the $m+n$ coefficient of $pq$ is $\alpha_m\beta_n$, the product of the leading coefficients of $p$ and $q$. Since (by definition) neither of $\alpha_m$ and $\beta_n$ is 0, their product is not zero, so that $pq \neq 0$.
+\item If $pr = ps$, then $p(r-s) = 0$. Since $p \neq 0$, in fact $r-s = 0$.
+\item Straightforward.
+\item Suppose $u \in F[x]$ is a unit, with $s \in F[x]$ such that $us = 1$. In particular, neither of $u$ and $s$ is 0, so that $\Deg{u}+\Deg{s} = 0$. So $\Deg{u} = 0$. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{prp}[Division Algorithm]
+Let $a,b \in F[x]$ with $b \neq 0$. Then there exist unique $q,r \in F[x]$ such that $a = bq + r$ and either $r = 0$ or $\Deg{r} < \Deg{b}$.
+\end{prp}
+
+\begin{proof}
+First we establish existence. If $a = 0$, then $q = r = 0$ works. Suppose $a \neq 0$; now if $\Deg{b} > \Deg{a}$ then $q = 0$ and $r = a$ work. We can suppose then that $\Deg{a} \geq \Deg{b}$; we induct on $\Deg{a}$. For the base case, if $\Deg{a} = 0$ then $b$ is a unit (having degree 0). Then $q = ab^\inv$ and $r = 0$ work. For the inductive step, suppose now that for some $n$ a pair $(q,r)$ exists whenever $\Deg{a} \leq n$, and suppose $\Deg{a} = n+1$. Now write \[ a(x) = a_{n+1} x^{n+1} + a^\prime(x) \quad \mathrm{and} \quad b(x) = b_k x^k + b^\prime(x), \] where $a_{n+1}$ and $b_k$ are nonzero and $a^\prime$ and $b^\prime$ have degree strictly smaller than $n+1$ and $k = \Deg{b}$, respectively. Now define \[ s = a_{n+1} b_k^\inv x^{n+1-k} \quad \mathrm{and} \quad t = a - sb. \] Certainly $\Deg{t} < \Deg{a}$, since subtracting $sb$ from $a$ cancels the leading coefficient of $a$. By the inductive hypothesis, there exist $q^\prime$ and $r^\prime$ in $F[x]$ such that $r = q^\prime b + r^\prime$ and either $r^\prime = 0$ or $\Deg{r^\prime} < \Deg{b}$. Now $q = s+q^\prime$ and $r = r^\prime$ work.
+
+To see uniqueness, suppose now that we have two pairs $(q_1,r_1)$ and $(q_2,r_2)$ such that $a = q_1 b + r_1$ and $a = q_2 b + r_2$. If $q_1 \neq q_2$, then $q_1 - q_2 \neq 0$. Thus we have \[ \Deg{(q_1-q_2)b} \geq \Deg{b} > \mathsf{max}(\Deg{r_2},\Deg{r_1}) = \Deg{r_2-r_1}, \] but $(q_1-q_2)b = r_2-r_1$, a contradiction. Thus $q_1 = q_2$ and so $r_1 = r_2$.
+\end{proof}
+
+If we squint, this proof of the division algorithm can be made into an effective recursive procedure for computing $q$ and $r$ (this is common among inductive proofs). In fact it's just the usual schoolbook algorithm for computing polynomial division.
+
+\begin{dfn} Let $R$ be a commutative ring with 1, and let $r,s,p \in R$ with $p \neq 0$.
+\begin{enumerate*}
+\item We say that $r$ \emph{divides} $s$, denoted $r \mid s$, if there is a ring element $t$ such that $s = rt$.
+\item We say $p$ is \emph{irreducible} if whenever $p = ab$ for some $a,b \in R$, then either $a$ or $b$ is a unit.
+\item We say $p$ is \emph{prime} if whenever $p \mid ab$ for some $a,b \in R$, then either $p \mid a$ or $p \mid b$.
+\end{enumerate*}
+\end{dfn}
+
+\begin{prp} In the ring $F[x]$ of polynomials over a field $F$, we have the following.
+\begin{enumerate*}
+\item Divisibility is a partial order relation.
+\item Every prime polynomial is irreducible.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item Straightforward.
+\item Suppose $p \in F[x]$ is prime, and that $p = ab$ for some $a,b \in F[x]$. Now $p \mid ab$, so that either $p \mid a$ or $p \mid b$. Suppose (without loss of generality) that $p \mid a$, with $pt = a$. Now $p = ptb$, and so $1 = tb$. Thus $b$ is a unit. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{dfn}
+Given $a,b \in R$, an element $d \in R$ is called a \emph{greatest common divisor} if $d \mid a$ and $d \mid b$ and if whenever $c \in R$ such that $c \mid a$ and $c \mid b$, then $c \mid d$. Similarly, an element $m \in R$ is called a \emph{least common multiple} if $a \mid m$ and $b \mid m$ and if whenever $c \in R$ such that $a \mid c$ and $b \mid c$, then $m \mid c$.
+\end{dfn}
+
+\begin{prp}[Euclidean Algorithm]
+Any two elements $a$ and $b$ of $F[x]$ have a greatest common divisor. If either of $a$ and $b$ is nonzero, then exactly one of these is monic, which we denote $\GCD{a}{b}$. We say $\GCD{0}{0} = 0$.
+\end{prp}
+
+\begin{proof}
+First we address existence. If either $a$ or $b$ is zero, then the other is a greatest common divisor. Suppose now that $a$ and $b$ are nonzero and that (without loss of generality) $\Deg{a} \geq \Deg{b}$; we proceed by induction on $\Deg{a}$. If $\Deg{a} = 0$, then $a$ is a units and so $1$ is a greatest common divisor. Suppose now that the result holds whenever $\Deg{a} \leq n$ for some $n$, and that $\Deg{a} = n+1$. By the Division Algorithm, we have $a = qb+r$ for some $q$ and $r$ where either $r = 0$ or $\Deg{r} < \Deg{b}$. If $r = 0$, then in fact $b \mid a$, so that $b$ is a greatest common divisor of $a$ and $b$. If $\Deg{r} < \Deg{b}$, then (since $\Deg{b} < \Deg{a}$) by the induction hypothesis there is a greatest common divisor $d$ of $b$ and $r$; since $b \mid (a-r)$ in fact $d$ is also a greatest common divisor of $a$ and $b$.
+
+Now we address the existence and uniqueness of monic GCDs. Certainly if $d$ is a greatest common divisor of (nonzero) $a$ and $b$ with leading coefficient $\delta$, then $\delta^\inv d$ is a monic greatest common divisor. Suppose now that $d_1$ and $d_2$ are two monic GCDs of $a$ and $b$. Then we have $d_1 \mid d_2$ and $d_2 \mid d_1$, so that $sd_1 = d_2$ and $td_2 = d_1$ for some $s$ and $t$, and thus $st = 1$, so that $s$ and $t$ are units. Now $1$ is the leading coefficient of $d_2$, and $s$ is the leading coefficient of $sd_1$. So $s = 1$, and thus $d_1 = d_2$ as needed.
+\end{proof}
+
+Again, this inductive existence proof can be made into an effective recursive procedure for computing GCDs. If $\GCD{a}{b} = 1$, we say that $a$ and $b$ are \emph{relatively prime}.
+
+\begin{prp}
+If $a,b,c\in F[x]$, then we have the following.
+\begin{enumerate*}
+\item The polynomials $a$ and $b$ have a least common multiple. If both $a$ and $b$ are nonzero, then exactly one of these is monic, which we denote $\LCM{a}{b}$. We say $\LCM{a}{0} = \LCM{0}{a} = 0$.
+\item $u\GCD{a}{b} \LCM{a}{b} = ab$ for some unit $u$.
+\item $\GCD{a}{0} = ua$ for some unit $u$ and $\LCM{a}{0} = 0$.
+\item $\GCD{a}{1} = 1$ and $\LCM{a}{1} = ua$ for some unit $u$.
+\item $\GCD{a}{b} = \GCD{b}{a}$ and $\LCM{a}{b} = \LCM{b}{a}$.
+\item $\GCD{\GCD{a}{b}}{c} = \GCD{a}{\GCD{b}{c}}$ and $\LCM{\LCM{a}{b}}{c} = \LCM{a}{\LCM{b}{c}}$. (So that statements such as $\GCD#{a,b,c}$ and $\LCM#{a,b,c}$ are sensible.)
+\end{enumerate*}
+\end{prp}
+
+\begin{prp}[Bezout's Identity]
+If $a,b \in F[x]$, then there exist $s,t \in F[x]$ such that $as + bt = \GCD{a}{b}$.
+\end{prp}
+
+\begin{proof}
+If $a = 0$, then $1a + 1b = \GCD{a}{b}$; similarly if $b = 0$. Suppose now that $a$ and $b$ are nonzero with (without loss of generality) $\Deg{a} \geq \Deg{b}$. We proceed by induction on $\Deg{a}$. For the base case, if $\Deg{a} = 0$, then $a^\inv a + 0b = \GCD{a}{b}$. Suppose now that the result holds whenever $\Deg{a} \leq n$ for some positive $n$, and that $\Deg{a} = n+1$. By the Division Algorithm, we have $a = qb + r$ where either $r = 0$ or $\Deg{r} < \Deg{b}$. If $r = 0$, then $0a + qb = \GCD{a}{b}$. If $\Deg{r} < \Deg{b}$, then since $\Deg{b}$ is at most $n$, by the inductive hypothesis we have $s^\prime, t^\prime \in F[x]$ such that $bs^\prime + rt^\prime = \GCD{b}{r} = \GCD{a}{b}$. Now $at^\prime + b(s^\prime - qt^\prime) = \GCD{a}{b}$.
+\end{proof}
+
+Our proof of Bezout's Identity is very similar to that of the Euclidean Algorithm, and in fact we can compute both $\GCD{a}{b}$ and the purported $s$ and $t$ in a single pass, so to speak.
+
+\begin{prp}[Euclid's Lemma] \mbox{}
+\begin{enumerate*}
+\item If $a,b,c \in F[x]$ such that $c \mid ab$ and $\GCD{c}{a} = 1$, then $c \mid b$.
+\item Every irreducible polynomial is prime.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof} \mbox{}
+\begin{enumerate*}
+\item Write $cq = ab$ and $as+ct = 1$. Now $ctq = abt$, and substituting $ct = 1-as$, we have $q = a(bt-sq)$. Now $c(bt-sq) = b$, so that $c \mid b$ as desired.
+\item Suppose $p$ is irreducible, and that $p \mid ab$. If $\GCD{a}{p} = 1$, then $p \mid b$. Suppose now that $\GCD{a}{p} = d$ is not 1, and write $p = dp^\prime$. Since $p$ is irreducible and $d \neq 1$, in fact $p^\prime$ is a unit. So $p \mid a$. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{prp}[Unique Prime Factorization]
+If $a \in F[x]$ is a nonzero nonunit, then there exists a unit $u$, monic prime polynomials $p_1, \ldots, p_n$ of positive degree such that $a = up_1 \cdots p_n$. Moreover, $u$ is unique $n$ is unique, and the $p_i$ are unique up to a rearrangement.
+\end{prp}
+
+\begin{proof}
+We show existence by induction on $\Deg{a}$. For the base case, if $a$ has degree 1 and leading coefficient $\alpha$ then $a = \alpha \cdot \alpha^\inv a$ is a factorization of the desired form. (Note that $\alpha^\inv a$ is irreducible, hence prime.) Suppose now that the result holds for all polynomials of degree at most $n$ and say $\Deg{a} = n+1$. If $a$ is irreducible with leading coefficient $\alpha$, then $a = \alpha \cdot \alpha^\inv a$ is a factorization of the desired form. If $a$ is not irreducible, then there exist $s,t \in F[x]$ such that $a = st$ and neither of $s$ and $t$ is a unit; in particular, both $s$ and $t$ have degree at most $n$ and at least 1. By the inductive hypothesis, we have $s = u_1 p_1 \cdots p_k$ and $t = u_2 q_1 \cdots q_\ell$ for some units $u_1$ and $u_2$ and monic primes $p_i$ and $q_i$ of positive degree. Then $a = u_1u_2p_1 \ldots p_k q_1 \ldots, q_\ell$ is a factorization of the desired form.
+
+Next we show uniqueness. Suppose we have primes $p_i$ and $q_i$ and units $u_p$ and $u_q$ such that \[ u_p p_1 \ldots p_m = u_q q_1 \ldots q_n \] where, without loss of generality, $m \leq n$. Multiplying both sides by $u_q^\inv$, we see that the leading coefficient on the left is $u_q^\inv u_p$ and on the right is 1, so that $u_p = u_q$. We show that $m$ and the $p_i$ are unique by induction on $m$. For the base case, suppose $m = 1$. Then we have $p_1 = q_1 \ldots q_n$. If $n \geq 2$, then since $p_1$ is prime, it is irreducible, and thus one of the $q_i$ is a unit - a contradiction since the $q_i$ have positive degree. So in fact $n = 1$ and $p_1 = q_1$. For the inductive step, suppose the result holds for some $m \geq 1$ and suppose we have \[ p_1 p_2 \ldots p_{m+1} = q_1 \ldots q_n. \] Now $p_1$ divides $q_1 \ldots q_n$, and since $p_1$ is prime, after rearranging we have $p_1t = q_1$, and since $q_1$ is irreducible, $p_1 = q_1$. So in fact \[ p_2 \ldots p_{m+1} = q_2 \ldots q_n. \] By the inductive hypothesis, we have $n = m+1$ and (after rearranging) $p_i = q_i$.
+\end{proof}
+
+Now we come to our most important fact about polynomial rings.
+
+\begin{dfn}
+Let $F$ be a field. Suppose $R$ is simultaneously a ring and an $F$-vector space, such that the vector addition and the ring addition on $R$ coincide. We say that $R$ is an \emph{$F$-algebra} if for all $r,s \in R$ and $\alpha \in F$, we have \[ \alpha(rs) = (\alpha r)s = r(\alpha s). \] If $R$ and $S$ are $F$-algebras, a mapping $\varphi : R \rightarrow S$ which is simultaneously a linear transformation and a unital ring homomorphism is called an $F$-algebra homomorphism.
+\end{dfn}
+
+The two most important examples of $F$-algebras we will deal with are $F[x]$, the ring of polynomials over $F$, and $\End[F]{V}$, the ring of linear transformations on a finite dimensional vector space $V$.
+
+\begin{prp}
+If $R$ is an $F$-algebra and $r \in R$, then there is a unique $F$-algebra homomorphism $\varepsilon_r : F[x] \rightarrow R$ such that $\varepsilon_r(x) = r$, which we call the \emph{evaluation homomorphism}.
+\end{prp}
+
+\begin{proof}
+Since $F[x]$ and $R$ are vector spaces, to define $\varepsilon_r$ it suffices to specify the image of the basis $\{1, x, x^2, \ldots\}$. To this end say $\varepsilon_r(1) = 1$ and $\varepsilon_r(x^k) = r^k$ for positive $k$. All that remains is to show that this $\varepsilon_r$ respects multiplication, which follows easily.
+\end{proof}
+
+\end{document}

@@ -1,0 +1,57 @@
+\documentclass{memoir}
+\usepackage{fdvs-style}
+
+\begin{document}
+
+\setcounter{section}{29}
+\section{Ordered Fields}
+
+\begin{dfn}
+Let $F$ be a field.
+\begin{enumerate*}
+\item If $\prec$ is a total order on $F$, we say $F$ is \emph{ordered} by $\prec$ if the following properties are satisfied for all $\alpha,\beta, \gamma \in F$: if $\alpha \prec \beta$ then $\alpha + \gamma \prec \beta + \gamma$, and if $0 \prec \alpha$ and $0 \prec \beta$ then $0 \prec \alpha\beta$.
+\item A subset $P \subseteq F$ is called a \emph{prepositive cone} if it has the following properties: $P$ is closed under addition and multiplication, if $\alpha \in F$ then $\alpha^2 \in P$, and $-1 \notin P$. A prepositive cone is called a \emph{positive cone} if for every $\alpha \in F$, either $\alpha$ or $-\alpha$ is in $P$.
+\item We say that $F$ is \emph{formally real} if -1 is not a sum of squares of elements of $F$. That is, the equation $\sum_{i=1}^n x_i^2 = -1$ has no solutions (for any $n$).
+\end{enumerate*}
+\end{dfn}
+
+\begin{prp}
+If $F$ is a field, then the following are equivalent:
+\begin{enumerate*}
+\item $F$ is ordered.
+\item $F$ has a positive cone.
+\item $F$ is formally real.
+\end{enumerate*}
+\end{prp}
+
+The real numbers and rational numbers are the most natural examples of ordered fields, but plenty of others exist. One fun example is the Levi-Civita field, which is an extension of $\mathbb{R}$ containing infinitesimal numbers. 
+
+Any ordered field $F$ can be made ``formally complex'' by adjoining a root of the equation $x^2 = -1$, which we commonly denote by $i$. Formally, the complexification of $F$ is the set $F(i) = \{\alpha + i \beta \mid \alpha,\beta \in F\}$, and arithmetic in $F(i)$ works exactly by analogy with the relationship of the usual complex numbers $\mathbb{C}$ to the real numbers $\mathbb{R}$. Given $z = \alpha + \beta i \in F(i)$, the \emph{conjugate} of $z$ is the element $\Conj{z} = \alpha - \beta i$. Note that $z \Conj{z} = \alpha^2 + \beta^2$ is always in $F$, and in fact is ``positive'' in $F$.
+
+Vector spaces over ordered fields enjoy many of the geometric properties of vector spaces over $\mathbb{R}$.
+
+\section{Singular Value Decomposition}
+
+\begin{dfn}
+Let $M = [\mu_{i,j}]$ be a matrix over a formally complex field $F(i)$. 
+\begin{enumerate*}
+\item The \emph{Hermitian transpose} of $M$ is the matrix $\HermitianTranspose{M}$ whose $i,j$ entry is $(\HermitianTranspose{M})_{i,j} = \Conj{\mu_{j,i}}$.
+\item We say that $M$ is \emph{unitary} if $M$ is invertible and $M^\inv = \HermitianTranspose{M}$.
+\end{enumerate*}
+\end{dfn}
+
+\begin{prp}
+If $\lambda$ is an eigenvalue of $\HermitianTranspose{M}M$, then in fact $\lambda \in F$ is in the real subfield of $F(i)$, and moreover $\lambda \geq 0$. We say $\sigma = \sqrt{\lambda}$ is a \emph{singular value} of $M$. In particular, the singular values of $M$ can be linearly ordered.
+\end{prp}
+
+\begin{prp}
+If $M$ is an $n \times m$ matrix over the formally complex field $F(i)$, then $M$ can be factored as $M = UD\HermitianTranspose{V}$ where $U$ and $V$ are unitary matrices (of appropriate dimension) and \[ D = \begin{bmatrix} \sigma_1 & 0 & 0 & \cdots \\ 0 & \sigma_2 & 0 & \cdots \\ 0 & 0 & \sigma_3 & \cdots \\ \vdots & \vdots & \vdots & \ddots \end{bmatrix} \] such that $\sigma_1 \geq \sigma_2 \geq \sigma_3 \geq \ldots$ are the singular values of $M$ in nonincreasing order. This is called a \emph{singular value decomposition} of $M$.
+\end{prp}
+
+\section{Application of SVD: Low rank approximation}
+
+Let $M$ be a matrix over $F(i)$, and suppose we write the singular value decomposition of $M$ as \[ M = \left[ \begin{array}{c|c|c|c} u_1 & u_2 & \cdots & u_m \end{array}\right] \begin{bmatrix} \sigma_1 & 0 & 0 & \cdots \\ 0 & \sigma_2 & 0 & \cdots \\ 0 & 0 & \sigma_3 & \cdots \\ \vdots & \vdots & \vdots & \ddots \end{bmatrix} \left[ \begin{array}{c} v_1 \\ \hline v_2 \\ \hline \vdots \\ \hline v_n \end{array} \right] = \sum_{i=1}^k u_i \sigma_i v_i \] where $k$ is the smaller of $m$ and $n$. Because the singular values $\sigma_i$ are ordered and nonnegative, the later terms in this sum contribute less to $M$ in a concrete sense. If we truncate this sum to the first, say, $t$ terms, then the matrix \[ M_{\approx t} = \sum_{i=1}^t u_i \sigma_i v_i \] is called a \emph{low-rank approximation} to $M$. In fact it can be shown that these approximations are ``optimal'' in an appropriate sense. This has a couple of interesting interpretations. Larger singular values of $M$ carry more information than smaller singular values, and by truncating $M$ in this way we can identify this information. For instance, if the data in $M$ was noisy, then low-rank approximations of $M$ are less noisy. In addition, storing $M_{\approx t}$ requires keeping track of $(m+n+1)t$ elements of $F(i)$, whereas storing $M$ itself requires keeping track of $mn$ elements of $F(i)$.
+
+As an example, an image can be represented as a rectangular array of pixels, with each pixel represented by a number encoding its color. Low rank approximations of this matrix can be used to reconstruct images which are ``close to'' the original, but which require much less storage.
+
+\end{document}

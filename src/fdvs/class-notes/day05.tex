@@ -1,0 +1,103 @@
+\documentclass{memoir}
+\usepackage{mystyle}
+
+\begin{document}
+
+\subsection{Elementary Matrices}
+\setcounter{section}{9}
+\setcounter{dfn}{5}
+
+\begin{dfn}
+We define three types of \emph{elementary matrices} over a ring $R$ as follows.
+\begin{enumerate*}
+\item[] Type 1: Given distinct $k,\ell \in \intrange{1}{n}$, we define $\EMSwap{k}{\ell}$ to be the $n \times n$ matrix with a 1 in every diagonal entry except in the $k$th and $\ell$th rows, a 1 in entry $(k,\ell)$ and $(\ell,k)$, and 0 elsewhere. That is, for each $i,j \in \intrange{1}{n}$, \[(\EMSwap{k}{\ell})_{i,j} = \left\{ \begin{array}{ll} 1 & \mathrm{if}\ (i,j) = (k,\ell)\ \mathrm{or}\ (\ell,k) \\ 1 & \mathrm{if}\ i=j\ \mathrm{and}\ i \neq k\ \mathrm{or}\ \ell \\ 0 & \mathrm{otherwise.} \end{array}\right. \]
+
+For example, with $n = 3$: \[ \EMSwap{2}{3} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix} \]
+
+\item[] Type 2: Given $k \in \intrange{1}{n}$ and a unit $u \in R$, we define $\EMScale{k}{u}$ to be the matrix with a 1 in every diagonal entry except in the $k$th row, a $u$ in the $(k,k)$ entry, and 0 elsewhere. That is, for $i,j \in \intrange{1}{n}$, \[(\EMScale{k}{u})_{i,j} = \left\{\begin{array}{ll} u & \mathrm{if}\ i=j=k \\ 1 & \mathrm{if}\ i=j, i \neq k \\ 0 & \mathrm{otherwise.} \end{array}\right.\]
+
+For example, with $n = 3$: \[ \EMScale{2}{\alpha} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \alpha & 0 \\ 0 & 0 & 1 \end{bmatrix} \]
+
+\item[] Type 3: Given distinct $k,\ell \in \intrange{1}{n}$ and a nonzero element $x \in R$, we define $\EMAdd{k}{\ell}{x}$ to be the $n \times n$ matrix with a 1 in every diagonal entry, $x$ in the $(i,j)$ entry, and 0 elsewhere. That is, for $i,j \in \intrange{1}{n}$, \[(\EMAdd{k}{\ell}{x})_{i,j} = \left\{ \begin{array}{ll} 1 & \mathrm{if}\ i = j \\ x & \mathrm{if}\ (i,j) = (k,\ell) \\ 0 & \mathrm{otherwise.} \end{array}\right.\]
+
+For example, with $n = 3$: \[ \EMAdd{1}{3}{x} = \begin{bmatrix} 1 & 0 & x \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} \]
+\end{enumerate*}
+\end{dfn}
+
+\begin{prp}
+Every elementary matrix is invertible.
+\end{prp}
+
+\begin{proof}
+It suffices to note the following.
+\begin{enumerate*}
+\item $\EMSwap{k}{\ell} \EMSwap{\ell}{k} = \EMSwap{\ell}{k}\EMSwap{k}{\ell} = I$
+\item $\EMScale{k}{u}\EMScale{k}{1/u} = \EMScale{k}{1/u}\EMScale{k}{u} = I$
+\item $\EMAdd{k}{\ell}{x}\EMAdd{k}{\ell}{\text{-}x} = \EMAdd{k}{\ell}{\text{-}x}\EMAdd{k}{\ell}{x} = I$ \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{prp} \mbox{}
+\begin{enumerate*}
+\item $\EMSwap{k}{\ell} A$ is obtained from $A$ by interchanging rows $k$ and $\ell$.
+\item $\EMScale{k}{u} A$ is obtained from $A$ by multiplying each entry of row $k$ by $u$.
+\item $\EMAdd{k}{\ell}{x} A$ is obtained from $A$ by adding $x$ times row $\ell$ to row $k$.
+\end{enumerate*}
+\end{prp}
+
+\subsection{Gauss-Jordan Factorization}
+\setcounter{section}{10}
+\setcounter{dfn}{0}
+
+\begin{dfn} \mbox{}
+\begin{enumerate*}
+\item $A$ and $B$ are called \emph{row equivalent} if there is an invertible matrix $P$ such that $PA = B$.
+\item $A$ and $B$ are called \emph{column equivalent} if there is an invertible matrix $Q$ such that $AQ = B$.
+\end{enumerate*}
+\end{dfn}
+
+\begin{prp}
+Row equivalence and column equivalence are equivalence relations.
+\end{prp}
+
+\begin{proof}
+Exercise.
+\end{proof}
+
+\begin{dfn}
+We define a class of matrices, called \emph{row echelon} matrices, recursively as follows.
+\begin{enumerate*}
+\item A $1 \times n$ matrix $M$ is in row echelon form if $A = 0$ or if $A = \left[ \begin{array}{c|c|c} 0 & [1] & A^\prime \end{array} \right]$, where the leftmost zero matrix may be empty.
+\item An $(n+1) \times m$ matrix $M$ is in row echelon form if $A = 0$ or if \[ A = \left[ \begin{array}{c|c|c} 0 & [1] & R \\ \hline 0 & 0 & A^\prime \end{array}\right],\] where $A^\prime$ is in row echelon form and the leftmost zero matrices may be empty.
+\end{enumerate*}
+\end{dfn}
+
+\begin{prp}
+Every matrix is row equivalent to a row echelon matrix.
+\end{prp}
+
+\begin{proof}
+We proceed by induction on the number of rows of our matrix.
+\begin{enumerate*}
+\item (Base Case) Let $A$ be a $1 \times m$ matrix. If $A = 0$, then $IA = A$ is in row echelon form. Suppose now that $A = [\alpha_{1,j}]_{j=1}^m \neq 0$, and let $k$ be minimal so that $A_{1,k} \neq 0$. That is, we have $A = \left[ \begin{array}{c|c|c} 0 & [\alpha_{1,k}] & A^\prime \end{array}\right]$ with $\alpha_{1,k}$ nonzero. Then $$P = [\alpha_{1,k}^\inv] = \EMScale{1}{1/\alpha_{1,k}}$$ is invertible, and $PA = \left[\begin{array}{c|c|c} 0 & [1] & PA^\prime \end{array}\right]$ is in row echelon form.
+\item (Inductive Step) Suppose now that every $n \times m$ matrix is row equivalent to a row echelon matrix, and let $A$ be an $(n+1) \times m$ matrix. If $A = 0$, then $IA = A$ is in row echelon form. Suppose now that $A$ is nonzero. Among the nonzero entries $\alpha_{k,\ell}$ of $A$ with $\ell$ minimal, choose one with $k$ minimal. That is, let $\ell$ be the index of the leftmost nonzero column of $A$, and let $k$ be the index of the topmost nonzero entry in the $\ell$th column, and let $\mu = A_{k,\ell}$. Letting $P = \EMScale{1}{1/\mu} \EMSwap{1}{k}$, in fact $$PA = \left[ \begin{array}{c|c|c} 0 & [1] & V \\ \hline 0 & C & B \end{array} \right].$$ Let us write $C = \begin{bmatrix} \gamma_{2,\ell} & \gamma_{3,\ell} & \cdots & \gamma_{n+1,\ell} \end{bmatrix}^\mathsf{T}$, and set $Q = \EMAdd{n+1}{1}{\text{-}\gamma_{n+1,\ell}} \cdots \EMAdd{3}{1}{\text{-}\gamma_{3,\ell}} \EMAdd{2}{1}{\text{-}\gamma_{2,\ell}}$. Then we have \[ QPA = \left[ \begin{array}{c|c|c} 0 & [1] & V \\ \hline 0 & 0 & B^\prime \end{array} \right]. \] Note that $B^\prime$ is a matrix of dimension $n \times (m-\ell)$, so that by the inductive hypothesis there is an invertible matrix $R^\prime$ such that $R^\prime B^\prime = A^\prime$ is in row echelon form. Letting \[ R = \left[ \begin{array}{c|c} [1] & 0 \\ \hline 0 & R^\prime \end{array} \right], \] in fact $R$ is invertible and \[ RQPA = \left[ \begin{array}{c|c|c} 0 & [1] & V \\ \hline 0 & 0 & A^\prime \end{array} \right] \] is in row echelon form as desired. \qedhere
+\end{enumerate*}
+\end{proof}
+
+\begin{dfn}
+To every row echelon matrix $A$ we associate a (possibly empty) set of pairs $(i,j)$ called the \emph{pivots} of $A$. These are defined recursively as follows.
+\begin{enumerate*}
+\item Let $A$ be a matrix of dimension $1 \times m$. If $A = 0$, then $A$ has no pivots. If $A = \left[ \begin{array}{c|c|c} 0 & [1] & A^\prime \end{array} \right]$, where the leftmost zero submatrix has dimension $1 \times (\ell-1)$, then the only pivot of $A$ is the pair $(1,\ell)$.
+\item Let $A$ be a matrix of dimension $(n + 1) \times m$. If $A = 0$, then $A$ has no pivots. If \[ A = \left[ \begin{array}{c|c|c} 0 & [1] & V \\ \hline 0 & 0 & A^\prime \end{array} \right], \] where the leftmost zero submatrices have $\ell-1$ columns, then the pivots of $A$ are $(1,\ell)$ and $(i+1,j+\ell)$ where $(i,j)$ ranges over the pivots of $A^\prime$.
+\end{enumerate*}
+\end{dfn}
+
+\begin{prp}
+If $A$ and $B$ are row equivalent row echelon matrices, then $A$ and $B$ have the same pivots.
+\end{prp}
+
+\begin{proof}
+Later.
+\end{proof}
+
+\end{document}

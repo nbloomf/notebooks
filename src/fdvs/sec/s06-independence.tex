@@ -1,0 +1,28 @@
+\section{Independence}
+
+\begin{dfn}
+A finite subset $X \subseteq V$ is called \emph{independent} if whenever $\{\alpha_x\}_{x \in X} \subseteq F$ such that $\sum_{x \in X} \alpha_x x = 0$ in fact we have $\alpha_x = 0$ for each $x$. An infinite subset $X \subseteq V$ is called independent if every finite subset of $X$ is independent.
+
+We say $X \subseteq V$ is \emph{dependent} if it is not independent. That is, if $X$ is finite then there exist field elements $\{\alpha_x\}_{x \in X}$, not all zero, such that $\sum_{x \in X} \alpha_x x = 0$, and if $X$ is infinite, then it has a finite dependent subset.
+\end{dfn}
+
+\begin{prp}
+If the finite subset $X \subseteq V$ is independent, then for every $v \in \mathsf{span}_F(X)$ there are unique field elements $\{\alpha_x\}_{x \in X}$ such that $v = \sum_{x \in X} \alpha_x x$. These $\alpha_x$ are called the \emph{coordinates} of $v$ with respect to $X$.
+\end{prp}
+
+\begin{prp}
+\begin{enumerate*}
+\item $\emptyset$ is independent.
+\item $\{v\}$ is independent if and only if $v \neq 0$.
+\item Every subset of an independent set is independent.
+\item If $X \subseteq V$ is independent and $\mathsf{span}_F(X) \subsetneq V$, then there is an element $v$ such that $X \cup \{v\}$ is independent.
+\end{enumerate*}
+\end{prp}
+
+\subsection*{Exercises}
+
+\begin{enumerate}
+\item If $\{x,y\}$ is independent, then $\{x+y,y\}$ is independent.
+
+\item Let $F_X$ be the vector space defined in (@@@) and let the elements $\alpha_x$ be as defined in (@@@). Show that the set $\{\alpha_x \mid x \in X\}$ is independent.
+\end{enumerate}

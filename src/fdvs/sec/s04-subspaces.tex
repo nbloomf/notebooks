@@ -1,0 +1,113 @@
+\section{Subspaces}
+
+Given a vector space $V$ one of the basic questions we can ask is how to construct new vector spaces out of the ``parts'' of $V$; spaces which inherit their vector-spacehood from $V$. A natural place to look for these is among the subsets of $V$.
+
+\begin{dfn}
+Let $V$ be an $F$-vector space. We say that a subset $W \subseteq V$ is an \emph{$F$-subspace} (or simply \emph{subspace}) if
+\begin{inparaenum}
+\item $0 \in W$,
+\item if $w_1, w_2 \in W$, then $w_1+w_2 \in W$, and
+\item if $w \in W$ and $\alpha \in F$ then $\alpha w \in W$.
+\end{inparaenum}
+\end{dfn}
+
+We already know a few examples of subspaces.
+
+\begin{prp} \mbox{}
+\begin{enumerate*}
+\item If $V$ is a vector space, then $0 = \{0\}$ and $V$ are subspaces of $V$.
+\item If $\varphi : V \rightarrow W$ is a linear transformation, then $\Ker*{\varphi} \subseteq V$ and $\Im*{\varphi} \subseteq W$ are subspaces.
+\end{enumerate*}
+\end{prp}
+
+\begin{theproof}
+Exercise.
+\end{theproof}
+
+\begin{prp}
+\label{prp:subsp:equiv-char}
+If $W$ is a subset of a vector space $V$, then the following are equivalent.
+\begin{enumerate*}
+\item{\label{prp:subsp:equiv-char:subsp}} $W$ is a subspace of $V$.
+\item{\label{prp:subsp:equiv-char:im-trans}} There is a vector space $U$ and an injective linear transformation $\varphi : U \rightarrow V$ such that $\mathsf{im}\ \varphi = W$.
+\item{\label{prp:subsp:equiv-char:subsp-crit}} $W$ is nonempty and if $w_1,w_2 \in W$ and $\alpha \in F$, then $w_1 + \alpha w_2 \in W$. (The \emph{Subspace Criterion})
+\end{enumerate*}
+\end{prp}
+
+\begin{theproof}
+\begin{inparaenum}
+\item[\ref{prp:subsp:equiv-char:subsp} $\Rightarrow$ \ref{prp:subsp:equiv-char:im-trans}] We can see that if $W$ is a subspace, then under the restricted operations on $V$, $W$ is a vector space. Let $\iota : W \rightarrow V$ be the inclusion map $\iota(w) = w$. Clearly $\iota$ is an injective linear transformation and $\Im*{\iota} = W$.
+\item[\ref{prp:subsp:equiv-char:im-trans} $\Rightarrow$ \ref{prp:subsp:equiv-char:subsp-crit}] Suppose such a $\varphi$ exists. We have $0 = \varphi(0) \in \Im*{\varphi}$. If $w_1,w_2 \in W$ with $w_1 = \varphi(u_1)$ and $w_2 = \varphi(u_2)$ and if $\alpha \in F$, then $w_1+\alpha w_2 = \varphi(u_1)+\alpha\varphi(u_2) = \varphi(u_1 + \alpha u_2) \in \Im*{\varphi}$ as needed.
+\item[\ref{prp:subsp:equiv-char:subsp-crit} $\Rightarrow$ \ref{prp:subsp:equiv-char:subsp}] Since $W$ is nonempty, there is an element $w \in W$; now $0 = 0 + (-1)0 \in W$. Let $w_1,w_2 \in W$ and $\alpha \in F$; with $\alpha = 1$ we see that $w_1 + w_2 \in W$ and letting $w_1 = 0$ that $\alpha w_2 \in W$, as desired. 
+\end{inparaenum}
+\end{theproof}
+
+Proposition \ref{prp:subsp:equiv-char} gives us two alternative ways to characterize subspaces, one computational and one in terms of the images of linear transformations.
+
+\begin{prp} 
+\label{prp:subsp:sums-and-caps}
+Suppose $W_1$ and $W_2$ are subspaces of $V$.
+\begin{enumerate*}
+\item The set $W_1 \cap W_2$ is a subspace of $V$.
+\item The set $W_1 + W_2 = \{w_1 + w_2 \mid w_1 \in W_1, w_2 \in W_2\}$ is a subspace of $V$.
+\end{enumerate*}
+\end{prp}
+
+\begin{theproof}
+\begin{inparaenum}
+\item Certianly $0 \in W_1 \cap W_2$, so the intersection is nonempty. Now if $u,v \in W_1 \cap W_2$ and $\alpha \in F$, then in particular $u + \alpha v$ is in both of the subspaces $W_1$ and $W_2$, and thus in their intersection. By the Subspace Criterion, the conclusion follows.
+\item Certainly $0 + 0 \in W_1 + W_2$, so the sum is nonempty. Now if $u_1 + u_2,v_1+v_2 \in W_1+W_2$ and $\alpha \in F$, then $u_1 + \alpha v_1 \in W_1$ and $u_2 + \alpha v_2 \in W_2$, so that $(u_1+u_2) + \alpha(v_1+v_2) = (u_1 + \alpha v_1) + (u_2 + \alpha v_2) \in W_1 + W_2$. By the Subspace Criterion, the conclusion follows.
+\end{inparaenum}
+\end{theproof}
+
+\begin{prp}
+If $\varphi : V \rightarrow W$ is a linear transformation, then the following are equivalent.
+\begin{enumerate*}
+\item $\varphi$ is injective.
+\item For all linear transformations $\alpha$ and $\beta$, if $\varphi\alpha = \varphi\beta$, then $\alpha = \beta$.
+\item There is a linear transformation $\psi : W \rightarrow V$ such that $\psi\varphi = 1_V$.
+\end{enumerate*}
+\end{prp}
+
+\begin{theproof}
+Exercise.
+\end{theproof}
+
+\begin{prp}
+If $\varphi : V \rightarrow W$ is a linear transformation, then the following are equivalent.
+\begin{enumerate*}
+\item $\varphi$ is surjective.
+\item For all linear transformations $\alpha$ and $\beta$, if $\alpha\varphi = \beta\varphi$ then $\alpha = \beta$.
+\item There is a linear transformation $\psi : W \rightarrow V$ such that $\varphi\psi = 1_W$.
+\end{enumerate*}
+\end{prp}
+
+\begin{theproof}
+Exercise.
+\end{theproof}
+
+\NowForSomeExercises
+
+\begin{exercises}
+\item Let $V$ be an $F$-vector space and $v \in V$. Show that the set $Fv = \{\alpha v \mid \alpha \in F\}$ is a subspace of $V$. This is called the subspace \emph{generated} by $v$.
+
+\item A $3 \times 3$ matrix over $\mathbb{Q}$ is called a \emph{magic square} of order $s$ if its rows, columns, and diagonals sum to $s$. For example, \[\left[\begin{array}{ccc} 8 & 1 & 6 \\ 3 & 5 & 7 \\ 4 & 9 & 2 \end{array}\right]\] is a magic square of order 15. Show that the set of all magic squares (of any order) are a subspace of $\mathsf{Mat}_3(\mathbb{Q})$.
+
+\item{\label{exr:latt-of-subsp}}
+(Lattice of Subspaces) Given an $F$-vector space $V$, we denote by $\mathcal{S}_F(V)$ the set of all $F$-subspaces of $V$. Proposition \ref{prp:subsp:sums-and-caps} shows that $+$ and $\cap$ are binary operations on $\mathcal{S}_F(V)$. Show that these operations have the following properties.
+\begin{enumerate*}
+\item $0,V \in \mathcal{S}_F(V)$
+\item $(X+Y)+Z = X+(Y+Z)$
+\item $X+Y = Y+X$
+\item $X+0 = 0+X = X$
+\item $X+V = V+X = V$
+\item $(X \cap Y) \cap Z = X \cap (Y \cap Z)$
+\item $X \cap V = V \cap X = X$
+\item $X \cap 0 = 0 \cap X = 0$
+\item If $Z \subseteq X$, then $Z + (Y \cap X) = (Z + Y) \cap X$
+\end{enumerate*}
+A set equipped with two binary operations, two distinguished elements, and a partial order which satisfy these properties is called a \emph{bounded modular lattice}.
+
+\item{\label{exr:arb-ints-and-sums-of-subsp}}
+Suppose $\{W_i\}_{i \in I}$ is a family of subspaces of $V$ indexed by a set $I$. Show that the set $\bigcap_{i \in I} W_i$ and the set $\sum_{i \in I} W_i$ defined by \[\sum_{i \in I} W_i = \left\{ \sum_{j \in J} w_j \mid w_j \in W_j, J \subseteq I\ \mathrm{is\ finite} \right\}\] are subspaces of $V$.
+\end{exercises}

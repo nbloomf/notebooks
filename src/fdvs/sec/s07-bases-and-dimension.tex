@@ -1,0 +1,70 @@
+\section{Bases and Dimension}
+
+\begin{prp}
+Let $X \subseteq V$ be a subset. Then the following are equivalent.
+\begin{enumerate*}
+\item $X$ is an independent generating set of $V$.
+\item $X$ is a $\subseteq$-minimal generating set of $V$.
+\item $X$ is a $\subseteq$-maximal independent set in $V$.
+\item $V$ is free on $X$.
+\item Every $v \in V$ can be written uniquely as a linear combination of elements of $X$.
+\end{enumerate*}
+A subset having any (hence all) of these properties is called a \emph{basis}.
+\end{prp}
+
+\begin{proof}
+(@@@)
+\end{proof}
+
+\begin{prp}
+Every vector space has a basis.
+\end{prp}
+
+\begin{proof}
+(@@@)
+\end{proof}
+
+\begin{prp}
+Let $V$ be a vector space. Any two bases in a vector space have the same cardinality, which we call the \emph{dimension} of $V$ and denote $\Dim[F]{V}$.
+\end{prp}
+
+\begin{proof}
+(@@@)
+\end{proof}
+
+\begin{exm}
+\begin{enumerate*}
+\item $\mathsf{dim}_F(F) = 1$.
+
+\item Let $F_X$ be the free vector space on $X$ defined in (@@@). In (@@@), we showed that the set $\mathcal{B} = \{\alpha_x \mid x \in X\}$ is a generating set of $F_X$, and in (@@@) we showed that $\mathcal{B}$ is independent. Thus $\mathcal{B}$ is a basis of $F_X$ and $\Dim[F]{F_X} = |X|$.
+\end{enumerate*}
+\end{exm}
+
+We say a vector space is \emph{finite dimensional} if (surprise!) its dimension is finite. Dimension gives us a way to speak of the ``size'' of a vector space that is more refined than cardinality. One consequence of this, which we will get quite a bit of use out of later, is that we can use induction to prove theorems about (finite dimensional) vector spaces. This is a good example of a common strategy in algebra. When studying gadgets of a particular type, it is frequently useful to attach a natural number to each gadget in a structurally respectful way and try to use inductive or (if we're lucky) number-theoretic arguments.
+
+\begin{prp}
+\begin{enumerate*}
+\item Every generating set contains a basis.
+\item Every independent set is contained in a basis.
+\end{enumerate*}
+\end{prp}
+
+\begin{proof}
+(@@@)
+\end{proof}
+
+\NowForSomeExercises
+
+\begin{exercises}
+\item{\label{exr:dim-zero}}
+Show that if $V$ has dimension 0 then $V = 0$.
+
+\item{\label{exr:dim-of-product}}
+Show that if $V$ and $W$ are finite-dimensional vector spaces then so is $V \times W$, and $\Dim[F]{V \times W} = \Dim[F]{V} + \Dim[F]{W}$.
+
+\item{\label{exr:dim-field-ext}}
+Let $E$ be a field with $F \subseteq E$ a subfield such that $\Dim[F]{E}$ is finite. Suppose $V$ is a finite dimensional vector space over $E$. We saw in (@@@) that $V$ is naturally a vector space over $F$. Show that $V$ has finite dimension over $F$ and that $\Dim[F]{V} = \Dim[F]{E} \cdot \Dim[E]{V}$.
+
+\item{\label{exr:oddtown}}
+(Oddtown)
+\end{exercises}

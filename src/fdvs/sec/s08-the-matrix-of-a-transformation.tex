@@ -1,0 +1,53 @@
+\section{The Matrix of a Transformation}
+
+\begin{dfn}
+Let $\mathcal{B}$ be an ordered basis of the finite dimensional vector space $V$. We define a map $[\ast]_\mathcal{B} : V \rightarrow \mathsf{Mat}_{n \times 1}(F)$ by $(\kappa_\mathcal{B})_{i,1} = \alpha_i$, where $v = \sum_{b_i \in \mathcal{B}} \alpha_i b_i$. That is, if $v = \alpha_1 b_1 + \cdots + \alpha_n b_n$, then \[ [v]_\mathcal{B} = \left[ \begin{array}{c} \alpha_1 \\ \vdots \\ \alpha_n \end{array} \right]. \]
+\end{dfn}
+
+\begin{dfn}
+Let $V$ and $W$ be finite dimensional with ordered bases $\mathcal{B} = \{b_1, b_2, \ldots, b_m\}$ and $\mathcal{E} = \{e_1, e_2, \ldots, e_n\}$, respectively. We define a map $[\ast]^\mathcal{B}_\mathcal{E} : \mathsf{Hom}_F(V,W) \rightarrow \mathsf{Mat}_{n \times m}(F)$ by $$[\varphi]^\mathcal{B}_\mathcal{E} = [[b_1]_\mathcal{E} \mid \cdots \mid [b_m]_\mathcal{E}].$$ We call $[\varphi]^\mathcal{B}_\mathcal{E}$ the \emph{matrix} of $\varphi$ with respect to $\mathcal{B}$ and $\mathcal{E}$.
+\end{dfn}
+
+\begin{prp}
+\begin{enumerate*}
+\item $[\varphi]^\mathcal{B}_\mathcal{E} [v]_\mathcal{B} = [\varphi(v)]_\mathcal{E}$
+\item $[\psi]^\mathcal{D}_\mathcal{E} [\varphi]^\mathcal{B}_\mathcal{D} = [\psi\varphi]^\mathcal{B}_\mathcal{E}$
+\end{enumerate*}
+\end{prp}
+
+\begin{proof}
+(@@@)
+\end{proof}
+
+That is, after choosing a basis for our vector spaces, we can represent both vector space elements and linear transformations as matrices with no loss of power. We have two ``languages'' at our disposal for reasoning about vector spaces: the abstract language of sets and functions and the concrete language of matrices. Neither point of view is more important than the other. The abstract makes it easier to see the essence of a particular concrete problem and to generalize, and the concrete gives computational teeth to the abstract theory, as we will see in the exercises.
+
+
+
+\subsection*{Exercises}
+
+\begin{enumerate}
+\item Compute the reduced row echelon form of the following matrices.
+
+\item (Solving Linear Equations)
+
+\item () The definition of row echelon and reduced row echelon form matrices given here differs slightly from that used by most authors (cf. (@@@)). Show the following.
+\begin{enumerate*}
+\item A matrix is in REF if and only if 
+\begin{inparaenum}
+\item Every zero row appears below every nonzero row.
+\item The leftmost nonzero entry in any row is 1 and appears strictly to the right of the leftmost nonzero entry in the row above it.
+\end{inparaenum}
+\item The pivots of a REF matrix are precisely the indices of the leftmost nonzero entries in each row.
+\item A matrix is in RREF if and only if it is in REF and each pivot is the only nonzero entry in its column.
+\end{enumerate*}
+It is the author's opinion that the recursive characterization of REF and RREF lends itself more readily to succinct proofs.
+
+\item ($[\ast]$ is Functorial) Given small categories $\mathcal{C}$ and $\mathcal{D}$, a \emph{functor} $F : \mathcal{C} \rightarrow \mathcal{D}$ consists of two mappings $F_\mathcal{O} : \mathcal{O}_\mathcal{C} \rightarrow \mathcal{O}_\mathcal{D}$ and $F_\mathcal{M} : \mathcal{M}_\mathcal{C} \rightarrow \mathcal{M}_\mathcal{D}$ which satisfy the following two properties for every object $X$ and every morphism $f$ of $\mathcal{C}$:
+\begin{inparaenum}
+\item $F(1_X) = 1_{F(X)}$ and
+\item $F(g \circ f) = F(g) \circ F(f)$.
+\end{inparaenum}
+Show that $[\ast]_\mathcal{B}$ and $[\ast]^\mathcal{B}_\mathcal{E}$ form a functor $\mathsf{Vect}_F \rightarrow \mathsf{Mat}_F$. Note that this requires choosing a basis for each $F$-vector space. (cf. (@@@) and (@@@))
+
+\item (Hermite Normal Form)
+\end{enumerate}

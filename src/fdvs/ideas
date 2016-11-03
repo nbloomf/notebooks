@@ -1,0 +1,34 @@
+Rings & Fields
+Matrices
+
+Vector Spaces & Linear Transformations
+- Example: Free Vector Space on a set
+- Example: Matrices as vector spaces
+Subspaces
+Span
+Independence
+Bases & Dimension
+- TFAE: B is max ind set, B is min gen set, V is free on B
+- Every VS has a basis
+Matrix of a Transformation
+
+Gauss-Jordan Factorization
+- Define row echelon form
+- Every matrix is row equivalent to ref matrix
+- Define pivots
+- Row equivalent ref matrices have same pivots
+- Define reduced row echelon form
+- Every ref matrix is row equivalent to rref matrix
+- Row equivalent rref matrices are equal
+- GJ Factorization
+- Applications:
+   bases for ker & im 
+   solving equations
+   deciding independence & span membership
+   computing inverses
+
+---
+lattices
+singular value decomposition
+qr factorization
+ldu factorization

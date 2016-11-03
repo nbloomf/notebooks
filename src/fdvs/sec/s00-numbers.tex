@@ -1,0 +1,22 @@
+\section{Numbers}
+
+\begin{enumerate}
+\item (Facts about $\mathbb{Z}$) The integers $\mathbb{Z} = \{\ldots,-2,-1,0,1,2,\ldots\}$ with the usual addition and multiplication are our most basic example of a ring. In this exercise we will establish some of the basic properties of arithmetic in $\mathbb{Z}$. If $a$ and $b$ are integers, we say that $a$ \emph{divides} $b$ and write $a \mid b$ if there is an integer $c$ such that $ac = b$. An integer $a$ is called \emph{irreducible} if whenever $a = bc$, either $b$ or $c$ is a unit (i.e. $\pm 1$), and we say $a$ is \emph{prime} if whenever $a \mid bc$ it must be the case that $a \mid b$ or $a \mid c$.
+
+\begin{enumerate*}
+\item If $a \mid b$ and $b \mid c$, then $a \mid c$.
+\item For all $a$, $1 \mid a$ and $a \mid 0$.
+\item If $a \mid b$ and $b \mid a$, then $a = \pm b$.
+\end{enumerate*}
+
+\begin{enumerate*}
+\item Every irreducible integer is prime.
+\item (Division Algorithm) If $a,b \in \mathbb{Z}$ and $b \neq 0$, then there exist unique $q,r \in \mathbb{Z}$ such that $a = qb+r$ and either $r=0$ or $0 < r < |b|$.
+\item (Euclidean Algorithm) If $a,b \in \mathbb{Z}$, then there is a unique integer $d$ such that $d \mid a$ and $d \mid b$, and if $c \mid a$ and $c \mid b$ then $c \mid d$, and $d \geq 0$. This $d$ is called the \emph{greatest common divisor} of $a$ and $b$ and denoted $\mathsf{gcd}(a,b)$. [Hint: If $a = qb+r$, then $\mathsf{gcd}(a,b) = \mathsf{gcd}(b,r)$.]
+\item (Bezout's Identity) If $a,b \in \mathbb{Z}$, then there exist integers $x$ and $y$ such that $ax + by = \mathsf{gcd}(a,b)$.
+\item (Euclid's Lemma) If $a \mid bc$ and $\mathsf{gcd}(a,b) = 1$, then $a \mid c$.
+\item Every prime integer is irreducible.
+\item (Unique Factorization) 
+\item Write a computer program in your favorite language which implements parts (@@@) of this exercise.
+\end{enumerate*}
+\end{enumerate}
