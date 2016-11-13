@@ -101,8 +101,8 @@ If \(R\) is commutative, then \(R/\Phi\) is commutative, and if \(R\) is unital,
 \end{proplist}
 \end{prop}
 
-\begin{proof}
-\begin{inlineproplist}
+\begin{proof}\mbox{}
+\begin{proplist}
 \item If we want to be pedantic (and we do!), the precise operations on \(R/\Phi\) are \[ \mathsf{plus} = \left\{ \left(([a],[b]), [a+b]\right) \mid a,b \in R \right\} \] and \[ \mathsf{times} = \left\{ \left(([a],[b]), [ab]\right) \mid a,b \in R \right\}. \]
 First, suppose \(\Phi\) is a congruence, and suppose we have elements \((([a_1],[b_1]),[a_1+b_1])\) and \((([a_2],[b_2]),[a_2+b_2])\) in \(\mathsf{plus}\) such that \([a_1] = [a_2]\) and \([b_1] = [b_2]\).
 Then (by definition) \(a_1 \mathrel{\Phi} a_2\) and \(b_1 \mathrel{\Phi} b_2\).
@@ -114,7 +114,7 @@ Similarly we can show that \(a_1b_1 \mathrel{\Phi} a_2b_2\) so that \(\Phi\) is 
 \item Showing that all 6 of the ring axioms is somewhat tedious; for instance, to show A1 note that if \(a,b,c \in R\), we have \[ ([a] + [b]) + [c] = [a+b] + [c] = [(a+b)+c] = [a+(b+c)] = [a] + [b+c] = [a] + ([b] + [c]). \]
 Similarly if \(R\) is commutative then \( [a][b] = [ab] = [ba] = [b][a] \) for all \(a,b \in R\).
 Finally, if \(R\) is unital, then evidently \([1_R]\) is a one in \(R/\Phi\).
-\end{inlineproplist}
+\end{proplist}
 \end{proof}
 
 Quotients are thus -- potentially -- a rich new source of examples of rings.

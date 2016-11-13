@@ -25,6 +25,7 @@ That is, \(s-r \in [0_R]\).
 Say \(s-r = z\).
 Then \(s = r+z \in r+I\).
 Conversely, if \(s = r+z \in r+I\) then \(s-r \in [0_R]\), so that \([s] = [r]\) and thus \(s \in [r]\).
+\qedhere
 \end{inlineproplist}
 \end{proof}
 
@@ -66,12 +67,29 @@ We say \(\Phi\) is \emph{induced} by \(I\).
 \end{proplist}
 \end{prop}
 
-\begin{proof}
-\begin{inlineproplist}
-\item[\((\ref{prop:ideal-conditions:ideal} \Rightarrow \ref{prop:ideal-conditions:congruence})\)] (@@@)
-\item[\((\ref{prop:ideal-conditions:congruence} \Rightarrow \ref{prop:ideal-conditions:kernel})\)]
-\item[\((\ref{prop:ideal-conditions:kernel} \Rightarrow \ref{prop:ideal-conditions:ideal})\)] 
-\end{inlineproplist}
+\begin{proof}\mbox{}
+\begin{proplist}
+\item[\ref{prop:ideal-conditions:ideal} \(\Rightarrow\) \ref{prop:ideal-conditions:congruence}] Let \(I \subseteq R\) be an ideal.
+If \(r \in R\), we have \(r - r = 0 \in I\) so that \(r \Phi r\); that is, \(\Phi\) is reflexive.
+If \(r,s \in R\) such that \(r \Phi s\), we have \(s-r \in I\).
+Now \(r-s = -(s-r) \in I\), so that \(s \Phi r\); that is, \(\Phi\) is symmetric.
+If \(r,s,t \in R\) such that \(r \Phi s\) and \(s \Phi t\), then \(s-r \in I\) and \(t-s \in I\).
+Now \(t-r = (t-s) + (s-r) \in I\), so that \(r \Phi t\); that is, \(\Phi\) is transitive.
+So \(\Phi\) is an equivalence relation.
+
+To see that \(\Phi\) is a congruence, suppose we have \(r_1 \Phi r_2\) and \(s_1 \Phi s_2\).
+Then \(r_2 - r_1 \in I\) and \(s_2 - s_1 \in I\).
+Now \((r_2+s_2) - (r_1+s_1) \in I\), so that \(r_1+s_1 \Phi r_2+s_2\).
+We also have \(r_2s_2 - r_1s_2 = (r_2-r_1)s_2 \in I\), and similarly \(r_1s_2 - r_1s_1 = r_1(s_2 - s_1) \in I\), so that \(r_2s_2 - r_1s_2 = r_2s_2 - r_1s_2 + r_1s_2 - r_1s_1 \in I\) and thus \(r_1s_1 \Phi r_2s_2\).
+
+Finally we claim that \([0_R] = I\).
+To this end note that \(0_R \Phi r\) if and only if \(r - 0_R \in I\) if and only if \(r \in I\).
+
+\item[\ref{prop:ideal-conditions:congruence} \(\Rightarrow\) \ref{prop:ideal-conditions:kernel}] If this \(\Phi\) is a congruence on \(R\), then \(R/\Phi\) is a ring by (@@@).
+We define a map \(\pi_I : R \rightarrow R/\Phi\) by \(\pi_I(r) = [r]\). (@@@)
+
+\item[\ref{prop:ideal-conditions:kernel} \(\Rightarrow\) \ref{prop:ideal-conditions:ideal}] 
+\end{proplist}
 \end{proof}
 
 \begin{examples}

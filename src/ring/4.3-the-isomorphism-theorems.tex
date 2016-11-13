@@ -6,7 +6,7 @@ This result, known as the First Isomorphism Theorem, is due to Emmy Noether, and
 
 \begin{prop}[First Isomorphism Theorem for Rings] \label{prop:fit}
 Let \(R\) be a ring and \(I\) an ideal of \(R\) and suppose \(\varphi : R \rightarrow S\) is a ring homomorphism.
-If \(I \subseteq \KER{\varphi}\), then there is a ring homomorphism \(\overline{\varphi} : R/I \rightarrow S\) such that \(\overline{\varphi}(x + I) = \varphi(x)\).
+If \(I \subseteq \KER{\varphi}\), then there is a unique ring homomorphism \(\overline{\varphi} : R/I \rightarrow S\) such that \(\overline{\varphi}(x + I) = \varphi(x)\).
 That is, \(\varphi = \overline{\varphi} \circ \pi_I\), so that the following diagram commutes.
 \begin{center}
 \begin{tikzcd}
@@ -17,7 +17,15 @@ R/I \arrow[ru, dashed, "\overline{\varphi}"'] &
 \end{prop}
 
 \begin{proof}
-(@@@)
+Define a relation \(\overline{\varphi} \subseteq R/I \times S\) as follows: \[ \overline{\varphi} = \left\{ (r+I, \varphi(r)) \mid r \in R \right\}. \]
+First we claim that \(\overline{\varphi}\) is well-defined.
+To this end, suppose we have \((a + I, \varphi(a)), (b + I, \varphi(b)) \in \overline{\varphi}\) such that \(a + I = b + I\).
+Now \(b - a \in I \subseteq \KER{\varphi}\), so that \(\varphi(b) - \varphi(a) = \varphi(b - a) = 0\), and thus \(\varphi(a) = \varphi(b)\) as needed.
+To see that \(\overline{\varphi}\) is a ring homomorphism, note that if \(a,b \in R\) we have \[ \overline{\varphi}\left((a+I)+(b+I)\right) = \overline{\varphi}\left((a+b)+I\right) = \varphi(a+b) = \varphi(a) + \varphi(b) = \overline{\varphi}(a+I) + \overline{\varphi}(b+I) \] and \[ \overline{\varphi}((a+I)(b+I)) = \overline{\varphi}((ab)+I) = \varphi(ab) = \varphi(a) \varphi(b) = \overline{\varphi}(a+I) \overline{\varphi}(b+I) \] as needed.
+Certainly for all \(r \in R\) we have \[ (\overline{\varphi} \circ \pi_I)(r) = \overline{\varphi}(\pi_I(r)) = \overline{\varphi}(r+I) = \varphi(r), \] so that \(\overline{\varphi} \circ \pi_I = \varphi\) as claimed.
+Finally, we show uniqueness.
+Suppose \(\psi : R/I \rightarrow S\) is a ring homomorphism such that \(\psi \circ \pi_I = \varphi\).
+Then for all \(r \in R\) we have \[ \psi(r+I) = (\psi \circ \pi_I)(r) = \varphi(r) = \overline{\varphi}(r+I), \] so that \(\psi = \overline{\varphi}\).
 \end{proof}
 
 \begin{cor}
