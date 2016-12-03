@@ -29,3 +29,36 @@ In particular, we have \(a_1a_2 \in I_1 \cap I_2\), and \(a_1b_2 + b_1a_2 + b_1b
 Thus \(1 \in (I_1 \cap I_2) + J\), so that \(I_1 \cap I_2\) and \(J\) are comaximal.
 Now \(I_1 \cap I_2, I_3, \ldots, I_{k+1}\) is a family of \(k\) ideals which are each comaximal to \(J\), and by the induction hypothesis the result holds.
 \end{proof}
+
+\begin{prop}[Chinese Remainder Theorem]
+Let \(R\) be a unital ring and let \(I_1, \ldots, I_k\) be a family of pairwise comaximal ideals in \(R\).
+Then \[ R/(I_1 \cap \cdots \cap I_k) \cong R/I_1 \oplus \cdots \oplus R/I_k. \]
+\end{prop}
+
+\begin{proof}
+For each \(t\), we have the natural projection \(\pi_t : R \rightarrow R/(I_t)\) as well as the coordinate projection \(\kappa_t : R/(I_t) \rightarrow \bigoplus_t R/I_t\).
+By the Universal Property of direct sums, we have a unique homomorphism \(\Theta : R \rightarrow \bigoplus_t R/(I_t)\) such that \(\kappa_t \circ \Theta = \pi_t\).
+
+We claim that this \(\Theta\) is surjective.
+To this end, let \((a_t + I_t)_{t=1}^k \in \bigoplus_t R/(I_t)\).
+Note that for each \(t\), the ideals \(I_t\) and \(\bigcap_{i=1, i \neq t}^k\) are comaximal by the lemma.
+Say \(1 = N_t + M_t\), where \(N_t \in I_t\) and \(M_t \in \bigcap_{i=1,i \neq t}^k\).
+Now let \(x = \sum_{t=1}^k a_tM_t \in R\).
+Evidently, then, we have \(\Theta(x) = (a_t + I_t)_{t=1}^k\) as needed.
+
+Next we claim that \(\KER{\Theta} = \bigcap_{t=1}^k I_t\).
+To this end, (@@@).
+By the First Isomorphism Theorem, then, there is a unique map \(\Omega\) such that the following diagram commutes.
+\begin{center}
+\begin{tikzcd}
+ & R/I_t \\
+R \arrow[r,"\Theta"'] \arrow[d, "\pi"'] \arrow[ur,"\pi_t"] & \bigoplus_t R/I_t \arrow[u,"\kappa_t"] \\
+R/\left( \bigcap_t I_t \right) \arrow[ur, "\Omega"'] &
+\end{tikzcd}
+\end{center}
+\end{proof}
+
+\begin{cor}
+Let \(n_1, \ldots, n_k\) be pairwise coprime integers, and let \(a_t\) be a residue mod \(n_t\) for each \(t\).
+Then the system of congruences \[ \left\{ \begin{array}{rcl} x & \equiv & a_1 \pmod{n_1} \\ x & \equiv & a_2 \pmod{n_2} \\ & \vdots & \\ x & \equiv & a_k \pmod{n_k} \end{array} \right. \] has a solution in \(\ZZ\), and in fact this solution is unique mod \(\prod n_t\).
+\end{cor}
