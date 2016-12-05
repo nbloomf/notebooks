@@ -27,7 +27,7 @@ If \(P\) is a nonempty poset in which every chain has an upper bound, then \(P\)
 Note that Zorn's Lemma tells us nothing about how such maximal elements are to be \emph{found}, only that they exist.
 In this sense it is a nonconstructive statement very similar to the Well-Ordering Property of natural numbers; proofs which use Zorn may be slick, but cannot generally be turned into algorithms.
 
-In practice we occasionally need to show that some ``extreme'' doo-dad having certain properties must exist, and there are two basic ways to do this.
+In practice we occasionally need to show that some ``extreme'' doodad having certain properties must exist, and there are two basic ways to do this.
 The first and usually preferable way is to explicitly construct an example of such a doodad.
 But this is not always possible, or may not be possible at the desired level of generality; in this case we use the second way: Zorn's Lemma.
 This requires us to capture our ``extreme'' doodads as the maximal elements of an appropriate poset.
@@ -36,7 +36,7 @@ But to show that \emph{every} ring has maximal ideals, by far the easiest strate
 
 Here is a concrete example.
 Suppose we want to prove that every nonempty set \(A\) has maximal proper subsets; that is, subsets \(B \subsetneq A\) such that the inequality \(B \subseteq X \subsetneq A\) has no nontrivial solutions.
-It is straightforward enough to construct an example -- we can show that \(B = A \setminus \{x\}\), where \(x \in A\), is maximal.
+It is straightforward enough to construct an example -- we can show that \(B = A \setminus \{x\}\), where \(x \in A\), is a maximal proper subset.
 For the sake of illustration let's suppose that constructing this example is very difficult, so we must instead use Zorn's Lemma.
 That proof proceeds as follows.
 \begin{proplist}
